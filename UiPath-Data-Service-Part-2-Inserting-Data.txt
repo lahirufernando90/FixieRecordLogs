@@ -1,0 +1,1044 @@
+hello again this is nairo so
+
+in this video we'll be covering the
+
+next set of activities that we need to
+
+follow in the data service
+
+uh demo so in the first part we covered
+
+how to create the data service and
+
+how to create different entities in the
+
+data service
+
+so in this video we'll be seeing how we
+
+can use the entities we created
+
+in the uipath workflows
+
+so just to recap if i am to
+
+quickly show you
+
+so in the first video we created two new
+
+entities called the student and student
+
+activities and we created some test data
+
+to see how it works so for you to access
+
+this data service
+
+there are few things that we need to
+
+follow
+
+first thing is you need to create your
+
+or connect your assistant to your path
+
+orchestrator
+
+through the interactive sign-in option
+
+so
+
+how to do that i have covered that in
+
+the interactive
+
+in video you can go through that and set
+
+it up
+
+so once you have connected with the
+
+interactive sign in
+
+you can connect the studio with the
+
+entities we have created over here
+
+so if you have studio open
+
+[Music]
+
+if you have the studio open if you go to
+
+resources panel
+
+and click on this cloud options over
+
+here and click on refresh
+
+it will refresh the resources that you
+
+have access to
+
+and you can see the two entities that we
+
+have created over here and it also says
+
+how many recalls that are available
+
+as of now i don't have any records
+
+so in the workflow i have
+
+so in the workflow i have three
+
+excel files which i am planning to use
+
+if i want to quickly show you
+
+so for each student i have a excel file
+
+in the sheet one we have the student
+
+information in the sheet2 we have the
+
+activities of
+
+that particular student
+
+uh as we see here so
+
+this student has activities the previous
+
+student did not have any activities
+
+and there is another one so he has three
+
+activities
+
+so we'll be using these three uh excel
+
+files
+
+to add this data into
+
+the entities we created so why i have
+
+three excel files is to simplify the
+
+flow others so that i can focus on the
+
+logic that we need to
+
+use to connect and add the data into
+
+data entities we created
+
+so the throw will be simple
+
+so the first things first so first i
+
+need to
+
+get the entities onto my solution so
+
+on the project panel you can see your
+
+option called entities
+
+but you do not see the two entities
+
+that are available in the data service
+
+so how you can do that is you can get to
+
+manage
+
+entities on the top folder and here it
+
+will show
+
+what are the available entities and you
+
+can
+
+enable the entities or select the
+
+entities you need for the process
+
+and click on save so whenever there are
+
+any updates after you add
+
+the entities into your project it will
+
+show it in a different color over here
+
+so all you need to do is save it again
+
+so that the changes will be applied
+
+so let's save this for now
+
+so it will be installed in the entities
+
+into your solution
+
+now if you check the project panel you
+
+can see
+
+uh the two entities under data service
+
+demo
+
+which is my solution name and the two
+
+entities are available
+
+for for you to use also you can see a
+
+small
+
+notification on the top saying that you
+
+need to install the
+
+different package to use it
+
+the data services so if you click on
+
+install package
+
+it will look for your data service
+
+activities
+
+and as of now you only have the 20.8.1
+
+for you so i'll install that
+
+so this will give you a set of
+
+activities for you to use to connect
+
+with the
+
+entities we have created so if you get
+
+to activities final
+
+you'll see a new set of activities under
+
+data service
+
+if you expand you have five activities
+
+first one is to
+
+create new records in different entities
+
+second is to delete
+
+and get recalls by id
+
+query the record and update so first
+
+we'll be using the first one
+
+so to create the workflow now i have
+
+three different
+
+files in an input folder so i need to
+
+loop through that
+
+so let's create a simple
+
+uh set of activities to go through that
+
+so i can use the assign
+
+and i'll be giving the
+
+fold the path free dot
+
+get files
+
+so i'll be using the input data folder
+
+so this fold is inside this acceleration
+
+so i'll be
+
+using only that folder name
+
+so i'll be taking the folder file list
+
+into a
+
+file list error
+
+and i'll be changing the data type to
+
+string header
+
+and once you have configured that
+
+next is
+
+you need to have a loop to look through
+
+the files
+
+so i can use a for each
+
+i'll be specifying file list
+
+and changing the object type to string
+
+because the data
+
+file paths are in the string format
+
+now i need to read the data
+
+in the two sheets of each excel file
+
+so i'll be using a read range for that
+
+so if you actually check uh
+
+each file
+
+you can see that i have two sheets which
+
+is sheet1 and sheet2
+
+that has the student data and his
+
+related activities
+
+so i'll create that now
+
+so for the file file i'll be specifying
+
+item because it holds the file path
+
+and the range is blank
+
+so for sheet one i'll be saying
+
+this will help student data
+
+and also i need to get the data from the
+
+sheet 2
+
+so again it's item
+
+the range is blank
+
+sheet is sheet 2 and i'll be having a
+
+different data table
+
+student activities data
+
+now the next step is we need to add the
+
+data
+
+in these sheet or in the data table
+
+into a variable a rich
+
+data type of
+
+type student and student activities
+
+so how do we create rich data types
+
+for these two it's quite simple
+
+so i will create the variable
+
+in the sequence form uh over here in the
+
+sequence scope
+
+so all you need to do is click on the
+
+entity
+
+drag it to the variables panel and it
+
+will create
+
+that variable for you and we just need
+
+to
+
+rename it i'll say students
+
+and let's do the same for students
+
+activities
+
+student activities
+
+now next is we need to initialize this
+
+uh variables otherwise it will throw out
+
+errors saying that
+
+you are assigning it to a undefined
+
+variable
+
+so we'll use the simple assign
+
+activity to do that so i'll be using
+
+multiple assign
+
+so i can say simply students
+
+and new students
+
+similarly i can do that for the student
+
+activities as well
+
+right now
+
+now i can get the values from these two
+
+data tables and assign it
+
+to the properties of students and
+
+student activities
+
+so as you know in the first excel or
+
+in every excel the first sheet has only
+
+one row
+
+and in the second sheet there can be
+
+multiple rows
+
+so i'll be using different approaches on
+
+these two
+
+so over here inside the loop
+
+under the second read range i'll use a
+
+multiple assign again
+
+so when you're assigning if you check
+
+the resources panel
+
+in students you can also see the data
+
+type of the fields that are available
+
+in the data service or in the entity
+
+so based on this data type we need to
+
+assign or convert the values that we are
+
+assigning
+
+so in the first entity which is the
+
+student most of the
+
+page that we need to assign is string
+
+so we are looking at student id first
+
+name last name and edge
+
+others are predefined fields
+
+so how you can access this phrase is by
+
+giving the students dot
+
+student id so this student is referring
+
+to the variable we have created over
+
+here
+
+so it's the variable name and once you
+
+give the dot and look for it it will
+
+provide all the available fields
+
+so since the first data table has only
+
+one row
+
+i'll be specifying i'll be using that
+
+i'll be accessing the data without using
+
+a loop over here
+
+so i would say student
+
+data dot rose okay
+
+saying the zeroth row because it's the
+
+first row and in the zeroth column
+
+will have the student id
+
+which is referring to this cell
+
+zeroth row and the zeroth column in
+
+terms of data tables
+
+so i'll do that
+
+and so i have provided the student id
+
+next to the student name
+
+the first name first name
+
+and i'll be doing the same thing
+
+but specifying it as the second column
+
+or which is the first column in data
+
+table
+
+column indexes
+
+and we're doing the same thing again for
+
+the next set of columns
+
+students dot last name
+
+which is the second
+
+and the last column students
+
+dot edge and you can also see the data
+
+type over here it specifies as string
+
+and over here is the third index
+
+so i have assigned the values to the
+
+four properties that i need to
+
+assign the values that i have and what
+
+we have to do next is
+
+i need to create this record in the
+
+entity
+
+so remember we have two data sets
+
+and we have two entities that we need to
+
+calculate but the student
+
+activities entity is related to
+
+students using the student id
+
+so we first need to populate the
+
+students
+
+uh entity in order to populate data
+
+in the student activities respectively
+
+for a student available in the student
+
+entity
+
+so we'll first create this record and to
+
+do that
+
+we just need to
+
+go to data service activities and use
+
+the create entity record
+
+so i'll be using that over here right
+
+below
+
+so for the entity type we need to select
+
+which entity
+
+we are going to enter the recalls into
+
+so from the drop down you can select if
+
+the entities are available over here or
+
+else you can browse for the types
+
+and if you expand data service
+
+and data service demo you will be seeing
+
+the
+
+entities so i can select students
+
+and the input record is going to be the
+
+students
+
+variable so i'll be saying
+
+students and we have output record
+
+so it's again of the type students
+
+so this will return the data once you
+
+have entered
+
+along with few other properties that we
+
+can use to
+
+use along with the related entities
+
+so i'll be getting the output into the
+
+same student's entity
+
+so it will be overwriting the tree lio
+
+variable i already had and
+
+in the next data table so this up to
+
+this point it will
+
+add the data into that particular entity
+
+and now i have
+
+the second data table where i have the
+
+student activities
+
+and it can have multiple rows and we
+
+don't know how many rows will be there
+
+so i'll be using a for each row activity
+
+right below this
+
+for each row and
+
+i'll be specifying the second data table
+
+students activities data
+
+and now again since we have created
+
+the
+
+[Music]
+
+or we have created the new variable over
+
+here have we not
+
+needed to do that again so over here
+
+i'll be directly
+
+assigning the values into the
+
+variable using a multiple assign as we
+
+did over here
+
+so again i'll be using multiple assign
+
+so this time i'll be specifying the
+
+students
+
+activities again that's the variable
+
+that i have created over here of
+
+student activities type student
+
+activities
+
+dot the first one is the student id
+
+so look at this here the student id
+
+is of type students but
+
+if you check over here the student id
+
+is of type
+
+string so why we have students over
+
+there is because
+
+it is the field that we used to
+
+build the relationship between the
+
+student activities and with the student
+
+so this field has to be of students time
+
+and that has to be of a particular
+
+record available in the student
+
+entity so we'll be specifying that
+
+so we already inserted one record
+
+for the first student and that's the
+
+record that we need to refer
+
+over here for us to
+
+enter the activities related to that
+
+particular student so are we specifying
+
+this
+
+output variable which is the students
+
+as the input
+
+for the student id
+
+field we have in the student activities
+
+so that will hold the unique id
+
+and the references required to link with
+
+that particular record
+
+and if you check the student activities
+
+or entity here in the resources panel
+
+you again have the type as guid
+
+which is the reference of available in
+
+the students entity
+
+for that particular record and apart
+
+from that
+
+the rest of the fields where we have
+
+is the activity name
+
+and registered dead
+
+and the cost per month so i can use the
+
+student activities
+
+activity name which is a string
+
+so i can specify row so here i'll be
+
+specifying the column name in the excel
+
+which is activity name
+
+and string and
+
+in the second one student activities
+
+and the registered date this one is of
+
+date type
+
+so whatever the value that i'm entering
+
+i need to convert that to a date format
+
+and in the excel we have it in we have a
+
+date
+
+so let's convert that so how we are
+
+going to do that
+
+is by using datetime.com
+
+specifying the row and column name which
+
+is the register
+
+date
+
+string this will convert the string that
+
+we are extracting
+
+into a time format
+
+and the last part student
+
+activities which is the cost per month
+
+and this one is of decimal type
+
+and we have in itself like this so we
+
+need to convert this to decimal
+
+so again just like we did earlier we can
+
+say decimal
+
+dot pass
+
+cost per month
+
+to stream
+
+now we have assigned the values to the
+
+variable that we have created and again
+
+simply we need to use
+
+the same activity over here create
+
+entity record
+
+to insert the values we have in this
+
+particular data table
+
+for that particular student so i'll be
+
+using
+
+create entity record again
+
+and this time i'll be selecting student
+
+activities
+
+and input record is going to be student
+
+activities deleted
+
+variable and i'll be assigning the
+
+output
+
+to the same variable
+
+so this is how you enter records so what
+
+will happen here is
+
+it will read the two sheets in that
+
+particular file
+
+it will assign the values of the student
+
+to this variable and it will create the
+
+recording the entity
+
+next for the student activities it will
+
+get the activities
+
+one at a time and insert that
+
+insert each row into the next activity
+
+uh one by one referring to the
+
+record we have created in the first
+
+entity
+
+so we can run this and
+
+see
+
+so you can simply so if i'm
+
+to show you as of now we don't have any
+
+records in these two
+
+entities so let's give this a run
+
+so you can see the records are being
+
+added to the
+
+entities so the process completed
+
+successfully
+
+without any errors so if we get back to
+
+the data service and give it a refresh
+
+we can see that
+
+we have new rows over here so let's
+
+check the students
+
+entity first like we go to data you can
+
+see the
+
+three records that we added from the
+
+three files
+
+so for the first student this is the
+
+information second student and the third
+
+student so remember in the excel file
+
+from the
+
+student we have only the student
+
+information
+
+but we don't have the student activity
+
+data
+
+so this is excel and we don't have any
+
+student activities
+
+let's see how that has worked out get to
+
+the students
+
+activities now
+
+and you can see the references has been
+
+built successfully and we are seeing the
+
+references according to
+
+what we have in our excel sheets so the
+
+first student has
+
+only two reports the second guy has
+
+three activities
+
+and the third one has no activities
+
+in excel so we don't have any recalls in
+
+the student activities entity
+
+so this is how you build a simple
+
+workflow
+
+to insert records into the entities we
+
+have created
+
+in so these entities can be related to
+
+each other
+
+and that's how we build the
+
+relationships
+
+within the ui path workflows
+
+so in the next set of activities we'll
+
+see how we can use this
+
+uh use the next
+
+set of activities to
+
+uh delete entities in a delete request
+
+in entities
+
+or how we can query the records
+
+available in entities
+
+and we'll basically look at how we can
+
+use the
+
+other four activities over here
+
+so thank you very much for listening and
+
+see i will
+
+see you in the next set of videos to
+
+showcase how we can use the next set of
+
+activities until then
+
+happy automation
+

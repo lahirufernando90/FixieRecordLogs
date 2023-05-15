@@ -1,0 +1,970 @@
+hello everyone this is reaching out to
+
+you again
+
+to share some insights about the recent
+
+ui path preview release 20.8
+
+and to discuss one of the about one of
+
+the latest
+
+additions to the uipath platform which
+
+is the uipath
+
+data service so
+
+what's up data service
+
+it's actually a platform where you can
+
+create relational data models
+
+to store the data that you process
+
+within each workflow that you are
+
+running
+
+and also you can use the data service as
+
+a
+
+temporary data saving location
+
+for you to pass the data between
+
+multiple processes or multiple
+
+applications basically so why is it
+
+important and what's the need for data
+
+service
+
+as you all know when
+
+executing automation process we come
+
+across
+
+data and we extract data from various
+
+different applications
+
+and different sources such as excel
+
+files flat files and so on
+
+but where are we going to store this
+
+data
+
+as a temporary storage to pass that
+
+data to another process or maybe to hold
+
+that information until
+
+some price is executed and so on as of
+
+now
+
+we have been using different databases
+
+or even excel files or different text
+
+files
+
+to store those kind of data
+
+and most importantly when you have
+
+or when you are processing data that are
+
+related to one another
+
+or between if you have different
+
+relationships between the data that you
+
+process
+
+at a time you actually need a database
+
+to
+
+store such kind of information until you
+
+get it back for the next set of process
+
+so that's where the uipath data service
+
+comes into action
+
+it's one of the latest additions in the
+
+cloud platform because it's described
+
+and we can use the data service to store
+
+any type of data which are relational or
+
+even even the data that do not have any
+
+relationship with
+
+another entity and you can
+
+access read delete or even modify the
+
+data that's
+
+available in the data service so it's
+
+more like a
+
+simple sql database and
+
+the good thing about this is that it's
+
+integrated with the entire ui
+
+platform so that whatever you create in
+
+the data service it's
+
+it will be available in studio uh
+
+and rather robot is executing
+
+another amazing thing about data service
+
+is that it's a
+
+drag and drop interface where you
+
+actually you don't need to create
+
+or write any code to create the data
+
+entities
+
+it's more like a if you
+
+if you have a background where you have
+
+worked with databases
+
+especially with sql you have come across
+
+the
+
+tables where we actually store the data
+
+so it's more
+
+similar to that what we
+
+store in data service are called as
+
+entities
+
+and each entity will have different
+
+columns and those will be related to
+
+different other entities as well
+
+so it's simply thinking about it it's a
+
+representation of a
+
+simple database that can have relational
+
+models and the other good thing is that
+
+it's
+
+supporting open api so that we can
+
+integrate any application that we have
+
+uh to data service without much of a
+
+hassle
+
+so how do you actually use it so let me
+
+get to the actual application
+
+so first thing is once you log into the
+
+cloud platform
+
+you will see a new option called data
+
+service here
+
+but by default this will not be enabled
+
+for you
+
+so what you need to do is you need to go
+
+to admin
+
+and under your tenant so i have already
+
+enabled that but i'm going to show you
+
+how to enable it
+
+under dinner you just go to this option
+
+and click on edit service
+
+and click on this data service
+
+and edit license and click on save
+
+once you have done that within couple of
+
+seconds
+
+it will prepare your data service
+
+environment and you will
+
+see the data service option here so i
+
+you can navigate to data service either
+
+by this option
+
+or you can click on the data service on
+
+the left panel
+
+so once you get into data service
+
+this is the screen that you will get so
+
+all the entities we create over here
+
+will be listed
+
+in this screen
+
+so before creating any entities i would
+
+like to show some
+
+additional stuff like if you click on
+
+these three dots next to create new
+
+entity
+
+that's option for user management
+
+in this you will have all the available
+
+users in your
+
+environment and each user will have
+
+particular roles as you can see here
+
+so you can either add a user
+
+or use a group and you can assign the
+
+required roles for each user
+
+and if you get to rows
+
+we have these kind of rows over here
+
+admin data reader
+
+data right and a designer and you can
+
+view the permission levels by clicking
+
+on this
+
+i option so as you see for the admin
+
+uh we don't have any permissions granted
+
+at the moment
+
+but if you check the data reader the
+
+data reader can
+
+read a schema and you can also
+
+read the data in that scheme
+
+likewise if you check the data writer
+
+the writer have
+
+different access levels so he can read
+
+the data
+
+regret the schema and he can
+
+read create edit and delete the data in
+
+that schema
+
+likewise if you check the designer
+
+designer will
+
+have no access to the data but he can
+
+he will have all the access needed to
+
+design
+
+or create edit delete the data schemas
+
+basically
+
+so depending on your requirement you can
+
+assign the different
+
+users and user roles for the user
+
+so getting back to the entity screen
+
+how do you create a new entity so this
+
+actually depends on the requirement
+
+it based on the data that you need to
+
+store in the data service
+
+you need to create the entities so i
+
+have a simple
+
+requirement here i need to i actually
+
+get this kind of data so assume that i
+
+am getting this information from a
+
+different system
+
+and from some excel files like basically
+
+so just to simulate that i have excel
+
+file over here
+
+so in the first sheet i have the student
+
+id first name last name
+
+and the and in the second shade
+
+i have some activities that each and
+
+every student is performing
+
+and this and the activity name
+
+registered date and the cost per month
+
+for that particular activity
+
+for each and every student so don't
+
+worry about the data now
+
+just worry about the columns that we are
+
+focusing on
+
+because at this level we are going to
+
+create the entities
+
+uh so all you need to know is what type
+
+of
+
+data is going to be stored in each and
+
+every column
+
+um so if it's registered there you can
+
+see there is a date
+
+if it's cost it could be your number and
+
+so on and
+
+you can see how these two are related
+
+it's related by the student id
+
+so we can include a relationship between
+
+these two
+
+so let's create some entities for these
+
+two
+
+so once you get here i can create
+
+create and you end it by clicking on
+
+this option or by clicking on the
+
+uh option on the top right
+
+so first thing you need to do is you
+
+need to give a name for the entity
+
+so for the first one i will say student
+
+entity
+
+and you can also provide your
+
+description
+
+[Music]
+
+information and click on save
+
+so now you have the first entity created
+
+and you can see the name the description
+
+and you can also see that by default it
+
+has
+
+five fields and zero rows
+
+so what are these five fields and how we
+
+can see that
+
+is by clicking on this uh display name
+
+so once you get into the student entity
+
+you can see that few fields are created
+
+automatically
+
+and the id is a unique identifier for
+
+each and every row
+
+which is of type unique id basically
+
+it's a
+
+geo id if you are familiar with database
+
+terms
+
+and these things will basically have the
+
+creator time created by
+
+and those basic information
+
+so what are the faces that we need to
+
+add getting back to the excel i need to
+
+add student id
+
+first name last name and the edge
+
+so let's do that now
+
+so i'll be clicking on the create new
+
+field option here
+
+and i'll be adding student id
+
+of type text so we have different types
+
+as we see here
+
+so if we take select text
+
+you can also say whether it's the
+
+required field or not
+
+if you go into more details you can see
+
+the maximum length
+
+and if you have a default value for
+
+example if you are not assigning any
+
+value to that what's the default value
+
+that needs to go in
+
+and if you need to have a field
+
+description that can also be included
+
+here so i'm going to
+
+keep this as it is and click on save
+
+and you can see that that field is
+
+available here so likewise
+
+let's create the other fields
+
+now i'm creating the student
+
+first name and that's also going to be
+
+text
+
+and it's a required field i won't be
+
+changing anything over here
+
+the other one last name
+
+again text it's required
+
+and the edge so age i will
+
+mark it as text as of now because you
+
+are not going to do any calculations
+
+and it's again required
+
+so we have completed the first entity
+
+now going back to the second entity here
+
+we have different data types
+
+and along with the relationship so let's
+
+see how we can create that
+
+so i'll be before getting into that if
+
+you
+
+moving moving to data tab you can
+
+you will be able to see any available
+
+data
+
+over here so i'll get back to that later
+
+so getting back to entities i'll be
+
+needing to create another
+
+entity i will say
+
+student activities
+
+so again we have that same default
+
+fields
+
+just like we had in the previous entity
+
+and we just need to create the fees we
+
+need and i'll be creating the student id
+
+activity name registration date and cost
+
+so the first field i will be saying
+
+student id and this time it's not going
+
+to be
+
+a text but it's going to be a
+
+relationship
+
+because i need to relate the student id
+
+with the student entity to get the
+
+student information
+
+so it will be a relationship and what's
+
+the related
+
+entity it's student
+
+and in the student entity was the field
+
+that we are going to
+
+map the student id of the new entity we
+
+are creating
+
+it's in this drop-down you can select
+
+student id
+
+so because i have the same name in both
+
+entities
+
+i believe it will be showing as it is
+
+and this is also a required field
+
+and if you go into more details you will
+
+have a
+
+description to enter so it's not
+
+mandatory
+
+and let's click on save likewise you can
+
+create the other fields
+
+name and it's going to be a text as
+
+earlier
+
+now the next one is the date because i
+
+have the registration date
+
+so i'll be creating a new field
+
+date of type
+
+date time so here we have another option
+
+whether
+
+it's asking whether we need to hide the
+
+time field
+
+of the date so if we take the date
+
+portion we have the date and the time
+
+so if we don't need to store the time we
+
+can hide that part
+
+so i will not be needing the time
+
+for now so i'll be saying to
+
+hide the time field then it's required
+
+and also if you have a default value if
+
+this
+
+fail comes in as empty was the default
+
+date that you are going to
+
+include you can select the date from the
+
+date time picker that we have here
+
+so as of now i don't need any debt
+
+so i'll be ignoring that i click
+
+on save and the last one is the cost
+
+per month
+
+so over here first
+
+month and this time it's going to be a
+
+number
+
+so you must be wondering what's yes and
+
+no
+
+it's a boolean variable where you need
+
+to say
+
+whether it's true or false for example
+
+and in the default value also we have
+
+that option
+
+so for the cost it's not a boolean so i
+
+need a number
+
+and again it's required and under more
+
+details you can see
+
+that it's asking for the maximum value
+
+and the minimum value
+
+and if you have any decimal places
+
+how many decimal places so in my
+
+scenario the cost is always
+
+greater than zero so i can have the
+
+maximum value as it is
+
+but as a validation i would say
+
+my minimum value is zero
+
+and i will i would sometimes need
+
+two decimal places so i'll leave it as
+
+it is
+
+and if you have any default value again
+
+you can specify that
+
+and the description and click on save
+
+so that's how you actually create your
+
+entities based on your requirement you
+
+can have
+
+any number of entities relating to each
+
+other
+
+through this relationship option and
+
+how we are going to insert or update the
+
+data
+
+in these entities is going to be through
+
+your uipath studio workflows that you
+
+design
+
+so that's a separate tutorial that's
+
+coming in
+
+quite soon uh so
+
+as of now this is how you create the
+
+entities and if you go into data
+
+field you can you will be able to see if
+
+there is any available data
+
+and also you can create a simple
+
+data row so i'll create so simple one in
+
+studio
+
+student go into data
+
+and you can click on add new data or you
+
+can click on add data
+
+so here we can see all the trees
+
+available
+
+for that particular entity so i will say
+
+student id
+
+is something like that
+
+and the first name is liverpool
+
+and h i will say that
+
+and if you click save that information
+
+will be stored
+
+in the entity and it will show under the
+
+data type
+
+so you can see the id which is our gui
+
+id
+
+and the values that we entered and by
+
+default we have the created time created
+
+by
+
+and the other information
+
+and if you get into the student
+
+activities
+
+and if you go into data and click on add
+
+data
+
+here under student id now remember this
+
+student id
+
+is a relationship type so it has to
+
+have the data available in the student
+
+entity
+
+in the student field so what's the
+
+available values over there
+
+and you can see if i click on this drop
+
+down
+
+it will be showing the available values
+
+so as of now we only have one so it's
+
+showing the id
+
+or the column that i have marked as the
+
+relationship
+
+which has the sd01 and it's showing the
+
+gui id
+
+or else i can also search for a specific
+
+id like this
+
+or else you can select from the
+
+available options
+
+and you can also view the entity data
+
+over here
+
+so that it will move to the student
+
+entity
+
+in a new tab and it will show the
+
+available data
+
+and you have the search option there as
+
+well
+
+so i will be selecting this one
+
+and the activity name i will say
+
+and the registration date this so by
+
+default it
+
+shows the today's date and i will say
+
+the cost
+
+is
+
+a concept so now you can see that
+
+it has the relationship
+
+field like getting the data from the
+
+student entity
+
+and you have the other information that
+
+we provided
+
+so basically that's how you manually
+
+enter data and that's
+
+how the relationships are built
+
+so when it comes to automation you are
+
+not going to manually add the data over
+
+here
+
+you will be adding that through ui path
+
+in studio so i'll be going through that
+
+part in another video
+
+so i'll see you there until then happy
+
+automation
+

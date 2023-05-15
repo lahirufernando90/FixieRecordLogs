@@ -1,0 +1,1010 @@
+hello everyone this is lahiro again
+
+bringing you the part three of uipath
+
+data service video series
+
+so in the part two we looked at
+
+how to insert data into a
+
+data entity we creating data service so
+
+in the path three
+
+we'll be looking at how we can query and
+
+update the data
+
+in the entities we created
+
+so i have a simple scenario
+
+so this is one of my entities as we did
+
+in the previous
+
+videos so in this entity i would like to
+
+query
+
+for the students who are doing swimming
+
+so basically we have two students
+
+who are who has activities as swimming
+
+so i'll be get needing to get the
+
+student names
+
+and the edge of the guys who are
+
+doing swimming as one requirement
+
+and as a second requirement i'll be
+
+also needing to update the cost of the
+
+students who do swimming
+
+and the cost so if a student
+
+is doing swimming for less than 35
+
+i need to update that particular record
+
+as the cost cost as as
+
+50. so
+
+those are the two requirements so let's
+
+see how we can
+
+go about it and build a workflow
+
+so as the first step we need to query
+
+the data from the entity
+
+so i need to get the student activities
+
+and also the student details so
+
+we'll be using the query
+
+entity records
+
+so in this one you need to select which
+
+entity that you are going to
+
+query so we have a relationship
+
+i need to find the student information
+
+of
+
+the students who do swimming so i need
+
+to look for the
+
+activities and also i need to look for
+
+the data in the students
+
+entity so if you actually
+
+select students here and go to query
+
+editor and if you expand this
+
+drop down you will see only the fields
+
+in the students entity and i don't have
+
+access to student activities
+
+so what i can do is i will click cancel
+
+and i will go for the student activities
+
+and get back to the query editor
+
+now if you expand this i can see the
+
+fields
+
+that i have in the activities entity
+
+which is the cost per month registered
+
+date
+
+and activity name and so on and
+
+also i can see the
+
+fields available in the student entity
+
+through the student id because student
+
+id is the
+
+relationship field that we used and here
+
+we can
+
+get access to their first name last name
+
+and the end so through this we can get
+
+the data we need from both entities
+
+so i'll be using the student activities
+
+entity to
+
+get the required data
+
+so as the first query i need to look for
+
+the students who do
+
+swimming as the activity so how to do
+
+that
+
+is i will look for the activity name
+
+and i will say equal
+
+and i can type swimming here
+
+this query will give you all the records
+
+that has swimming under the activity
+
+name field
+
+also if you need to build a query with
+
+multiple commands
+
+or with multiple group of commands
+
+you can use add add row means it's
+
+another
+
+command along with
+
+option if you go for add group
+
+it will be a group of conditions
+
+that you can build in inside the group
+
+so for now i'll be using only one
+
+condition
+
+so you can explore how to use the
+
+multiple conditions
+
+so i'll leave that part for you guys so
+
+if
+
+once you provide this as framing
+
+and i click ok
+
+then i will get need to set the output
+
+of this query so i'll press ctrl
+
+k and i would say
+
+student activities
+
+so if you check the variables panel
+
+this is a i list of student activities
+
+type
+
+okay now the next step
+
+is i need to look through this
+
+list to access the data in the
+
+student activities type list so
+
+basically it will
+
+return all the information of the
+
+students who are doing swimming and
+
+the activity related details and also
+
+the student details
+
+so let's see how we can access them
+
+so i'll be using out for each
+
+and i will specify student activities
+
+and this for each loop
+
+has to be of type student
+
+activities so i can select that from the
+
+drop down here
+
+now once i get
+
+the records i need to get the
+
+student id first name last name and the
+
+edge
+
+into a data table so that i can write it
+
+into an excel
+
+so let's create a data table first with
+
+the fields that we need
+
+build data table so basically
+
+this table will have the same data types
+
+as we have
+
+in the students entity
+
+so i need the student id first name last
+
+name and h so i'll be using
+
+string for all four
+
+so i'll remove this
+
+and i will say student id
+
+first name
+
+last name and finally the edge
+
+so i have the data table now
+
+i would say dt
+
+swimming students
+
+right now inside the loop
+
+i need to use the add data row
+
+activity to add the data into the
+
+students
+
+data table so i'll be using add row
+
+feature
+
+over here so now how
+
+can i access the data in the
+
+uh
+
+how can i access the data in this
+
+student activities item
+
+so this is how you can access
+
+the data in the students entity through
+
+the students activities entity
+
+so all you need to do is you can specify
+
+item
+
+dot and it will give you all the
+
+available
+
+fields in the student activities entity
+
+so you won't see anything as you saw
+
+earlier in the query editor
+
+as student id dot first name last name
+
+and so on
+
+all you see is the fields we have in the
+
+student activities
+
+how you can access the students
+
+fields is by using the
+
+field that we use to build the
+
+relationship
+
+so if you use the student id you can see
+
+that it's
+
+of type students so i would say item dot
+
+student id
+
+and then i will specify the fields i
+
+need from the students entity
+
+so here we can access all those fields
+
+so i would say student id is the id
+
+field
+
+okay so for the arrow i need
+
+brackets
+
+the next field is again student id dot
+
+first name item
+
+last name and finally
+
+the edge so that's it that is how you
+
+access
+
+the data in the related entity
+
+so once you do that click ok and you
+
+need to provide the data table
+
+now since you have configured that we'll
+
+use a simple
+
+right frame so that we can see
+
+how the data looks like
+
+so i'll just specify the
+
+excel file name actually one looks good
+
+and bt swimming students
+
+okay so this is the first requirement
+
+that i had
+
+so let's run this and see what we can
+
+get in the excel sheet
+
+so as of now i have not created the
+
+excel sheet as you can see here
+
+so let me run this
+
+so it will query the
+
+entities and get the data into the excel
+
+file
+
+so and then if i refresh you can see the
+
+output excel
+
+and we have the data of the two students
+
+uh who are doing swimming so basically
+
+if you
+
+can get back to data services
+
+so i need to go to the other entity
+
+the data here you can see ste001
+
+and st002 are the guys who are doing
+
+swim
+
+and these are the details of those two
+
+guys from the students
+
+entity so you don't see the header
+
+because i didn't
+
+enable add headers
+
+so i will do that now so now the second
+
+requirement how can i update
+
+the data so i need to update
+
+uh the cost of the guys who are
+
+doing swimming and if the cost
+
+is less than 35 i need to update it as
+
+50
+
+so let's see how we can do that now
+
+so since we have queried the data from
+
+the students
+
+activities we can use another for
+
+each row so i'll leave this part as it
+
+is
+
+and use another for each to look through
+
+the data
+
+in the list and again it will be student
+
+activities
+
+and of type student activities
+
+so in this i'll be looking through the
+
+data and i need to check
+
+whether the cost is less than 35
+
+so for that i'll be needing a if
+
+condition
+
+in the if condition if you
+
+specify item dot cost
+
+per month so since now we are accessing
+
+the data of the student activities
+
+i don't need to use the related column
+
+to access that field so it will be in
+
+the
+
+same entity so i'll say cost per month
+
+and if you can see the data type is off
+
+as decimal and we have a question mark
+
+at the end
+
+so it's not decimal that we use
+
+normally so we need to convert that to
+
+the decimal font so what i should do is
+
+yeah so before that let me show you this
+
+so if i do like this
+
+and say less than 35
+
+this will actually give you error saying
+
+that you cannot convert
+
+those two so what i need to do is i need
+
+to
+
+convert this into the decimal format
+
+so i will say decimal dot pass
+
+and filter so this will
+
+convert the value you get from this cost
+
+per month field into a decimal
+
+and you can compare that with the
+
+value that we are looking for so if it
+
+is less than 35
+
+then i need to update
+
+the cost as 50
+
+so this is where we need to specify
+
+which row that we should update so for
+
+example you might have
+
+multiple rows that fit into that
+
+condition
+
+so how does it know that this is the row
+
+that it should update
+
+so that's the part where it
+
+identifies the row using the id field
+
+using this unique id so whenever we are
+
+specifying a
+
+update we need to specify the id
+
+of the row that we need to update so
+
+let's see how we can do that
+
+so first of all we need to have a
+
+variable of stripe student entities
+
+student activities
+
+so to do that easily you can
+
+use the entities in the project panel
+
+and drag it over here and it will create
+
+a variable for you
+
+so i will specify updated
+
+student activities
+
+and i need to
+
+initialize that so i'll be using a
+
+multiple assign again
+
+the first thing is to initialize that
+
+so i'll be saying updated student
+
+activities variables
+
+of type new student
+
+activities so this will initialize that
+
+and next we need to provide the field
+
+id so which field are we going to update
+
+because through this uh
+
+query we did over here
+
+this returns all the data
+
+related to that condition we have
+
+specified
+
+here and it will have all the fields
+
+including the id field
+
+and all the related entities fields as
+
+well
+
+so we can easily use the properties of
+
+that
+
+to identify which row we are looking at
+
+because
+
+we are looking through each item in the
+
+list
+
+one at a time so
+
+i'll be specifying updated student
+
+activities
+
+i need to find the id so if you type id
+
+it will be
+
+available id
+
+and if i say item which is
+
+the looping variable over here
+
+item dot id is the
+
+row that we need to update because
+
+we are iterating through a list
+
+so once we have specified that we also
+
+need to specify all the other fields
+
+uh because if we only specify the field
+
+that we
+
+are going to update it means that
+
+these fields will be empty and if those
+
+are marked as required
+
+it will throw you an error so every time
+
+when you are doing update we need to
+
+provide the values for all the fields
+
+so how we are going to get those values
+
+we already have that
+
+in the variable which we created through
+
+the query
+
+option so we can use the same set of
+
+fields
+
+so i will say updated activities
+
+and i need to specify the student id
+
+which is of type students so this is the
+
+related relationship
+
+field so how do you specify that
+
+so just create the field over here
+
+and if you if you can remember how we
+
+got the data from the students entity
+
+through the student activities is by the
+
+student
+
+id that's how we specified
+
+in this data row so this is of type
+
+student so that's the relationship
+
+field so similarly you can specify that
+
+here
+
+you can say item dot student id
+
+of this type students
+
+and that will pick it up
+
+and then we have the other columns
+
+activity name again we have that in the
+
+item
+
+activity name
+
+and the resist creation date
+
+item the registration debt
+
+and finally the field that we
+
+really need to update cost per month
+
+so for this one it expects
+
+a decimal so i'll be specifying
+
+50 because that's the one that's the
+
+value i need to update
+
+so basically over here we have one row
+
+that needs to be updated
+
+so this should get updated through our
+
+workflow
+
+so i have configured the fails now
+
+now
+
+now what i need to do is i need to use
+
+the
+
+another activity to update
+
+so i'll be using update entity record uh
+
+so i'll be dragging it over here
+
+right below the multiple assign
+
+and i need to specify which entity i'm
+
+going to update so it's going to be
+
+student activities
+
+and the input record is going to be the
+
+this variable we created
+
+and the output of that i assign it to
+
+the same variable
+
+okay so by running this workflow we
+
+should be able to update
+
+our data in the entity so let's
+
+give it a run
+
+so you can see that it's running
+
+and it has completed and we didn't come
+
+across any errors
+
+so let's see how our output looks like
+
+so if we get to the student activities
+
+and do a refresh
+
+we can see that this record has been
+
+updated
+
+as 50 for swimming
+
+so that's how you do the update
+
+and if we
+
+check the
+
+if you check the
+
+output excel file you can also
+
+see the student of
+
+students who do streaming now with the
+
+column ids because i enabled that
+
+so that's how you do the update entities
+
+through the workflows so we have
+
+two other activities over here
+
+so how are we to delete or to
+
+get a record by id
+
+so as you know as of now as we cover
+
+several steps over here
+
+so if you have to do a delete if you
+
+want to
+
+drag it to the same workflow you just
+
+need to specify
+
+which entity is going to be affected and
+
+it
+
+asks for id so you already know that
+
+what this id means it is the
+
+field that represent uh
+
+has the unique reference for each row
+
+so every time when you are deleting you
+
+need to specify that
+
+same thing happens for the update even
+
+though the activity doesn't say that
+
+it's
+
+being updated by the id we need to
+
+provide that and that's how he's going
+
+to identify the role
+
+[Music]
+
+so when it comes to deleting it's the
+
+same
+
+concept you just need to first query
+
+the entity as we did in our workflow
+
+and find the id and provide that here
+
+so that it will delete that specific
+
+record
+
+and it comes with the get entity record
+
+by
+
+id this again
+
+uses the same
+
+id field to get the data
+
+by specifying a specific id so again to
+
+get that id
+
+you just need to query again or you
+
+should
+
+have that information available within
+
+your workflow
+
+so that you can pass that to this field
+
+and get the output
+
+the output will be of this activity the
+
+output will be
+
+of type uh if you specify student
+
+activities it
+
+the output will create a new variable of
+
+student activities type if you select
+
+something else it will be
+
+of that particular type so that's
+
+how you can use
+
+all these activities related to data
+
+services which are available as of now
+
+and i hope uh my videos helped you to
+
+get an
+
+understanding on how to use the data
+
+service
+
+how to create entities and how you can
+
+build workflows to insert
+
+update query and also delete
+
+records that are in these entities that
+
+we created
+
+so thank you for listening and this is
+
+the
+
+last video of the data service uh
+
+series that i came across with so if you
+
+are seeing this video for the first time
+
+please refer to the
+
+part 1 2 and also the interactive
+
+signing
+
+videos that i created and follow that
+
+path and it will be easy for you to
+
+understand
+
+and again thank you for listening and
+
+have a nice day
+
