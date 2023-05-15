@@ -1,0 +1,692 @@
+hi i'm rahul fernando i'm a uipath mvp
+
+a community leader and a solution
+
+architect
+
+in today's video we'll be discussing
+
+about the uipath
+
+diagnostic tool why do we need a
+
+diagnostic tool and why do we
+
+check for errors there
+
+are scenarios where we come across
+
+different system errors
+
+due to this installation issues
+
+or issues when connecting the ufo studio
+
+with the orchestrator
+
+or the robot with the orchestrator and
+
+even sometimes
+
+errors specific to a different projects
+
+that we are working on
+
+to identify such errors and get the
+
+technical support
+
+that's needed we might need to extract
+
+the log files
+
+uh related to studio or the execution
+
+and log files related to the project
+
+registry values that we need to look at
+
+and the environment variables
+
+process information licensing
+
+basically a lot of information that's
+
+needed
+
+because for them to troubleshoot they
+
+need to understand
+
+how our environment is set up
+
+so how can we extract this information
+
+easily is through the diagnostic tool
+
+ui path offers a diagnostic tool which
+
+is
+
+a standalone utility which you can
+
+actually download and install through
+
+the cloud platform
+
+so in this cloud platform if you go into
+
+resource center
+
+under other products you can easily find
+
+the diagnostic tool
+
+which you can download and install
+
+however
+
+this tool is also automatically
+
+installed by your
+
+while you're installing the community
+
+edition
+
+so you can access that through the start
+
+menu
+
+by typing diagnostic
+
+so this tool looks similar to
+
+what you see on the screen now
+
+basically we have to go through four
+
+simple steps
+
+to extract the information we need
+
+so when we are talking about the
+
+diagnostic
+
+data extraction of those log files of
+
+the environment
+
+and so on we are looking at
+
+four different profiles
+
+first one is the studio robot activities
+
+issue
+
+so this option always looks at the
+
+studio
+
+robot or the activity related issues
+
+basically it's mainly focusing on the
+
+log files created by the studio and
+
+and by the execution logs
+
+the next option the orchestrator issue
+
+is
+
+looking at gathering information about
+
+your connection to the orchestrator
+
+so each of these two
+
+profiles comes with a specific
+
+data collection options which we'll look
+
+at
+
+a little in a little while this
+
+empty profile option which we have is
+
+to customize our profile
+
+based on the data that we need to
+
+extract
+
+according to our requirement and then
+
+last option is specific to a project
+
+so what you can do is you can select the
+
+project
+
+json file of the project that you need
+
+to extract
+
+the logs of the
+
+error information you can specify the
+
+project json file
+
+and extract the information related to
+
+that particular project
+
+so let's check one by one
+
+if we select the studio robot and
+
+activities
+
+and click on next it will go to the
+
+configuration option
+
+so over here you are looking at
+
+different collection
+
+methods the first one registering for
+
+it will basically extract the register
+
+keys
+
+used as well as the values resp
+
+assigned to each and every key
+
+screen information will extract the
+
+information about the displays you are
+
+using
+
+in the machine so basically if you have
+
+multiple displays
+
+it will include all that information
+
+along with the resolution
+
+and some other information which we can
+
+look at
+
+in a little while
+
+and it will also include the logs
+
+created by applications and as well as
+
+by the system
+
+so by default application is the option
+
+that's selected
+
+and it will also extract the computer
+
+related information
+
+and environment variables log files
+
+process information
+
+so these are referring to the system
+
+process
+
+and if there are any any other third
+
+party application that's being used
+
+those will be uh
+
+extracted in this one and if you have
+
+any other
+
+ui path related installations
+
+basically ui path products installed
+
+that
+
+information will be also extracted
+
+the next option is the licenses so it
+
+will basically extract the
+
+license that you are using
+
+and finally you will have the settings
+
+file if you are using
+
+any apart from that you can also include
+
+any other information that's
+
+needed for your extraction
+
+and once you have selected everything
+
+that you need
+
+you can click on the collect button
+
+this will extract the information and it
+
+will give you a preview
+
+so that you can look at the sample data
+
+that's being extracted
+
+so let's give it a couple of seconds to
+
+extract the information
+
+right so for register information it has
+
+extracted
+
+some values related to the uipath robot
+
+studio and the activities
+
+so it's by default showing only three
+
+but you can always click
+
+on this area so that you can look at all
+
+the values that it's extracting
+
+and scrolling down in my machine i have
+
+two displays
+
+so that's why it's showing the displays
+
+that i'm already using
+
+so in here we specified we need
+
+application logs and here it's
+
+extracting that information into a
+
+different file
+
+in a dot evtx format
+
+and this is my computer information
+
+along with the operating system
+
+the version the current desktop
+
+and the administrator login and if i'm
+
+using any global proxy
+
+that will be mentioned here
+
+apart from that if i'm using a remote
+
+session
+
+that will be captured as well
+
+and the next one is the environment
+
+variables
+
+so in here you can actually check what
+
+kind of environment variables i'm using
+
+related to uipath
+
+robot and studio
+
+and when it comes to log files it will
+
+basically extract
+
+all the execution logs and the log file
+
+is created by the studio
+
+and you can see here that it's
+
+extracting information from 141
+
+execution logs and 264
+
+studio logs
+
+you can also click on these links so
+
+that it will open
+
+another window where you can actually
+
+select and
+
+open this particular file and if not if
+
+you
+
+think that you don't need this
+
+information for your diagnostic
+
+you can deselect them
+
+by simply clicking on this checkbox
+
+so i will enable that for now and click
+
+ok
+
+and similarly you can see the same
+
+screen for studio logs
+
+and scrolling down we have any if you
+
+have any other combined logs those will
+
+be included here
+
+as well and that will be shown in a
+
+different window
+
+next is the process related information
+
+so it will basically show the process
+
+that are already running
+
+and scrolling down again we will be
+
+looking at the.net framework
+
+the default browser we are using and if
+
+there are any other browsers
+
+that we have installed and used those
+
+information will be stored here as well
+
+and the antivirus software is also
+
+mentioned because sometimes the
+
+antivirus software is
+
+blocking certain services from executing
+
+so it's always good to know what kind of
+
+antivirus software that we are using
+
+apart from that if you are using any
+
+other software all that information is
+
+captured
+
+and the next one is the uipath
+
+installers so if we are using different
+
+software provided by uipath all that
+
+information is captured here along with
+
+the version
+
+and the installation path
+
+next one is the license it will
+
+basically include the license
+
+information and finally if you have a
+
+settings file
+
+that information will be shown here
+
+since i'm using the community version i
+
+have the community settings
+
+in this particular location
+
+so you can always access that by just
+
+clicking on the link provided
+
+and there are a few other information
+
+like studio two settings
+
+the nougat configurations
+
+and also if there are any other
+
+installation configuration that needs to
+
+be done
+
+all that will be mentioned
+
+and finally the connection to your
+
+orchestrator
+
+that information will also be provided
+
+and finally to extract this information
+
+what you can do is you can just click on
+
+next and it will show you the summary of
+
+what
+
+information is being extracted and once
+
+you click on export
+
+it will extract that information into a
+
+zip file
+
+and save it in a specific location
+
+so let me save it in my
+
+downloads
+
+okay
+
+so while we look at that
+
+extracted information little later
+
+let's explore the other options
+
+in the orchestrator issue you can see
+
+that
+
+the number of collections are
+
+different so it's collecting information
+
+related to that specific
+
+profile basically the information needed
+
+to identify how the connection is being
+
+made between the orchestrator
+
+and the robot or the computer
+
+so if you have the orchestrator
+
+installed that information will also be
+
+mentioned here
+
+and when it comes to the empty profile
+
+you can decide
+
+what information that you need to
+
+extract you just simply need to select
+
+the information that you need and it
+
+will
+
+have the same screen as you saw earlier
+
+and that information will be
+
+extracted so if i select these three
+
+and click on collect
+
+let's give it a couple of seconds
+
+yeah you are seeing the same screen as i
+
+as we saw earlier
+
+all that information is captured and
+
+will be shown here so let's get back
+
+and the final option is extraction
+
+of the diagnostic data based on a
+
+specific
+
+project so all you need to do is select
+
+a specific project
+
+a json file and
+
+go through the same setup options
+
+so now since we have looked at the
+
+diagnostic tool
+
+let's see what kind of data it extracted
+
+so i'll be extracting this information
+
+so basically it has a lot of data
+
+yeah so the extracted data will look
+
+something similar to what you are seeing
+
+on screen now
+
+so the data collectors json file will
+
+contain
+
+the information related to the
+
+collectors and the results
+
+basically the same information we saw in
+
+that
+
+diagnostic tool so all that information
+
+will be listed here
+
+and in the settings file it will include
+
+all the settings
+
+files that were shown through the
+
+diagnostic tool
+
+in the log files we will have all the
+
+execution logs
+
+this blocks related to the studio
+
+and any other logs that are included
+
+finally the application logs will
+
+include all the application
+
+event logs that's extracted from your
+
+computer event logs
+
+so once you have extracted all this
+
+information you can
+
+pass that data to the technical support
+
+team
+
+so that they can go through your logs
+
+and other information
+
+and do the troubleshooting to easily
+
+identify
+
+the issue and rectify it
+
+so that's the end of the
+
+tutorial on the diagnostic tool
+
+thank you very much and see you in the
+
+next video
+
