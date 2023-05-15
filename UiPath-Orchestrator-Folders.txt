@@ -1,0 +1,714 @@
+hello everyone hope you all are doing
+
+great
+
+so with the latest release of 20.10
+
+we have some amazing features related to
+
+personal workspaces
+
+in the uipath orchestrator
+
+so what's really a personal workspace
+
+it's something where you can have
+
+a separate area in the same orchestrator
+
+instance
+
+where you can have your own packages you
+
+can have your own
+
+processors that
+
+only you have access to or only a
+
+selected
+
+set of people have access to so that
+
+you can do the development you can test
+
+and you can finalize before moving into
+
+the production environment
+
+so with the uipath orchestrator folders
+
+how can you manage the personal
+
+workspaces
+
+let's have a look
+
+so this is the latest version of the
+
+uipath orchestrator so i'm showing you
+
+the
+
+community version over here and this is
+
+the new design
+
+so as of now
+
+once you publish a package
+
+it's shown under the packages option
+
+so if you go to this tenant
+
+under packages you will see all the
+
+published packages
+
+and whenever you create a process
+
+inside the different folders which can
+
+be your classic folder
+
+or which can be a modern folder
+
+the process will reside inside each and
+
+every fold
+
+but the packages
+
+are common to the end
+
+for the tenant so there are two levels
+
+you have the tenant level and you have
+
+the folder level
+
+if you check the folders
+
+and if you go to automations and
+
+processes
+
+here you can see the processors
+
+available for
+
+that particular folder
+
+and it's the same for classic folders as
+
+well
+
+but as you see when i try to create a
+
+new
+
+process it always looks for
+
+the same packages option
+
+that we have in the tenant level
+
+so when it comes to personal workspaces
+
+we should have a place where we can have
+
+our own
+
+packages as well so that
+
+it won't affect the
+
+product production packages
+
+that's already available in the tenant
+
+level
+
+because these packages we update time to
+
+time we delete
+
+different versions we test it
+
+we do a lot of things
+
+so it's always good to have a personal
+
+network area
+
+where we can do these things
+
+so you have uipath have introduced
+
+one great feature that's coming up
+
+with the modern folders where we can
+
+create our own
+
+workspaces
+
+so to check that we can
+
+click on the tenant again
+
+and if you go to folders
+
+here you will have all the available
+
+folders for you
+
+so let's create a folder once you click
+
+on the new folder
+
+you'll see some new options over here
+
+so you can select whether it's a classic
+
+folder
+
+or a modern folder so for classic
+
+folders
+
+those other options will be disabled
+
+modern folder is what is going to be
+
+therefore in the long run as
+
+most of the new features that are coming
+
+in will be added to the modern folders
+
+so when you talk about the modern
+
+folders
+
+here we have two options
+
+you can access the packages
+
+so here it says processes process
+
+packages source so it's asking for the
+
+source for the packages
+
+whether it's the tenant packages field
+
+or whether you want to create a new
+
+package feed
+
+for this particular folder so 10 and
+
+package feed means
+
+the packages feed over here
+
+so the option is asking to create a new
+
+package feed
+
+it will have its own feed for packages
+
+inside the folder itself so let's try
+
+that
+
+so let's provide a good name for this
+
+folder
+
+and i'll be creating a modern folder
+
+with this option
+
+create a new source new feed for this
+
+folder
+
+and i will create it
+
+so this folder is available now
+
+if i try to create any subfolders
+
+for this particular folder it won't have
+
+that
+
+options available so if you see this
+
+if you see add subfolder you only have
+
+the
+
+ability to provide the name and the
+
+description
+
+so all those features are available only
+
+for the first
+
+level of the folder hierarchy
+
+so if we actually check the check this
+
+over here for this package it says
+
+folder packages
+
+and for other other folders you don't
+
+have anything like that
+
+why you have it here is because it's a
+
+special folder where it has
+
+its own package feed
+
+so now let's have a look at the folder
+
+on the left hand side panel go to that
+
+folder
+
+and here you will see all the available
+
+features you can do a comparison as well
+
+if you go to automations here you will
+
+see a difference
+
+so in our new folder
+
+we have folder packages option whereas
+
+if we
+
+check the other folders you don't have
+
+that
+
+so this is our personal workspace
+
+in this folder and you can add any
+
+number of users as well
+
+through folders go to the folder
+
+and here you can add any users who want
+
+to access that
+
+so if you go to the folder again go to
+
+automations
+
+if you go to folder packages you can see
+
+all the
+
+packages that can be available in this
+
+folder
+
+so how do you up add packages to this
+
+you can either upload just like you are
+
+doing it to the
+
+packages feed at the tenant level or
+
+else
+
+you can add packages from the studio
+
+itself
+
+so how do you do that let's have a look
+
+at the studio
+
+so here i have a simple
+
+workflow where i have a message box
+
+i'm not focusing about workflow designs
+
+or anything because our
+
+main idea is to talk about the folders
+
+and
+
+personal workspaces
+
+so if i click on publish
+
+and go to publish options
+
+i need to refresh
+
+and click on publish options
+
+here we have two options now
+
+so earlier we used to have orchestrator
+
+tenant
+
+processors feed and we had the custom
+
+field
+
+where you give your own folder path
+
+and if you have any api keys and it and
+
+it will be
+
+published to that particular photo
+
+and in the channel feed it's the
+
+old version or the old feature that we
+
+had
+
+where you publish the packages to the
+
+tenant level packages so as you saw
+
+earlier once i refresh we have a new
+
+option here
+
+so here it says orchestrator test
+
+package
+
+feed feed so this is actually the name
+
+that i gave
+
+for that folder as
+
+i see here this package feed
+
+so we'll publish this package
+
+to that particular folder
+
+click next and publish
+
+so the process has already published
+
+successfully
+
+and now if we go to the folder and do a
+
+quick refresh
+
+we can see the process we already
+
+published
+
+and if we actually go to tenant level
+
+and in packages if we search for it
+
+it's not there so it
+
+it will be only visible with
+
+for this package itself
+
+yeah it's over here
+
+and when you want to create a process
+
+out of this package you can easily go to
+
+processors
+
+select the package so here the other
+
+thing is
+
+you don't see the packages available in
+
+the tenant level
+
+you only see the packages
+
+that are in folder packages so
+
+when you are creating processors again
+
+you can only create processors
+
+for packages that's available inside
+
+this folder
+
+because it's your personal workspace and
+
+you don't need to interact with the
+
+other packages or other processors
+
+available at the tenant level
+
+so you can create just like
+
+we used to do and create the process
+
+okay so what's remaining is to create a
+
+job
+
+and run the process so before running
+
+we need to make sure of one thing
+
+if you are having an unattended robot
+
+you need to add
+
+the machine template
+
+to the folder if you are having an
+
+attended robot that's fine
+
+so go back to tenant go to folders
+
+and test package feed
+
+so in my case i am having an unattended
+
+robot
+
+assigned to myself so i need to
+
+add the machine template as you see here
+
+it's an unattended protein robot
+
+so go to folders go to the package
+
+sorry folder and
+
+under machine templates you can simply
+
+add
+
+the machine template that you have
+
+created earlier
+
+and click on assign
+
+why you need to do this is because you
+
+need to have a runtime
+
+available to run the packages
+
+or the processors inside that folder
+
+and now since we have configured that go
+
+back to the folder
+
+go to automations go to jobs
+
+and let's create the process
+
+job i'll select my process
+
+and again as you see here we can only
+
+create
+
+jobs with the processors available
+
+inside this package
+
+it won't show any process or package
+
+available in the tenant level
+
+and my job type is going to be
+
+unattended
+
+so it can be any user and any mission
+
+so if you have a specific user you can
+
+simply click
+
+and select the user and simply
+
+you can select the machine as well
+
+because in my case i have already
+
+one machine so it can be set as
+
+animation
+
+so let's see how this works so i'll
+
+start the process
+
+and it's running
+
+so this is the message in my workflow
+
+and it's successful so if you
+
+check the assistant screen
+
+you also have that process
+
+under the folder name
+
+so here you have the folder name and the
+
+processors available inside that
+
+so you already have the same set of
+
+options just like in other processes
+
+you can see the process details so
+
+everything is there
+
+yeah so that's how you create the
+
+personal
+
+workspaces and that's how you can easily
+
+organize
+
+the processors and the packages that you
+
+are working on
+
+before moving or before publishing it to
+
+the
+
+tenant level packages so that
+
+by by using this way you can
+
+have your things organized and if you
+
+are working as a
+
+team you can have all the team members
+
+assigned to this particular folder
+
+and have them working inside the folder
+
+with the packages
+
+and with the jobs and processes without
+
+affecting
+
+the production level or the tenant level
+
+packages and processes so this way you
+
+can easily organize
+
+your stuff
+
+and you can make sure that you don't
+
+overwrite the tenant level packages time
+
+to time
+
+for your testing purposes so whenever
+
+you are done
+
+with the final versions and whenever you
+
+are ready with that
+
+all you need to do is go back to the
+
+internet level
+
+publish the final workflow to that
+
+package
+
+or if you have a different
+
+architecture where you have a different
+
+folder for
+
+all the production level packages or
+
+processors you can do the same approach
+
+and add that final version there
+
+and to have the process running from
+
+there itself
+
+so it depends on the architecture that
+
+you are using
+
+and the best practices
+
+so whenever you need to delete
+
+or whenever you need to delete
+
+update these packages or processes you
+
+simply need to
+
+do the changes inside the folder itself
+
+just like you used to do before
+
+and it will all effect inside the folder
+
+thank you very much and i'll see you in
+
+another video
+
+with many other new features
+
+thank you very much have a great day
+

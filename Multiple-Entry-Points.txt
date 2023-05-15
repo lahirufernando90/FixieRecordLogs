@@ -1,0 +1,1096 @@
+hello everyone so in this video
+
+we'll be discussing about another new
+
+feature
+
+that your body introduced in 20.10
+
+release
+
+it's about multiple entry points
+
+for the process so as
+
+you know um up to this point when we are
+
+designing processors
+
+we had only one main xml file
+
+in a solution and
+
+whatever we do when we are executing the
+
+process
+
+through the orchestrator or through
+
+uipath assistant
+
+the process starts from the main xml
+
+file itself
+
+or whatever the file that you have
+
+defined as the main file
+
+in the solution but
+
+when we are going ahead with
+
+scenarios in some cases we need
+
+to access each and every individual
+
+file to do certain processes
+
+for example there can be a process
+
+where you need to access different
+
+uh sub processes in the same process
+
+to handle certain things let's
+
+take a simple example here
+
+so assume there's a process where you
+
+need to
+
+do simple calculations so simple data
+
+manipulations
+
+and in that process you have
+
+multiple workflows to handle certain
+
+things
+
+so in my example over here i have a
+
+process
+
+where i have two workflow files
+
+to perform addition of two numbers
+
+and multiplication of two numbers
+
+so if you are to handle this kind of a
+
+scenario
+
+um depending on the operator we provide
+
+assume that user is going to provide
+
+operator
+
+along with the number just like a
+
+calculator
+
+depending on the operator you need to
+
+identify
+
+which workflow to execute
+
+so before all this time
+
+we had to have another
+
+another workflow to identify
+
+identify was the operator and
+
+invoke the workflow inside
+
+that process itself
+
+so the difference here is now with this
+
+multiple
+
+entry you can define multiple processors
+
+sorry multiple workflows where you can
+
+enter or execute the process
+
+[Music]
+
+so the advantage of doing this is you
+
+can have
+
+or you can create separate processes
+
+that handle certain common
+
+tasks but different to each other for
+
+example
+
+assume that you have a process
+
+that interacts with the database so what
+
+do you do
+
+when you are interacting with the
+
+database
+
+you insert records you update delete
+
+and you also query for new records
+
+so all these things can be put into a
+
+separate process
+
+and you can have multiple entries
+
+for these actions
+
+and execute the same process to
+
+perform multiple different things
+
+by entering into the process through a
+
+different workflow each time
+
+so this is something similar that i'm
+
+going to show you in this video
+
+so as i explained earlier in a process
+
+when we define
+
+it as the main workflow
+
+that main workflow is highlighted in
+
+kind of like a
+
+bold text so likewise you can
+
+always set a workflow as the main
+
+but each time that is the workflow
+
+that's going to execute
+
+by default to start the process
+
+but here what i am going to show you is
+
+assume that this is my main workflow
+
+but depending on certain scenario or a
+
+certain input that comes in
+
+for another process from another process
+
+i need to execute different functions
+
+in this particular process like the
+
+addition and multiply
+
+so i have another process over here
+
+where i get input
+
+so the user will input two values
+
+number one and number two through input
+
+dialogues
+
+and the user will also provide the
+
+operator whether user needs to
+
+perform the addition or multiplication
+
+um and based on that input
+
+i'm going to invoke another process
+
+to perform the action
+
+so this is the sample workflow that i
+
+have
+
+developed for that so i'll get back to
+
+this later
+
+so before that
+
+considering this scenario this is the
+
+process that i need to invoke
+
+based on the user input and i have the
+
+addition
+
+xml file where i get the two numbers
+
+and i perform
+
+the addition
+
+and assign it to a variable and show it
+
+in a message box
+
+and on the other workflow i get the two
+
+numbers again
+
+and this time i'm going to multiply that
+
+instead of
+
+sum it up and showing it in a message
+
+so so by default this addition is the
+
+main
+
+workflow and it will be invoked all the
+
+time when i invoke the process
+
+but i need to invoke this multiply xml
+
+workflow as well
+
+depending on the user selection
+
+so all you need to do is you can right
+
+click on this
+
+so this is already enabled
+
+so all you need to do is you need to
+
+right click on this
+
+and select enable entry point
+
+so you can also see a small arrow a
+
+green color arrow
+
+along with the icon of the file that
+
+says
+
+that you have enabled entry point to
+
+these
+
+two workflows so that means when you are
+
+invoking a process
+
+you can start the process either from
+
+the main
+
+or the addition xml or through the other
+
+files that you have mentioned as entry
+
+point
+
+so so there is a very very simple
+
+scenario that i
+
+use to explain this concept
+
+so once you have done that you can
+
+simply publish it to orchestrator so
+
+let's do that now
+
+so i'll publish it to a separate folder
+
+so the benefit of doing this is you can
+
+have separate processes
+
+um in kind of like a layered
+
+architecture
+
+in the entire process so in other words
+
+when you're
+
+developing automation solutions
+
+sometimes you have to create multiple
+
+automation processors to handle the
+
+entire
+
+automation just like the dispatcher and
+
+perform
+
+processes that we have all done
+
+throughout the academic courses
+
+similarly there can be scenarios where
+
+you need to have some layered
+
+architecture where
+
+the you need to invoke processors to
+
+perform various different things like
+
+data manipulations or
+
+database related interactions just like
+
+i mentioned earlier
+
+and in such cases having this kind of
+
+a entry point is very helpful
+
+so since we have already published
+
+let's get to the orchestrator so this is
+
+my folder
+
+and if i go to folder packages i see my
+
+process
+
+so let's create a process from that
+
+so there's nothing different in
+
+setting up the process in the office
+
+trader as of now
+
+so all you need to do is to create the
+
+process
+
+this is your process name
+
+so this is the difference now in your
+
+other process
+
+so whenever you are invoking this
+
+process you need to
+
+now define from which workflow that you
+
+need to start the process
+
+so going back to my other process
+
+so i have three variables
+
+over here test value test value
+
+and selected operation so these things
+
+three are populated through these
+
+three input dialog activities
+
+first one will get the first value that
+
+use enter
+
+second value and here
+
+we are specifying
+
+what sort of operation that you are
+
+going to do
+
+so it's easy to set it up
+
+you can select this input type as
+
+multiple choice and you can give
+
+the options that you need to have
+
+separated by a semicolon
+
+and get that value to a variable
+
+and so here we get two options
+
+so the output of this will be this and
+
+text of the option you see that so if
+
+you select addition you will get the
+
+text addition if you select
+
+multiplication you will get the text
+
+multiplication
+
+and now based on this i need to invoke
+
+that process we
+
+published
+
+through different workflows so i'm using
+
+a flowchart here
+
+for us to easily
+
+visualize this so in the flow chart i
+
+have a flow switch
+
+and in properties i'm providing the
+
+selected operation which is a string
+
+because it gives us the
+
+text and
+
+i'm outputting one as the addition
+
+so once you drag this line so i can show
+
+you that
+
+so once you drag this option
+
+and connect to the invoke process by
+
+default it says
+
+default or case 1 case 2 and so on
+
+so i can show you the other options as
+
+well
+
+so this this is case one
+
+so just by connecting it it won't
+
+identify what values you are getting
+
+from
+
+so you need to specify if you get
+
+addition you have to go on this path and
+
+if you get multiplication as the text
+
+you have to go on this part so let's do
+
+that
+
+and you have to select this line
+
+go to properties and on the default case
+
+type
+
+provide the text that you get from
+
+the input dialogs it's addition
+
+so it has to be similar to what you see
+
+over here
+
+and for the next one select it
+
+and it's multiplication so remember you
+
+don't need to
+
+provide double quotation over here this
+
+problem in the text will be sufficient
+
+and so this is the interesting part now
+
+you're going to use
+
+invoke process
+
+so in this invoke process i'm going to
+
+invoke
+
+the addition so i have two workflows now
+
+in the same process so i'm going to
+
+provide the process name
+
+over here so this name is exactly the
+
+same
+
+as what you see over here
+
+if you can copy and paste it as well
+
+and for the entry point here by default
+
+if you do not provide anything
+
+it will invoke the main xml file
+
+by default but if you need to
+
+since you have multiple entry points you
+
+can define
+
+what workflow that you notice so
+
+for the sum operation
+
+in my other process
+
+addition xml is the default
+
+or the main but i will provide the
+
+file name here
+
+edition and under
+
+arguments you have to provide
+
+what arguments this workflow file is
+
+expecting
+
+so in our case for addition
+
+we have two input arguments
+
+the two numbers in integer type
+
+so use this name argument name
+
+and in edit arguments provide the
+
+argument name in the workflow
+
+set the direction as input and the type
+
+is end now this
+
+test value 1 and test value 2 is of
+
+string type because user is entering
+
+that
+
+an input dialog is capturing it as
+
+string
+
+so let's we are converting it here
+
+into integer to the type that our
+
+workflow is expecting
+
+and we have one more thing to do
+
+in the properties you need to specify
+
+where this process is so by default
+
+when you invoke this process while
+
+you're running
+
+it will look for this process in the
+
+default folder
+
+in the orchestrator which means
+
+in this folder but we have published it
+
+into a different folder
+
+so in that case you need to provide the
+
+folder path
+
+so for custodial folder path
+
+i have provided my folder name
+
+and for target session you can say
+
+that this process has to be executed in
+
+the current session
+
+or whether you need to execute in a
+
+picture in picture
+
+or any other option that you need so
+
+i'll set it as
+
+current
+
+so the entry file we have defined it and
+
+for the other process
+
+for now multiply is the same only thing
+
+different is
+
+the entry point here you are defining
+
+the other xml file as the
+
+entry point so that this time is
+
+not the main main file but
+
+it is we enabled it as a entry point
+
+for that process
+
+so by doing this you
+
+invoke the same process
+
+but from different places to perform
+
+different actions
+
+and to get an output from the same
+
+process
+
+so
+
+going back to my example of databases
+
+so as i said earlier we can have a
+
+separate process that handle all these
+
+database related
+
+actions for a specific use case
+
+and we can have four different workflows
+
+in the same process where
+
+one workflow is always doing the
+
+selection or query depending on the
+
+query that you provide and another
+
+workflow will
+
+do the update another workflow will do
+
+the insert
+
+but you are invoking the same process
+
+over and over again to perform
+
+different actions so
+
+that's the benefit of having this
+
+multiple entry points
+
+so because it enables you to
+
+design your entire solution in a
+
+layered architecture which
+
+comes as a best practice as well
+
+so since we have developed this work for
+
+now
+
+let's give it a try and see how it works
+
+and we have already published our other
+
+solution into orchestrator
+
+so let's run this
+
+[Music]
+
+okay so here we have the first
+
+input dialog i will say 1 10
+
+and 30 20
+
+and this is the multiple choice
+
+operation which we defined here
+
+so i'll go for addition
+
+and you can see it's executing the
+
+process
+
+invoke process and we got the message
+
+box
+
+saying the value is 30. so this message
+
+box is coming from
+
+that other process
+
+yeah so this process executed inside our
+
+master process itself
+
+and we got the update and let's try the
+
+other option
+
+now
+
+[Music]
+
+running the same process again
+
+and this time i will do the
+
+multiplication
+
+so 25
+
+and let's see how it works
+
+and again you can see it's working and
+
+this time we got the different we said
+
+not saying
+
+the multiplication value is 125
+
+so you can invoke
+
+process using invoke process as well
+
+and the other option you have is you can
+
+invoke this
+
+thoroughly so you can use the
+
+so you can use the run parallel process
+
+to run this for yourself so let's
+
+try that now so instead of
+
+using more process over here i will
+
+remove this for now
+
+and i will use run parallel process
+
+and let's see how that works
+
+so i need to provide the text
+
+so what happens in run parallel process
+
+is while you
+
+while this process is running
+
+the other process will run parallel to
+
+the process that's already running and
+
+provide you the input
+
+of the output so in invoke process
+
+it ran inside the same process but in
+
+parallel process
+
+uh the the master process over here
+
+or the process that we are running will
+
+give the run command to the other
+
+process
+
+and it will continue executing and
+
+the and our
+
+other process which handles the
+
+multiplication and addition
+
+will run separately and give you the
+
+output
+
+without waiting for the
+
+main process over here
+
+so i need to give the process name again
+
+which i can copy
+
+from this one
+
+this is my process and entry point
+
+i'm going to say
+
+it's multiply xml
+
+and the opposite of path is my folder
+
+which is test package feed
+
+which again i can copy from my other
+
+process
+
+and it will be in the same current
+
+session
+
+so i need to provide the arguments now
+
+so let's create the arguments in m3
+
+so i'm using the same algorithm names
+
+you see here in the multiply workflow
+
+type is
+
+in 32
+
+and i'm converting our output
+
+right so we have done that
+
+and let's see how this works
+
+so i'm going to run this uh our
+
+process so we know that addition is
+
+already working
+
+because we didn't do anything there so
+
+we'll try
+
+to run the multiplication
+
+so this process actually stopped
+
+and my other process
+
+gave an error it's because
+
+it says a foreground process is already
+
+running and only one program process can
+
+run at a time
+
+yes so so all you need to do is
+
+when you are running parallel processors
+
+in the same
+
+machine um
+
+you cannot run multiple foreground
+
+closes as you know
+
+so you can do one small thing you can
+
+get back to our process over here where
+
+you have that
+
+addition and multiplication
+
+go to project settings and
+
+set it as starting background
+
+and
+
+save and we have to publish again
+
+and i'm going to publish into my folder
+
+so published successfully
+
+get to orchestrator
+
+uh folder packages
+
+this is our process and for processes we
+
+need to update that
+
+go to view process
+
+upgrade it through this option
+
+close so now we have updated version
+
+and let's see whether it actually runs
+
+in the background
+
+so in jobs you can actually see our
+
+first
+
+uh attempt to run it thoroughly has
+
+faulted because it's it wasn't set to
+
+set as a background process
+
+so let's try that now
+
+um okay i'm going to run this
+
+and i will give some input
+
+and multiplication start and you can see
+
+that process
+
+executed and you also notice that this
+
+process actually completed
+
+and later you got the message box
+
+and if you check the assistant
+
+and you can see our background process
+
+executing
+
+so that's how you can
+
+build processors with multiple entry
+
+points
+
+where you can design your solutions in a
+
+in different layers to perform very
+
+different tasks
+
+but within the same process itself
+
+so i hope this video will be helpful
+
+in identifying or understanding how you
+
+should
+
+build or design your process in a way
+
+that can support various layers and to
+
+support different actions that are
+
+common
+
+to a specific task like databases
+
+and i hope that you understood the
+
+concept behind
+
+multiple entry points and why it is
+
+useful
+
+to have in designing
+
+this kind of process so
+
+thank you very much and i will see you
+
+in another video
+
+have a good day
+
