@@ -1,0 +1,582 @@
+hello i'm nahiru
+
+so today i'm connecting with you guys to
+
+share some knowledge about one of the
+
+latest features
+
+that you have introduced with the 20.8
+
+preview release
+
+which is the interactive sign-in
+
+so what's exactly the interactive sign
+
+in
+
+that's a new feature that your path
+
+introduced so that you can
+
+connect your uipath assistant
+
+using the same login that you are
+
+logging into the cloud platform
+
+so that all the available features
+
+in the entire uipath platform will be
+
+available
+
+in the uipath system for example
+
+if you have new data services created or
+
+data entities created in the data
+
+services
+
+all those will be available in the
+
+uipath assistant itself
+
+so that through uipath studio you can
+
+connect to those services and access
+
+what you have created over there
+
+so as you all know as of now we are
+
+connecting
+
+the uipath assistant through the machine
+
+key but the new feature is
+
+instead of using the machine key we can
+
+use
+
+the same login that we are using to
+
+login to the cloud platform to connect
+
+the ui path assistant with one of the
+
+robots available in the orchestrator
+
+so how exactly to do that is
+
+what i am going to show you so we need
+
+to go through a few configuration steps
+
+to enable that
+
+so let me show you
+
+so first this is the new ui path
+
+assistance screen
+
+which came up with the 20.8 preview
+
+so as of now i have connected with the
+
+machine key
+
+so let's disconnect it for now you can
+
+go to preferences
+
+and go to orchestrator settings and i'll
+
+be disconnecting
+
+okay now here you have two options one
+
+is a service url and one is the machine
+
+key so service url is the new
+
+interactive sign-in feature
+
+where you will be connecting to the
+
+orchestrator
+
+through the orchestrator url the same
+
+url that you are using
+
+to connect using the machine key
+
+so before setting it up we need to go
+
+into the orchestrator to
+
+do some configurations
+
+so once you get into the orchestrator so
+
+i'm using the new design
+
+you can get to the old design
+
+through this option as well or if you
+
+are using the old design you can get to
+
+the
+
+new design through the same option so
+
+you will have a
+
+new option there so all you need to do
+
+is
+
+you need to go to the tenant
+
+and get to settings
+
+and once you get into security
+
+once you scroll down you'll see two new
+
+check boxes over here
+
+that says enable use authentication in
+
+assistant
+
+so you just need to enable this and
+
+click on save
+
+so that your assistant can use
+
+your credentials to connect
+
+with the orchestrator so once you have
+
+configured this
+
+next option is you need to have a robot
+
+to the same user that you are connecting
+
+it
+
+so earlier what we had is we had a
+
+separate robot
+
+that actually we that we configure
+
+through for that particular folder under
+
+robots we configure the normal user
+
+normal robot that we used previously
+
+so this now robot is not going to work
+
+when you are connecting through the
+
+interactive sign in
+
+because a user is the one who is logging
+
+in
+
+and there has to be a robot assigned
+
+specifically for that user
+
+so this is a separate robot that works
+
+on different
+
+aspects so what you have to do is you
+
+need to
+
+get to the tenant again because we need
+
+to create a robot for that particular
+
+user
+
+you have to get to users
+
+in this screen you will see this user
+
+that you are logging in
+
+to the orchestrator or the cloud
+
+platform
+
+so once you have selected the user
+
+you can check the robot access over here
+
+the column this has to be enabled
+
+so as of now i have enabled that but
+
+initially this will be disabled if you
+
+have not configured it so if it is
+
+disabled all you need to do is
+
+go to edit
+
+and get to attended robot
+
+so this is where the new feature
+
+that came in some time back where you
+
+can
+
+create automatically new robots for each
+
+and every user that you configure in the
+
+orchestrator
+
+so it's the same feature that we are
+
+connecting
+
+through the interactive sign-in all you
+
+need to do is you need to give the
+
+domain and the username that you are
+
+logging into the
+
+machine just like previously that you
+
+did once you go into the command prompt
+
+and type cmd
+
+sorry if you go to command prompt by
+
+typing cnt
+
+you can say who am i and that will give
+
+you the domain and the username so
+
+it's the exact same old steps that we
+
+used you can
+
+copy that and paste it over here
+
+and for the license type you need to
+
+select studio pro
+
+because the interactive sign in works
+
+with studio pro license
+
+so once you have selected that and
+
+leave the unattended as it is because
+
+this is the attended feature and under
+
+gender is not going to work over there
+
+and get to robot settings enable
+
+whatever the features that you
+
+need to enable and also enable auto
+
+download tracers
+
+and set it as yes and then click on
+
+update
+
+so it will take a little bit of time
+
+like few seconds
+
+to create the new robot for this
+
+particular user
+
+and once it is created
+
+you should see a green color
+
+uh message saying it sucks
+
+saved successfully like this and this
+
+data should be enabled
+
+and once you go to your tenant again and
+
+click on robots
+
+you should see the new robot
+
+over here saying studio pro floating
+
+and the provision type is modern
+
+but the status is disconnected because
+
+we need to connect
+
+through the assistant now so once you
+
+have covered all these steps
+
+get back to the assistant
+
+over here and select the service url
+
+from the orchestrator settings
+
+and for the service url you need to give
+
+the same url
+
+that you are using for the orchestrator
+
+so basically if you go to the
+
+orchestrator
+
+the file path the url starting from
+
+this portion of the url you have to copy
+
+it
+
+and paste it over here so i have already
+
+done that
+
+so i'll be using that so you can see the
+
+same url and click on sign in
+
+this will open up a new web page
+
+so my default browser is something else
+
+in this form you just need to select
+
+so basically you will be prompted to
+
+sign in just like you
+
+usually do when you're signing into the
+
+cloud platform so just give the
+
+username and password for that
+
+particular user
+
+and if you have multiple organizations
+
+select the one that you need to connect
+
+to so i'll be using this one
+
+and to complete the login you just click
+
+on continue
+
+and then you will see the status over
+
+here
+
+so it will take few seconds
+
+now you can see the green color status
+
+it says robot is connected to
+
+orchestrator
+
+and if you click on profile you can see
+
+my name
+
+and you have the sign out option
+
+so we can get back to the orchestrator
+
+and now if you check the tenant and
+
+robust page
+
+you can see that this robot is available
+
+so that's how the interactive sign-in
+
+feature
+
+works so once you connect to
+
+this robot that you created
+
+you can get to the studio and
+
+use this small option down here
+
+if you have the studio already open and
+
+click on
+
+refresh so that it will refresh all the
+
+resources available in the cloud
+
+platform for you and
+
+the studio will get all the available
+
+resources that you have
+
+so in the resources panel you can see
+
+that
+
+all the available data services
+
+you have access to those now and
+
+the assets queues and processes that you
+
+had earlier
+
+all those will be visible along with the
+
+data services
+
+that you have created if you have the
+
+data services enabled
+
+and from here onwards all these all the
+
+process that you create
+
+will be executed by the
+
+new robot that you created and the good
+
+thing about the interactive
+
+sign-in is that
+
+when you are logging out from the
+
+machine
+
+or the
+
+when you're logging logging out from the
+
+interactive sign-in it will
+
+sign out completely basically you will
+
+be
+
+signed up from the cloud platform and it
+
+will
+
+disconnect both the user profile and the
+
+machine
+
+key connection from the assistant
+
+or from the orchestrator what is the
+
+difference
+
+with the machine key and the interactive
+
+sign in connection
+
+is that when you're logging out from ui
+
+path assistant
+
+after being logged via mission key it
+
+disconnects the user profile
+
+but the robot stays connected in the
+
+interactive signing
+
+both get disconnected so that's the
+
+difference
+
+so that it's kind of like a personalized
+
+experience
+
+so you'll be working with one login and
+
+if someone wants to
+
+use the same machine to run one of their
+
+processes that are specific to them you
+
+can
+
+disconnect the robot from that we are
+
+login and he can connect
+
+through the through his login
+
+and do whatever task is he needs to do
+
+so that's the simple introduction for
+
+our
+
+interactive sign-in feature you can also
+
+go to docs.uft.com and
+
+look for more information the link is
+
+down below
+
+so thank you and see you in another
+
+video
+
+have a good day
+
