@@ -1,0 +1,1838 @@
+hello everyone so welcome to the path
+
+3.2 in advanced your part document
+
+understanding
+
+so in this session we will focus on
+
+the second part of the data extraction
+
+where we'll be using the
+
+form extractor to extract some fields
+
+uh from certain documents so this will
+
+include
+
+extracting uh a table
+
+and extracting different fields that are
+
+in different locations of the
+
+document so to continue
+
+i will get back to the studio from where
+
+we left
+
+off from our previous
+
+discussion so
+
+just to give you an idea about what we
+
+discussed previously
+
+in our previous uh sessions we did
+
+we created a workflow
+
+that actually creates the taxonomy
+
+the digitization and then we talked
+
+about classification
+
+and then we talked about
+
+document classification action and we
+
+also talked about
+
+how to invoke different processors based
+
+on the classification
+
+wizard to organize
+
+the process documents and then we spoke
+
+about
+
+the machine learning extractor and the
+
+use of
+
+ai models that we have published in ai
+
+fabric
+
+so in today's video we will mainly focus
+
+on the form extractor
+
+so i'm going to use two of the documents
+
+that we used earlier
+
+which is the form 10k and form 4. so
+
+again these are publicly available
+
+details so
+
+let me show you what we are trying to do
+
+so this is the form 10k
+
+in this documents
+
+i want to extract the name of the
+
+company
+
+which you see over here
+
+and in the second page i have
+
+a concentrated ordered balance sheet
+
+which i need to extract
+
+so i'll be using the form extractor to
+
+extract
+
+this table so that i can show you how we
+
+can
+
+create a template to
+
+actually extract any table based on the
+
+document that you are going to process
+
+and additionally i am going to show
+
+how to add different rows in the same
+
+table we created in the template
+
+so we'll talk about that later and in
+
+this document
+
+i'm going to show you how we can extract
+
+few data elements so i'm not going to go
+
+with the
+
+form extractor for this entire document
+
+i'll be
+
+extracting couple of fields
+
+so i'll be extracting
+
+the name portion over here the address
+
+so this address is a special case
+
+here we see the address has
+
+to pass we'll see how to extract that
+
+and the name and the date the rest
+
+of this table and what we see over in
+
+this section
+
+uh we will talk about that in our next
+
+video
+
+on critics so in regex we'll
+
+see how to extract data of a table
+
+and special scenarios like this
+
+so for today's discussion will focus on
+
+this stuff
+
+so getting back to the studio
+
+we already have three extractors
+
+so i'm going to use the form extractor
+
+for this case
+
+uh and i'll be pressing it somewhere
+
+over here inside the data extraction
+
+scope
+
+so as soon as you place it over here you
+
+can
+
+see the endpoint so this is the endpoint
+
+that
+
+the form extractor will be using to
+
+do its extraction
+
+and as you remember i'm using the
+
+enterprise trial version
+
+so the document understanding
+
+the api key will not work for this url
+
+so in that case i need to change this to
+
+the enterprise version
+
+so click over here get to end point
+
+and you got to change your url
+
+with the edition so all you need to do
+
+is click over here
+
+and type this part
+
+followed by a question mark we have to
+
+say edition equals
+
+enterprise and
+
+if you actually try this url in your
+
+browser
+
+um this will give you a result
+
+something like this so this basically
+
+means that endpoint is working
+
+and the request that you did is
+
+successful
+
+so use this and click on ok
+
+the next one is the api key so as we
+
+discussed in our previous videos
+
+we are getting the api key from the
+
+orchestrator asset that we have created
+
+and this variable is of type secure
+
+string
+
+and we need to convert that to a string
+
+so in our machine learning extractor
+
+we have done that and we are going to
+
+use the same
+
+code over there and copy it in the api
+
+key
+
+so that i won't need to look into that
+
+okay
+
+but still you see your warning over here
+
+what it says is there are no configure
+
+templates
+
+so we are right now going to configure
+
+the template for the balance sheet that
+
+we saw
+
+in the form 10k so we'll do that now
+
+so what you need to do is you need to
+
+click on manage templates
+
+and you will get a screen like this
+
+you just need to click on create
+
+template
+
+and from here you need to select the
+
+document type
+
+and from where are we getting these
+
+document types
+
+it's from the taxonomy that we created
+
+in the
+
+very first video so we are going to
+
+first create the template for form 10k
+
+so i'll be selecting the form 10k
+
+and i need to provide template name so
+
+i'll just say
+
+content okay template
+
+and the next thing is
+
+i need to select a template document
+
+from the documents that we are
+
+processing
+
+then it says if it's better if it's a
+
+native pdf file
+
+just to improve the accuracy so we'll
+
+select one
+
+so i have the two files separately in
+
+this
+
+folder because in this video we'll be
+
+only focusing on these two files
+
+and i will select from 10k
+
+so let me close this
+
+just in case
+
+since 10k and
+
+here i have the only creatures here
+
+which i'm using
+
+and this stuff i will not do any change
+
+and i will not
+
+force apply ocr because there is a
+
+native video
+
+right so we will see how it works and
+
+click on configure
+
+it will digitize the document in the
+
+background
+
+and you will get a message like this
+
+along with the
+
+template manager so basically what it
+
+says is
+
+which for every page that we are
+
+processing
+
+we need to provide five minimum
+
+five words where you can identify that
+
+page
+
+uniquely from the document and there are
+
+few other instructions
+
+that you can read and follow
+
+okay so we will click on ok
+
+so in this document as you see
+
+we have 14 pages in the first page we
+
+have
+
+the name which we are looking at and in
+
+the second page we have the balance
+
+sheet that we need to extract
+
+and in third page and fourth page you
+
+have different other data
+
+but we are only interested in page one
+
+and two
+
+so similarly for the same number of
+
+pages we have
+
+in the document on your left hand side
+
+panel
+
+we have several sections that
+
+ask for matching info for each and every
+
+page
+
+up until page 14.
+
+so we are not providing all the
+
+information for all the pages
+
+we will only provide the details for the
+
+two pages that
+
+we need to process so for page one
+
+we want to get the name so we'll see
+
+what kind of information we can extract
+
+for page one matching info
+
+so the unique identifier would be
+
+obviously the content okay
+
+and this type of details we can
+
+extract so all you need to do is
+
+you can press on the control button and
+
+keep it pressing and using your mouse
+
+you can left click
+
+on the
+
+words that you can identify
+
+as you need for the page
+
+so i highlighted more than five
+
+and you just need to click on this plus
+
+sign and it will extract
+
+that values to page one matching input
+
+and go into the page too
+
+from this one i will not use the company
+
+name because it will
+
+differ from company to company i will
+
+use this
+
+second line
+
+[Music]
+
+yeah i will not use this i think this
+
+will be enough
+
+in thousands and i will add it
+
+to this section
+
+and page 3 and 4 we are not interested
+
+in that so i will ignore
+
+coming back to page one if you scroll
+
+down
+
+on the left hand side panel
+
+there is a part where it asks for the
+
+company name
+
+so from where are we getting these
+
+fields is from the taxonomy that we
+
+created
+
+so for company name and this company
+
+we don't know how many words we'll have
+
+in a company could be two it could be
+
+for it can be more than that we are not
+
+sure
+
+so just we cannot select the word
+
+just like we did for this matching input
+
+we need to provide a region to
+
+so that whatever the company name that
+
+fits in
+
+in that region so the best thing
+
+would be get over here
+
+and highlight a region where i can
+
+possibly
+
+have the company name so i will provide
+
+this region
+
+i would select from somewhere over here
+
+and type this
+
+as the possible area where we can find
+
+the custom
+
+uh company so
+
+from these two if you select tokens
+
+it will look at the words as highlighted
+
+in the screen
+
+but if you see like the custom area it
+
+will look
+
+at that area of itself to identify
+
+the words in that area so i'll see that
+
+custom
+
+here and it's highlighted
+
+and i will click on this plus sign again
+
+to extract
+
+that region
+
+so for this you won't see the value
+
+extracted as you saw from the
+
+matching info you will see the custom
+
+selection
+
+and next is the balance sheet
+
+so now we need to create a table
+
+to extract this details
+
+how we should do that so in my case
+
+i need to get the 2020 and 2019
+
+as the current year and the previous
+
+year
+
+because i would not know what year we
+
+are progressing if we get a
+
+document that was published last year
+
+that you will be different so i need to
+
+extract these two values as well
+
+so what you can do is you can
+
+get here in this balance sheet and once
+
+you click on it
+
+it will show you the columns that we are
+
+expecting
+
+so by default this will generate
+
+us a data table once we extract the
+
+values
+
+because it's already a table so in this
+
+data table the column names are already
+
+balance sheet item current year and the
+
+previously
+
+so we won't be able to change
+
+the title of this column to
+
+2020 and 2019
+
+so what we should do is we should figure
+
+out a way
+
+so that we know the current year
+
+has a row that says 2020 and the
+
+previous year column has a row
+
+that says it's 2019
+
+so how to create that table
+
+we are not going to add row by row
+
+well highlight a region
+
+so we click on this
+
+create new table
+
+so how we should provide the region is
+
+you just need to click on this
+
+bl sheet and once you get this pop-up
+
+click on these three dots and
+
+select extract
+
+new table so we have a couple of options
+
+here
+
+but we just need to extract the table
+
+so click on that and
+
+you will get a pointer something like
+
+this
+
+so i will start from the right hand side
+
+because we need to get the
+
+two years as well so i will include that
+
+as well in my table and i will ignore as
+
+of january 31st
+
+so i will start giving the region as you
+
+see here
+
+and let go
+
+so now we have highlighted the
+
+table
+
+and we have couple of options down here
+
+so what's highlighted here is auto
+
+detect
+
+my mouse movements which means
+
+based on how i move my mouse
+
+within this highlighted region it will
+
+detect
+
+whether i'm looking for a column
+
+or whether i'm looking for a row so as
+
+you see here
+
+if i move the pointer up and down
+
+you will see a line moving along with my
+
+cursor which is the row separator
+
+but if i slide the mouse or
+
+mouse horizontally
+
+you can see that line changing that's a
+
+horizontal line
+
+sorry a vertical line
+
+where we can identify the columns
+
+[Music]
+
+or else you can do the same thing with
+
+these two options
+
+we can select vertical line it will give
+
+you a vertical line
+
+and what you
+
+so i will go ahead with auto detect
+
+because that's easy
+
+and over here i now need to provide the
+
+columns
+
+so the first easy separation is
+
+this i will
+
+click on where i need to break the
+
+column
+
+and again from here so we have
+
+three columns that's unique
+
+so we have now we can provide
+
+we can assign each column to the field
+
+that we
+
+we are looking at so the first column is
+
+second one is the current year this is
+
+the previous year
+
+now we need to provide the rows
+
+so based on my mouse movement it will
+
+identify
+
+so all you need to do is you need to
+
+just like you specify the columns you
+
+need to specify from where each row is
+
+getting separated
+
+so i will select the first row from here
+
+the second and like this i need to
+
+specify each column
+
+sorry each row so what we are basically
+
+doing is we are building
+
+the template for this table
+
+this usually takes some time but
+
+when it comes to data extraction it's
+
+quite easy
+
+so i'll do the same thing for the rest
+
+of the rows
+
+so over here we have rows that
+
+span across multiple lines so for this
+
+cell i will include that entire row
+
+and do the same thing for what we see
+
+over here
+
+so that it will it should extract this
+
+entire
+
+string in one row
+
+and
+
+so we are at the very end and this is
+
+my last row
+
+okay so i can also specify whether i
+
+need to extract the header or not
+
+so i will mark it as a little extra
+
+but remember
+
+um i won't be extracting
+
+even though you mark the extract header
+
+that doesn't mean that you
+
+extract 20 20 and 2019
+
+so since you have marked the table so
+
+we'll just
+
+click on save and close
+
+oh sorry so before click on save and
+
+close you need to
+
+select save new table
+
+now you get the list of
+
+rows along with the custom selection
+
+so if you actually select
+
+one row over here this custom selection
+
+it highlights which field that is
+
+looking at
+
+and this is looking at this field and
+
+this is this
+
+and likewise but can we see
+
+any row that actually extracts
+
+2019 and 2020
+
+no so this is the first row that we have
+
+so even though we mark as extract header
+
+means we will get this column
+
+and but to get this 20 20 and 2019
+
+we need to do something additional
+
+because
+
+the reason here is in a usual table
+
+usually on the top we have the column
+
+names and we indicate the table along
+
+with that
+
+so by default it identifies
+
+the first row as the column
+
+names so because
+
+in our case we don't have any column
+
+names over here
+
+we have to indicate that in the first
+
+row we have some
+
+stuff that we need to extract so
+
+what we need to do is
+
+we need to create a row
+
+and specify that this is the
+
+row that we need to extract and that has
+
+to be
+
+above this selection
+
+so all we need to do is
+
+uh click on these three dots
+
+and select insert row above
+
+and you will get a new row saying not
+
+extracted
+
+so these columns or these rows we had
+
+we extracted from the table of creation
+
+but this along with the table creation
+
+we also need to specify from where you
+
+need to extract that
+
+so we are not going to create any new
+
+tables but
+
+we are going to indicate in that region
+
+of the table
+
+from where we need to extract it
+
+so all i need to do is uh
+
+select this and detect the region
+
+so basically the first one is this
+
+particular area
+
+in the table so i will select
+
+that region and
+
+click on this three dots add extracted
+
+one
+
+so that's our new custom selection and
+
+do the same for current here and
+
+previously
+
+for current here i will indicate this
+
+region and i'm not taking the token
+
+i will specify the area
+
+and extract value
+
+and we'll do the same for previously
+
+first extra
+
+value okay so
+
+what this check box over here it says
+
+control that extracted row is true so we
+
+have reviewed
+
+it and i've already confirmed that
+
+so i'll remove this
+
+and we know that we have these values
+
+and we'll select seven close enough
+
+and this is our table and you can see
+
+within that table i have marked the
+
+custom row that we
+
+included and this is
+
+going to be our selection for this
+
+document
+
+so let's save it
+
+and that's our template so we'll see
+
+how this data is being extracted
+
+through the validation station that we
+
+have
+
+over here so before doing the extraction
+
+so we created the template now we need
+
+to configure the data extraction score
+
+saying the extractor to
+
+extract fields from form 10k
+
+so i need the company name and i need
+
+this table
+
+so i will go to form extract and
+
+select this so that it will select all
+
+the
+
+fields available in content and
+
+click on save okay
+
+so i will remove this form
+
+for temporary from here
+
+because we first need to focus on form
+
+then okay so i will
+
+uh take this out place it somewhere over
+
+here
+
+so that in the samples folder we have
+
+only four temperature
+
+and now i will run this
+
+and let's see how our output looks like
+
+and it's asking for the final part so i
+
+will provide
+
+the
+
+sound transformer
+
+okay so we have the validation station
+
+open in my other screen
+
+so it has identified it as form 10k
+
+based on the
+
+things that we've provided and
+
+as you see it has identified the company
+
+name properly from the region we
+
+gave and here comes the balance sheet
+
+select that and
+
+as you see the first row
+
+is what we added after creating the
+
+table
+
+and as you can see the headers
+
+uh saying that this is the current year
+
+and the previous year
+
+but based on our new row
+
+we have extracted that current year is
+
+2020 and the previous year is 2019
+
+and starting from this row we have
+
+the fields that we got extracted from
+
+the
+
+template of the table so we have
+
+everything extracted
+
+so if we scroll down you can see how our
+
+rows that has manual or multiple
+
+rows and those things have extracted
+
+perfectly
+
+in one particular row as you see here
+
+and this is the row that have lot of
+
+lines
+
+so it's successful so that's how you
+
+create
+
+the template for a table and that's how
+
+you
+
+custom add your columns
+
+or the things that you need to extract
+
+inside
+
+table template
+
+and select save and close
+
+so that the execution will successfully
+
+end
+
+so we process one document the next
+
+document
+
+is the form 4 where we need to extract
+
+few
+
+things so let's get back to form
+
+extracted manage templates
+
+and now i will put in
+
+my form 4 inside
+
+so that in the next round we can process
+
+both
+
+and i'm going to create a new template
+
+just like audio
+
+this time it's from 4
+
+4 and for the document i'll be selecting
+
+4 not changing anything over here
+
+and just click on configure so i'm just
+
+following the same steps
+
+and you get the same screen with
+
+the fields related to form four
+
+so in this document we have only two
+
+pages
+
+and just like i mentioned earlier
+
+it's asking page one matching equal and
+
+page two
+
+we don't see any other matching info
+
+fields because this document has only
+
+two pages
+
+and in the second page we are not
+
+interested about any of this
+
+and in the first page we are only
+
+focused on
+
+the name the address issuer name
+
+and these two decks
+
+so let's see how we can do that
+
+so first of all we need to provide the
+
+matching
+
+info so i'll select while
+
+pressing my control button so i need to
+
+highlight
+
+five minimum fibers so i highlighted
+
+this section
+
+and clicking on class
+
+now for reporting person name
+
+i need to select this section so i'm not
+
+interested
+
+in extracting name and address of
+
+reporting person so i only need the
+
+name of that guy
+
+so i will highlight only that portion
+
+from this so again as i explained
+
+earlier the name can have multiple
+
+words so i need to highlight the
+
+entire region not tokens
+
+so custom area and
+
+i'll add it to person name
+
+and this is the region and
+
+coming to address so here you can see
+
+the address part of the address is on
+
+the
+
+top line and this section
+
+refers to the street and the line below
+
+refers to the city state
+
+and the zip code so if we highlight
+
+this entire region
+
+you can see that street is also getting
+
+captured
+
+so when we run this in the extracted
+
+result
+
+you will also see the street as the word
+
+so we don't need the street and we don't
+
+need to perform any string manipulations
+
+to
+
+remove the string word from the address
+
+because the address might itself have
+
+the word straight
+
+so we have to extract these two sections
+
+separately so how to do that
+
+is so i'll select on person interest
+
+and first i will highlight only this
+
+section
+
+so i will highlight the first line
+
+and provide the custom area
+
+and add it to person address
+
+now you can see another simple class
+
+mark
+
+and when you hover your mouse over it
+
+it says select a value from the document
+
+to extract
+
+an additional value
+
+so we can highlight this
+
+part of the address and add it as an
+
+additional value
+
+to this same uh
+
+column that we are for the same field
+
+that we need so i'm just going to
+
+highlight that section of the address
+
+and select custom area
+
+and click on this plus
+
+so now you can see there are two fields
+
+for person address and once you select
+
+this
+
+it highlights the first part and once
+
+you select
+
+the second one it highlights the second
+
+part
+
+so now you might wonder whether we will
+
+get
+
+two addresses for this
+
+no the extractor is intelligent enough
+
+to get the values from these two areas
+
+and combine it into one address so we'll
+
+see how it looks like
+
+when we run this
+
+so likewise if you have any other fields
+
+what you need to do is
+
+just combine those and it will get the
+
+value
+
+for you so the issuer name is what we
+
+see over here
+
+and i will highlight that region
+
+error plus
+
+and date of earliest transaction is this
+
+section
+
+and so amendment date
+
+we don't have a value there but in some
+
+documents we might
+
+so even though we don't have a value we
+
+know that
+
+it's going to be here if there is any
+
+and because of that i will highlight
+
+that region
+
+and add it to amendment date
+
+so the relationship and insecurities
+
+that i'm not worried
+
+for this part of the
+
+video so that's for regex
+
+because in the records we will see
+
+how we can extract whether is a director
+
+officer or something else based on where
+
+this x is placed
+
+and in that same request
+
+we'll see how to use regex to extract
+
+data from a table
+
+so that's for the for another episode
+
+so in this section these are the pages
+
+that we are looking at and now
+
+click on save save and continue
+
+and now we have two templates so click
+
+on
+
+close get to therapy extractors
+
+go to four and in here
+
+i will specify what fields i am going to
+
+extract
+
+through the form instructor so i need
+
+the
+
+person name address issuer name
+
+date and the amendment the rest
+
+will look at later
+
+and i'll click on save so we have done
+
+the extraction
+
+and now save it and we'll see
+
+how our two documents looks like so we
+
+already
+
+looked at one but let's take a look at
+
+it again
+
+okay so we have this
+
+and i have the samples
+
+okay so this is the first validation
+
+that we did
+
+from the form extractor so we have
+
+already done this
+
+so i'll just skip that for now
+
+and this is our
+
+new document the form 4
+
+so as you see it has identified it as
+
+from 4
+
+and in the reporting person name you can
+
+see it has
+
+extracted the name the name
+
+perfectly and let's
+
+take a look at our special case the
+
+address
+
+as you see this is the address
+
+and once you click on this expand thing
+
+it will separate the address into
+
+address line
+
+one two three city
+
+state country and zip code
+
+so we have some additional information
+
+here in the extracted
+
+values so based on the address it has
+
+automatically identified that ca is the
+
+state
+
+california and it's in united states
+
+and the zip code is 94402
+
+based on the value available in the
+
+document
+
+so as i see it's intelligent enough to
+
+do some little conversions to
+
+get the perfect output even much better
+
+than what you see in the document
+
+and for the issuer name we have the
+
+value
+
+and the date you can see the day
+
+month and here separately
+
+and the mn1 dead since it's not there it
+
+has not extracted
+
+and the rest we didn't configure
+
+so that's how you can create
+
+a template to extract
+
+data from different documents so this
+
+form extractor cannot be used
+
+to on documents that change
+
+time to time so let's assume that
+
+this document has multiple rows
+
+so for example if we take this table
+
+if this table is going to have 10 rows
+
+and sometimes
+
+5 rows and sometimes 100 of rows
+
+the form extractor will not work there
+
+because
+
+we will not know how many rows will be
+
+there
+
+and we cannot build a template on top of
+
+that
+
+but if the document is structured
+
+and it's not the layout is not going to
+
+change
+
+we can easily use the form extractor to
+
+specify
+
+this is where you need to look at to
+
+extract this field and this is where you
+
+need to look at to extract
+
+this field and likewise
+
+so you might also have a concern if
+
+you get the same document as a native
+
+pdf
+
+and if you get the same document as a
+
+scanned copy
+
+will that effect so basically
+
+all the keywords will be same but you
+
+are getting the same document
+
+in two different formats one is the
+
+digital version and one is the
+
+scanned version so
+
+in that case if you actually take this
+
+hand version it will slightly differ
+
+from the digital or the native pdf
+
+because once you scan it might not be
+
+fully straight
+
+and the depending on the way you scan
+
+the exact position might not be the same
+
+so it's always preferred for the best
+
+accuracy
+
+use the same document in the same format
+
+when you are using the
+
+form extractor because it will look into
+
+precise location to extract the value
+
+that you are looking for
+
+so in that case always try to use the
+
+same format
+
+to get whatever the value that you need
+
+and if
+
+you are using scanned copies
+
+try to find the best possible approach
+
+to deal with that and try to
+
+find the best possible region
+
+to extract each and every value
+
+based on the different version of the
+
+copies that you get
+
+so that so in the first time you might
+
+not
+
+get the proper exact
+
+value that you're looking at so you
+
+might need to tweak the
+
+template a little bit to fit in and get
+
+the best output
+
+so you can easily do that so let's
+
+close it and if you want to edit the
+
+template all you need to do is
+
+click on this edit and it will open
+
+the already configured template and you
+
+just need to
+
+resize or re
+
+specify the region for that field
+
+so let's assume that you need to realign
+
+this field
+
+so select
+
+that field and just
+
+respecify the region something like that
+
+and get here change extracted
+
+once you do that your new region will be
+
+the latest so likewise you can keep on
+
+configuring it until you get
+
+the best possible output
+
+so that's about the form extractor
+
+and that's how we can configure
+
+the form extractor to create templates
+
+to extract values from different
+
+locations and
+
+merge it into one field
+
+and you can easily do that
+
+for any type of the document that does
+
+not
+
+change the layout
+
+so that
+
+comes when so along with that we come to
+
+an end in this video
+
+about the form extractor and in the
+
+second the next video we will take a
+
+look
+
+at how we can use the rockets extractor
+
+to extract data from this document
+
+what you see over here and see
+
+how we can get the values based on
+
+we are a certain character is placed in
+
+the document
+
+and we can we will also see how
+
+easily or how we can extract
+
+values in a table
+
+even though the rows are dying
+
+so thank you very much for listening i
+
+hope
+
+this was uh helpful for you to
+
+understand the form extractor and its
+
+capabilities
+
+thank you very much and i'll see you in
+
+another video
+

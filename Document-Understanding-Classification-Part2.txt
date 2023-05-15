@@ -1,0 +1,3838 @@
+hello welcome to the part two
+
+of the document understanding series
+
+so in this section we'll be focusing on
+
+document classification
+
+so if you are new to this
+
+document understanding section
+
+i do recommend you to go through the
+
+document understanding
+
+training that we have in the ufo academy
+
+and also please go through the part one
+
+of this series
+
+for you to get an understanding about
+
+the scenario that we are going through
+
+once you have covered that uh let's
+
+continue with the part two of this video
+
+so in this part two
+
+we'll be focusing on the classifying
+
+document section so in part one
+
+we talked about
+
+extracted extraction of data we talked
+
+about the
+
+document types we have
+
+when we have multiple document types in
+
+one
+
+file how we should process them
+
+and we talked about everything in very
+
+high level
+
+so in this section we'll be
+
+focusing purely on classification
+
+so if you remember our scenario
+
+once we identify the document
+
+that we need to process we need to
+
+understand what sort of a document it is
+
+to for example if if we look at a video
+
+we should know whether it's
+
+invoice whether it's a purchase order
+
+whether it's any of these documents and
+
+so on
+
+because the classification is very
+
+important
+
+to know what sort of data that we need
+
+to extract
+
+without knowing the classification we
+
+would not know
+
+whether the data that we are looking for
+
+is even available
+
+in that document itself
+
+so we will look at how to identify the
+
+classic the category of the document
+
+and how we should decide
+
+whether we need manual intervention
+
+to confirm the classification that the
+
+robot selects
+
+once the classification is selected
+
+the robot should
+
+copy the files into multiple folders
+
+so for example in our previous scenario
+
+we had the input files in the input file
+
+folder
+
+and once the classification is
+
+identified
+
+we should move the documents into
+
+process documents folder and
+
+based on the document types and the
+
+group and category the rubber should
+
+create
+
+these folders and copy the file
+
+into that folder
+
+so we'll see how we can do that
+
+and if we have multiple
+
+types of documents inside one file
+
+we'll see how to split them
+
+so these are the actions that we are
+
+going to perform
+
+in this section we'll be using
+
+intelligent keyword classifier
+
+and we'll be deciding how to decide with
+
+the minimum
+
+classification the classification is
+
+handled
+
+through create classification action in
+
+action center
+
+we'll see how to use that
+
+also if the document has
+
+uh multiple document types such as
+
+invoices
+
+purchase orders and so on we'll see how
+
+to
+
+parallel process each classifier we
+
+identify
+
+because waiting for one classification
+
+to
+
+kind of get come from is not the best
+
+reference
+
+and finally to perform these additional
+
+tasks such as
+
+moving the files into different folders
+
+splitting
+
+documents it's handled by a separate
+
+process
+
+and we'll see how to build that process
+
+and how to invoke them
+
+thoroughly in our orchestration process
+
+so let's get back to the studio
+
+so this is our orchestration process
+
+that we built
+
+last time we worked up
+
+until the digitized document section
+
+and we created the taxonomy
+
+we got the api key
+
+and next is the
+
+classified document scope to start with
+
+the classification
+
+so after this point we are inside a loop
+
+just to recall what we did
+
+we are inside a parallel for each loop
+
+and
+
+this will process each document
+
+thoroughly
+
+so whatever the variables you create
+
+should be
+
+inside this sequence because
+
+the data those variables hold is
+
+unique to each and every document so
+
+the scope of the variables is very
+
+important otherwise it will run into
+
+different errors
+
+so getting back to our classification
+
+to start off we should start with the
+
+classified document scope
+
+so this is coming in as a part of the
+
+intelligent ocr activities
+
+so when you search for classify you get
+
+a lot of activities
+
+so we are using the classified of your
+
+scope
+
+so drag it over here
+
+and it asks for different inputs
+
+we ask for the document path document
+
+text
+
+and document object model and the
+
+taxonomy
+
+so we already have this information
+
+based on what we did in our previous
+
+video
+
+document path is the file path
+
+to locate the document so basically
+
+if our document is inside input folder
+
+and if you are processing this document
+
+it's the file path for this
+
+document so how should we get it
+
+we have it in our loop in parallel for
+
+each
+
+this doc item holds the file path
+
+for each and every document that we are
+
+pressing
+
+so in here just like you
+
+configure the digitized document data
+
+activity
+
+you can provide the dock item variable
+
+to the document part
+
+so the document text and document object
+
+model
+
+is coming from digitized document data
+
+as its output as i see here
+
+so we can include those two variables
+
+in classified optimized code the dot
+
+text
+
+will have the once you digitize the
+
+document it will
+
+the dot text will have the
+
+document as a big string
+
+and the document object model will have
+
+the entire document as
+
+the different format
+
+i will show you what sort of format that
+
+is
+
+later when we get to that point so it's
+
+like a
+
+different representation of the same
+
+document
+
+taxonomy we already created that
+
+and we have output as
+
+classification results
+
+so all you need to do is you can get
+
+here
+
+press ctrl key and create a new variable
+
+auto classification result
+
+and again the scope of that variable has
+
+to be inside this sequence
+
+process15 so this
+
+output classification result
+
+is an array it's an array of
+
+classification research because
+
+each document might have
+
+different types of documents inside
+
+for example first page can have invoice
+
+the second page can
+
+have a purchase order or you would need
+
+a bill
+
+and so on so it will give us
+
+multiple classification results that's
+
+why it's inside an
+
+area so once you have configured
+
+this section next is the intelligent
+
+keyword classifier
+
+so we have different classifiers as you
+
+see here on your
+
+left hand side panel we have the keyword
+
+based classifier
+
+and we have the intelligent keyword
+
+classifier
+
+the difference between the two is if you
+
+have covered the basics in keyword based
+
+classifier we have to provide the
+
+keywords
+
+for each document type
+
+for it to identify but in intelligent
+
+keyword classifier
+
+we don't need to provide the keywords
+
+ourselves
+
+we can train the classifier so that it
+
+will
+
+identify the keywords by its own
+
+so let's use the intelligent keyword
+
+classifier
+
+for this section to drag it over here
+
+and once you drag it you will
+
+it will look something like this
+
+you have several
+
+you have several things to configure
+
+learning file path
+
+and the api key
+
+learning file path is where
+
+that intelligent keyword classifier
+
+the json file is located so if you see
+
+here
+
+it's looking for a json file
+
+so this json file is not automatically
+
+created
+
+we have to create it
+
+so where we can do that is we can
+
+get to our acceleration folder
+
+go to document processing you will see
+
+the
+
+taxonomy json over here create a new
+
+folder
+
+we can say doc classifier
+
+inside that you can
+
+create another json file
+
+as intelligent.classifier
+
+don't worry about this json file for now
+
+just create a new json file so you will
+
+have only one json file over here
+
+and if you are thinking about how to
+
+create a json file if you have notepad
+
+plus plus it will be much easier because
+
+you can create a new file
+
+go to language and
+
+json and you can save it in that
+
+folder that's json file this should be
+
+empty
+
+and i will show you how a json file will
+
+look like
+
+once it has the data
+
+so this is the file that i already have
+
+it has all the trend information
+
+which will contain the document length
+
+the case count of each document
+
+what type of document it is
+
+and the score of identifying that
+
+has accurate type
+
+so and it kind of says
+
+it has the last updated date
+
+basically it has a lot of information
+
+you can go through that
+
+in the file that i share with you
+
+okay
+
+so create your empty json file
+
+and for learning file path
+
+provide the path to that empty json file
+
+that you created
+
+just like this
+
+for the end point by default you will
+
+get
+
+intelligent keywords have
+
+as your endpoint
+
+but if you are using the enterprise
+
+version
+
+because you might need to use the
+
+enterprise version
+
+because we are using ai fabric and all
+
+that
+
+um so if you are using the community
+
+edition by
+
+chance you can use this endpoint
+
+but if you are using the enterprise
+
+um you can
+
+change that urls to
+
+this one so this is what you had earlier
+
+you just need to pass the edition as
+
+enterprise
+
+so provide that and next one
+
+is the api key so i removed my
+
+additional intelligent viewer password
+
+that i included because i wanted to show
+
+you how
+
+it will look like as soon as you drag it
+
+into this
+
+and for api key
+
+you got the api through this
+
+get credential activity
+
+into document understanding api key
+
+and this variable is of secure string
+
+and the
+
+issue you have here is it is expecting
+
+the api
+
+key in a string format
+
+as you see here so we have to convert
+
+the api key into string
+
+how we are to do that you can use this
+
+command so it will
+
+go to system net network credential
+
+and convert the document understanding
+
+api key
+
+into a string
+
+so this will convert that into a string
+
+format that this activity is expecting
+
+so once configured
+
+next what you need to do is you need to
+
+train the intelligent keyword classifier
+
+so let me
+
+show that to you again
+
+so i will create a empty json file
+
+for now for
+
+it to show you that
+
+then i will save it somewhere
+
+i will save it here just to show you how
+
+to do this
+
+and this can be of type
+
+json
+
+yes
+
+okay
+
+okay it saved this fight okay now let me
+
+clear this
+
+and we have an empty json file
+
+so that it's in downloads
+
+that's why and this is our file
+
+so getting back to this one i'll provide
+
+the file paths
+
+to
+
+and once you click on manage learning
+
+you will see the screen
+
+so that's something similar to this
+
+you will see all the types of documents
+
+you have
+
+created in your taxonomy
+
+and it will say no training data is
+
+available
+
+so what you can do is if you can expand
+
+this
+
+it will save vector zero words and start
+
+training
+
+so what you can do is you can click on
+
+start training
+
+and you will get a screen like this
+
+so if you have multiple documents so in
+
+the
+
+if you download the documents i provided
+
+in my previous video
+
+you will find several invoices and
+
+several account creation forms
+
+and if you get to invoices
+
+you can start training
+
+and in this screen you can provide all
+
+the invoices at the same time
+
+so going to invoices
+
+go to this input folder selecting all
+
+the invoices we have
+
+and click
+
+then open can select what type of ocr
+
+engine you are using depending on what
+
+you have used
+
+so in my case it's on the page
+
+and you can click on start training
+
+so it will show you digitizing and
+
+training
+
+of invoices
+
+it will take some time and now you can
+
+see all the way
+
+all the words it has identified
+
+for this type
+
+of documents and it says it is trained
+
+on three five so
+
+each and every time you run this
+
+solution
+
+it will automatically train itself
+
+and it will this number will keep on
+
+increasing
+
+so likewise you can do this for all the
+
+types
+
+of documents and it will have your
+
+keywords generated and click on save
+
+once you do that and once you
+
+get to the json file and look at it
+
+you will see the data that i showed you
+
+earlier
+
+okay so in my case
+
+so in my case uh i will remove this
+
+because i already have this configured
+
+and this is my json file and
+
+i have the api key as well and if i go
+
+to manage learning
+
+my files are already trend so for
+
+invoices it's trained
+
+by 173 files
+
+and the others are also like similar
+
+so once you do your training it will
+
+look something like this
+
+so that's how you trade the intelligent
+
+keyword classifier
+
+now we should specify
+
+what document type has to be processed
+
+through intelligent keyword classifier
+
+by clicking on configure classifiers
+
+and by default in your screen you won't
+
+have this
+
+tick visible so
+
+click on each tick
+
+or the checkbox we have to indicate
+
+that we will be using intelligent
+
+keyword classifier
+
+to process these document types
+
+so i'm using that to process all the
+
+documents types that i have
+
+so and so
+
+now check that for all types and click
+
+on save
+
+we can also use the minimum confidence
+
+level if you are using multiple
+
+classifiers
+
+and what that means is it if it's
+
+if the confidence level is less than
+
+that it will use the other classifier
+
+okay once you have done that we have
+
+covered the
+
+first part classified upon scope
+
+okay since we have completed that part
+
+now we'll be
+
+looking at how we can use the output
+
+of auto classification result that's
+
+coming in from the classified open scope
+
+to identify whether we need to do
+
+the classification manually
+
+so the next action we need to perform
+
+is now as you know
+
+the auto classification result is a
+
+array of type
+
+classification result so we need to
+
+look through these arrays to identify
+
+whether there are any
+
+classifications that
+
+fall below a specific threshold or a
+
+specific confidence level
+
+where we can identify that as a
+
+classification that needs to be verified
+
+by someone so
+
+what we are going to do is we'll be
+
+using
+
+a simple for each
+
+activity so it's not a parallel for each
+
+it's
+
+just the for each activity you see here
+
+and i'm using the autoclassification
+
+result which i got
+
+from the classified document scope as
+
+the output
+
+and this for each you have to change
+
+the type argument to
+
+classification result
+
+how you can find this is go to browse
+
+and type classification result and you
+
+will
+
+get it over here
+
+so change it to that type
+
+[Music]
+
+and
+
+and you will get that for each
+
+created for you next thing is
+
+rename the for each so by default you
+
+will have item over here
+
+to rename it to something meaningful so
+
+what i have
+
+here is
+
+its file auto classification result
+
+as you see here
+
+because it's for that particular file
+
+so inside that will be
+
+doping it for each classification we
+
+have in this autoclassification
+
+circular work and for each
+
+classification
+
+file automatic iteration which is coming
+
+from
+
+this we can look for the confidence
+
+so we can find the confidence level over
+
+here
+
+and for i'm checking i'm using the if
+
+condition
+
+to check whether the classification
+
+confidence
+
+is less than 0.7
+
+so why i am doing that is to identify
+
+whether
+
+how good is the automatic automatic
+
+classification
+
+is in identifying the type of the
+
+document
+
+so what i'm trying to do is if the
+
+confidence level
+
+is less than 0.7
+
+i will mark it as a classification
+
+that require manual verification
+
+so now you remember that we created a
+
+variable
+
+require manual classification
+
+at the very top over here
+
+in this multiple design so at this point
+
+it was set to false
+
+now based on this condition
+
+if the confidence is less than 0.7
+
+i'm going to change it as true
+
+so which means when this is true
+
+that document has to be verified or
+
+classified
+
+manually if
+
+it is greater than 0.7 then i'm
+
+satisfied with the result and i would
+
+take it as the accurate
+
+classification
+
+so so this is that section and
+
+once we execute this part we would know
+
+whether that classification requires
+
+no verification or not so in if there is
+
+a document that
+
+has multiple types of uh
+
+documents basically if the first page is
+
+invoiced and the second page is a
+
+purchase order
+
+just like our combined file
+
+what we saw here the first page is
+
+invoice and the second page is a
+
+purchase order in that case
+
+that loop will check the first
+
+classification of this
+
+invoice and check whether it's
+
+identified as
+
+whether it's confidence level is greater
+
+than 0.7
+
+and it will also check this
+
+and see whether the confidence
+
+level is above what we have mentioned
+
+if not if either one goes below 0.7
+
+it will mark it as requirement
+
+classification
+
+so again remember this scope of these
+
+variables are
+
+in process one file
+
+sequence okay so now we have
+
+configure this part and once we
+
+obtain that result then what we are
+
+going to do is if
+
+this variable requirement classification
+
+is true
+
+then we need to perform several actions
+
+to get the manual classification
+
+done so i'm using another if condition
+
+right below this for each with the
+
+variable require manual classification
+
+because there is a boolean variable i'm
+
+not going to say equal true or equal
+
+false or anything by default it should
+
+take it
+
+so if this variable has a true
+
+value it should go into the thin section
+
+of this condition if not it would
+
+consider
+
+it as we can automatically classify that
+
+okay so to handle the manual
+
+classification
+
+we are using the action center
+
+so we need to to get it classified
+
+by the user we need to create a action
+
+or a task
+
+in action center and that's where
+
+we are going to use the
+
+create document classification action so
+
+if you search for it
+
+you can either search as create or you
+
+can search as
+
+classification and you will get those
+
+two activities
+
+under intelligent ocr actions
+
+the activities create document
+
+classification action
+
+so you can put it here drag it over
+
+this section
+
+so for action title you can provide any
+
+name
+
+what i have specified here is i'm saying
+
+verify classification for
+
+the file and i'm giving
+
+the file name so for example if i'm to
+
+show you how that looks like if i go to
+
+actions
+
+it will look something similar to this
+
+you see here this is the title
+
+verify classification for and the file
+
+so that's what doing
+
+over here so how y'all
+
+how you are to get the file name
+
+is by this command
+
+you can say path dot
+
+get file name and remember file path is
+
+in dock item which is our outer loop
+
+the parallel for each and dot two
+
+strings this will give you the file
+
+with the extension so that's the action
+
+title
+
+and the action priority can be anything
+
+as you prefer i have it as medium
+
+and the action catalog is class
+
+verification you can provide any name as
+
+you wish
+
+um so if we open one
+
+basically your classification screen
+
+will look something like this
+
+once it's created so this is your action
+
+let's see how we are to create that so
+
+let's get back
+
+over here so the action catalog is
+
+marked as class verification you can
+
+have any name over here you need to
+
+place the action folder part
+
+bucket name so this is what's
+
+important over here the bucket name
+
+is we have to use the orchestrator
+
+storage
+
+location to store the data we are going
+
+to pass
+
+in through these properties over here on
+
+your right hand side
+
+the document text document object model
+
+taxonomy and the automatic
+
+classification result
+
+why we need to store this in
+
+orchestrator is because
+
+this action that you create in the
+
+orchestrator
+
+might be verified sometime later maybe
+
+hours later or days later
+
+depending on the user's availability so
+
+until then as soon as the user clicks on
+
+it
+
+clicks on the action for the user to see
+
+the details
+
+see the document and the classification
+
+the confidence level
+
+that data has to be stored inside the
+
+orchestrator
+
+that's why we need to have a storage
+
+button
+
+so how to create a storage bucket
+
+is once you go into
+
+your orchestrator there is option called
+
+storage buckets so
+
+the additional property you see in the
+
+activity
+
+is you have the storage name and the
+
+bucket directory part
+
+which means where the storage bucket
+
+that you create is located inside the
+
+orchestrator
+
+because we have different folders we
+
+have tenant level
+
+the default and we have different other
+
+areas that we can
+
+store so just like the assets
+
+in the case get asset activity we
+
+provided the
+
+folder path similarly you need to
+
+provide that path
+
+in here as well for your blocker
+
+so how we should create it so in my case
+
+it's located in document understanding
+
+folder
+
+so we get there and on the top here you
+
+can find the storage buckets
+
+so go there and you can create a storage
+
+pocket so click on this plus sign
+
+and there are different options that you
+
+can use show storage
+
+amazon and orchestrator
+
+so let's check it the easy way so i'm
+
+using the orchestrator
+
+storage blocker so you just provide the
+
+bucket name and a description
+
+and click on add so this will create
+
+your bucket as you see over here
+
+so this is my bucket that i have created
+
+and once you have done that
+
+copy that name
+
+and paste it over here and also provide
+
+the folder path
+
+if it's inside a specific folder provide
+
+that
+
+and give the document path
+
+and it's okay in the doc item that's
+
+coming from
+
+the main parallel for each
+
+document text is the variable we created
+
+when we are creating the digitized
+
+document activity
+
+and the document object model docker
+
+taxonomy
+
+and the auto classification result we
+
+got
+
+from this uh as we classified after
+
+so once you configure that part
+
+you get a output as the action output
+
+which is this one so again you need to
+
+create this variable
+
+you can keep your cursor here press ctrl
+
+key and provide the variable name and
+
+again remember classification action
+
+object the variable you create
+
+this variable is inside
+
+this sequence because it is not required
+
+in the process one file
+
+because this is a wider sequence that
+
+handles many things but this
+
+action object is limited
+
+to this section
+
+so we can have the scope inside this
+
+because once we get out of this uh
+
+if condition we don't need this variable
+
+anywhere
+
+we actually need this variable only
+
+to wait and receive
+
+so wait for the user to reply
+
+or complete the action and receive once
+
+you receive it
+
+it identifies the action through this
+
+object
+
+and once you have identified that we
+
+don't need it anymore
+
+so you can have that inside this
+
+sequence
+
+okay then you have created your action
+
+and now what you need to do is you need
+
+to wait
+
+until the user completes it
+
+so how to perform the wait
+
+for that again going back to basics
+
+if you remember the classification
+
+station or the validation station if you
+
+close it
+
+or if you if uh
+
+there's a another option to report the
+
+document as
+
+exception in either way if you close it
+
+or report it
+
+it will throw an error so
+
+that's why it's not an error basically
+
+it's the error that's
+
+usually specified that it is an
+
+exceptional document
+
+so that's why we need to handle that
+
+using a try catch
+
+so the first thing after this create
+
+document specification action
+
+is to use a try catch inside this same
+
+sequence right below the create
+
+so place your try catch and use the
+
+weight for document classification
+
+which is this activity
+
+and place it over here inside the tripod
+
+and you are going to use the action
+
+object
+
+which you got from the create activity
+
+you place it over here because that
+
+through that only it's going to identify
+
+which action you completed put it there
+
+and you can also provide the download
+
+directory path
+
+if we are allowing the wait
+
+activity to download any files
+
+see the description it says the local
+
+directory to be used
+
+for downloading the document associated
+
+with this action
+
+so you can download the document itself
+
+so i'll show you how this uh data is
+
+stored in that bucket after
+
+we discuss about this weight activity
+
+so provide that folder path and you can
+
+also
+
+enable uh keep this unchecked
+
+depending on your requirement so what it
+
+says is
+
+remove data from storage which means
+
+once the classification
+
+action is completed by the user when you
+
+are resuming
+
+you can clear the data that gets stored
+
+in the storage bucket if you
+
+think that it is not required anywhere
+
+so in my case i'm not using that so the
+
+data will be stored there permanently
+
+until i did it so
+
+do that and get him back
+
+to the right hand side of this action
+
+here you get the validated
+
+classification results
+
+so in the first create
+
+action we passed the auto classified
+
+result that we got
+
+from the classification score and we are
+
+getting the validated result
+
+that's validated by the user
+
+and here in the document path
+
+we are not going to specify the doc item
+
+variable
+
+so remember up until now we used
+
+the dog item that's coming from the
+
+parallel for each
+
+but this is the tricky point
+
+so this is in this is
+
+part of the parallel for each which
+
+means
+
+you cannot override this variable
+
+and sometimes when you go into the
+
+suspended mode
+
+so just think of this
+
+as separate threads that's running
+
+so you have two documents you have one
+
+thread
+
+that handles the same set of activities
+
+and you have another set
+
+that handles the same set of activities
+
+but it goes to suspended state because
+
+we need to
+
+get the classification from the user and
+
+once it resumes
+
+it will not have access to this dock
+
+item because
+
+it's going to change over time and it is
+
+it is thoroughly accessed
+
+so that's why you cannot use it
+
+from this point onwards
+
+when you are resuming so we need to have
+
+a separate variable
+
+that falls inside this process one
+
+file scope which is
+
+the scope of this sequence
+
+so we are we are going to use a
+
+new file sorry new variable
+
+we create it and
+
+classify document path is a new variable
+
+and you can see it
+
+over here as a stream in the process 1-5
+
+and
+
+now you might ask if we are not going to
+
+go for manual verification
+
+for the classification can we use the
+
+dock item
+
+yes you can but to keep your workflow
+
+simple
+
+if you are not going to manual
+
+verification
+
+which means it's going to the else
+
+section of this
+
+if activity so in the else part
+
+you can assign the dot item to
+
+classified document
+
+part so that from here onwards
+
+it's the document part will be referred
+
+from one variable so that you don't need
+
+to
+
+look for the item variable or the
+
+classified oculus scope based on whether
+
+we did the manual verification or not so
+
+just keep it simple so assign
+
+the document path to this variable on
+
+both sides
+
+as you see on the screen number and
+
+you get the output as so if you check
+
+the properties
+
+this rate and resume activity gives you
+
+several outputs
+
+the document path is one the document
+
+text
+
+that's only object model and the
+
+automatic classification results all
+
+that
+
+what you passed in will be returned back
+
+to you
+
+so these things you can assign it to the
+
+same variable
+
+dot text object model and taxonomy why
+
+is because it's these variables are
+
+created in this
+
+sequence process one file
+
+as you see here the document object
+
+model
+
+auto classification result so
+
+assigning reassigning that and
+
+overwriting with the validated result
+
+will not do any harm to your other
+
+uh documents that's processed parallely
+
+because this document
+
+these variables will have the data
+
+of this particular document and it's
+
+trying to override it
+
+because of we are maintaining we are
+
+maintaining the scope properly
+
+the only issue comes with the document
+
+file path because
+
+the item is a part of that for each
+
+loop so that's why we are going to
+
+assign two different variables
+
+so if you are maintaining your scores
+
+properly
+
+you can reassign the data that you get
+
+after validation
+
+into the same variables so you get the
+
+auto classification result as well
+
+and on your right hand side
+
+in the else part if
+
+you don't need the classification to
+
+perform manually
+
+we assigned the document item to
+
+document classified default path
+
+which is inside this code
+
+and we need to do another thing
+
+so over here once it is verified by the
+
+user we assign
+
+the validated results into a validated
+
+classification result variable
+
+and this variable is also
+
+of scope process one file and it's an
+
+error just like the auto classification
+
+result
+
+so if it's automatically classified
+
+we should use the same approach and on
+
+the else part
+
+we are going to assign the auto
+
+classification result to validated
+
+classification result
+
+because we can keep it unique and we can
+
+keep it simple
+
+so after beyond this point we will be
+
+accessing the classification data
+
+through the validated classifications
+
+because we assume that even though it's
+
+automatically classified or if it's
+
+manually classified
+
+we take it as the final and the
+
+validated recipe
+
+that can be accessed by a different
+
+variable
+
+so that's why we are assigning that to
+
+validated classification results on both
+
+sides
+
+okay so in coming back to this strike
+
+hatch
+
+in the tripod you have the weight
+
+actively configured now
+
+and in the catch section you are not
+
+throwing an
+
+error what you are doing is
+
+we are using the variable we created
+
+in the first part of the video
+
+classification exception
+
+if you go up here along with the
+
+requirement of classification we
+
+have two different variables
+
+classification exception is assigned to
+
+nothing
+
+and validation exception is assigned to
+
+nothing we are yet to use this
+
+validation exception so we have come to
+
+the point where we
+
+are actually using the classification
+
+exception
+
+so at the beginning we assigned it to
+
+nothing but
+
+over here if the user record this
+
+document
+
+has an exception in the catch part
+
+we are going to assign the specification
+
+exception
+
+with the exception that is provided
+
+by the weight activity so this exception
+
+will basically have the reason
+
+or the message that user types in the
+
+front that it that he gets when he is
+
+closing or reporting it as a
+
+exception so we are assigned that
+
+so if it comes to this point this
+
+variable will not be nothing thereafter
+
+so once you do that
+
+once you do that this if
+
+section is complete
+
+and next next section is
+
+so when before proceeding we need to
+
+identify
+
+whether the user reported it
+
+as a exception or not
+
+because if the user reports it as
+
+exception
+
+we are not supposed to process that
+
+document
+
+because he don't want it to be processed
+
+and he wanted to
+
+he want that document as an exceptional
+
+case
+
+so that's why we are checking this
+
+so right after this if condition we just
+
+completed and remember
+
+if this is automatically classified we
+
+won't be having any exceptions and
+
+that's why
+
+we're not using this classification
+
+exception on the right side
+
+so after this if condition we are going
+
+to check
+
+if this classification exception
+
+is nothing which means if the user did
+
+not
+
+report the document as exception it
+
+should
+
+be nothing just like what we assigned at
+
+the top
+
+so we are using another if condition to
+
+check
+
+whether the classification exception is
+
+nothing
+
+and if it's not an exception
+
+we are going to perform several other
+
+activities
+
+uh around the classification
+
+so again validated classification result
+
+is a area of type classification visa
+
+which means if you check that combined
+
+document here you will have two
+
+classification results one for this
+
+first page and another
+
+for this purchase order in the second
+
+page
+
+so that's why we are going to use
+
+for each over here
+
+so before we get into this part i
+
+told you that i am going to show you how
+
+the storage bucket looks like
+
+so this is your storage bucket again and
+
+if you click on this
+
+you will see so by now you won't be
+
+having any data because you haven't
+
+executed the process yet
+
+but in my case i have some data so let
+
+me show you
+
+so here you can see a bunch of zip files
+
+and you can see some
+
+names that similar uh familiar to you
+
+in the files i shared
+
+can you see the name so this is that
+
+document and what you see here as
+
+dom is the document object model
+
+the text is the document text
+
+taxonomy is the taxonomy that we have
+
+created
+
+input resource and output results are
+
+the
+
+data that we inserted and got out of
+
+this classification
+
+and validations so if you actually
+
+download this
+
+um you will see
+
+you will get a set of sync files
+
+once you open and go inside the taxonomy
+
+and open this it will have the same
+
+taxonomy
+
+json that you have in your project
+
+folder
+
+because these data will be uploaded
+
+to orchestrator when you are doing the
+
+verification
+
+and output results and input results
+
+will have
+
+something like this it's again adjacent
+
+file inside
+
+so basically it will contain the
+
+confidence level
+
+the ocr confidence if it has used in
+
+ocr the classifier name
+
+uh the document box start page and in
+
+page how many pages were there
+
+in that document and it will have a lot
+
+of
+
+information so that's the output
+
+input results
+
+again it's something similar
+
+you can go through this stuff once you
+
+do it and encoded will have a text file
+
+this will be
+
+uh you know imported format
+
+and you won't be able to read anything
+
+and the
+
+document object model is again a json
+
+file
+
+it will look something like this so you
+
+can see the document name
+
+and the type as pdf
+
+the language over here
+
+and different structures of the document
+
+all those things
+
+and you can also see some confidence
+
+levels mentioned
+
+ocr confidence and so on
+
+so it will have a lot of data
+
+okay
+
+okay so getting back to the workflow
+
+now what we are going to use is if the
+
+classification
+
+is nothing which means if it doesn't
+
+have any exception
+
+we are going to perform several actions
+
+so what we are going to do
+
+is we need to
+
+copy these documents
+
+the document that we process from here
+
+to a folder called
+
+process documents we created an asset
+
+that holds this file file
+
+and inside this we have to create the
+
+folders based on the taxonomy
+
+group this is the group and the category
+
+and based on the document type we need
+
+to create a folder
+
+and paste the document inside that
+
+folder
+
+and if the document has multiple types
+
+inside
+
+that document has to be split into
+
+different folders
+
+so how we can do that is
+
+we can again
+
+uh parallel process
+
+this part because it's it's not
+
+dependent
+
+on each other each classification you
+
+see in the array
+
+so you can do another parallel for each
+
+to make it more efficient so that's why
+
+i'm again using a parallel for each over
+
+here
+
+inside this if condition
+
+i'm using parallel for each for
+
+validated classification result
+
+and the type of this
+
+is classification result
+
+and i'm going to change the item that
+
+you get
+
+here by default as each classifier
+
+so i'm going to process each classifier
+
+you see inside this area thoroughly
+
+and inside this
+
+we are going to do a lot of things so
+
+everything that we do
+
+beyond this point will be
+
+inside this parallel for each even the
+
+data extraction
+
+why is that because
+
+[Music]
+
+getting back to our same document
+
+in the report files this combined part
+
+so always i'm referring to this point
+
+so in this document once we classify it
+
+we will have two classifiers
+
+and in our array we will have two
+
+elements
+
+holding the classification for this
+
+invoice and another
+
+classification for this process order
+
+so we can process these two
+
+parallely because this invoice is not
+
+dependent on this purchase order
+
+and purchase order is not dependent on
+
+the invoice
+
+so that's why we are using parallel for
+
+each
+
+and for each classification in this
+
+document
+
+will be performing several actions
+
+including the moving files to that
+
+folder
+
+and once you have completed that we are
+
+going to do the data extraction
+
+which is in the next part of the video
+
+so in this part we'll be focusing on
+
+how we can create the workflow
+
+to move the files so before getting
+
+there
+
+use a parallel for each over here and
+
+use the validated
+
+classification inside and change it to
+
+each classifier and
+
+now moving the documents
+
+and splitting the documents
+
+to perform that we need to do different
+
+things
+
+so that will have a lot of activities
+
+so what we can do is we can have a
+
+separate process
+
+that we can execute
+
+thoroughly to this main process
+
+but this orchestration process that we
+
+are building
+
+so how to do that you can open a new
+
+studio
+
+and create a new solution
+
+which can be off this can be a blank
+
+process
+
+so create a new solution in a different
+
+folder
+
+and once you create the solution go to
+
+settings
+
+and mark this as start in background
+
+why we are going to do that is because
+
+we need to
+
+process this whatever the task that we
+
+have here
+
+parallely toward our main process that
+
+we are going to run because
+
+the main things happen in that process
+
+and these are the additional stuff that
+
+we need to do
+
+along with the document understanding
+
+uh steps
+
+so mark it as starting background
+
+and if you actually get back to our main
+
+process
+
+and go to settings
+
+here you will see that this process
+
+starts in the background and it also
+
+supports persistence
+
+because we created orchestration process
+
+okay so in our new process
+
+here by default you will see only one
+
+file
+
+so rename your main file you can right
+
+click on it
+
+and rename and rename it as organize
+
+classified documents
+
+because what we are going to do here is
+
+to organize the files
+
+and in this workflow
+
+for arguments we are going to
+
+include uh several arguments
+
+one is the document classifier
+
+which is a string so i will explain what
+
+these are
+
+and the document path the storage
+
+location
+
+and segment classification result
+
+so what this information is if you get
+
+that trying to show you
+
+so i'll explain what these actions are
+
+after some time
+
+so these are the parameters that we
+
+created
+
+in document classifier which means it
+
+gives you
+
+the type of the document
+
+which is this type you can find if you
+
+go to taxonomy manager
+
+if you click on invoice this is your
+
+type
+
+so it will give you finance
+
+incoming and invoices
+
+so this is the path that we need
+
+to create our folders
+
+over here we need the finance we need
+
+incoming and we need the other type
+
+depending on the type we said
+
+as you see here so that's what we are
+
+going to pass
+
+in
+
+to our new process workflow
+
+so it can be a string so here you can
+
+add those arguments document classifier
+
+is a string
+
+document path
+
+is going to be where the document is
+
+currently stored
+
+the path that user provider in the input
+
+file folder in storage location
+
+is from where you need to store the
+
+documents so this
+
+shoulder location will be the path we
+
+created in the asset
+
+over here
+
+the process documents dock storage code
+
+so we'll be providing that
+
+and in segment classification results
+
+means
+
+so in our main solution we are inside
+
+another for each now
+
+so we are passing the classification
+
+of that particular item in the for each
+
+so that's why this is of type
+
+classification result and it's not an
+
+error
+
+because it's one type
+
+so once you pass that in and you can
+
+also
+
+pass the document category that you can
+
+obtain from
+
+the type id whether it's invoice
+
+purchase order or anything you can do
+
+that as well so if you want you can have
+
+this out
+
+argument as well because that can be
+
+used later
+
+in our main workflow
+
+so once you do that now
+
+here in document here we are going to
+
+use
+
+uh assigned
+
+because we need to identify
+
+we need to separate the document trust
+
+so as you saw in the taxonomy
+
+this type is separated by a simple dot
+
+in the middle so for us to get this
+
+but we need to separate this stream
+
+by this dot and
+
+handle those separately
+
+so that's why we are passing in the full
+
+string
+
+inside this and we are going to separate
+
+it by
+
+the dot and we'll be splitting it by
+
+that
+
+and we'll be saving that into another
+
+string array called
+
+classify path
+
+as you see here
+
+and what is the document category it's
+
+the very last
+
+element of the string because that's the
+
+one that has whether it's invoice or
+
+purchase order of the types so
+
+if you are going to output that
+
+you can directly generate your output to
+
+out
+
+document category argument we just
+
+created
+
+using this array it's easy
+
+all you need to do is
+
+you can specify uh
+
+the element location has
+
+the length of this array minus one which
+
+points to the very last element in that
+
+area and it will return
+
+the category of your document
+
+okay so now we have our storage
+
+path which is the root folder
+
+from that's coming from our asset and
+
+that's
+
+until the point of this process
+
+documents
+
+this part and i'm assigning that tools
+
+new variable over here because now
+
+using this variable i need to build
+
+our folder part so
+
+getting a notepad and
+
+this is the card that we get from our
+
+asset
+
+and that's what i have assigned to
+
+this coffee folder part and in our for
+
+each
+
+because now here we split the
+
+document type that we get using that dot
+
+and using that i'm going to build my
+
+folder
+
+so for each element inside that array
+
+i'm going to use a assign
+
+and value and i'm going to add
+
+that folder path or that element to our
+
+main folder
+
+path so this is our main folder for
+
+so for this i'm going to assign
+
+this item so i have that
+
+last slash in our asset as you see over
+
+here
+
+so i'm going to add this item
+
+so what will happen is once i add it it
+
+will look
+
+something like this
+
+because my first one is the finance
+
+and i will keep on doing it
+
+once i add it i'll use that to check
+
+whether that folder path exists and if
+
+it does not
+
+i create that folder
+
+and that's how this finance fold is
+
+created
+
+and likewise i will look okay
+
+inside this voyage get the next element
+
+which will be the incoming
+
+so this is what you will have inside
+
+this
+
+copy folder path and i will be adding
+
+coming from the sign and again i will be
+
+checking whether that folder exists
+
+and i will create it
+
+and similarly the next one
+
+based on the document type with these
+
+invoices purchase orders or everything
+
+i will check for that folder for then i
+
+will create it
+
+and once you have created that
+
+you have the folder path to
+
+copy your documents inside
+
+and
+
+next thing is now we have
+
+several things to do
+
+now we can have documents which are in
+
+pdf format that has multiple features
+
+with different types and
+
+we might have pdf files that has only
+
+one
+
+document inside it
+
+and we also have images
+
+as you see here
+
+so if it's a pdf file we need to check
+
+where this document is
+
+available in the pdf file in which page
+
+and we need to get that page range
+
+and create our file inside the folder
+
+that we created
+
+so for example if we are frozen this
+
+from combined file which has two types
+
+i need to get the first page and extract
+
+only the first page
+
+and put it inside the invoice folder
+
+and i need to get the purchase order
+
+and get only this page and put it in
+
+the purchase order folder so
+
+if i have to show you if i go to
+
+incoming and invoices i have the
+
+combined file
+
+it says invoice
+
+so this document has only the invoice
+
+and if i
+
+go to purchase order
+
+here i have the combined file that has
+
+the purchase order
+
+and i don't have the noise there
+
+this plate we need to do
+
+so how to do that
+
+um for that we first
+
+sorry we first need to identify
+
+what type of a document it is basically
+
+using the extension
+
+okay so how we can check the
+
+file type is using the path dot get
+
+extension
+
+and i'm using the path dot get extension
+
+in document path which will actually
+
+give where the document is placed
+
+at the moment in the input file folder
+
+and i'll be converting that to uppercase
+
+and checking whether it's a pdf file
+
+so i'll be using dot pdf to check
+
+because if it's a pdf file then we need
+
+to check
+
+we know which page this document is in
+
+if not we can just copy the file into
+
+our destination folder
+
+so using this condition if it's a pdf
+
+file i'm using
+
+the uipath.pdf
+
+activities okay so
+
+here we need to include several other
+
+dependencies as well
+
+so since this is a black
+
+process that we created we will have
+
+excel activities mail system
+
+by default additionally we are going to
+
+include
+
+ui for document understanding and mail
+
+activities
+
+and intelligent ocr activities so up
+
+until now we didn't use any of these
+
+activities
+
+to organize these files but it will be
+
+used
+
+later so it's good that you have added
+
+them
+
+right now include those two
+
+and also add uipath pdf activities
+
+to uh use it
+
+if it's a pdf file
+
+so if it's a pdf file i'm going to check
+
+in which page my currently classified
+
+document is in and extract
+
+that page and create a new pdf file
+
+inside our destination folder
+
+so i'm using the
+
+extract pdf
+
+range this activity
+
+place it over here and provide the in
+
+document part which is
+
+the
+
+which uh where the file is currently in
+
+the full file path
+
+of the pdf file to be read
+
+and the output file name
+
+this we need to provide
+
+where we need to place the file so
+
+basically
+
+now in copy folder path as we created
+
+that
+
+over here it will have the full folder
+
+path uh
+
+to the point where we need to create the
+
+file
+
+so for example if it's a p purchase
+
+order
+
+this variable will have this
+
+folder path
+
+so it's the purchase order
+
+and here
+
+i will be using that copy for the path
+
+and i need to
+
+include the file name
+
+without the extension as we see here in
+
+the input folder so this depends on how
+
+you need to
+
+uh show your file name in your
+
+destination
+
+you can configure this as you need
+
+so i'm using the combined file
+
+uh so that's the file name that i'm
+
+getting
+
+by this path dot get file name without
+
+extension
+
+and underscore i'm going to say what
+
+type of a document that is
+
+so remember if
+
+it's a document like this then you have
+
+multiple pages with two different types
+
+we'll be processing one page at a time
+
+so one page will have a one
+
+classification
+
+the second phase will have another
+
+classification and that
+
+will be stored in the array as i
+
+explained earlier
+
+so we are processing that thoroughly so
+
+both pages will process
+
+thoroughly so
+
+so inside this be hand
+
+using the activities to handle
+
+one uh file or one page
+
+and that will be executed parallely for
+
+all the pages we are going to process
+
+just like earlier we discussed how
+
+multiple files are going to process
+
+parallel
+
+so i'm going to include the document
+
+category that we obtain from the top
+
+which will include whether it's a
+
+purchase order invoice or
+
+anything else
+
+and i have included the time in the
+
+document name
+
+and the extension at the end
+
+so basically this combination
+
+looks something similar uh
+
+to this to show it to you is amazing
+
+you have the file name and you have
+
+the the type of the document
+
+and the data and the time
+
+okay and the one last thing we need to
+
+do here is
+
+we need to identifying which page this
+
+document is in
+
+and that's where the range property
+
+comes in
+
+so in this section
+
+this is why we are getting the argument
+
+the classification result
+
+that's coming from that parallel for
+
+each in our main solution
+
+in each specification result
+
+if we get to document bounds
+
+let me see over here and if we get the
+
+start
+
+page it will say from which page
+
+that particular classification is
+
+starting
+
+so if it's the first page
+
+if it's the first page in this document
+
+the start page
+
+will return you zero
+
+because in programming it starts from
+
+zero
+
+and it with the second page
+
+start page will return one
+
+so that's how you identify the page
+
+range
+
+so over here
+
+i'm having the start page
+
+and i'm adding one is because it's
+
+starting from
+
+zero because
+
+in the actual pdf file that will not
+
+have
+
+a zero page so it will have it will
+
+start from one so i need to
+
+add one to locate the first page
+
+and this expects a string that's why i'm
+
+converting that tool string
+
+so i'm going to specify the range in
+
+this
+
+format this should be something like
+
+this or something like this
+
+now with the dash
+
+i'm going to locate the last page
+
+so now we know the start page is
+
+starting from zero
+
+and the page count will return the
+
+number of pages available in the
+
+document
+
+so what i'm going to do is i'm going to
+
+add the start page
+
+to the page found and that the return
+
+me the last page
+
+of the range that i need to extract
+
+so this
+
+will return the range i need
+
+to split the document into multiple
+
+files
+
+using that i'll be splitting the
+
+documents
+
+into different folders and that's how
+
+you actually split that up
+
+using the classification visa
+
+and if it's a image or some other form
+
+and other than pdf
+
+we can simply use the copy file
+
+and provide the dis
+
+where the file is currently in
+
+and you can provide the destination
+
+folder just like you did over here
+
+and you can enable override it is going
+
+to
+
+it's going to have the same name
+
+so that's how you split and that's how
+
+you
+
+move the files in from one file
+
+one folder to another based on the
+
+classification result
+
+so how we are going to execute this
+
+because this in another
+
+separate solution so we can execute this
+
+thoroughly
+
+or we can execute this as a part of our
+
+main process
+
+but we need to remember one thing
+
+we can execute this thoroughly if
+
+this process is not running as an
+
+unattended process
+
+which means if this is an unattended
+
+process
+
+uh you cannot run parallel processes
+
+you cannot basically invoke
+
+a processes viral to that process
+
+from an unattended process
+
+so how do you define whether there is a
+
+net under process or not
+
+so basically if for example
+
+in this case over here
+
+if you do not get into this
+
+uh create action and wait
+
+action that means
+
+you can invoke it parallel
+
+but at the very point you get into this
+
+section
+
+you create a action and wait for it
+
+that's going to be a unattended process
+
+because once it resumes it resumes
+
+automatically
+
+no one is going to trigger it and it
+
+resumes in an unattended mode
+
+from the weight activity so
+
+once if it's a received process from
+
+this point
+
+you won't be able to invoke that uh
+
+our other process parallel so in that
+
+case
+
+you need to invoke it as a part of this
+
+process
+
+that's why i'm using if condition over
+
+here
+
+and checking whether
+
+for this particular document whether we
+
+had
+
+requested manual verification or not
+
+this variable was assigned to true
+
+on the top over here so if it was
+
+false that means if it got verified
+
+automatically then we will execute that
+
+process
+
+thoroughly to improve the efficiency of
+
+the process because those things can
+
+handle
+
+uh separate from this
+
+uh this particular process but if it
+
+requested manual verification we have no
+
+other choice
+
+other than invoking it as a part of this
+
+process
+
+so that's why i have this if condition
+
+to check
+
+whether we need to process it as part of
+
+this one or whether we need to process
+
+this pattern
+
+so whenever the document is
+
+automatically classified all those
+
+documents will be uh processed or
+
+the process documents folder parallel to
+
+this process which
+
+improves the efficiency of the entire
+
+process
+
+drastically
+
+so it's uh we are using two different
+
+activities over here
+
+it's invoke process and remove parallel
+
+process if
+
+it required another verification we are
+
+using invoke
+
+process and we just need to
+
+uh specify where this process is located
+
+so all you need to do is once you
+
+complete this workflow save it and
+
+publish it into orchestrator
+
+through this publish option you can
+
+publish it into a folder or you can
+
+publish it into
+
+the default location and create a
+
+process from that
+
+as you uh see over here so in my case
+
+it's published
+
+in this document understanding
+
+and
+
+once
+
+so in my case it's published in document
+
+understanding as the document understand
+
+the file process
+
+because that's my process name
+
+and you get to this point place the
+
+process
+
+name that you have placed so ideally
+
+that should be
+
+the name you see here
+
+in the package
+
+put that name and
+
+the entry point is going to be your
+
+xml file
+
+so you can either provide the xml file
+
+because uh for now we'll just provide
+
+the file that you need to run
+
+which is our main file anyway
+
+and you also need to specify where this
+
+process is basically the folder in my
+
+case is documented
+
+and we need to give the arguments so how
+
+we are to give the arguments is
+
+we use the exact names we have
+
+in the other process as arguments as you
+
+see over here
+
+so copy these names and place it in the
+
+arguments list
+
+and set the argument types
+
+properly as you see over here
+
+and for document classifier
+
+how we are going to access the passive
+
+equation id that we saw in the taxonomy
+
+manager for that particular document
+
+is page classifier
+
+because that's each classifier is coming
+
+from
+
+the parallel voyage the document type
+
+id will give you that full string
+
+so this document type id will have a
+
+string like
+
+so in our case it's finance
+
+incoming and invoices or anything
+
+that's the one
+
+okay so once you provide that provide
+
+the
+
+classified document path which is the
+
+current
+
+uh folder path of the document
+
+where you want to store it so this
+
+variable
+
+document storage path is coming from
+
+from the outermost sequence
+
+the document storage path because we are
+
+getting that from an asset
+
+in the initialize scope
+
+and the document category is being
+
+returned to you
+
+but remember if this is invoked
+
+parallely
+
+from this non-viral process activity you
+
+won't
+
+have a value getting into this document
+
+category
+
+uh variable that you create
+
+so this variable we are creating right
+
+now
+
+it wasn't created earlier so ctrl k and
+
+you can create it
+
+and remember to set the scope
+
+into process one file
+
+as you see over here
+
+document category it's not forces one
+
+file it's
+
+process document for each classification
+
+which is this sequence so from this
+
+point onwards
+
+because we are using parallel for each
+
+again
+
+those variables that we are using inside
+
+here
+
+has to be inside this sequence so
+
+keep a close eye on the scope of the
+
+variables because
+
+otherwise we will run into different
+
+errors
+
+so once you said that
+
+uh so if this is processed thoroughly
+
+you won't be getting any value to this
+
+document category but don't worry about
+
+it now
+
+uh so for invoke process
+
+place the variable over there and for in
+
+segment
+
+for the classification result use the
+
+which classifier
+
+you get from the parallel copies
+
+and likewise if this does not require
+
+manual classification we can formulate
+
+versus
+
+processing parallely so you can use the
+
+run firewall process
+
+this action and place it over here
+
+so why i am doing this is to show you
+
+how we can invoke different processes
+
+depending on the type
+
+of this execution so if it's resumed in
+
+an unattended mode
+
+how we should process invoke our
+
+processes and if not how we should
+
+invoke our process parallel
+
+so you can configure the process name
+
+and the entry point as you did for
+
+invoke process and the arguments
+
+has to be same as earlier
+
+so this has to be changed to out
+
+invoices
+
+so you can say that
+
+and
+
+you can also configure the folder path
+
+of the process as you did in the invoke
+
+process
+
+and save it
+
+so now you are able to run this process
+
+up to this point
+
+and see whether it moves your files
+
+and with how it classifies your
+
+documents
+
+and see how good the process is
+
+whether you have any errors and so on
+
+so i will share the process
+
+at the end of the series
+
+i will share the process
+
+in initial drive so you can download and
+
+cross check once you have completed that
+
+so that's coming to the end of the
+
+classification part
+
+so you can execute and see
+
+how it is executed
+
+and explore more on
+
+the classification so i will see you in
+
+the next video that's
+
+focusing on the data extraction
+
+after the point of classification
+
+so thank you very much for listening for
+
+this
+
+long video and
+
+take a break and i will see you in the
+
+next video
+
+thank you
+

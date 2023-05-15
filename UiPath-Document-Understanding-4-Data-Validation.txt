@@ -1,0 +1,2112 @@
+hello welcome to part 4 of the advanced
+
+ui path document understanding video
+
+series
+
+so in this series we'll be taking a look
+
+at
+
+how we can validate the extracted data
+
+based on the confidence
+
+level so
+
+uh as of now we have been
+
+doing a lot of validations or data
+
+extractions using the data extraction
+
+scope
+
+and we did extractions on
+
+multiple fields using different
+
+extractors so
+
+until now we only focused on using a
+
+present validation station
+
+irrespective of how the traffic
+
+extraction took place
+
+so today we will see how we can use this
+
+uh change the same workflow to introduce
+
+the confidence level
+
+so what i'm going to do is
+
+i will just minimize this
+
+so as you know from data extraction
+
+scope we are getting an
+
+output called automatic extraction
+
+data and i'm going to use this variable
+
+to check the confidence
+
+before that i'm going to
+
+change this the intelligent ocr package
+
+to the latest version
+
+because some of some new releases were
+
+there
+
+during the past couple of weeks so i'll
+
+update
+
+that
+
+to show you how we can use the latest
+
+features
+
+okay so to export these
+
+results we need to use the export
+
+extraction resource
+
+activity which you can find
+
+once you search for export it will be
+
+there under intelligent ocr
+
+so i'm going to use it uh
+
+somewhere here before that i'll just add
+
+a new sequence
+
+if you think that this is too much for
+
+this particular workflow you can
+
+simply do another workflow and
+
+invoke it as we did here for this
+
+specification
+
+but for now i will show it here itself
+
+and in this sequence i will place this
+
+particular activity and i'm going to use
+
+the automatic extraction result
+
+variable that i got from the data
+
+extraction
+
+scope
+
+sorry it's
+
+automatic extraction data
+
+and the output it returns is a data set
+
+which contain multiple tables
+
+so we can create one
+
+extraction data set
+
+also we see a couple of
+
+options over here include confidence
+
+which will say
+
+if it is set to true it will give you
+
+the confidence
+
+information for each reported value
+
+and include ocr confidence
+
+that will return the ocr confidence
+
+of each value so this is the extractor
+
+confidence and this is the confidence
+
+level that's coming from the ocr
+
+so we can use we'll see we'll use both
+
+and see
+
+what's the output that we are getting
+
+and now we'll
+
+now we have a data set inside this code
+
+now what we need to do is we need to
+
+extract that data from the data set
+
+we need to loop it because the data set
+
+contains multiple
+
+tables so i'm going to use it for each
+
+and use that variable here extraction
+
+data set
+
+and change the type arguments to data
+
+table because
+
+what contains inside is a data table
+
+and i will say data's extraction data
+
+set dot
+
+tables this will give you
+
+the list of tables
+
+and extraction data
+
+now here i will for now just to see the
+
+output
+
+i will use the right range
+
+so that you can see
+
+[Music]
+
+okay i don't have the excel activity so
+
+i will just add it
+
+all right so now i'll be using
+
+write range
+
+and i will just give the file path
+
+data table is the extraction
+
+data table the variable i gave over here
+
+and the sheet name this thing can
+
+contain multiple
+
+sheets remember there is a loop that i
+
+dress
+
+through tables so i can get the name of
+
+the
+
+table by
+
+using that name
+
+table name
+
+and the range i will say
+
+like this and also include add headers
+
+so we'll run this and see what's the
+
+output that we get
+
+so to run i have two invoices
+
+let's see what sort of output we are
+
+getting
+
+so here you can see the present
+
+validation station is still here
+
+so don't worry about it i will
+
+just remove it after we
+
+do the validation right for now i just
+
+want to show you
+
+what's the confidence we directly get
+
+from the data extraction scope
+
+and based on that confidence i will show
+
+you how to
+
+show the validation screen
+
+depending on that
+
+so here we have to select the folder
+
+path
+
+okay so this is here for now we are just
+
+ignoring this
+
+oh and one has gone to the
+
+classification station okay
+
+so we'll do that
+
+so
+
+so it's in a different instance of my
+
+orchestrator so
+
+i'm trying to login
+
+so
+
+go to actions
+
+and go to unassigned
+
+this is what got created
+
+and it's invoice so let's proceed
+
+okay now i'm going to receive
+
+so that's based on the confidence levels
+
+we
+
+set previously when we are talking about
+
+the confidence
+
+over here
+
+so this is kind of the uh similar logic
+
+that we are going to use but
+
+it's a little bit different because here
+
+we are dealing with multiple
+
+fields so for everything for now we get
+
+this
+
+but yeah but now we should see
+
+the output so
+
+you saw that i ran this for two
+
+documents
+
+and it was writing in the same output
+
+data
+
+uh excel file but
+
+yeah for now it's fine because i just
+
+want to show you
+
+the extraction
+
+so see here this is the invoice of the
+
+last executed
+
+uh file and for this
+
+value the invoice number we see the
+
+confidence
+
+of the extractor and we see the
+
+confidence of the
+
+ocr so
+
+one means it's really good zero means
+
+it's
+
+bad so 0.9 means it's a
+
+pretty good value and you can see that
+
+it's available for each and every field
+
+uh yeah and for this thing it's
+
+this one so here this this contains all
+
+those
+
+main fields and if you
+
+want to see any formatted values you can
+
+use this
+
+you can see that there are slashers and
+
+double quotations nicely formatted
+
+based on certain
+
+key fields and if you go to line items
+
+there you can see the line items of the
+
+invoice
+
+and for each line item you can see the
+
+confidence
+
+of both
+
+and for that also you have the formatted
+
+one so what we can do is we can use
+
+this output to
+
+uh actually get the
+
+confidence and see how we can write a
+
+logic behind that
+
+so for that
+
+we need to loop this again
+
+so having said that
+
+we'll try to change this for each
+
+so using this two confidence levels
+
+we can try to extract and the confidence
+
+and figure out what's going to be
+
+the uh how we can decide whether
+
+we need to present the validation
+
+station
+
+or not so the first thing to do is
+
+first we need to have a simple variable
+
+saying whether we need manual
+
+intervention or not
+
+so i would say
+
+let me say manual verification
+
+this is of type
+
+i reset it to boolean
+
+and at the beginning i will set it to
+
+false
+
+and then so in this workflow you know
+
+that
+
+ah there are different document types
+
+that we process
+
+so if you actually see these extraction
+
+scope
+
+here you can see invoices different
+
+types of forms
+
+purchase orders and many more things
+
+so depending on the document type
+
+there might be different ways of
+
+exporting
+
+or validating the data
+
+so how do we identify the document type
+
+is by extracting
+
+the document type from the taxonomy so
+
+if we
+
+actually go to taxonomy manager and open
+
+each type here you can get the document
+
+type
+
+id which says finance incoming
+
+voices and for this one it says
+
+form 10k and so on so you might have
+
+different
+
+groups you might have different
+
+categories in each group
+
+and in each one there might be different
+
+types
+
+so depending on that you might need to
+
+write your own logic
+
+so for this purpose we have only one
+
+group and one category
+
+but different types so i will take this
+
+string
+
+and i will try to extract the last part
+
+of that string by splitting it from this
+
+dot so what you can do is
+
+the next thing is you are going to use
+
+another assign
+
+which will
+
+give us the document category
+
+over here and i'm going to write the
+
+expression
+
+so this has to be taken from the
+
+classification
+
+so if you actually scroll up
+
+if you scroll up here you can see we are
+
+inside a loop
+
+that we process each classification
+
+that we return from the document so we
+
+are going to use
+
+this h-plus equation
+
+to get that so getting here
+
+so i will use h present equation
+
+and in that i'm going to use the
+
+document type id
+
+and this i'm going to split because that
+
+will return as the full stream
+
+and i'm going to split it based on the
+
+dot and i need to get the length
+
+and the last character or the last
+
+segment
+
+of that split error
+
+so inside the variable two
+
+brackets i'm going to say each
+
+classifier
+
+document type id and split it
+
+by the dot and get the length
+
+of that and it will say minus 1
+
+because length will give the full length
+
+and i need to get the last character
+
+now last segment which is length minus 1
+
+so this will give us the
+
+last type of the document
+
+and it is going to be assigned a
+
+document category
+
+and now
+
+depending on the category we are going
+
+to
+
+write our own logic so i'll be using
+
+a flowchart
+
+over here and i'm using a flow switch
+
+why i am using a procedure is because i
+
+have multiple document types
+
+and that will have more than one
+
+condition
+
+or one path to go and say
+
+string because i'm getting a string from
+
+the document category
+
+[Music]
+
+and here is the document category
+
+and from this i will assign multiple
+
+parts out
+
+so i'm going not going to do this for
+
+all the document tiles i will do it for
+
+one
+
+so that you can get a clear idea how it
+
+has to be done
+
+so in here i'm going to say invoices
+
+and i'm going to add one part
+
+and this part is going to change
+
+as invoices so for this i need to use
+
+the same name
+
+as we get over here because this is the
+
+output that we get
+
+from the document category
+
+and for invoices
+
+the thing i need to do is i need to
+
+now here you can see
+
+we have values and we have multiple data
+
+tables
+
+and in each we have the confidence level
+
+as columns and you get it
+
+in different rows as well so depending
+
+on your logic
+
+you can write your logic
+
+but uh for the demo purpose i will show
+
+you how to access
+
+the confidence level of each and every
+
+row and column
+
+to do the validation because
+
+for this validation the first step is
+
+using the confidence because that's
+
+where we
+
+get to know whether the value got
+
+extracted properly or not
+
+so i'm getting back to invoices
+
+so first thing is
+
+here
+
+[Music]
+
+if you get here
+
+now we know that this giving us multiple
+
+data tables so the first thing is
+
+to get the data tables out of that
+
+so i'm going to use a for each
+
+so just like we did for that excel
+
+check this the same thing
+
+extracted data set dot
+
+tables and the type of that is going to
+
+be
+
+data table
+
+select dd
+
+and for each data table
+
+i'm going to check the columns
+
+because i need to identify the column
+
+that
+
+has the confidence
+
+and i'm going to use extract dt dot
+
+hollow for that
+
+let me change this and in columns i need
+
+to get
+
+the columns type
+
+so if you don't have it here you can go
+
+to browse and use
+
+data column
+
+which you can find under system.data
+
+and now we have access to the column
+
+now we need to check which column we
+
+need to
+
+add access so we are right now not
+
+interested in the columns that has the
+
+value
+
+we are only interested in the columns
+
+that has the confidence level
+
+so we'll write a if condition
+
+to grab or check whether the column name
+
+contains the confidence word
+
+so we have two columns like that we'll
+
+do it
+
+for both
+
+so i'm going to write a if
+
+so how i will do it is we'll use the
+
+data column
+
+the column name pretends
+
+uh here i will copy and paste the value
+
+what i get over here
+
+so why i took only that part is
+
+prior to that we have the column name
+
+and that changes
+
+for each and every column so this part
+
+is unique
+
+so that's why i took it and i will do
+
+that
+
+for ocr confidence as well
+
+and oh
+
+color name intense
+
+so if it is only these two either of
+
+these two columns i will go inside
+
+and inside that now we know the column
+
+and now we need to loop through the rows
+
+to get
+
+the confidence value
+
+so for that i'm going to use
+
+for each row because it's a data table
+
+and i'm going to use this extract dt
+
+yeah and for extract dt
+
+now we know now basically if we
+
+come out of this
+
+here we know what's the type of the
+
+document
+
+and we have uh have a
+
+different condition for that and for
+
+each type
+
+we are going to look through the tables
+
+get the column access the continuous
+
+columns and
+
+get the rows
+
+so here you can also write
+
+give a simple
+
+flowchart
+
+to write your logic
+
+okay so inside this
+
+we can write our logic depending on
+
+the confidence level so the first step
+
+here outside this in the data validation
+
+the first step is to check whether this
+
+flag we created
+
+is still set to false because if this is
+
+set to true
+
+we know that it's set to automatic
+
+verification sorry a manual verification
+
+and we don't need to go through this
+
+logic again
+
+so by default is set to false
+
+and because of that
+
+so we need to have that column
+
+or that check so i'm going to use the
+
+flow decision
+
+to check the first condition
+
+uh
+
+to check whether manual verification
+
+is true or not so it's a boolean so i'm
+
+not going to say
+
+whether it's equal to true or not by
+
+default it will decide
+
+whether it's true or not so if manual
+
+verification
+
+is true which means
+
+you need to verify it uh
+
+manually and
+
+we already know that if it is set to
+
+true it has to be verified
+
+manually so i am checking for the false
+
+part of it
+
+if it's not set to true that means we
+
+need to go through the
+
+conditions and check whether we need the
+
+manual verification
+
+for the next condition and i'm going to
+
+assign this to the first part
+
+because of that reason
+
+uh
+
+and if this
+
+is false i will check
+
+the next thing whether
+
+the extracted value or the extracted
+
+confidence
+
+whether this value is blank
+
+or not so if let's imagine this
+
+field wasn't extracted
+
+and in that case we need to
+
+if it is not extracted say for example
+
+the when the address did not get
+
+extracted
+
+through the motor in that case you will
+
+have the values like this
+
+so we will have any value for the
+
+confidence
+
+so because of that we need to first
+
+check it
+
+so how you can do it is
+
+in the second condition i'm going to say
+
+string dot is null empty
+
+and in here i'm going to write
+
+that condition in the row
+
+i'm going to access the column
+
+so we already know the dt column
+
+the column name this will give us in
+
+which column we
+
+are in either of these two
+
+and uh to string
+
+so this will basically
+
+give us whether is null or
+
+empty so if it is not empty that means
+
+it's not extracted
+
+so i will say this is the null check
+
+and if this condition is true if it is
+
+not
+
+then in my case
+
+i'm going to say if one variable one
+
+value is not
+
+extracted either one value is not
+
+extracted
+
+i need to do a manual check
+
+and because of that i will
+
+set an assign here
+
+and i will say manual verification is
+
+true
+
+that is only if a field has not got
+
+extracted
+
+and on the other hand if there is a
+
+value extractor
+
+which means you have the confidence
+
+level if the confidence level is there
+
+i need to check whether it has a higher
+
+confidence
+
+value something about let's say
+
+zero point so let's see what we have
+
+here
+
+let's say something about 0.7 so we have
+
+0.6
+
+so we will get to work with the
+
+thing the manual verification as well
+
+so the next condition if there is a
+
+value
+
+that and then i need to check the
+
+confidence level
+
+so here you can see if we open the
+
+excel file again
+
+we have two
+
+confidence columns and each give a
+
+unique
+
+result and over here
+
+for one it gives the extractor
+
+confidence at 0.9 and ocr is saying it's
+
+-1 and likewise you have different
+
+values that you get for each so you need
+
+to check these two if you are using both
+
+separately because one might
+
+uh highly differ from the other as you
+
+see over here
+
+so you need to check that separately
+
+so we'll do that now and
+
+going back here i'm going to use
+
+the uh flow decision
+
+again and
+
+the first thing is extractor
+
+computers i will check this one so this
+
+all depends on your logic so for now i
+
+will show it
+
+and to check the confidence i need to
+
+convert this to a
+
+numeric format so i'll be using double
+
+for that
+
+and i will say row
+
+name
+
+yeah so before that i need to check the
+
+confidence
+
+uh the column so first condition is
+
+dt column name
+
+contains because we are accessing both
+
+columns over here
+
+contains the first condition
+
+is first i will check this
+
+if it's this column
+
+then it's going to be a separate check
+
+if that's the case then i will use
+
+another
+
+decision
+
+confidence running check
+
+so if it's the extractor confidence then
+
+i'm going to use i need to convert it to
+
+a
+
+numeric format as i explained earlier so
+
+i will use double dot pass
+
+of that particular row
+
+of the column
+
+and i will convert it to a string
+
+and this is converted to a double
+
+and if that conversion is less than 0.7
+
+then i will say i will need manual
+
+verification
+
+and if that is true
+
+i will say i need one more verification
+
+and if it is not the extractor
+
+confidence that we are
+
+checking then
+
+uh then again i need to set the
+
+confidence value
+
+so i will just copy and paste it
+
+so this is for um
+
+ocr let me just change the
+
+outputs of this
+
+to make it clear this is ocr
+
+and if the ocr confidence i will say
+
+this has to be something less than
+
+0.5 for example
+
+and if it is 0.5
+
+and then i will say the
+
+manual verification i need it as true
+
+like this okay so we have multiple
+
+conditions defined
+
+so we need to do one more small change
+
+in this if condition we have only these
+
+two columns
+
+so if
+
+we have that flag the manual
+
+verifications
+
+by default it is set to false but if it
+
+is set to true
+
+by any chance we still don't need to
+
+go through this logic and look for it
+
+unless you really want to
+
+check how many columns are blank or how
+
+many columns are
+
+less than the confidence level if you
+
+have additional logic like that
+
+so from my purpose i don't need to do
+
+that so i will change this condition a
+
+little bit
+
+with by adding this
+
+o part inside another block
+
+and i will say it is
+
+the manual verification has to be false
+
+and also
+
+you can see here in this
+
+line items the ocr confidence is kind of
+
+giving up
+
+minus one figure whereas the extractor
+
+computers is giving a very good figure
+
+but if you actually take a look at line
+
+items
+
+both are giving a pretty good uh
+
+figure so i will just
+
+exclude this particular column from the
+
+verification
+
+for the time being so i will just
+
+copy the header
+
+and we'll add another condition if
+
+dt
+
+column column name
+
+contains this
+
+then i need to explode
+
+it shouldn't be that far
+
+right so we have our logic built now and
+
+using this logic we will return
+
+whether i need manual verification or
+
+not
+
+so what i need to do is using that
+
+i'm going back to my
+
+original location over here
+
+and after this flowchart i will add a
+
+simple if condition
+
+to check whether
+
+what's the output of this manual
+
+verification
+
+so if the manual verification is true i
+
+am going to present the validation
+
+station
+
+if it is now for our testing purpose
+
+let's put a message box
+
+saying and we want to
+
+verify something like that
+
+so let's test our logic to see how this
+
+really work
+
+so i'm running it
+
+and we get the folder path
+
+i have two invoices
+
+so for your case if you have multiple
+
+document types
+
+you just need to have its own
+
+verification logic linked to this
+
+flow switch i do process multiple times
+
+but
+
+for the time being i'm showing only for
+
+one
+
+so you can try out yourselves for the
+
+rest of the
+
+document types so this we are getting it
+
+obviously because we don't have values
+
+accepted for these two
+
+for some reason
+
+and the one went to the classification
+
+station
+
+the induction center will
+
+quickly check it out
+
+and i'm going to run this
+
+and resume so let's see
+
+how our logic work now
+
+i'm hoping to get a message box so that
+
+you can see it
+
+really well let's see
+
+[Music]
+
+it's going inside
+
+okay so we got the validation extension
+
+again
+
+uh for some reason let's have a closer
+
+look
+
+why it's saying so by the look of it you
+
+see that it has a higher confidence
+
+level from the extractor
+
+here it says 99 but
+
+maybe the ocr confidence
+
+is somewhat low in one of this uh
+
+let's see one four three four five
+
+uh three double seven five it looks fine
+
+this is looking good
+
+and in this one
+
+yeah the values are seems
+
+seems to be fine this looks good
+
+uh let's have a closer look here
+
+maybe we need to
+
+do a quick check
+
+on these values so i will try to copy it
+
+and we'll just try to compare that with
+
+what we see over here in the first line
+
+hpi battery 4c
+
+this part looks fine and i la 98241
+
+seven two four two
+
+one okay see see here see
+
+some of these are not extracted properly
+
+and i don't know from where this part is
+
+coming from
+
+um it might be from this origin and cn
+
+so since the extractor confidence is
+
+high
+
+but from the ocr however it
+
+must be a little bit low so
+
+let's actually see that whether if
+
+that's
+
+the problem so i'll just close this for
+
+now
+
+uh
+
+and getting back to this logic we'll try
+
+to add a message box
+
+over here and
+
+we will try to add this code
+
+so what i'm trying to do here is i'm
+
+going to
+
+show you in a much more clear way
+
+so for the extractor confidence i will
+
+say extract just an
+
+the column and the confidence level
+
+and i will do this same thing
+
+for this ocr confidence as well so i
+
+paste it over here
+
+to see why it's actually what is causing
+
+it to
+
+get into true state so here i will say
+
+it's instead of extractor we say ocr
+
+we will see what's causing it
+
+this should be interesting um
+
+okay so i'm going to run it again
+
+so i have the for the bots
+
+examples
+
+okay so for the first document
+
+here it says the extractor and the
+
+invoice has
+
+gone into zero point the confidence
+
+level of
+
+the extractor has for invoice number
+
+as 0.5 which is less than 0.7 which we
+
+placed over here so that's fine
+
+and that also has some null values
+
+as we saw earlier in our previous run
+
+for this window address and this stuff
+
+and also you can see here the invoice
+
+number confidence is
+
+less than what we define so let's
+
+save it for now and the other one goes
+
+to
+
+the classification
+
+because we had the classification
+
+check over there and you can see it's 62
+
+percent
+
+so i'll just save it
+
+and resume the process and let's see
+
+what is actually causing that state to
+
+get to true while we see a higher
+
+percentage
+
+from the extractor for all the fields
+
+so it's executing
+
+and we didn't have any field as blank
+
+either so it has to be
+
+from okay so
+
+have a look at this and it's coming from
+
+the ocr
+
+and it says from ocr confidence
+
+in the description column the ocr
+
+confidence is
+
+0.0999
+
+so that is very less okay
+
+so the description column is in the line
+
+items
+
+and if you have a look
+
+as early as the extractor confidence is
+
+very high
+
+so basically the extractor extracted all
+
+the lines
+
+but this is the image as you see a
+
+scanned image
+
+but in terms of the ocr side
+
+there is a problem and here you can see
+
+it is not the exact same thing that got
+
+extracted
+
+there is a slight difference
+
+for the second line here you can see
+
+after
+
+cd
+
+cd it says factor space
+
+y e a e something
+
+so it's like it though it's highlighting
+
+all these things
+
+um some of those have not got extracted
+
+or identified properly through the ocr
+
+so this is the benefit of
+
+so the output is not expect
+
+what we got is not expected because i
+
+was expecting
+
+to see
+
+this particular message box from here
+
+which can be automatically verified but
+
+it's fine but
+
+good thing is we found a nice scenario
+
+to explain how the two
+
+confidence levels help us to validate
+
+the data accuracy
+
+so from the extractor point of view we
+
+got everything extracted
+
+without a problem but from the ocr
+
+confidence it says that though you
+
+extracted everything here i have a small
+
+issue with these two
+
+lines so check it out so
+
+that's the benefit of having both ocr
+
+confidence
+
+to check your data
+
+so that's fine so good thing is we have
+
+the validation station
+
+to proceed without
+
+entering any wrong information to a
+
+system so we can
+
+update it here and then continue
+
+right so that's the benefit of using
+
+both
+
+in your validation logic
+
+so the one last part is using
+
+the action center to perform this
+
+validation station or the validation
+
+so just like you did for classification
+
+over here
+
+we did create action and
+
+weight insider try catch is the same
+
+thing that we need to do
+
+for the validation as well
+
+so i will just put this outside just for
+
+the time
+
+being just to show you how to do that
+
+so i'm going to use a create
+
+uh this time i'm using create document
+
+validation action
+
+on this side so for the title i will say
+
+document meditation
+
+uh
+
+yeah instead of using the file name
+
+so i can copy it from here
+
+the path yeah so i will just copy this
+
+part
+
+which shows us the document
+
+name in the validation station
+
+just like we did for classification the
+
+priority can be anything
+
+medium high or critical action catalog
+
+[Music]
+
+which can be uh
+
+you can have it as null for the time
+
+being
+
+action folder path i will just copy it
+
+from over here
+
+yeah we don't need the folder
+
+yeah sorry now for the action catalog we
+
+can say
+
+data validation
+
+we don't need the folder card for the
+
+time date
+
+the bucket name i will copy it from
+
+this the duck tart
+
+and the bucket gravy part again is the
+
+folder path so since i have it
+
+configured in the specification i will
+
+use the same
+
+and here we can give the folder
+
+path it's the
+
+item from the document the document text
+
+document object model
+
+the taxonomy
+
+and why it is
+
+uh yeah sorry it's
+
+dog taxonomy
+
+and automatically extraction result is
+
+coming from this variable
+
+automatic extraction data
+
+and here we have to specify the action
+
+object using this only it will
+
+look for the weight activity input
+
+variation action object
+
+and now i have to use a try patch
+
+to perform the
+
+date activity because it can
+
+return exceptions the user marks the
+
+document as
+
+exception that's why we are using a file
+
+catch just like
+
+in classification
+
+and in the weight i'm using weight for
+
+document validation
+
+action and for the action
+
+object i'm using the same variable we
+
+see here
+
+validation action object
+
+directory path it can be my downloads
+
+folder
+
+and we don't need the action object for
+
+now
+
+so here the validated extraction result
+
+is our validated result
+
+that's returned from the action center
+
+so i'm going to create a new
+
+variable for that validated
+
+extraction data
+
+and i will change the scope of that
+
+variable
+
+to be same as the extraction result
+
+okay so we already have it have that
+
+variable so i will just
+
+uh remove this the one we created
+
+so if you don't have that variable
+
+please create it
+
+in the same scope as automatic
+
+extraction data
+
+so and the document path is
+
+is so these are the outputs that we get
+
+from the uh validation action
+
+document object model it's just
+
+assigning it to the same variables
+
+and the automatic one is automatic
+
+extraction data
+
+so this is going to be our output
+
+and in the try if
+
+the user requests as exception
+
+i will
+
+have an exception created over here
+
+so similarly we that we did that same
+
+thing for
+
+classification exception
+
+so likewise i will do it for the
+
+extraction as well so all you need to do
+
+is i'm going to assign
+
+so if you don't remember what happened
+
+in the classification
+
+if you check this exception part
+
+we assign it to assign the exception to
+
+classification exception
+
+so likewise and that variable was
+
+declared
+
+at the very beginning
+
+as you see over here classification
+
+exception and we have the validation
+
+exception
+
+which we created in the very first set
+
+of videos
+
+and this variable is what's going to be
+
+assigned
+
+if the user reposits as an error
+
+so let's do that over here now
+
+in the this is our create
+
+and in the exception i will use the
+
+assign
+
+and validation exception
+
+is going to be our exception
+
+okay so we have
+
+configured the validation logic
+
+and now we don't actually need the
+
+present validation station
+
+but we have to do something additional
+
+so instead of this message box now
+
+i'm going to remove it and put a assign
+
+activity there
+
+why i do that is so here
+
+from this create and wait we are
+
+the result is x assigned to a validated
+
+extraction data variable so i have to do
+
+it
+
+for automatic verification as well
+
+so i am going to use the validated
+
+extraction data here
+
+and assign the automatic extraction data
+
+to that
+
+so by doing this now you have
+
+the output assigned
+
+to the validated extraction result
+
+so the last part remains is
+
+how you are going to
+
+use this validated extraction data
+
+to extract the output and
+
+uh maybe to write into different excel
+
+files
+
+or to use it in other downstream
+
+applications
+
+so we'll have a look at that in the next
+
+video
+
+which we will focus on how to extract
+
+the data
+
+and based on that extracted data
+
+how we can train our classifications
+
+and how we can train our extractors
+
+so we are coming towards the end of this
+
+particular video
+
+and this series will end in the
+
+next video that's uh that will be
+
+released
+
+in a couple of days so hope you learned
+
+the how to perform the validation
+
+and it is it was a little bit complex i
+
+know
+
+but it is very important to know this
+
+part
+
+because it is the one of the key points
+
+when it comes to document understanding
+
+how you can
+
+validate and how you can assign a task
+
+to a user whenever you feel
+
+that someone has to intervene and verify
+
+the data
+
+so thank you very much for listening and
+
+talking i'll see you in the next video
+
+take care
+

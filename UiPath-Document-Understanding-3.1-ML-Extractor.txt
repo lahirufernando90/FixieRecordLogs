@@ -1,0 +1,1598 @@
+hello welcome to the third part of the
+
+advanced dive for document understanding
+
+video series so in this uh
+
+section we'll be talking about the data
+
+extraction
+
+and will be specifically focusing on
+
+the ai fabric and the ml extractor
+
+uh so this video will be broken down
+
+into separate
+
+sections because we have multiple
+
+extractions
+
+like the machine learning extractor red
+
+x extractor
+
+form extractor and so on
+
+so it's a wide topic
+
+to talk about so it will be
+
+broken down into small sections where we
+
+will be focusing on different extractors
+
+in each
+
+uh part of the video
+
+so in this one 3.1
+
+will focus on the ml extractor and the
+
+ai fabric
+
+so to start
+
+if you are new to this series i do
+
+recommend
+
+uh go through the uipath academy the two
+
+courses but
+
+you see here and also follow the
+
+part one and part two videos so that you
+
+can get an
+
+understanding about the scenario that we
+
+are following
+
+so in this section we
+
+so in part one and part two we cover the
+
+extract data and classified document
+
+sections
+
+and this one will be focusing on
+
+basically in the coming set of videos
+
+in the data extraction part we'll be
+
+focusing on the highlighted one
+
+and in this section as i explained we'll
+
+be
+
+using break and we'll be trying to
+
+create
+
+ai models for invoices purchase orders
+
+and utility bills
+
+and we'll also focus on how to use the
+
+machine learning extractor in the
+
+workflow
+
+and connecting the ml models into the
+
+machine learning extract
+
+okay so before we start
+
+i think it's a good idea if we can
+
+uh run this process and
+
+show you the output because in my
+
+previous video i actually didn't show
+
+you that
+
+so we covered up until the point where
+
+we are organizing the files
+
+into a different folder so
+
+let me show you that part
+
+so this is our uh folder where we are
+
+going to store
+
+the data uh basically the processed
+
+files
+
+so let's run this and see how it looks
+
+like
+
+so i'm going to run the workflow
+
+and this is our folder
+
+so as we configured it is asking for a
+
+folder part which
+
+i will provide now
+
+so it's in the input files folder
+
+and when you keep an eye on this
+
+processors
+
+so the studio is running in the
+
+background what i want to show you is
+
+how is going to uh move the files into
+
+this folder
+
+and how the background choices are
+
+executed
+
+based on how we configured so you can
+
+see a lot of processes are running in
+
+the background
+
+and the folders has automatically got
+
+created
+
+so you see a lot of things happen in the
+
+background
+
+and it's still running
+
+and now it has gone into this suspended
+
+state because
+
+we are we should
+
+complete some actions as we did in our
+
+previous video
+
+so we have three classification actions
+
+to complete
+
+so i should assign it to myself
+
+so it's asking whether it's the invoice
+
+or not
+
+so i will save it
+
+so this is that combined file where we
+
+have two types
+
+it shows invoice and purchase order for
+
+the two pages
+
+so these things will be trend over the
+
+time
+
+so we'll focus on that in our later
+
+videos
+
+and i'm resuming this
+
+and it will complete the process
+
+you can see the files are inside
+
+our processed folder
+
+okay so continuing from there
+
+we now need to create uh
+
+machine learning models for invoices
+
+purchase orders and utility bills in a
+
+fabric
+
+so let's see how we can do that
+
+so over here we need to download few
+
+schemas
+
+so you need to go to this url
+
+it is the configuring data manager the
+
+url is provided in the video description
+
+you can get it from there
+
+so once you get into this page you
+
+scroll
+
+down you get a set of links
+
+now you can download the predefined
+
+schema
+
+for each of these for invoices
+
+purchase orders and utility bills so
+
+just click on it and download these zip
+
+files and extract them
+
+and once you extract we will see how we
+
+can
+
+add them to the
+
+ai factory so in my case i have added
+
+i have downloaded them
+
+over here into three folders
+
+and let's see how we can add it to a
+
+fabric
+
+so this is my automation cloud i'm using
+
+a trial version
+
+so if you have not used ai fabric
+
+earlier
+
+go to admin and under this section
+
+go to edit services and enable ai fabric
+
+from here
+
+and save it also go to configure
+
+licenses
+
+and add the two ai robots available
+
+and save so this will enable you
+
+the ai fabric service it will take a
+
+couple of seconds
+
+but it will complete so and then
+
+go to ai fabric
+
+so over here we need to create a new
+
+solution for this
+
+so you can click on create project
+
+and give a name i would say document
+
+understanding
+
+and create it this is the
+
+dashboard that we are getting uh
+
+so the first part that you need to do is
+
+you need to
+
+add the downloaded files into
+
+the data sets so when we get
+
+to data sets if we can quickly explore
+
+what files we have
+
+for invoices
+
+um so we have two files
+
+one is the split command limited file
+
+so we open it
+
+this is all you have it says file subset
+
+and if we open the schema json
+
+it will have the fields and the data
+
+types
+
+of uh the invoice
+
+that machine learning uh model will
+
+provide
+
+you so similarly it will be the same
+
+uh for all the other three
+
+bobby o also you will have those two
+
+files why i have two different versions
+
+i
+
+only use the previous one so i'm now
+
+using the latest
+
+which i downloaded from this
+
+this part so 20.7 means
+
+it's using the 20.7 version
+
+okay so we'll upload these files into ai
+
+fabric now
+
+so we have three types invoices which is
+
+always on your little pills
+
+um so all you need to do is you can just
+
+create a new
+
+folder and provide a name
+
+invoices schema
+
+if you want you can provide a
+
+description as well
+
+and create it so under invoicing schema
+
+i'm going to upload the files that i
+
+have
+
+in the ai fabric invoices folder
+
+these two i will place it over here and
+
+upload
+
+and you can see those two files likewise
+
+you have to get back to data sets create
+
+a new folder
+
+for schema
+
+in here i'm going to upload the purchase
+
+orders
+
+this and this file
+
+doing the same for your latest
+
+files
+
+okay so we have all the files in the
+
+data sets
+
+three sets and now going to ml packages
+
+so we are using the out of the box
+
+packages available
+
+and going inside document understanding
+
+so here we have the models that we are
+
+going to use we have invoices
+
+process orders and utility bills so
+
+let's
+
+create the packages
+
+so i'm going to click on invoices first
+
+so this is a retrainable model and it is
+
+having three versions so i'll be using
+
+the latest one
+
+and click on submit
+
+here you need to provide the package
+
+name
+
+so i will provide a name like this
+
+so you can provide any name as you wish
+
+if you want you can change the
+
+descriptions and ocr i'll
+
+leave the rest as it is
+
+because i'm not using any ocr at the
+
+moment for
+
+ml model
+
+and here we have it as undeployed and
+
+now i need to create a new one again
+
+going to out of the box
+
+document understanding purchase orders
+
+in this one the latest version is 2.0
+
+and it's also refrainable and i'm
+
+creating that
+
+not changing any properties as earlier
+
+so i'll be just creating
+
+the package and it is also undefined
+
+and lastly i'm going to create the
+
+utility bill
+
+the latest version is 2.0
+
+okay so we have all three packages
+
+created and now we need to create the
+
+machine learning skill
+
+so i'm going to ml scale
+
+and click on create new
+
+so here i'm going to provide a name
+
+and say skill devices
+
+and i'm going to choose the package many
+
+package invoices
+
+the major version is the latest version
+
+which is the three that we selected
+
+mine is always zero
+
+ml model for invoices
+
+and create
+
+so this will take some time to be
+
+available so right now it's deploying
+
+so in the meantime we can create the
+
+rest of the
+
+skills again this is for purchase orders
+
+which is order
+
+and i'm selecting the purchase order
+
+package we created
+
+latest version is 2 0.
+
+i'm not enabling gpu because i'm using
+
+the trial and i don't
+
+have that available
+
+so basically jpu is
+
+the feature that gives you more
+
+processing power
+
+to execute these models and train them
+
+so by default the power that we have is
+
+enough to perform our initial task
+
+so this one is for utility bills
+
+i will select the little bell
+
+and
+
+okay
+
+okay so as you see the status is
+
+deploying
+
+and it will use the schema that's
+
+available
+
+in the data sets to
+
+deploy this model
+
+so this will take some time uh
+
+so i'll be pausing the video for
+
+a couple of minutes until the status is
+
+available
+
+so we'll start
+
+once it's deployed
+
+so we have the packages available now
+
+the scales we created so let's go ahead
+
+and
+
+create our workflow
+
+okay so this is where we stopped
+
+previously and once
+
+this section is complete the next part
+
+is
+
+using the data extraction scope
+
+so before doing that we need to
+
+think of one small thing
+
+api key that we are getting
+
+from the cloud platform
+
+so as you notice in the variables
+
+this api key is coming in as a
+
+secure string so at some point
+
+if we for classification
+
+if we require manual classification and
+
+create a document classification
+
+action and wait and resume once you
+
+receive
+
+this object is going to be null
+
+so because of that reason
+
+we need to
+
+get the secure string again
+
+before going into data extraction
+
+so what you can do is
+
+so right above we used the same activity
+
+get api key we can use the same thing
+
+copy it so even though it's under
+
+parallel for each
+
+with the when we are going to resume
+
+and start again is going to
+
+become a null value so you will actually
+
+see that once you execute without
+
+this activity over here
+
+it will throw you an error so i will say
+
+get
+
+api key extract so i'm going to assign
+
+that
+
+to the same output variable
+
+so once you do that you can go ahead and
+
+use the data extraction of the scope
+
+and place it right below the api key
+
+and now the document path we need to
+
+provide
+
+the file path to the document so as you
+
+remember in the previous video
+
+we assigned the document path to a new
+
+variable
+
+called passively classified document
+
+path
+
+and the document text is coming from
+
+doc
+
+and the document taxonomy
+
+so for classification as you know
+
+the if you check the variables the
+
+validated classification result is of
+
+uh it's an array of type classification
+
+result
+
+so as we discussed in our previous video
+
+we thought we said that we are going to
+
+parallel process
+
+each classification and that's why we
+
+included
+
+the parallel for each here so
+
+in case of a document that has different
+
+types
+
+uh we'll be improvising each of those
+
+thoroughly
+
+as discussed so to
+
+do that we need to take the age
+
+classifier variable in this for h
+
+and that's what we are going to use
+
+in the data extraction scope so why
+
+i thought of doing it like this is
+
+because the extraction part we have
+
+a lot of things to discuss and um
+
+going through the pre-built uh
+
+workflow might get you confused that's
+
+why i'm
+
+doing this along along with the video
+
+so as we discussed
+
+here we need to use the each classifier
+
+variable
+
+so we are using each classifier over
+
+here
+
+and once you do that we need to get the
+
+output
+
+of the extractors into another variable
+
+so i'm going to use the automatic
+
+extraction data variable
+
+which i'm going to create now
+
+automatic extraction
+
+data so again the scope of this variable
+
+is going to be
+
+is going to be inside the process
+
+uh yeah it's going to be inside this
+
+our innermost sequence which is
+
+process document for each classification
+
+because this extraction result
+
+is unique for each classification we are
+
+extracting so once you do that
+
+in properties you have configured
+
+everything
+
+and now we need to use the extractor
+
+so i'm using the machine learning
+
+extractor
+
+over here
+
+so once you place it to get this
+
+agreement all you need to do is i
+
+click on i agree
+
+and it will ask for the endpoint ml
+
+scale
+
+and the api key so what you have to do
+
+is you need to go to your cloud platform
+
+copy the api key and place it over here
+
+so in minecraft platform and you need to
+
+go to
+
+other services copy the link
+
+or the api key and
+
+place it over here
+
+and we are using the ml skills so we are
+
+not using
+
+the end point so
+
+by default it won't show it here just
+
+click on this refresh button
+
+and it will load the ml skills that we
+
+created
+
+so first one is the scale for inverses
+
+which we will use it now so select that
+
+and have this enabled and click on get
+
+up
+
+get capabilities so why we are doing
+
+this is because
+
+we need to get the capabilities of the
+
+invoices
+
+and map it against the face that we have
+
+now i'm clicking on get capabilities
+
+and the api key will be available over
+
+here
+
+uh and
+
+now you need to configure the fix so i
+
+will rename this
+
+for invoices
+
+and go to config extractors
+
+here you will see your machine learning
+
+extractor
+
+that we place for invoices
+
+expand this and so on the left hand side
+
+we will have all the document types
+
+we created in the taxonomy so we are
+
+pricing invoices so at the moment we are
+
+not worried about any of
+
+the other types so expand this
+
+and on your right hand side you will see
+
+a set of drop downs now
+
+we need to map the fields coming in from
+
+the invoices machine learning model
+
+into the phase we are using so you might
+
+have different fields depending on what
+
+you have
+
+created so map it accordingly so for
+
+invoice
+
+number from the drop down i'm going to
+
+use
+
+the invoice number field and for invoice
+
+date
+
+it's the date when the address
+
+is going to be vendor address total
+
+amount
+
+is the total so here we have the line
+
+items
+
+so for line items you have to select
+
+the items which will give you
+
+the sub items for this description
+
+quantity and the rest
+
+so down here it won't show you all the
+
+other fields
+
+that was available when you were
+
+selecting the
+
+phase above because here we have
+
+selected items and we are inside that
+
+section
+
+and it only shows the phase that you can
+
+use
+
+for line items so for description
+
+snap it that's the description and for
+
+quantity
+
+i'm going to use that you need price
+
+and line amount
+
+and click on save
+
+so you have configured the first item
+
+for invoices we have something
+
+additional to do
+
+here so here if you see the api key
+
+is hardcoded so we need to
+
+use the field that we are getting from
+
+this asset inside
+
+instead of hard coding so you can easily
+
+convert it so we need that
+
+over here in the intelligent keyword
+
+classifier
+
+so just copy that
+
+and scroll down
+
+so instead of this hardcoded value paste
+
+the new code
+
+yes we are using the same variable so we
+
+can use the exact same
+
+code over there okay so now you have
+
+configure the invoices
+
+and do the same for purchase orders and
+
+utility bills
+
+so i'm using the machine learning
+
+extractor again
+
+next to this again you get the same
+
+[Music]
+
+screen all you need to do is copy the
+
+api key
+
+so at the initial point here you have to
+
+provide the api key you cannot provide
+
+that code
+
+because through this only it will work
+
+so paste it refresh
+
+select the first order get capabilities
+
+and you are done with that yeah i will
+
+rename it as
+
+purchase order for us to easily identify
+
+going to configure extractors now you
+
+see
+
+two machine learning extractors
+
+so we are not going to use the new
+
+extractor we use
+
+for invoices because we already have one
+
+for that
+
+so we'll be configuring only the
+
+purchase order section
+
+here we have all the freezers we are
+
+getting from the taxonomy
+
+and copy your number now using the qr
+
+number
+
+pure date is the date
+
+file name and address
+
+window name and vendor interest
+
+shipping name
+
+the delivery date
+
+so again for few items just like we did
+
+earlier we need to go to items
+
+and the line number
+
+item description
+
+quantity
+
+uh give me thrice
+
+and the line
+
+okay you can also try uh different
+
+options available
+
+based on the output that you get to find
+
+the best
+
+output so for example if you're not sure
+
+for line amount where there is a line
+
+amount or line
+
+amount get the output from the
+
+validation station
+
+and see whether it's picking up the
+
+correct one and change it accordingly
+
+okay so now we'll use the line amount to
+
+see how it works
+
+and click on save and again
+
+copy this code into this part
+
+okay so we have two extractors
+
+now again we need to use the next
+
+machine learning extractor that we
+
+did for uh
+
+utility so first we need to get the
+
+api key
+
+i usually do this get capabilities
+
+i'm going to configure extractors we
+
+have the other one
+
+before that i'll rename this
+
+and now we are going to process the
+
+utility bill section
+
+so we name
+
+the address
+
+vendor name
+
+render address account number
+
+invoice number
+
+total
+
+service from that
+
+and service to date
+
+payment terms
+
+previous balance and the utility
+
+document type
+
+so all these are available in the
+
+machine learning body
+
+okay and click on save
+
+and again we are going to replace the
+
+api key with the code that we are
+
+getting
+
+right that's how we configure the
+
+machine learning extractor to get
+
+how to use the skills we've created in
+
+the air fabric
+
+now we can see the output
+
+using the
+
+the validation station so how we are
+
+going to verify the data that we'll
+
+talk about in a later video for now
+
+we'll see
+
+what sort of output that we are getting
+
+for this one
+
+so we'll simply use validation
+
+[Music]
+
+station
+
+so we'll be talking about how we should
+
+use the validation
+
+action and how we can resume
+
+and now we should decide whether we need
+
+to show the validation
+
+station or not in a different video
+
+that's focused on
+
+the validation segment because it's a
+
+totally different topic
+
+for now to see the output we'll use
+
+the present validation station
+
+so the document path is again classified
+
+document path
+
+the document text
+
+um document object model
+
+and automatically extracted data
+
+and this variable will create for now
+
+and this is going to be validated
+
+extraction
+
+data and this is also
+
+inside this sequence
+
+okay so now we can run it and see what
+
+sort of output that we get
+
+to execute
+
+so this save it and
+
+we'll do a quick run
+
+so we will see only the output for
+
+the three documents we processed
+
+and the rest will not be extracted
+
+info trials
+
+so you can see it running in the
+
+background
+
+and we got the output for the first
+
+document because in the
+
+folder we have different document types
+
+that's why you are not getting this
+
+because we are at the moment only
+
+focused on invoices so we'll
+
+mark this we'll just
+
+continue answer
+
+and this is the other type
+
+okay so we have the purchase order
+
+and for this one we see the extracted
+
+results
+
+so let's see we have the purchase number
+
+captured
+
+if you're not sure where that is you can
+
+click on it and it will highlight
+
+over here so that's accurate
+
+purchase date
+
+the client name it's over here for this
+
+control
+
+address it has captured nicely
+
+and you can see the breakdown as well
+
+when the name has not got captured
+
+so in that case what you can do is you
+
+can simply
+
+highlight and
+
+by pressing the control key and click on
+
+plus
+
+and it will pick it this address has
+
+also got captured
+
+supplier name shipping name
+
+uh which is different so
+
+leave it for now the delivery date again
+
+so we are not doing the validation right
+
+now now we're just
+
+seeing how the output has got captured
+
+so we don't have any line numbers but
+
+here there's a simple
+
+small difference so these things can be
+
+trained and
+
+fixed all the time uh
+
+yeah so we'll confirm this for now
+
+[Music]
+
+and let's see what's the invoice looks
+
+like
+
+so for this invoice
+
+we have a couple of problems we don't
+
+see the invoice number
+
+extracted
+
+even though it's over here invoice dead
+
+has not got extracted
+
+when the address is not extracted
+
+so these things can be fixed
+
+uh but the line items is
+
+correct so we'll see how to fix this
+
+with the red text extractor so
+
+why i'm doing doing that is because i
+
+need to show
+
+uh how to use different extractors to
+
+extract data from
+
+the same document so we will talk about
+
+that
+
+in the section where we are
+
+focused on the regrets extractor to
+
+extract those data
+
+so for now we will leave it
+
+so you can see that places where we can
+
+improve
+
+the machine learning models by training
+
+them
+
+so we are getting all the
+
+data and it's in receive instead
+
+we will see our actions
+
+so here we have a couple of invoices and
+
+purchase orders
+
+first we need to confirm the
+
+classification
+
+for this as well
+
+okay and i'm going to resume this
+
+so you can see it's running in the
+
+background
+
+so
+
+okay we got the other invoice
+
+here you can see the face that got
+
+extracted
+
+we have the invoice number that
+
+when the address has not got picked up
+
+and we have the line items extracted
+
+so it's looking good we will see how to
+
+validate these things
+
+in a later video for now i'm just
+
+showing you the output
+
+and this is the other invoice we just
+
+resume
+
+and you see the confidence level
+
+the value and the line items
+
+here we have additional line
+
+let's see what's causing that
+
+so because here we have two lines it has
+
+identified that as two different items
+
+so you can install it for now
+
+and this is the combined file where we
+
+have two
+
+pages this is the invoice part of it
+
+you can see all the values extracted
+
+without any problem
+
+and this is the purchase order
+
+we have
+
+the file name is not there
+
+you can add it
+
+and we have some information missing so
+
+we'll see how to extract those
+
+later by training the models
+
+so for now we can indicate and highlight
+
+and add them
+
+so again for force
+
+you can highlight and add
+
+and this one is not getting highlighted
+
+so in that case what you can do is you
+
+can
+
+provide the range and
+
+add extracted value which will enable
+
+you to type it
+
+so that's how you can extract the values
+
+using the models that we have created
+
+so over time we need to improve the ai
+
+models
+
+by training them so those things uh
+
+that for later discussion because that's
+
+a separate topic
+
+so for now this is how we can use
+
+the ai the trend ai models in afric
+
+and the document understanding workflows
+
+to extract the data from different type
+
+of documents
+
+so in the next part we'll
+
+see how we can use the regex extractor
+
+to extract data from different type of
+
+other documents like the form
+
+4 and how we can extract some
+
+missing information in these invoices
+
+using the requests
+
+so that will be a combination of machine
+
+learning extractor and the regular
+
+extractor
+
+so we'll talk about that in the next
+
+video
+
+and hope you found this informative and
+
+i will attach the solution in the video
+
+description for you to download
+
+and thank you very much and i will see
+
+you in the next video
+

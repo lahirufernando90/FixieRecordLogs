@@ -1,0 +1,664 @@
+hello welcome to the part 3.4
+
+of data extraction and in this section
+
+we will take a look at
+
+how we are going to extract handwritten
+
+data
+
+from a document so how we can do that
+
+is before
+
+looking into that let's take a look at
+
+the document that we are going to use so
+
+i have already
+
+shared some of the samples with you
+
+so in this you can see we have some
+
+handwritten information
+
+which we can try to extract
+
+so for that
+
+um in the workflow we last
+
+did is the retex based extractor
+
+and in this one to extract handwritten
+
+data we are going to use the
+
+intelligent form extractor
+
+so we can search that here
+
+this is much more similar to the form
+
+extractor
+
+only different says this is mainly used
+
+to extract
+
+handwritten data
+
+the rest how you configure creating
+
+templates
+
+identifying fields everything is same as
+
+the form extractor
+
+so here you have to change the end point
+
+since we are using the trial
+
+as you see over the form extractor it
+
+says addition equals enterprise
+
+we have to do the same thing over here
+
+as well
+
+so i can simply change it
+
+because enter twice
+
+and then as you know in this series we
+
+are going to take the api key
+
+from uh asset
+
+and we are going to convert it using
+
+this code so i can just copy and paste
+
+and then we are going to go for manage
+
+templates
+
+the first thing is we need to create a
+
+template
+
+and we are going to select the account
+
+creation form
+
+so this we created in the taxidermy at
+
+the beginning of the series
+
+and we can give any name
+
+creation
+
+and then i have to select the pdf file
+
+so
+
+it could be a video it would be a image
+
+can be anything
+
+so in this folder i'm going to use this
+
+particular document
+
+and then i will say configure so that it
+
+will automatically
+
+digitize and give me a screen
+
+to provide the identify the fields
+
+so it will take couple of seconds
+
+so ideally it's asking for native video
+
+format but if you don't have a native
+
+video still it's fine
+
+okay so this is the template manager
+
+and you get some instructions over here
+
+which can be helpful
+
+and now the first thing is as you
+
+already aware of this we first need to
+
+provide a set of keywords
+
+to identify the page so i can
+
+highlight the first parts and take the
+
+tokens and
+
+edit as the matching info
+
+and then it's the application type so
+
+this is a boolean
+
+type as we defined in the taxonomy
+
+so what we are trying to do here is we
+
+need to identify whether this
+
+is a new application or whether there is
+
+an update
+
+so the assumption here is if you find a
+
+tick
+
+in the new box that means it's a new
+
+application
+
+if not it's an update
+
+so all you need to do is you need to
+
+highlight
+
+this area just like you did in the
+
+form extractor and get the custom area
+
+and add it to application type
+
+so all the phase over here are expecting
+
+handwritten data
+
+and we need to highlight only the
+
+handwritten
+
+parts of it and the next one is
+
+application date
+
+so i'm ignoring the printer text and
+
+will extract only the
+
+written part get the custom area
+
+and edit so all the time we are not
+
+taking the tokens you will always get
+
+the
+
+higher written the custom area because
+
+the
+
+tokens might differ and do that for
+
+cif number
+
+and the account number
+
+and next is the name of the entity which
+
+you can identify
+
+over here so i will
+
+highlight this part
+
+so you see two lines available so i will
+
+give
+
+line by line and i will highlight this
+
+area
+
+and add it
+
+and i will highlight this second line
+
+separately
+
+and add it as an additional fit
+
+so when this executes it will combine
+
+these two and give you the final result
+
+as we did in the form extractor
+
+and the place of incorporation is over
+
+here
+
+so i'm going to highlight that and the
+
+custom area is going to
+
+be placed over here and this is the
+
+address
+
+so for address we have couple of fields
+
+so we'll give one by one
+
+this is the first one
+
+and then will be the second
+
+and third one
+
+and the district
+
+so all this will combine and give you
+
+the final result
+
+we just need to provide the fields
+
+and finally the fourth quarter
+
+okay so we have copper phase for that
+
+and we can use these as well let's give
+
+it a try
+
+to see how it works
+
+okay and we are done with the
+
+template and this same template will be
+
+applied to the other document as well
+
+because it's the same
+
+uh thing we are going to use so let's
+
+save it
+
+and then if you have any signature field
+
+so if you have any
+
+page that you're going to check whether
+
+a signature is available
+
+or not you can highlight or
+
+select that over here and it will give
+
+you a boolean result saying whether the
+
+signage is available
+
+or not and then
+
+out of all those fields it's asking what
+
+are the handwritten things
+
+and in our case all the phases are
+
+handwritten
+
+so i will select all
+
+and the next thing is here
+
+it says boolean field interpretation
+
+so that we already have a boolean field
+
+where you can
+
+see either a take or
+
+any identification for that so we can
+
+add some
+
+common recommended values by clicking on
+
+this as you see
+
+at the ears x b or the take
+
+anything to identify whether it's
+
+uh years or no in our case to identify
+
+whether there is a new application or
+
+not
+
+for no it's not really needed as of now
+
+because we are only looking at one
+
+particular field so
+
+let's ignore the node
+
+and this is my configuration
+
+so let's close this
+
+and we are done with the intelligent
+
+form extractor
+
+next thing is to add it in the
+
+extractor configuration so we have
+
+account creation form and we have all
+
+the fields
+
+over here and i'm going to use
+
+integration from
+
+extractor for all of those so i don't
+
+need to select one by one i can simply
+
+select
+
+the first line so it will get applied to
+
+all the fields
+
+and just click on save
+
+so that's it
+
+in terms of configuration so let's run
+
+it and see
+
+how these actually work and let's see
+
+the output
+
+of this i'm going to save it
+
+and run
+
+you can see it's executing on the left
+
+hand side
+
+and we get the folder selection
+
+so i'm going to select my folder
+
+samples
+
+so in that folder we have
+
+two files two similar files so
+
+let's see how the output is going to be
+
+and since it's the image you can see the
+
+ocr is executing
+
+and now we should see the validation
+
+station you can see the intelligent form
+
+extractor
+
+okay so we have the first validation
+
+screen
+
+let's see our output and
+
+here you can see it has properly
+
+identified the tick
+
+based on our configuration with 99
+
+confidence
+
+and the debt is exactly the same
+
+and the same number
+
+uh is anything different no
+
+and the account number
+
+yeah it's almost the same and over here
+
+we have
+
+virginia and lt
+
+i'm not sure from where that came from
+
+but you can see that
+
+it's highlighting both lines which we
+
+marked separately and added as
+
+additional field
+
+so it has extracted the value
+
+so i'll just remove this since it's not
+
+required
+
+the place of incorporation you can see
+
+the output
+
+and let's see the address
+
+so you can see it has extracted values
+
+from all these fields that we have
+
+identified
+
+and over here
+
+it says two one zero mill bay str
+
+and i'm not sure what this
+
+is
+
+so so the thing is with handwritten data
+
+sometimes
+
+i might need to do a little bit of
+
+formatting around it
+
+so that's fine yes but it gives you
+
+a good level of accuracy so i can simply
+
+remove this part
+
+and you see the california los angeles
+
+and ca and it has identified all that
+
+properly and for us it says
+
+45 in a way it looks like 45
+
+but let's see us
+
+and it gets updated over here as well
+
+okay so that looks fine
+
+and let's see how our other document
+
+looks like
+
+this is the second one
+
+again it has properly identified this it
+
+says
+
+yes the data is captured the numbers are
+
+properly identified
+
+this is a little bit different report is
+
+there
+
+i'm not sure where the key came from
+
+just remove it
+
+usa is properly identified and this
+
+address is
+
+a little bit different
+
+uh okay so as i said we need some sort
+
+of
+
+cleansing on this stuff
+
+but still you can actually get
+
+most of the data extracted as you see
+
+okay let me clear this
+
+right so that's
+
+how we can use the intelligent form
+
+extractor
+
+to extract handwritten data with
+
+slight uh cleansing that's always
+
+expected when it comes to handwritten
+
+data
+
+so the good thing here is we get the
+
+confidence level of each and every field
+
+and as you might have seen earlier this
+
+confidence level was
+
+uh somewhere around 10 because it has
+
+some
+
+weird characters
+
+so being the
+
+we as we complete this the extraction
+
+part of this series
+
+next is the validation
+
+so how we do the validation how can we
+
+use this confidence
+
+level that we see in the validation
+
+stations
+
+to actually decide whether we need
+
+manual verification
+
+or not that's what we are going to cover
+
+in our next video so
+
+stay tuned and this is one of the most
+
+important
+
+topics because when it comes to
+
+data extraction and validation we are
+
+not expecting
+
+the user to sit there and validate each
+
+and every document
+
+so we need to identify ways of
+
+validating without human intervention
+
+and to decide
+
+when we need human intervention so
+
+that's what we are going to cover next
+
+and stay tuned until then explore the
+
+intelligent form extractor and see
+
+what else we can do with it
+
+and just explore some of these fields
+
+over here
+
+and see what sort of output that you get
+
+thank you very much see you in the next
+
+video
+

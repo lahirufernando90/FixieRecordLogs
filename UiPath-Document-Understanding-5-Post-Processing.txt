@@ -1,0 +1,1580 @@
+hello everyone
+
+welcome to the advanced bypass document
+
+understanding
+
+part five where we'll be talking about
+
+the post processing so this series has
+
+been
+
+very long and we basically covered a lot
+
+of topics
+
+for your document understanding
+
+starting from the basics and
+
+this is the last section of the
+
+document understanding series where
+
+we talk about the last few steps on
+
+how to extract the validated data
+
+and how we can use the extracted data
+
+to train and prepare
+
+the training data for our machine
+
+learning
+
+extractors and also for the
+
+classifiers so let's
+
+have a look
+
+so this is our workflow where we stopped
+
+in the previous session where we talked
+
+about
+
+how we can handle the validation
+
+using different activities like the
+
+create document validation action and
+
+then we talked about
+
+uh writing the validation logic and so
+
+on
+
+so just reminding again
+
+uh the data extraction the
+
+post-processing part
+
+also happens within this
+
+classification so as you all remember
+
+each document can have multiple
+
+document types inside so we have to
+
+process
+
+each and every classification we
+
+identified
+
+so that is why we are using this
+
+parallel for h
+
+so same applies for the post processing
+
+part
+
+of the document understanding so all
+
+that should go
+
+under this sequence
+
+so if you want to create another process
+
+and invoke it just like we did over here
+
+you can do that as well
+
+yeah so in this section here
+
+to organize the files basically
+
+to organize the classified documents and
+
+move it into different folders
+
+we invoked another process during the
+
+first part of the classification
+
+so if you think that
+
+you can use another process
+
+and perform the data extraction
+
+and the preparation of training data
+
+it is possible so it's good if you can
+
+do that
+
+rather than adding all the activities
+
+here
+
+but for the demo purpose for the video
+
+purpose i will include it in this
+
+particular solution itself for easy
+
+demonstrating
+
+okay so highlight this sequence
+
+and i will scroll down
+
+and right here i'm going to add a new
+
+sequence
+
+so for
+
+to easily use it you can build the
+
+sequence here and then later
+
+extract it as a different workflow and
+
+you can add it to another process so
+
+there are different ways of doing it so
+
+try that out
+
+so i will rename this sequence
+
+saying post processing
+
+so in here will be
+
+looking at how we can extract
+
+the final data
+
+i that comes either through automatic
+
+verification
+
+or manual verification using action
+
+center based on our workflow we created
+
+earlier
+
+so either way the final output is
+
+getting assigned
+
+to validated extraction data on both
+
+sides of this if condition
+
+so just to remind you again this if
+
+condition checks
+
+whether we need manual verification or
+
+not
+
+based on the logic we performed here for
+
+different document types
+
+and if we need manual verification we
+
+create action
+
+if not we automatically verify it so
+
+we'll be using that variable
+
+so to do this there's another activity
+
+called
+
+export extraction results under
+
+intelligent ocr
+
+and the extraction results i can use
+
+the validated extraction data
+
+because it is the output that we get
+
+from here
+
+and then you have a data set just
+
+press ctrl k and
+
+create your new data set variable
+
+uh
+
+so this is my data set variable so right
+
+now
+
+if you go into properties
+
+here you can see the confidence earlier
+
+we use this confidence
+
+to build our validation logic so if i am
+
+to show you over here
+
+this is the validation
+
+uh part where we use the export
+
+extraction results the same
+
+activity there we use the confidence
+
+level
+
+but right now since we have done the
+
+validation
+
+and we have got the final result
+
+i'm not going to use any of the
+
+confidence values but if you think
+
+that you need it you can still use it
+
+and extract so
+
+why you might again ask why i am not
+
+using this same
+
+export extraction result activity or the
+
+output of that it's because
+
+here we used the automatic extraction
+
+data
+
+so based on that we decided whether we
+
+need
+
+the manual verification or not and if
+
+the manual verification is needed
+
+user can change the data so that's why
+
+i'm using
+
+another activity based on the output of
+
+this
+
+so here i will for
+
+today's videos purpose i will not be
+
+using
+
+the confidence so
+
+how are we going to train our classifier
+
+so we are using the intelligent keyword
+
+classifier
+
+so to train it
+
+so you already know that it is using a
+
+json file
+
+that has all the data that
+
+of the documents that we trained
+
+initially
+
+so this training is
+
+let me go back to the classification
+
+so here you can see we are giving a
+
+document file path
+
+and if we go into manage learning you
+
+can see that these documents are trend
+
+on some documents
+
+that we did initially so in your case
+
+your numbers might differ
+
+because you have only used some files
+
+that we have
+
+shared so don't worry about that
+
+so now we are looking at no matter the
+
+initial training you did
+
+how we are going to train the documents
+
+for each and every run that we
+
+do with this workflow so for each
+
+execution
+
+for each documented process it will
+
+train the
+
+classifier
+
+so going here again to train it
+
+we have a set of training activities so
+
+you can search for
+
+train and there's a activity called
+
+train classifier scope this is what we
+
+need
+
+to train the classifiers
+
+so earlier we use the
+
+keyword keyword-based classifier or
+
+intelligent keyword classifier
+
+at the classification stage but here we
+
+are using the
+
+training part of it so just like before
+
+you can use uh
+
+you can provide the information so the
+
+document path should be
+
+you can get it from here if you are not
+
+sure
+
+it's the dock item
+
+now you can scroll up and you can get it
+
+from there as well
+
+so we used it a couple of times
+
+so here it says the classification
+
+document path so we'll use that
+
+so i'm using the classification document
+
+path
+
+the document text is the
+
+text variable we used
+
+the document object model and the human
+
+validated data
+
+so here we are using the
+
+validated extraction data variable
+
+so for this training purpose
+
+there are two options either you can
+
+train based on the
+
+extracted data or you can train based on
+
+the
+
+classification data so
+
+for our scenario i'll be using the
+
+validated extraction data because that
+
+has
+
+the final result of the full process
+
+so i'll be using that and the taxonomy
+
+comes with the dark taxonomy so remember
+
+you can't
+
+use both fields so it has to be either
+
+human validated data
+
+or it has to be human verified
+
+classification data it's always either
+
+one
+
+so for my purpose i'll be using the very
+
+data data
+
+and here i'm going to use
+
+the intelligent keyword classifier trend
+
+because we are using the intelligent
+
+keyword classifier
+
+so i'll place it under this and use the
+
+same file
+
+path as i'm using
+
+in the intelligent keyword classifier
+
+so i can just copy and paste this file
+
+path
+
+scroll down and paste it over here
+
+and if you go to manage learning you can
+
+see the same
+
+result because it is referring to the
+
+same file
+
+and i will just say save and you have to
+
+go to
+
+configure classifiers and
+
+enable all the document types that you
+
+are going to train
+
+using your
+
+classifier trainer over here so for now
+
+i'll be using
+
+it for all the documents and click on
+
+save
+
+so what basically happens here is based
+
+on the
+
+validated data it will
+
+use the keywords because you know that
+
+intelligent keyword classifier is using
+
+the keywords
+
+and it will use the certain keywords
+
+and it will update this json file
+
+with the latest records so that next
+
+time
+
+when you are doing the classification
+
+over here
+
+it will be using the updated file and
+
+it will improve the classification
+
+classification
+
+part of your process so over time
+
+so at some point the it might not
+
+give you the exact result but with the
+
+trend
+
+or updated classification data that it
+
+has in the json file
+
+next time it will be able to classify
+
+your documents properly
+
+with multiple executions or multiple
+
+training runs
+
+okay since we have covered the
+
+classification training here the next
+
+thing
+
+is to use the
+
+training the basically the train
+
+extractor scope
+
+to get or generate
+
+the data where we can use
+
+it to train the machine learning models
+
+so this is a different way of doing it
+
+so in the classification it updates the
+
+file directly
+
+updates the json file directly and next
+
+time you are processing
+
+it automatically picks it the updated
+
+data
+
+but when it comes to train extractor
+
+it is little bit different so you will
+
+see that so
+
+let me put it put this activity here so
+
+right after after the train classified
+
+classifier scope
+
+i'm going to include the trend extractor
+
+score
+
+here you can see that it is asking
+
+for the document path just like before
+
+so i will provide that
+
+and the document text
+
+document object model and human
+
+validated data
+
+which will be the same variable as
+
+before
+
+now the next thing is here we are
+
+we are talking about training the
+
+extractors
+
+so what sort of extractors can we train
+
+so let's get back to the extractors
+
+data extraction scope
+
+so here we are we used the machine
+
+learning extractor
+
+for couple of machine learning models as
+
+you see over here
+
+we used it for invoices
+
+and we used it for purchase orders
+
+so these are the machine learning models
+
+that we can
+
+use the train extractor scope
+
+to train these models
+
+so basically the data generated through
+
+this
+
+train extractor scope and the training
+
+activities
+
+inside that will be used to
+
+train these two machine learning models
+
+and that's available in ai fabric
+
+okay so what is the activity that we can
+
+use
+
+to train it here you can see
+
+there's another activity called machine
+
+learning extractor
+
+trainer so this is the activity we need
+
+so i'll be dragging and dropping this
+
+activity
+
+into the train extractor scope
+
+and then it asks for the endpoint and
+
+the ml skill
+
+so as you did in the extractor here you
+
+can get the image skill by
+
+clicking on the refresh button and
+
+selecting it from the drop down
+
+so in our case we'll be using the skill
+
+invoice
+
+for this case so i'm selecting that
+
+and have this checkbox enabled
+
+and click on get capabilities
+
+so you can see now it has properly
+
+configured so
+
+uh the next thing we need to do is
+
+we need to give the output folder so
+
+what is the output folder is so i have
+
+created
+
+a simple folder called training data
+
+so over here i have created two other
+
+folders
+
+called invoices and purchase orders
+
+there's no data inside these folders
+
+what happens is when this executes it
+
+will
+
+get all the extracted information
+
+that you need to train the ai model
+
+and it will be converted into a set of
+
+json files
+
+and also the executed document will also
+
+be
+
+inside this folder all that will happen
+
+automatically through this activity
+
+so for you know invoices i need to
+
+provide the invoice
+
+file path i'll be providing that
+
+over here and the next thing is
+
+go to configure extractors select
+
+invoices
+
+and click on save
+
+okay so the next thing is you need to
+
+select these four
+
+uh the items from these drop downs
+
+look at that part so for invoice number
+
+you have to say it's invoice number
+
+invoice state pend address
+
+go to so if you remember these fields
+
+are coming directly from the
+
+machine learning module you just have to
+
+select it
+
+you need choice and dynamo
+
+and click on save so now you can see
+
+it is configured properly
+
+the next thing is now we have purchase
+
+orders we have to use the same
+
+thing to train the purchase order module
+
+so again you are going to use the
+
+machine learning extractor
+
+panel over here
+
+this time instead of invoices you are
+
+selecting purchase orders
+
+and follow the same steps get
+
+capabilities
+
+provide the folder path
+
+over here and go to configure extractors
+
+expand purchase order select it
+
+you can see the next machine learning
+
+extractor trainer
+
+this is the one we did for invoices this
+
+is for the purchase order
+
+and again you just have to select the
+
+build numbers or the field names your
+
+number
+
+your date my name
+
+address vendor name
+
+is the delivery date
+
+equal items
+
+by number description
+
+[Music]
+
+quantity unit price
+
+and line amount
+
+so just like you did for extractor when
+
+you're configuring the extractor is the
+
+same steps you have to follow here
+
+but this is for the training part
+
+and here if you like rename this
+
+let's say
+
+invoices
+
+and yours
+
+and if you now go to configure extractor
+
+you can see
+
+the names available here so it can be
+
+easily
+
+you can easily recognize which one to
+
+use for which machine learning model
+
+so that is configured now the next thing
+
+we have to do is
+
+to actually extract the
+
+data and save it in an excel file so
+
+these two are done
+
+to train the classifier and also the
+
+extractors so now we need to get the
+
+data
+
+so for that i'll be using
+
+the output of this data set
+
+of the export extraction results so the
+
+variable is export
+
+validated data set
+
+so i need up for each
+
+why do i need for each is because that
+
+data set
+
+can contain multiple data tables
+
+because as you know as you have seen
+
+while we were testing the extraction
+
+and the validation the extracted data
+
+consisted of multiple things when we
+
+printed it in
+
+excel
+
+so i'll be using the for each and i'll
+
+be giving the file or the variable name
+
+validated extraction data
+
+which is is export
+
+validated dataset
+
+why it's showing an error is because
+
+this variable is a data set
+
+and this item has to be a data table
+
+you have to go to properties and change
+
+it to
+
+data table because each individual item
+
+consists of tables and over here
+
+after the data set variable you have to
+
+specify
+
+dot tables yes we are getting the tables
+
+out of it
+
+and i'm going to change this item
+
+variable into something called
+
+export data for easy reference and also
+
+if item is used above it will not
+
+conflict with that
+
+so right now now i have to do is
+
+i have another folder over here
+
+which is called output data so i can
+
+save my files inside this
+
+all you need to do is you just need the
+
+right range
+
+to write the data into this folder
+
+and the sheet name
+
+should be the names that you get
+
+out of these data tables so if i say
+
+export data
+
+dot table name it should give a unique
+
+name for each and every sheet because
+
+that name is already available in this
+
+data table and i need to write it
+
+from a1 or i can keep it as blank
+
+and i will add the headers
+
+and the data table is export data the
+
+same variable you have in this for each
+
+so what's going to be the file path
+
+so right now we are processing each and
+
+every file
+
+so and in each file
+
+there can be multiple document so we
+
+need to know the document category
+
+so remember at the beginning somewhere
+
+when we are discussing about the
+
+classification
+
+we extracted the document type
+
+over here so you can see the document
+
+category we are extracting that
+
+in the data validation so let's see
+
+what's the scope of this document
+
+category variable
+
+so it is inside process document for
+
+each specification so it's inside the
+
+same
+
+sequence that we are in we can use it
+
+so we'll be using the file name and that
+
+category
+
+to get or derive the new file name for
+
+this excel file
+
+what i can use is
+
+i can give the file path
+
+to this output folder
+
+along with the
+
+another expression that gets the file
+
+name of the original file and also the
+
+category
+
+so we'll get to this workbook path press
+
+my
+
+folder path here and after this i'll be
+
+using
+
+dot get
+
+file name without extension and i'll be
+
+getting the file name from the original
+
+document
+
+which is the
+
+uh classified document path
+
+this will give me the file name of the
+
+original file
+
+and then i need to get the
+
+uh document category so i'll be adding a
+
+simple separator here
+
+like underscore and i'll be using the
+
+document category
+
+plus the extension
+
+of the excel file
+
+this should work and i will click on ok
+
+and you have the right range configured
+
+so now let's see whether how this thing
+
+works
+
+so as of now you won't be able to see
+
+actually whether these files are getting
+
+updated
+
+unless you open it and check
+
+based on the date
+
+but you can see uh the right range will
+
+get
+
+updated so let's see so in our case
+
+we have two documents here in samples an
+
+invoice and a purchase order
+
+so let's see how this work
+
+i'll click on
+
+when it starts executing i will give the
+
+folder path
+
+and pause
+
+so right now it's checking the
+
+confidence levels and everything
+
+in the background and this was a message
+
+box that we configured last time
+
+that comes comes from the validation
+
+logic
+
+we put in
+
+okay so it has gone to the validation
+
+station let's see whether there's
+
+anything already in the
+
+output data no not yet so we'll
+
+go to
+
+the actions
+
+go to unassigned yeah this is
+
+the okay so we have both over here
+
+was created a couple of minutes few
+
+seconds back
+
+so i'll assign it to serve
+
+and assign the other one as well
+
+okay so we are in the document data
+
+validation
+
+so i'm not going to go through the same
+
+validation as before just
+
+add the total values
+
+just to show you how it is being
+
+extracted
+
+and
+
+since you already know how to do the
+
+validation based on our
+
+previous sessions
+
+i completed that and the other one is
+
+this for the purchase order
+
+okay so we have the plan name and the
+
+name that says
+
+this guy
+
+uh all right
+
+so this extraction will improve over
+
+time when we actually train
+
+the ai models and that's why we are
+
+getting that trend data
+
+out of using the extractor trainer
+
+so that we can use that data to train
+
+the models
+
+so i will click on check this part as
+
+well
+
+let's not worry about this stuff at the
+
+moment because we already know how to do
+
+that
+
+and click on save but when this when the
+
+actual process
+
+is running you have to make sure all
+
+these things are validated
+
+properly and extracted properly because
+
+that data will be used
+
+to train the models so you need to have
+
+the proper data
+
+since i'm running through the studio i
+
+need to resume
+
+so if you are running through a 10 dead
+
+bot
+
+or unattended robot
+
+basically unattended dropout it will
+
+automatically resume but it's
+
+we are running in the debugging mode so
+
+that's why you have to press resume it
+
+manually from studio
+
+you can see it executed properly
+
+we don't have any errors and let's see
+
+our
+
+output data and here you can see
+
+we have two new files
+
+for invoice and for the purchase order
+
+you can see
+
+the file name and the category
+
+same for purchase order and if you go to
+
+training data see
+
+earlier this invoice file folder was
+
+empty
+
+now you can see different other folders
+
+so before getting into this part
+
+let's take a look at the output in the
+
+output data
+
+in the invoice excel so here you can get
+
+all the extracted values you can see
+
+whatever i didn't extract properly is
+
+saying blank or either it will be wrong
+
+that's why you need to do the validation
+
+properly because this same data will be
+
+used
+
+to train the models
+
+so you can see it is having different
+
+sheets this is a simple representation
+
+of the high level fields
+
+and this is kind of like the formatted
+
+one
+
+and if you go to line items the invoice
+
+had only one item
+
+so that's there informative one also you
+
+can see the same thing
+
+so what's the difference between the
+
+normal one and the formatter if you have
+
+multiple lines
+
+it will have all the string formatting
+
+of
+
+characters like slash n and
+
+slash r and so on you can actually see
+
+if you process
+
+that kind of a document that will be
+
+only visible in the formatted
+
+sheet in both here but in the others it
+
+will
+
+have the normal value
+
+so same goes with purchase orders here
+
+it will have
+
+all the fields that we extracted and you
+
+can go to items
+
+and here are the items
+
+okay means you have these things here
+
+because
+
+we didn't do that variation properly
+
+there so if you do it properly it will
+
+be extracted
+
+yeah and you can train the model as well
+
+all right so now we have to take a look
+
+at the
+
+output now go into training data
+
+let's take a look at the invoice here
+
+you can see three
+
+folders under documents you see
+
+the original document we processed this
+
+is the document
+
+invoice and
+
+if you go to metadata here you will see
+
+a json file
+
+of the data we extracted
+
+and validated and this json file
+
+is what is being used along with the
+
+documents folder to train the data
+
+so here you can see there are different
+
+coordinates
+
+and you can have different values as
+
+well let's
+
+search for something
+
+in the description you can actually see
+
+the values as well
+
+and this is another name so it will
+
+basically have everything
+
+that we use while we are validating and
+
+extracting
+
+this same thing applies to
+
+[Music]
+
+purchase orders as well and in
+
+predictions you don't have anything as
+
+of now
+
+and if you go to purchase orders you
+
+will have the same structure
+
+and the document metadata
+
+and the predictions so this is what we
+
+are going to use
+
+to train the models so for today's
+
+uh video in this one we only focused on
+
+how to train the classification and how
+
+to train the
+
+extractor basically prepare the data to
+
+train the extract and extract
+
+the values so
+
+how can we use this extracted
+
+information
+
+to train the models in ai fabric
+
+that is for another video so
+
+you buy this video we are actually
+
+coming towards the end of this document
+
+understanding series but
+
+there is a very very special episode
+
+that
+
+comes in next which
+
+we use this actual data to train the
+
+models
+
+so that is a very special
+
+uh episode where i will be showing how
+
+to
+
+use this extracted data to train and
+
+what are the limitations and everything
+
+so stay tuned for that i'll be posting
+
+it uh
+
+soon until then practice
+
+and make yourself familiar with this
+
+document understanding as we have
+
+covered
+
+everything related to document
+
+understanding
+
+from creating ai models doing the
+
+classification directorization
+
+extraction validation which is one of
+
+the complex parts
+
+and now we did the post processing part
+
+so
+
+when it comes to the workflow design
+
+this is all you need to do
+
+for document understanding and you can
+
+have your own formats
+
+you can have multiple processors linked
+
+together to handle these things
+
+as i said in the at the beginning of the
+
+video you can have this
+
+entire sequence in another process and
+
+you can simply invoke it here
+
+just to keep the main workflow tidy and
+
+simple
+
+so practice it and practice how to
+
+do the parallel processing as we have
+
+done
+
+and i will see you in another video
+
+with how to use the strength data
+
+to actually train the ai models so stay
+
+tuned
+
+until then take care
+

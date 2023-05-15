@@ -1,0 +1,968 @@
+hello welcome to a new
+
+document understanding video so
+
+this is not a part of the advanced
+
+document understanding series that i
+
+published
+
+this is a separate video that's focusing
+
+on one of the
+
+very latest releases that you have did
+
+on
+
+document understanding so in this video
+
+we will focus on the new classification
+
+features
+
+that comes in with the combination of
+
+ai with the document understand
+
+so one of the latest release is
+
+your path has introduced ai
+
+fabric classification module to
+
+classify documents using ai models
+
+so for that what we can do is
+
+you need to do few things
+
+so ideally i would assume that you
+
+already know
+
+how to use ai fabric and you already
+
+know the basics of
+
+document understanding and how to
+
+classify it
+
+so to do that the first thing i need to
+
+do
+
+is i need to so
+
+basically what happens here is you
+
+upload a data set
+
+to ai fabric and there
+
+you train the ai model that uipath has
+
+introduced
+
+and using that trend model you do the
+
+classification without
+
+using the keyword based classifier or
+
+intelligent
+
+keyword based classifier so
+
+why they have this is because there are
+
+some instances where
+
+either the keyword based classifier or
+
+the intelligent keyword classifier
+
+does not really work when it comes to
+
+various dynamic document layouts and
+
+various different ways of representing
+
+the same type of document with a lot of
+
+different other letters and words
+
+so machine learning classifier is one of
+
+the best
+
+answers for that okay so to
+
+how to configure that is before getting
+
+into studio we'll take a look at the ai
+
+fabric
+
+so i have a project created
+
+over here don't worry about all these
+
+data sets and
+
+packages i have just focus on
+
+the steps i do so the first thing is i
+
+need to create
+
+a folder under data sets to
+
+hold the data we are passing to train
+
+the model
+
+i will say uh
+
+document
+
+specification
+
+so this can be a name can be any name
+
+as you know
+
+so in this folder we are not going to
+
+create anything it will
+
+get created automatically through our
+
+uipath studio workflow
+
+so we created the folder and now we are
+
+going back
+
+to your studio and i
+
+already have a taxonomy created for
+
+invoices account creation forms and
+
+purchase orders
+
+and in these dependencies
+
+you have to use
+
+let me yeah
+
+you have to use the latest version of
+
+uipath document understanding ml
+
+activities
+
+and intelligent ocr activities so i'm
+
+currently using the latest preview
+
+if you do not see this preview over here
+
+click on this filter
+
+and select this include free release
+
+and this will get visible to you
+
+so after you install these two
+
+um next comes the
+
+normal sequence of activities that we
+
+are
+
+usually use when it comes to document
+
+understanding
+
+uh workflows so i already have the load
+
+taxonomy
+
+and i have a for each law uh root
+
+for each loop to loop through a set of
+
+files
+
+so i have the files over here
+
+these are some of the purchase orders
+
+and invoices and account creation forms
+
+so i will look through that and i will
+
+do the digitizer document
+
+and for the initial step because we need
+
+to
+
+pass the data to ai fabric to train the
+
+data
+
+train the ai model i'm using the
+
+classified optimal scope
+
+with intelligent keyword classifier
+
+so over here i have trained it for
+
+couple of documents
+
+and i'm using that for all three
+
+and i already have a present
+
+classification station to verify the
+
+result
+
+and this is the part that's going to
+
+change
+
+so as the first step we are going to use
+
+the train
+
+classifier scope so you are already
+
+familiar with this activity
+
+and we are using the output of this
+
+present classification station
+
+as the human validated classification
+
+data
+
+and using that
+
+now is the now is the point where we use
+
+the new activity
+
+we have a new activity called
+
+machine learning classifier trainer
+
+this activity
+
+and i'm using that over here
+
+and it will ask for my skills so we
+
+don't
+
+have any skills as of now so i will just
+
+cancel
+
+it and i need to
+
+click on this refresh and i'm going to
+
+select the project
+
+that i have in my ai fabric so if you
+
+have a couple of projects you will see
+
+more than one so i only have one
+
+it's document understanding and that's
+
+the name you see over here
+
+and then i need to select the data set
+
+so in my data set there are a couple of
+
+folders
+
+as you see over here i have several
+
+other folders and this is the folder we
+
+created
+
+and i'm using that folder to
+
+train the classifier
+
+doing that i will click on
+
+configure classifiers and i will apply
+
+this for all three and
+
+for each type of document i need to
+
+specify a folder name
+
+so this the name you provide over here
+
+will get
+
+applied in a fabric so
+
+for example if i say invoices here
+
+this folder name will create get created
+
+under
+
+this document classification folder
+
+and then i'm going to give another name
+
+for account
+
+creation form
+
+and also for purchase order
+
+so make sure you don't specify any
+
+spaces if you
+
+need to use special user uh character
+
+like this
+
+and i will click on save
+
+so we are ready to upload the data
+
+so i will run this and let's see
+
+the output
+
+so it's running in the background
+
+so we have couple of documents it will
+
+take a little while because we need to
+
+manually
+
+specify that as well
+
+one
+
+okay so you are familiar with these
+
+steps
+
+and we already get
+
+the classification from intelligent
+
+keyword classifier so let's save it
+
+you just need to keep on doing that for
+
+all the
+
+documents as long as you have a
+
+trend classifier
+
+it should be easy
+
+this is just for the learning purpose
+
+so as that got executed if you check
+
+the document classification you could
+
+see
+
+a new folder account creation form
+
+and under that you can see the text
+
+representation
+
+of the document
+
+so likewise all the files that you
+
+process will get uploaded
+
+to this particular folder
+
+and this is another type
+
+and we have another invoice
+
+so in this one we have two different
+
+documents one is the invoice and one is
+
+a
+
+purchase order let's change that
+
+so let's change this as a invoice
+
+and this as a purchase order and after
+
+training
+
+we'll see how this gets identified
+
+properly
+
+um yeah so i'll
+
+save it so all the manually verified
+
+data i will get uh will be used
+
+to train the classifier
+
+and that data will be uploaded to ai
+
+fabric
+
+this is another invoice
+
+and this is another one
+
+so a couple of more documents are left
+
+so to do a training properly you need to
+
+have at least
+
+two documents for each type
+
+if you have less than that your training
+
+pipelining ai fabric will fail
+
+and this has not got identified so we'll
+
+specify that as invoice
+
+and this is another purchase order
+
+so i think we are
+
+getting close to the last document
+
+there's another one
+
+yeah i think this is the last document
+
+let's say invoice
+
+okay so that part has ended
+
+so going back to the document
+
+classification
+
+in a fabric now we see three different
+
+folders
+
+in account creation form we have two
+
+files
+
+and invoices we have more than
+
+two and for purchase orders
+
+we also have uh two files over here
+
+okay so we have uploaded the data if you
+
+actually download one
+
+and let's see what kind of output we
+
+have there
+
+so you can see the text representation
+
+of the entire document
+
+so this is the data that it
+
+will be using to train the ai model
+
+okay so now the next thing is
+
+we need to create a ml
+
+package to train this
+
+trend using this data and under ml
+
+packages if you go to out of the box
+
+packages you will see
+
+uh if you go inside you are part of your
+
+understanding
+
+you will see a new package called
+
+document classifier
+
+we will use that and
+
+we'll be using the 2.0 version because
+
+it's the
+
+available version and you can see it's a
+
+retrainable
+
+model so i will click on submit
+
+and i will say scale
+
+document classifier
+
+you can provide any name i will keep
+
+these configurations as it
+
+is
+
+okay so we have undeployed
+
+uh ml package that we can
+
+train so next thing is we are going to
+
+go for pipelines
+
+and we are going to create a new
+
+pipeline to
+
+train this package we created
+
+using the data we have in this document
+
+classification folder
+
+going into pipelines i will create a new
+
+pipeline
+
+with the
+
+type as trend
+
+and i'll be selecting the package as
+
+skill document classifier which i just
+
+created
+
+the version is this is zero
+
+and we'll be selecting the input data
+
+set as
+
+document classification because this
+
+folder we created to train
+
+the data and
+
+finally i will select run now and just
+
+click on create
+
+so you can see it's the status as
+
+packaging
+
+so this will take a couple of minutes
+
+to execute
+
+so after packaging it should
+
+turn into running state
+
+yeah so this will take couple of minutes
+
+so i will pause the video for now
+
+and we'll get back after this complex
+
+okay so we have the pipeline uh it was
+
+created successfully
+
+and we have the trained version of the
+
+package now and the next thing is using
+
+this trained
+
+package we are going to create a new
+
+ml skill so um
+
+i will navigate to ms skills
+
+and yeah and create a new one
+
+um okay so before that if you go to ml
+
+packages
+
+and if we click on this you can see
+
+there are two versions so
+
+originally this was the version i
+
+created and
+
+this is the trend version 2.1
+
+and this is the version that i'm going
+
+to use to create my
+
+skill so click on create
+
+and scale
+
+classifier
+
+say skill document
+
+classifier package version
+
+is this the scale document classifier is
+
+my package
+
+two and one because i'm
+
+i'm going to use 2.1 and i will click on
+
+create
+
+and you can see that new version 2.1 is
+
+being deployed
+
+and this will also take couple of
+
+minutes
+
+so let's wait until that's complete
+
+so and now we have the scale
+
+available and the
+
+next part is so we have done everything
+
+in a fabric
+
+and we have the scale ready to be used
+
+in our workflows getting back to studio
+
+now instead of uh using the intelligent
+
+keyword classifier over here
+
+we can simply remove this and we just
+
+copy the key
+
+just in case you can remove the
+
+intelligent keyword classifier
+
+and instead of that i'm going to use
+
+machine learning classifier so earlier
+
+we use the machine learning classifier
+
+trainer
+
+over here and now i'm going to use the
+
+machine learning classifier
+
+to predict the document type
+
+and you'll get a message like this click
+
+on ok
+
+and then refresh and select the machine
+
+learning skill
+
+for classification so this is the skill
+
+that we created
+
+and the api key we can paste it
+
+and click on get arguments
+
+and then you have that available
+
+and all you need to do is click on
+
+configure classifiers
+
+and right here for these three document
+
+types
+
+we are going to use it and you can see
+
+when when i click on this
+
+tick it highlights it as a
+
+inner red square so what you need to do
+
+is you need to select from this drop
+
+down
+
+which type of classifier you need to use
+
+for each
+
+type so we train the model for three
+
+different types
+
+and those three types are available in
+
+this
+
+drop down so for invoices i'm going to
+
+use
+
+noise concretion and the purchase order
+
+and click on save
+
+so now you have created that and you are
+
+ready to use it
+
+so let's see whether it predicts the
+
+document type properly based on what we
+
+trade
+
+so in each run you can use this
+
+train classifier scope with machine
+
+learning classifier trainer
+
+to update each document into ai fabric
+
+and create a pipeline schedule it to
+
+trend the module continuously based on
+
+the data you process
+
+so that it can improve the accuracy over
+
+the time
+
+so by having it like this
+
+i can simply save it
+
+and run it for the same set of files
+
+let's see
+
+how it predicts the data
+
+so you can see it's running from the
+
+output panel
+
+and for some documents the ocr part
+
+takes a little bit of more time
+
+okay so you can see that it has executed
+
+okay so
+
+this document has not got recognized we
+
+can
+
+do the training so
+
+it's just one round of training that we
+
+did but
+
+when it comes to proper training
+
+it gives you a more accurate result
+
+and we have to train it with more
+
+documents
+
+to give a proper result in that case
+
+so let's see how it raised the other
+
+documents
+
+so ideally you get the idea on how to
+
+use it
+
+and how to build a workflow using
+
+machine learning classifier to classify
+
+your documents using a machine learning
+
+model
+
+so that's the idea of this video
+
+and here we have the next one and it has
+
+identified the classification properly
+
+so better higher the number of samples
+
+that you use to train
+
+the better the result you get
+
+so every time when when you run this
+
+it will get trained as i explained
+
+earlier
+
+so this has identified as invoices with
+
+88
+
+accuracy and the configuration
+
+and this one again it has not identified
+
+so let's
+
+mark it
+
+yeah so with the next round of training
+
+this thing will
+
+get identified properly i believe
+
+just need some more training
+
+and this has identified
+
+and this is also correct
+
+and this that's right
+
+yeah so that's how the model
+
+work and i think this is the last
+
+document
+
+this is the next one
+
+you can see that it's identifying the
+
+documents properly
+
+so what you can do is once you do the
+
+test with
+
+a couple of documents you can try a
+
+different set of documents and see how
+
+it
+
+identifies the new set of documents to
+
+actually get the result
+
+so so this is the document and you can
+
+see that it's
+
+identified properly okay so
+
+that's how you use the new
+
+[Music]
+
+machine learning classifier and the
+
+machine learning classifier trainer
+
+and i believe you got the idea
+
+on how to train the new classification
+
+model that we have in a fabric so
+
+try it out enjoy and
+
+share your thoughts as well thanks for
+
+watching
+

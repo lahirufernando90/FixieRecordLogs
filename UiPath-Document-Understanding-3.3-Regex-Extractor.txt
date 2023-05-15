@@ -1,0 +1,1918 @@
+hello everyone so welcome to the part
+
+3.3 of advanced
+
+ui fire document understanding series
+
+in this series we'll take a look at how
+
+we can use the regex
+
+extractor to extract different values
+
+from different invoices and different
+
+other
+
+documents so
+
+as we discussed in our previous sessions
+
+we talked about different extractors
+
+like machine learning extractor and the
+
+form extract
+
+and in today's one we are very much
+
+focused on
+
+how we can use regrets patterns
+
+to extract fields and
+
+especially how we can extract
+
+data from tables using records
+
+so if i'm to
+
+show you the two documents
+
+so in our previous sessions we
+
+uh showcased several sample documents
+
+that we can't
+
+use so as we saw earlier
+
+in the previous video divorce
+
+in this document we didn't extract the
+
+invoice number
+
+and the invoice date and
+
+for this form 4 we created
+
+a form extractor and we created
+
+a template to extract the
+
+top level values the name address and
+
+the h1nm and so on
+
+and we wanted to use seconds to extract
+
+this selection the relationship based on
+
+where this x is
+
+not and also you wanted to extract this
+
+table
+
+using this pattern
+
+so just to show you how we are getting
+
+the extraction as of now
+
+you can do a quick
+
+uh run of the
+
+process that we have right now to see
+
+how it looks like
+
+i'll just do a quick run
+
+and i'll give the file parts
+
+before running i'll close my
+
+two documents over here
+
+so you can see it's executing based on
+
+what we have created
+
+previously
+
+okay so this is for form four
+
+as you see these are the values we
+
+extracted from the
+
+template and we are yet to extract
+
+the relationship and the nd security of
+
+this table
+
+so i'll just save it for now
+
+and this is the invoice so as you see
+
+here
+
+it is our ai model is not extracting the
+
+invoice number and the invoice date
+
+so this can be trained to the air model
+
+can be trained to extract these values
+
+but for this particular series
+
+we'll see how we can use the regex
+
+extractor
+
+without training the ai model
+
+so how we can use brackets so we'll
+
+start off with this
+
+simple task and then move on to the
+
+extraction of the tables
+
+and extension based on that x is based
+
+in the other document because
+
+two are quite easy and straightforward
+
+so so start off how we should know
+
+what pattern that we have to use to
+
+extract these two values
+
+it's based on how the text
+
+is extracted from the
+
+digitized document
+
+activity so how you can look at the text
+
+is by simply clicking on this a
+
+clicking on it will convert now i'll
+
+show you
+
+the text version of the document
+
+and we can search for what we need to
+
+extract
+
+and this is our line so we need to
+
+extract
+
+the invoice number and extract this
+
+value
+
+and from invoice date we should extract
+
+this particular date so let's
+
+copy this into a notepad
+
+so i'm going to place it over here so
+
+that we can refer it
+
+again when we are building the refix
+
+pattern
+
+and we will stop this execution for now
+
+so we have the text representation
+
+and to get the records you need to
+
+search
+
+for regex based extractor
+
+so it's coming under intelligent ocr
+
+activities
+
+i will place it over here and
+
+you get this warning because you haven't
+
+configured any
+
+um expressions so
+
+you just need to get to configure
+
+expressions
+
+and under invoices we want to extract
+
+the invoice number and the invested
+
+so you can type
+
+the expression here itself but if you
+
+want to build
+
+the exception you can simply go to and
+
+click on this edit
+
+which will open the regex builder
+
+and we can build our regex expression
+
+over here
+
+so let's take a look at our string
+
+so this is our text of the document
+
+and we can copy it and paste it here in
+
+the text
+
+extract so that we can test what we are
+
+trying to extract whether it's
+
+extracting the value
+
+and let's start building so this is our
+
+line
+
+that we need to extract so we'll first
+
+take a look at how we should extract the
+
+invoice number
+
+this section so
+
+for literal you can if you are very good
+
+in
+
+records you can simply go to advanced
+
+and type
+
+the command or else if you want to
+
+easily build it
+
+you can go through these options so
+
+first one is a literal so i will say
+
+i want to look for invoice number
+
+so you can see while i type it
+
+highlights
+
+the matching text so it's the invoice
+
+number
+
+and then we have a small space so i'm
+
+not
+
+going to add space over here it is also
+
+possible
+
+but the best approach is without adding
+
+a space here
+
+add a new regex
+
+and look for white space over here
+
+and that white space can be
+
+can be zero or you might not have
+
+y space and you might
+
+also have more than one white spaces so
+
+it should be could be this
+
+oh it could be this one so i'll go ahead
+
+with zero or more
+
+and next one is the invoice number that
+
+we need to extract
+
+and this numbers could be it could have
+
+characters it can have numbers it can
+
+have
+
+special characters like what you will
+
+see over here
+
+so it could be anything so without
+
+giving a pattern the best approach would
+
+be
+
+go with anything and this
+
+anything can be again
+
+at least one or more
+
+and you can see as soon as i said that
+
+this entire line is getting highlighted
+
+so we'll see how we can
+
+fix that because
+
+it's mandatory to have invoice number so
+
+we know that it's
+
+it should have at least one
+
+uh of anything
+
+or it can have more than that so
+
+and this thing is what i need to extract
+
+so i'm going to say capture
+
+this anything so whatever is placed
+
+after this white space i need to extract
+
+that as my value so you can see
+
+this part is getting highlighted in
+
+yellow
+
+but i only want to extract this
+
+particular section
+
+and i don't want the text after
+
+this white space so we'll
+
+fix that all you need to do is just add
+
+a new reference
+
+and what we have next is a white space
+
+so again go with white space
+
+and this could be
+
+it could be at least one or more
+
+spaces because we know that we have a
+
+value over here
+
+so i am saying at least for normal
+
+and this i am not capturing but still
+
+you have this
+
+part highlighted in yellow because we
+
+need to
+
+uh say from where this is going to end
+
+and the next line is
+
+what we have next is the invoice date so
+
+we'll add a new line and say
+
+look for invoice date
+
+and as soon as you give that
+
+it highlights the section that we need
+
+to extract
+
+so this is how we can build a simple
+
+request to extract particular fields
+
+a simple field so let's save this
+
+so i want to show you one more thing if
+
+i remove this capture
+
+it highlights this particular part but
+
+it won't say
+
+what you are going to extract so
+
+you need to specify what you need to
+
+extract
+
+that's why we have this capture over
+
+here so i want to
+
+capture the number and that's what i
+
+have marked and it's
+
+extracting that and i would say
+
+that's a good request for me to use so
+
+i'll save this
+
+and here you can see the regrets pattern
+
+that we built
+
+and the next one is the invoice date
+
+so let's go to edit
+
+and we have the regrets builder again
+
+and we'll place our
+
+text over here
+
+and this time i'm going to look for
+
+invoice date and
+
+i need to provide a pattern
+
+so we can provide
+
+this
+
+the brackets like this or
+
+there's another way of doing it
+
+the best way is to add space here
+
+add a new line and
+
+specify that record with something like
+
+this
+
+this can be in advanced
+
+what we specified here is this record
+
+could be
+
+a circular one as you see here or
+
+it can be a square bracket or what you
+
+see here because we have different
+
+uh types of uh
+
+brackets that we can use
+
+this is the ideal approach to use that
+
+so whatever the method you see here
+
+would be this
+
+or it could be this
+
+square it should
+
+okay let me paste this text again
+
+and next i need to
+
+give
+
+the pattern that we have here dd
+
+slash mm
+
+y and for the closing bracket
+
+is the other way round of this
+
+so within square i'm going to advanced
+
+and i'm going to provide the closing
+
+side of it
+
+so that it gives you the full text
+
+and along with this i will add another
+
+font
+
+which i need to add the semicolon
+
+and what we have next is
+
+the date that we need to extract
+
+and i need another white space
+
+now we can provide the pattern for the
+
+date
+
+that we should extract so this
+
+contains numbers so
+
+i can say it should contain a digit
+
+with at least
+
+one or more
+
+and this i need to extract
+
+so i'm saying capture
+
+plus i need to capture the slash as well
+
+so i'm going to say
+
+i'm looking for this particular slash
+
+and i need to extract
+
+that as well
+
+and i will say again i have a digit
+
+with at least one or more
+
+click capture so you can provide this
+
+with the advanced
+
+type but i'm showing you the easy way of
+
+building it
+
+so that if you are not familiar with
+
+brackets you can still
+
+easily build that
+
+expression as you see down here
+
+so i have i need to give this flash
+
+again
+
+and capture so this is how you capture
+
+multiple fields
+
+or multiple uh text that you need to
+
+extract
+
+and it's again a digit at least zero or
+
+more
+
+capture and again we have
+
+a slash
+
+okay
+
+draw and this again is a digit
+
+at least and i should capture that
+
+so why it's not highlighting let's see
+
+that
+
+okay let's see how this
+
+works now so this is what i need to
+
+extract
+
+and we have the pattern over here
+
+though it's not highlighting here let's
+
+see whether our pattern works
+
+and i'll click on save
+
+we have it here
+
+and let's
+
+okay something like for me
+
+you
+
+foreign
+
+so
+
+so
+
+so i'm providing the values again for
+
+our
+
+pattern
+
+yeah so over here we have
+
+um the pattern built and we can see
+
+the values that we need to extract so
+
+earlier something
+
+went wrong okay
+
+so now it works and let's click on save
+
+and we have the pattern filled and
+
+said so we have two patterns
+
+built for our two fields and the next
+
+thing that you need to do is
+
+go to configure extractors
+
+and now for invoices we need to use
+
+the machine learning extractor along
+
+with the rejects extractor
+
+so we are going to say machine learning
+
+extractor should involve
+
+extract all the invoices all the fields
+
+and along with that i'm going to say
+
+allow the regressor extractor also to
+
+extract the invoice number based on the
+
+pattern
+
+and also the invoice date
+
+and save so
+
+now let's see whether this gives us the
+
+value that we want to extract
+
+so i'm just going to run it
+
+and over here i will give my
+
+uh so we have two documents in that
+
+folder
+
+we'll ignore the first one the form 4
+
+for now
+
+okay so we got the form 4 i'll just save
+
+it because we didn't do anything for
+
+that yet
+
+and now we have the
+
+invoice extraction so as you see here
+
+our patterns that we provided is being
+
+extracted
+
+and it gives us the two values
+
+for invoice number and the invoice date
+
+and with the confidence level of 100
+
+because it exactly matches the pattern
+
+so that's how you simply provide a
+
+request to extract
+
+simple fields like this based on the
+
+text pattern
+
+in the next part we will see
+
+how we can use the
+
+uh
+
+regex to extract values from that table
+
+so i'll just save this for now and i
+
+need to
+
+quickly run that run the same process
+
+again
+
+to get the text representation of form 4
+
+to see how to extract the pattern
+
+or to look at the pattern that we need
+
+to extract
+
+so i'll just go to work
+
+and
+
+because it's purely based on the text
+
+pattern we need to
+
+always look at that pattern that we need
+
+to
+
+extract
+
+so this should give me the
+
+navigation station and i'm not
+
+interested in this image right now
+
+so i'm only interested in where this x
+
+is placed
+
+and how the data looks like in this
+
+table
+
+so we are going to look at the text
+
+representation
+
+and if i search for the
+
+x is placed section here you can see
+
+that particular set of lines
+
+so x director and we have the ten
+
+percent owner
+
+the and we are at the rest
+
+the rest is officer
+
+game title below so see where that is
+
+now we can copy this into a notepad
+
+and look for that it would be much
+
+easier
+
+so here we have the director and we'll
+
+see where the officer is
+
+yes yeah so the face is over here
+
+and what we have next
+
+is officer specified below so we have
+
+two offices
+
+give title um
+
+yeah okay so we need to
+
+give the position of this x based on
+
+this
+
+pattern so
+
+let's see how we can do that now
+
+and uh over here if you scroll down
+
+you can see the text of the table that
+
+we need to extract
+
+so this is the table range between table
+
+one and table two as you see over here
+
+this is table 1 and table 2
+
+and we are going to extract the text in
+
+between that
+
+and if you look at the representation
+
+this is how it looks like so we have the
+
+first column
+
+the dates and the other values
+
+so let's see how we can build the
+
+request for that as well
+
+so let's start off with this one
+
+to see from where we can get the
+
+x so ideally this should
+
+over here in this relationship
+
+it is having a drop down
+
+so if we specify like this
+
+this has a drop down list as we
+
+specified
+
+in the taxonomy so
+
+it should based on where this x is best
+
+it should automatically
+
+pick the proper drop down item
+
+from this list and show it over here
+
+so for this particular one the result
+
+should be
+
+something similar to this
+
+okay so let's close this for now
+
+and we'll go to the regular base
+
+extractor
+
+to see how we can do that
+
+so in our case we'll look at this
+
+particular section because this is where
+
+we have the
+
+values to extract
+
+and going back to
+
+regex extractor i'll be going to form
+
+4 and relationship is the field that i
+
+need to extract
+
+but if i edit
+
+and have my text over here
+
+so i'll start by
+
+looking at how we can get the value
+
+so we have the character x over here so
+
+the first thing i'm looking for is the x
+
+and next i have a space
+
+and next is the text that i need to
+
+extract so this text
+
+is similar to what we have
+
+in our taxonomy so we need to provide
+
+as it is so what i need to extract
+
+whether it's director
+
+or something else so in our first
+
+scenario
+
+it is the word director
+
+and this director could be
+
+at least one or more
+
+and i'm going to capture this
+
+as my value because in the drop down
+
+we have the text director 10 percent
+
+owner
+
+and so on and we need to match that
+
+particular text
+
+so director is what i'm looking for for
+
+the first scenario
+
+and the next scenario is
+
+if this x is placed somewhere next to
+
+officer
+
+in the document
+
+so if i open the document
+
+if the x is placed in front of officer
+
+then i need to look for that as well so
+
+in our current
+
+records it only looks for directory
+
+so let's see how we can
+
+provide that condition so it should be
+
+either this
+
+one or either officer
+
+so we need to add all condition adding
+
+the all condition
+
+is going over here selecting advanced
+
+and providing this
+
+as the all representation in
+
+records
+
+and then i need to
+
+specify so in our sample text we don't
+
+have the x
+
+next to officer we have it next to
+
+director
+
+so we'll assume that we get the pattern
+
+x over here like this and this
+
+won't be there and we need to extract
+
+this particular section
+
+so again i will look for x
+
+and a y space
+
+then uh the next neutral is
+
+officer and this has to be
+
+at least one or more and that's what i'm
+
+going to extract
+
+so if i yes
+
+copy paste this thing over here
+
+uh yeah this has the x next to that so i
+
+edit it over here itself
+
+and let's see how this looks right
+
+here and we get the officer so whatever
+
+that is you do here sometimes won't
+
+represent
+
+in the accurate way so do it somewhere
+
+else and copy it
+
+over here and it shows you the exact
+
+result and we need to do that similarly
+
+to 10 percent owner
+
+and for other so okay add a new line
+
+go to advanced the condition
+
+and this time again it's
+
+x is what i'm looking for
+
+and the vice press
+
+and the ten percent owner
+
+and this is what i need to extract
+
+so if i do the change over here
+
+and copy this again
+
+it gives me the answer
+
+and for the last one again it's the all
+
+condition
+
+and
+
+the returner is again the letter x
+
+and the y space
+
+and then one last thing is the other
+
+and there can be multiple others so i
+
+will
+
+specify the remaining part of the text
+
+as well
+
+just in case
+
+at least one more and i need to extract
+
+this
+
+i'm doing the change over here
+
+let's see how this works
+
+and you get that particular section
+
+and if you can
+
+do this as well so just
+
+to verify we will see whether we have
+
+any
+
+other patterns that that's matching to
+
+that
+
+we don't have any and we are getting the
+
+proper
+
+answer so we can save this
+
+and so we come up with action
+
+and save again so let's
+
+see how that actually works
+
+before we continue to the table
+
+so this execution should give me the
+
+folder selection
+
+and i'm selecting the board apart
+
+oh i actually forgot to do one thing
+
+so in the regular space extractor i will
+
+configure
+
+the uh
+
+the regex but we didn't configure the
+
+extractor
+
+to actually extract
+
+the relationship from the
+
+[Music]
+
+and let's try that now again
+
+selecting my for the part
+
+and in the drop down now if we look at
+
+this
+
+relationship we can see it it's
+
+highlighting the letter
+
+for the word the director based on our
+
+pattern
+
+and it has captured director
+
+accurately from the drop down so that's
+
+how you
+
+use records to identify
+
+where a specific character is and select
+
+a value from a predefined drop down
+
+accurately
+
+so in the next section of the same video
+
+we will see how we are going to extract
+
+the values from this table
+
+so let's close this for now
+
+and extracting values from a table is
+
+going to be tricky
+
+and because it's you need a lot of
+
+patterns to extract each and every field
+
+as you see over here
+
+and this table itself has columns and
+
+sub columns as well so
+
+we need to figure out we need to
+
+actually go into this sub column left
+
+to extract the fields we need
+
+so let's see how we can define
+
+the table range and how we can use
+
+simple vertex to identify
+
+each column value and extract these key
+
+values
+
+into our output
+
+so in here this is how
+
+our text looks
+
+so as you see we first need to define
+
+the table
+
+range so it's starting from table
+
+1 and ending at table
+
+2 and in the middle
+
+because we have sub columns
+
+we can use some of these uh other
+
+keywords like
+
+inst r for example to identify from
+
+where the columns are starting
+
+um so let's see how we can do that
+
+so coming back to the workflow
+
+let's see how we can add those uh table
+
+into the records so we are going to
+
+configure expressions in the x based
+
+extractor
+
+expand how full and over here
+
+you locate the table so nd securities
+
+is the table that i bought in taxonomics
+
+so you can see a simple description over
+
+here
+
+for this table it says redex for table
+
+content if we have not provided the
+
+reference for the table
+
+by default it will consider the entire
+
+document
+
+as a table from the string
+
+that it converts from the document and
+
+for
+
+rows over here red x for individual rows
+
+if it's not provided default to each
+
+line in table content which means
+
+so this is our text
+
+that we extracted from the document if
+
+you remember
+
+we went to text format in the navigation
+
+station and we got this text
+
+so for the table
+
+row if we look at it
+
+as we saw earlier the first table
+
+starts from table one and ends with
+
+table two and whatever in between that
+
+can be considered as the table so
+
+similarly if we take the text
+
+representation
+
+we see table 1 and
+
+somewhere down here we see table two
+
+and these are the individual lines
+
+so if we give a red x
+
+that specifies this text between
+
+table one and table two
+
+that can be added
+
+as the records for the table
+
+and for rows we can provide oil
+
+we can say without providing if you do
+
+not provide
+
+this individual line will be considered
+
+as a row
+
+okay so we can provide
+
+a brackets for the table so all you need
+
+to do is go to edit
+
+and i have this
+
+so let me copy and paste this text over
+
+here so we can see
+
+how it highlights and
+
+i'll be using
+
+the red gets which i have built
+
+earlier so i will go to advanced
+
+because it's much easier
+
+and press my reflex over here
+
+so what basically just is it looks for
+
+it
+
+basically extracts all the text between
+
+table 1 and level 2. so if we
+
+actually look over here
+
+you could see that it's highlighting
+
+from table 1 and ends with
+
+table two so this is what we need to
+
+extract
+
+for the table so basically what we are
+
+doing is
+
+from this entire string we are kind of
+
+taking out particular part of it based
+
+on this reference
+
+and that particular test or string will
+
+be
+
+processed and broken down into multiple
+
+values based on the
+
+greatest patterns we provide to each and
+
+every field over here
+
+all right so we have done that and
+
+i'm going to click on save
+
+so this is our rejects for the table and
+
+the first one
+
+is quite easy the title as you see here
+
+it says plus a common stop and
+
+this a letter can differ so we can use
+
+it
+
+you can use thing for vertex over there
+
+and go to edit again
+
+and i'm going to test
+
+so i'm going to press this entire string
+
+now
+
+so i'll just
+
+test a part of it for us to test
+
+like this and i will say
+
+first one is the class
+
+and whatever comes next the letter
+
+could be anything
+
+okay now you see it's highlighting this
+
+particular lines
+
+and i need to extract all of them so
+
+i don't want all the pattern before
+
+pattern
+
+has captured
+
+so that's one and
+
+next one is the transaction date so if
+
+we
+
+take a look at the document you can see
+
+the date
+
+pattern and if you look at the text
+
+this is our pattern that we are looking
+
+for
+
+so what we can do is we can simply
+
+create a pattern for that
+
+again i'm going to paste this string
+
+over here
+
+and i will say i need
+
+two digits
+
+and then
+
+slash and again
+
+it's two digits
+
+um and the slash
+
+and finally i have the year which it is
+
+represented by
+
+four digits
+
+so this is my cutter and you can see
+
+that it's
+
+identifying that particular tape
+
+so again i need to extract this whole
+
+thing
+
+and i have marked that and the
+
+and the next one is so
+
+over here it's again dead
+
+but we don't have a value there so what
+
+we can do is we can simply
+
+use the same pattern but with a slight
+
+difference
+
+because if you take a look at the line
+
+if you have a
+
+date it should show up somewhere over
+
+here
+
+something like six
+
+online something like this so in this
+
+scenario
+
+we need to identify the pattern so if we
+
+give the same pattern we will get
+
+both depth we should say
+
+we should actually there
+
+that's ending after a number
+
+so that particular condition would
+
+provide that
+
+we could easily capture them
+
+and all i'm doing now is i just have
+
+the reflex i thought for the previous
+
+one
+
+this is my method so you can see that
+
+it's highlighting
+
+force and what i am trying to do now is
+
+i will say
+
+this has to end with
+
+a number and then followed by a space
+
+the um code so over here is
+
+it's a single character so
+
+what we can do is you can
+
+simply click over here
+
+and we can say this letter
+
+is
+
+it should come after provide stress
+
+and it can be
+
+literal or any word character
+
+that's
+
+length of one followed by
+
+another white space and
+
+and digit
+
+something like this so you see that it's
+
+identifying
+
+what we need to extract so out of that
+
+i only need the word character so this
+
+is
+
+the letter and
+
+i will click on save next
+
+so this is our pattern likewise you can
+
+do
+
+for security amount and for the other
+
+factors so when it comes to
+
+amount it's a little bit different
+
+here we have the amount and
+
+we also
+
+have a character again after the
+
+amount so you can do
+
+a simple
+
+so i will do this
+
+go for security i want press the pattern
+
+again
+
+so this should start
+
+with any character
+
+so for that i can use this same
+
+so i will go for advanced
+
+copy this section
+
+so that we can modify
+
+and remove the brackets because the
+
+record is
+
+saying that i need to extract that as
+
+well
+
+at first and this is followed
+
+by
+
+a set of digits
+
+you can say can be
+
+[Music]
+
+digits
+
+all right so this is our pattern again
+
+and this is what we need to extract
+
+and i need the value
+
+this three so that's how easily you can
+
+extract the values
+
+this will look much better
+
+okay so i will save this and we can
+
+uh see how these values are extracted
+
+and click on save go to the extractors
+
+i will say i need the title transaction
+
+date
+
+transaction code and security table so
+
+these are the things we create
+
+click on save
+
+okay so let's run this and see
+
+what the output we get for this
+
+particular document
+
+so ideally you should extract it should
+
+identify the table and we should extract
+
+the values
+
+of those fields
+
+so this is my selection
+
+um
+
+so it's extracting
+
+and here we have the
+
+validation station and you can see some
+
+of the values have already extracted
+
+that's me
+
+okay so this is invoice let's know this
+
+because we are looking at the form
+
+let me run this again maybe a network
+
+so let's go
+
+and we have four
+
+so here
+
+so here we can see that it has
+
+highlighted the values that we are
+
+looking for so
+
+if we scroll down and expand this
+
+you can see it has perfectly identified
+
+the rows over here we have one three
+
+three four five goes
+
+and all five rows are available
+
+and the dead we have only four photos
+
+and that's already captured this we
+
+don't have
+
+and we have extracted the transaction
+
+code and also the amount
+
+without any issue so this is
+
+how we extract the values
+
+using brackets from a table so you might
+
+wonder
+
+whether this pattern match something
+
+outside this table so let's say for
+
+example
+
+if we had data in this table this
+
+particular pattern
+
+should have matched with some value over
+
+there as well
+
+so what's limiting that
+
+is the records we provided
+
+for the table so as i mentioned
+
+earlier the records we provided
+
+for the table was highlighting
+
+only from table one to
+
+table two so this particular section
+
+and the patterns we provide for each and
+
+every column over there
+
+will only look for that particular match
+
+inside this string that we provide for
+
+the table
+
+so that's how easy you can build earlier
+
+to extract values from a table
+
+so now you know the basics of using
+
+brackets to extract values
+
+so we are left with couple of columns
+
+over here so
+
+this challenge is for you so
+
+once you have covered all this try
+
+building your request button
+
+to extract the values for
+
+the remaining columns and see how it
+
+works
+
+let me know your answers um we'll see
+
+who comes up with the correct answers
+
+and
+
+if you need any help i just drop your
+
+message
+
+and i'll be here to help you guys
+
+as usual so this
+
+comes to the end of the
+
+extractor video and
+
+in the next session we will look at how
+
+to extract
+
+handwritten data using intelligent form
+
+extractor
+
+so thank you very much and i hope you
+
+enjoyed and
+
+found something new during the session
+

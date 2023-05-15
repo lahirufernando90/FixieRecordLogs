@@ -1,0 +1,2270 @@
+hello
+
+i hope everyone is doing great so in
+
+this
+
+video we are going to talk about the
+
+advanced ui part document
+
+understanding features so these are
+
+series of videos
+
+and we are in the first part of the
+
+video series
+
+so in this we'll be using the uipath
+
+product 20.10 version
+
+and we'll be mostly focusing on the
+
+advanced side of document understanding
+
+so if you are new to document
+
+understanding i do
+
+recommend you to
+
+go through the basics from the ufo
+
+academy
+
+you can find two different courses in
+
+the academy
+
+you have a document understanding
+
+overview
+
+and document understanding tutorial for
+
+producing invoices
+
+so once you have covered the basics from
+
+these two
+
+then you will be able to easily follow
+
+the advanced features that i'm going to
+
+explain to you
+
+so to continue
+
+we have a simple a scenario that we are
+
+going to work on
+
+to discuss about these features
+
+so this is scenario is like this we have
+
+four main steps in the extraction
+
+of data talking about the documents
+
+we'll be using invoices purchase orders
+
+and there's another document called form
+
+4 which i'll be showing
+
+later and the form 10k which contains
+
+financial information some utility bills
+
+and some account creation forms upload
+
+bank
+
+that contains handwritten data
+
+also to
+
+increase the complexity a little bit
+
+one document may contain multiple
+
+document types
+
+which means if you take a single pdf
+
+file
+
+in one page you might have an invoice
+
+and in another page you might have a
+
+purchase order
+
+so how are you going to process that is
+
+the next step and
+
+the user will provide the folder path
+
+where all the documents are stored so
+
+that the robot will pick up the folders
+
+uh documents from there and process
+
+them
+
+so once the robot identifies the
+
+document
+
+and start processing we go to the
+
+classifying
+
+section so when you are classifying each
+
+document you need to identify what type
+
+of a document that is
+
+which means you need to identify whether
+
+the document is
+
+invoice whether it is a purchase order
+
+related bill
+
+or something else next
+
+once you identify the category you need
+
+to
+
+copy the document in the input folder
+
+to another folder let's call it the
+
+processed
+
+documents folder and you're not just
+
+going to copy it
+
+you have to create a folder based on the
+
+document type so
+
+in other words if it's an invoice you
+
+need to create a folder called device
+
+in that folder and move the document
+
+into that folder
+
+also if the document has multiple
+
+types just like i mentioned over here
+
+it needs to split the document
+
+and copy each part into its respective
+
+folder
+
+so let's say you have one document
+
+called document a
+
+in the first page you have invoice
+
+second secondly you have purchase order
+
+so that document has to be split and the
+
+first page of that document should go
+
+into
+
+invoices folder and the second page
+
+should go into the
+
+purchase order folder
+
+and the third scenario is
+
+extract and validate so for extraction
+
+we'll be using
+
+several machine learning models invoices
+
+producers and utility bills through ai
+
+fabric
+
+and we'll be writing different
+
+validation logics
+
+to identify how we are going to end it
+
+with a is going to automatically verify
+
+whether we need to present the
+
+validation station
+
+or whether we need to present the action
+
+center
+
+as a task and finally
+
+once you have extracted and validated
+
+the data
+
+you need to train the ai modules also
+
+you need to train the classifiers
+
+and the final output should go into
+
+several excel files
+
+so i'll show you how the output should
+
+look like
+
+this to this is just the scenario that
+
+we are going to work on
+
+throughout this series
+
+so to do that we'll be using the
+
+document understanding framework
+
+we'll be focusing on parallel processing
+
+the documents
+
+digitization use of intelligent keyword
+
+classifier
+
+and will be also
+
+discussing about how to classify
+
+uh documents using the action center
+
+also we'll be focusing on how to invoke
+
+other processors parallel to your main
+
+process
+
+to handle different other tasks such as
+
+splitting the documents
+
+moving documents into different folders
+
+extracting the data
+
+writing into excel and so when it on
+
+to data extraction will be using machine
+
+learning extractor
+
+with ai fabric regex extractor form
+
+extractor and intelligent form extractor
+
+so we'll be covering almost all the
+
+extractors we have
+
+and we'll be also using the validation
+
+station of
+
+doing the validation action
+
+through action center and post
+
+processing will be
+
+focusing on extracting training
+
+classifiers
+
+generate training data and exporting
+
+into itself
+
+so these are the main areas that we'll
+
+be focusing on throughout this series
+
+and in the first part of the series
+
+which is in this video we'll be focusing
+
+on
+
+how to set up the process basically
+
+uh setting up different assets in the
+
+orchestrator
+
+creating the workflow file
+
+as a orchestration process
+
+and we'll be focusing on reading the
+
+assets obtaining input folder
+
+parallel processing the documents and
+
+also digitization
+
+the classification data extraction those
+
+things will be
+
+in the other videos because those are
+
+pretty big topics that we need to
+
+discuss separately
+
+so let's get to
+
+the uh setting up
+
+the environment so as you saw earlier
+
+we have several things to do we need to
+
+yeah let me show this
+
+so as i explain the scenario
+
+we have all the files in our folder
+
+called input files
+
+we have the content creation forms which
+
+contain
+
+data and we also have
+
+form 10k which
+
+looks something like this so these are
+
+our publicly available data
+
+and in this one we'll be focusing on
+
+extracting this
+
+balance sheet in the second page
+
+and form four is also something similar
+
+it contains financial data
+
+so we'll be focusing on extracting some
+
+of the data from this topic
+
+as well so for now uh you
+
+just go through so this combined file
+
+contains two different documents
+
+in the first page you can see it's
+
+invoice and in the second page
+
+um it's a purchase order so let's see
+
+how we are going to process that
+
+so so we'll be having all the files in
+
+input folder and user will be selecting
+
+the path
+
+to this folder once the
+
+data is processed the data should be
+
+moved how the excel file should be
+
+created
+
+in another folder called output data
+
+and then in that folder you need to have
+
+separate folders for each document type
+
+basically based on the classification so
+
+similarly as you see here
+
+it should have all these folders and in
+
+each
+
+folder you will find the excel file
+
+for that particular document
+
+and the other part is
+
+moving the files into different folders
+
+as a part of the classification as we
+
+discussed
+
+so that should go into process documents
+
+folder
+
+and here we have a folder called finance
+
+and comments and the different types
+
+so all these folders should be created
+
+automatically
+
+and in each folder you can see the
+
+document
+
+and the training data this is the next
+
+part
+
+the trending data for invoices and
+
+purchase orders
+
+should also get created in separate
+
+folders like this
+
+so let's see how we can set it up so
+
+these folder parts
+
+i have test into our asset
+
+so let's get to the ui orchestrator
+
+to see how we can configure these um
+
+file paths
+
+so this is my orchestrator and i have a
+
+separate fold over here for
+
+this series of videos called document
+
+understanding
+
+and inside that um having
+
+different assets
+
+so the first asset over here is
+
+api key so you can get the api key from
+
+the cloud platform
+
+and create a credential asset
+
+because it's this key should not be
+
+exposed publicly it's good to have in a
+
+credential asset
+
+so all you need to do is you just need
+
+to create a credential asset
+
+and you can just keep the username as
+
+anything because
+
+it doesn't matter and under password
+
+paste the api key
+
+and click on update pause it
+
+so that's the first answer so we'll talk
+
+about how we are going to use this asset
+
+later when you are going through the
+
+workflow
+
+the next asset is the document storage
+
+path
+
+which means we are going yeah we are
+
+going to store
+
+the process documents
+
+like this so it should be inside
+
+the processed documents folder and the
+
+finance
+
+incoming and this folder should be
+
+automatically created
+
+so i have provided this file path
+
+for the folder path in an asset called
+
+duck storage path so that's the
+
+value that you see here so it's a
+
+text type the
+
+next asset is the invoice training data
+
+which means uh the training
+
+data that you generate by validating
+
+the documents basically the invoices
+
+uh so this training data will be
+
+uploaded into
+
+a property through data manager
+
+later to train the models so we have a
+
+training trainer output folder over here
+
+which i showed you earlier and we have
+
+two folders
+
+invoices and processors so for
+
+both folders you can create
+
+two assets invoice training data asset
+
+and purchase order training data
+
+so that's the uh
+
+two assets you see here so over here
+
+the invoice training there is pointed to
+
+the invoice folder in train output
+
+and po training data
+
+is pointed to purchase order
+
+folder
+
+so all you need to do is you just need
+
+to give the folder path
+
+so once you have done that
+
+the next one is where you are going to
+
+store your
+
+um excel output in the output
+
+so again in that output data folder
+
+you have separate folders that needs to
+
+be created automatically
+
+depending on the document type so
+
+we know the file folder path until the
+
+output data
+
+so you can set that folder path in
+
+output data folder path asset
+
+as you see here so
+
+you have all together five assets that
+
+you can
+
+configure and once you have provided
+
+these folder paths
+
+you have addressed several
+
+scenarios that were there in the in our
+
+scenario
+
+over here create folder paths for each
+
+document category
+
+to move the documents there and
+
+once we are extracting we need a
+
+separate folder
+
+to train all the training data
+
+and we need a separate folder to
+
+store the data in excel so that's what
+
+we have just created
+
+okay so now we have
+
+done the creation of assets
+
+the next part is creating the workflow
+
+so when you open your studio
+
+you just need to create a new
+
+solution you can use the orchestration
+
+process
+
+instead of blank process over here
+
+why i'm saying to use the orchestration
+
+process
+
+is because when you are doing the
+
+validation of the classifier
+
+and also the data
+
+will be using the action center
+
+and will be needing to create
+
+tasks in action center and wait until
+
+the user is flies back
+
+or basically wait until the user
+
+completes the action
+
+so this is
+
+coming in as a part of the long-running
+
+transactions
+
+where you have to enable the persistence
+
+activities of enable first instance in
+
+your solution
+
+so it's always good to use the
+
+orchestration process
+
+so click on this and create a simple
+
+solution
+
+for orchestration process i have one
+
+already created so
+
+i'm not going to create one now so once
+
+you have created the solution
+
+you will get a page of screen like this
+
+but you will have less number of
+
+dependencies over here
+
+so what you can do is you can go to
+
+different dlcs
+
+and right click and go to manage
+
+and
+
+you need to install several dependencies
+
+for this to work so you
+
+you can search for uicast document
+
+understanding
+
+ml activities once you go into all
+
+packages
+
+you just need to type document
+
+understanding
+
+and it will show you so go there
+
+and install the latest version that you
+
+have
+
+likewise
+
+you need document understanding ml
+
+activities
+
+intelligent ocr activities
+
+and if you are using the omnipotence
+
+here
+
+you need to use the only page activity
+
+since i'm using that
+
+i have the only page activities
+
+and on the page bundle extended
+
+activities
+
+so by default you'll be having your
+
+persistence activities and system
+
+activities available because we created
+
+the
+
+orchestration process which
+
+includes persistence activities
+
+so once you have configured that
+
+you get all your dependencies over here
+
+and you will also get the taxonomy
+
+manager available on the top river
+
+so these documents i'll share
+
+these documents with you and you can see
+
+the description of the
+
+chat folder in the video description
+
+you can download from there
+
+so the next thing is we need to create
+
+the taxonomies for these documents
+
+so go to taxonomy manager
+
+and you can create a group
+
+and a category so those two are what you
+
+see here
+
+the group is finance incoming is the
+
+category
+
+and these two are the folders
+
+that you see in these
+
+folders so if you go to
+
+process documents you see the finance
+
+which is
+
+the category of uh sorry the group
+
+over here let me go inside that incoming
+
+is the category
+
+and inside that these are the
+
+different document types that we have
+
+over here
+
+so as you see in here i have created
+
+different
+
+categories or different document types
+
+for invoices
+
+form 10k form 4 count creation and
+
+politics
+
+so you just need to include
+
+or create the fields that you need to
+
+extract
+
+through this solution so these are some
+
+of the
+
+face that i have used for invoices
+
+so for my noise number i have used
+
+type text and it says requires reference
+
+which means once you have
+
+ticked or checked this the
+
+ai model or the extraction will always
+
+look for this
+
+particular reference the noise number in
+
+the document
+
+if this is not selected which means
+
+it will not look for this particular
+
+reference
+
+so why this is needed is because
+
+sometimes you can find the payments
+
+where certain values can be there and
+
+it cannot be there so in that case
+
+you can use this option but use it
+
+wisely because
+
+if you uncheck this it will not be used
+
+in your training of your ai models
+
+so for now i have selected that
+
+so this is my invoice number i have the
+
+invoice date as a date type
+
+when the address as address type
+
+so you can find different data types
+
+in this drop down text number data and
+
+so on
+
+so this is address and the total amount
+
+of the invoice is going to be a number
+
+and here we comes the line items
+
+so line item iso is a type of
+
+table and under that you can have
+
+different other columns like
+
+the description again of type text
+
+quantity as number two price
+
+number and line price likewise
+
+you can create different types for the
+
+type of documents as well
+
+so perform 10k i'm going to extract the
+
+company name
+
+which is in the first page and i have
+
+selected this and the balance sheet as
+
+you saw in the document
+
+is going to be a table
+
+so let me show you
+
+and so in this document
+
+in the second page this is the balance
+
+sheet
+
+so we have the first column where you
+
+have all the assets and liabilities and
+
+so on
+
+and we have two columns for the two two
+
+years
+
+2020 and 2019
+
+so because of that here we have the
+
+balance sheet as
+
+table and we have the first
+
+column balance sheet item which is the
+
+text
+
+and the current here this is the number
+
+of university countries numbers
+
+the previous year is the gain numbers
+
+and for form four
+
+i have several things let me show you
+
+a document
+
+form 4 is something similar to this
+
+so from this
+
+i'll be needing to extract the
+
+reporting person which is over here the
+
+first one
+
+is text and
+
+the reporting person address which you
+
+can
+
+see over here right below the name on
+
+in two lines
+
+issuer name is what you see here
+
+in the second
+
+date of earliest transaction which is
+
+the number three over here
+
+amendment debt is blank but i am
+
+extracting that as a date
+
+so here this is the tricky part here we
+
+have the relationship
+
+which you see over here in number five
+
+box
+
+so it's not a straightforward value that
+
+we are extracting
+
+this x can be placed anywhere
+
+in front of either of these
+
+so in this scenario the x is placed in
+
+front of
+
+detector so we don't know
+
+in on in front of which it will be
+
+placed
+
+so we need to have a different mechanism
+
+to extract that
+
+so what i'm doing is for relationship
+
+the data type is set
+
+so in set we can add any number of
+
+values which could be available
+
+so i'm typing the exact text
+
+what you see over here the first one is
+
+director
+
+officer and ten percent owner
+
+and the other for the fourth round so
+
+i'm ignoring
+
+what's there inside the brackets
+
+so once you have added these four as
+
+set save it and then we are going to end
+
+the securities
+
+which is the table one portion
+
+this section so in here you have again
+
+uh it's literally complex because
+
+over here one column it has
+
+multiple sub columns
+
+so what i'm doing is i'm considering the
+
+table
+
+from the
+
+um including the sub columns
+
+so i have another type as table which i
+
+have named as nd securities
+
+and i have the title this is the first
+
+column
+
+transaction date is the second
+
+third is the dm transaction date and i
+
+have
+
+the transaction code so over here the
+
+third column has
+
+two sub columns because of that
+
+i'm using the transaction code over here
+
+and then i'm going to use the security
+
+amount
+
+which is this amount column
+
+and the acquired or deposited
+
+which is the
+
+this a or d value is going to
+
+which we are going to extract so in the
+
+document you can see contains the letter
+
+d
+
+and security price which is
+
+this amount next to the net id
+
+so all these are text
+
+and the beneficiary owned is a number
+
+which is this column i will have this
+
+number five and ownership form
+
+is the next
+
+it's again text because it
+
+contains characters
+
+and lastly is the nature of
+
+ownership so those are the columns that
+
+i'm extracting
+
+so based on that you just need to create
+
+your taxonomy after account creation
+
+i have the application type date shift
+
+number
+
+and so on so i can
+
+show you that again
+
+so far account creation
+
+first one is application type which is
+
+it could be we have two options the
+
+application type could be a new
+
+now it could be a update type
+
+so we don't know on which box the user
+
+will take
+
+so we can use one box and identify
+
+if it is blank that means it's a update
+
+if it's new if it has a tick
+
+that means it's a new application so
+
+just an assumption
+
+so for application type i'm using the
+
+option boolean from this
+
+drop down because it could be true or
+
+false in my case
+
+for application date it's going to be
+
+date
+
+because i'm extracting only handwritten
+
+data
+
+save number is what you see over here
+
+account number
+
+is this part name of the entity
+
+is what you see over here
+
+so it could be anywhere inside these two
+
+lines
+
+and so it's text
+
+case of incorporation is going to be
+
+this section where you have this usa
+
+written and finally the customer address
+
+is of address type which
+
+can be in all of these lines
+
+in this section line one two three
+
+district
+
+city town village and possible so we are
+
+not worried how the data is placed
+
+we just make it as address type that's
+
+it
+
+so likewise you can do the same purpose
+
+as orders
+
+you can create all the data types of
+
+phases that you need to extract
+
+your number text your date
+
+file name address gender name
+
+when the address is again address type
+
+shipping name
+
+delivery date and the few items which
+
+comes in
+
+as flying items
+
+which will be i show you in this
+
+these are the line items
+
+so we could have the line number which
+
+can be the
+
+code description quantity
+
+credit price and line amount so you can
+
+face the data types accordingly
+
+likewise you can do the same for utility
+
+bills
+
+so if you don't have utility plus don't
+
+worry about it for now
+
+think about this first section
+
+purchase order invoices to purchase
+
+orders
+
+okay so once you have created all that
+
+click on save
+
+and close the taxonomy
+
+once you have done that it will create a
+
+file
+
+in your solution folder
+
+so this is my solution under document
+
+processing
+
+you will see the taxonomy json file
+
+which will contain the taxonomy data
+
+similar to this so for all document
+
+types you will have
+
+the taxonomy information
+
+all right
+
+once you have done that next thing is to
+
+create
+
+start creating the workflow so by
+
+default you have one single workflow
+
+in this orchestration process you might
+
+see
+
+a flowchart by default
+
+without any of these activities you will
+
+only see the start
+
+so the first section is to
+
+get the values from those assets we
+
+created
+
+so i have created a simple sequence
+
+and inside that i have
+
+the set of get asset activities
+
+to get the document storage path
+
+output data folder path invoice training
+
+data and your training data
+
+so basically i'll be using
+
+instead of without using the api key for
+
+now
+
+i'll be using all four
+
+assets over here
+
+okay
+
+so if we take one asset
+
+i have provided the asset name
+
+and where the asset is faced in
+
+orchestrator
+
+so by default if you do not provide
+
+this orchestrator for the path it will
+
+look for this asset
+
+in the default folder which is
+
+this folder over here but since i don't
+
+have those there these are some of the
+
+old assets that i have created
+
+i have the latest asset in the document
+
+understanding folder
+
+so that's why i'm providing the
+
+orchestrator
+
+folder path as document understanding
+
+and the output is a text or a string
+
+variable which is named as
+
+document storage file path
+
+and similarly for all four assets
+
+i have those variables
+
+created over here document storage file
+
+path
+
+first one output data folder for the
+
+second variable
+
+the noise training data part and video
+
+training data
+
+all four are available and the scope is
+
+document orchestration
+
+so this sequence is named as initialize
+
+but i have set the scope of these
+
+variables to document orchestration
+
+because it's the
+
+outermost sequence or the
+
+flowchart we have because i need to pass
+
+that data
+
+into the second sequence
+
+where i will do the actual processing
+
+so that's why i have placed these code
+
+as document orchestration so
+
+keep a close eye on this scope because
+
+we this scope is very important in this
+
+section because a lot of parallel
+
+closing will be happening
+
+so getting back to initialize once i
+
+have
+
+taken the get assets so you can see that
+
+i haven't checked on the api key yet
+
+i will explain why when i get to that
+
+point
+
+so what i'm going to do next is so
+
+remember in our scenario there was a
+
+requirement
+
+where the user need to select the input
+
+file path
+
+the file path where the the documents
+
+are placed
+
+which is the input files folder in our
+
+case
+
+it's this folder so since we are not
+
+going to hard code or provide this
+
+in any asset and since the user is
+
+selecting that
+
+i'm using select folder activity
+
+so you can easily find it over here
+
+select we have two activities i'm using
+
+select folder
+
+because we are providing the folder path
+
+and and that variable is again
+
+set with the scope the variable is
+
+document folder path
+
+and it's again the scope is the
+
+outermost sequence
+
+why i have placed it in a try catch is
+
+because once that pop-up
+
+appear user might not select the folder
+
+path and
+
+he might just close it in that case
+
+this activity is going to throw an
+
+exception
+
+because the user didn't select the
+
+folder path
+
+so in that case we need to handle that
+
+then we need to check
+
+whether the folder path is actually
+
+provided or not
+
+so that's why i'm using a try catch in
+
+case the user
+
+will provide and just close the pop-up
+
+it should go into exception and it will
+
+log
+
+the message with the log level error
+
+saying user did not provide the folder
+
+path
+
+so i'm not going to throw the exception
+
+i'll be using this
+
+variable itself to check
+
+whether the user provided it or not
+
+if the user did not provide this
+
+variable
+
+should be null
+
+so once we have done that
+
+now going back to my main sequence
+
+where i have a decision
+
+activity a flow decision which is this
+
+activity
+
+in here i'm checking
+
+whether this folder part
+
+is null or empty so if
+
+it is not null or empty
+
+i'm going to go ahead and process the
+
+document
+
+because the user has provided a file
+
+path and if the user has not provided a
+
+file path
+
+i'm not going to do anything
+
+so i mean this is true
+
+i'll be getting into our second sequence
+
+where
+
+we'll be tracing the documents this
+
+sequence is called process document
+
+inside this so this is where all the
+
+complex stuff
+
+happen
+
+so the first step we need to do once we
+
+get here
+
+is to get all the files
+
+or the file paths available in the
+
+folder that
+
+the user provided so user provided the
+
+document folder part
+
+and i'm going to use a assign to read
+
+all the document parts
+
+inside that folder so how we are going
+
+to configure their site
+
+go to value i'll be using directory
+
+get files and give the folder
+
+folder which you got from the select
+
+fold activity
+
+this folder path
+
+it will get all the files from there and
+
+place it
+
+in and string array
+
+where it will have all the file paths
+
+for each and every document inside that
+
+folder
+
+so this document paths variable as you
+
+see over here
+
+is of string error
+
+you can find that type of
+
+so if it is not available in this drop
+
+down you just need to go to array
+
+and select string and it will create a
+
+string array for you
+
+so once you have configured that next
+
+activity is
+
+to load the taxonomy
+
+so for this you have an activity called
+
+low taxonomy under intelligent ocr
+
+just drag it over here
+
+and you just need to set
+
+the output to a variable called
+
+duck taxonomy
+
+so you can easily create the variables
+
+you just need to
+
+press ctrl k over here and it will ask
+
+to
+
+give the variable name and
+
+type the variable press enter and it
+
+will create that variable of
+
+the document taxonomy type
+
+so i'm going to undo my change
+
+all right so it's dot taxonomy
+
+which i have over here so again look at
+
+the scope
+
+the scope is process document which is
+
+the
+
+this sequence over here
+
+and the next part is
+
+where we are going to process our files
+
+parallely so usually
+
+uh if we use a loop each file
+
+will be processed in a sequential order
+
+which means
+
+we will process only one file at a time
+
+and that is not the most effective way
+
+so what's the effective way of doing it
+
+is process each document
+
+parallel because each document does not
+
+depend
+
+on one another we can process it
+
+thoroughly
+
+so we can easily do that by
+
+using a 4h
+
+so not the usual for each we have here
+
+we need to use the parallel for each
+
+which enables us to process
+
+each item thoroughly so if you have five
+
+documents
+
+all five documents will be processed
+
+finally so it's
+
+based on your producing power
+
+and a lot of things depend on it but
+
+uh it will process
+
+documents are fairly up to a certain
+
+extent depending on your focusing power
+
+so drag that activity over here and
+
+provide the document path
+
+variable so in this activity
+
+we are providing the document paths
+
+array and
+
+change the type argument to string
+
+because
+
+each file path in the array is of
+
+type string
+
+and for
+
+each item by default this will be as
+
+item change it to doc item
+
+which means for each document
+
+item basically for each document path
+
+so once you have said that inside
+
+this parallel for each we have another
+
+sequence
+
+so this is where all the complexity
+
+starts
+
+because we are doing parallel execution
+
+we need to place our variables
+
+very carefully otherwise it's going to
+
+throw errors or you might
+
+see any
+
+uh you might come across
+
+different issues
+
+so rename this sequence as process
+
+one file so
+
+all the steps that are needed to process
+
+a file
+
+will be placed inside this sequence and
+
+all the variables that are needed to
+
+process that
+
+file will also be inside this sequence
+
+you cannot have any variables outside
+
+this
+
+so we already have some variables
+
+outside
+
+which are coming from the document
+
+orchestration
+
+so these things can be there because
+
+these are
+
+common to all the documents because
+
+these are just folder paths
+
+but the variables that are
+
+unique the variables that hold
+
+data for each document uniquely
+
+those things has to be inside this
+
+sequence
+
+so from here onwards
+
+all the variables you create is going to
+
+be inside process 1.5
+
+now the first step is to get the api key
+
+so i'm using get credential
+
+great credential activity to get the api
+
+key
+
+so the asset type is dot api key
+
+and the folder path is again document
+
+understanding because i have
+
+this creator inside that folder i'm not
+
+worried about the username
+
+i'm taking the password into document
+
+understanding
+
+api key which is of
+
+type secure string so this
+
+has the api key encrypted inside and one
+
+can
+
+see it so look at the scope carefully
+
+it's process one file scope which means
+
+it's inside this
+
+code
+
+next we are having
+
+a multiple assign where we have
+
+different basically we have three
+
+variables classification exception
+
+validation exception and requirement of
+
+classification
+
+so why we have these variables is
+
+because since assuming that you have
+
+gone through
+
+the basics you might have noticed
+
+that if you open the classification
+
+station
+
+or classification action in action
+
+center
+
+or even validation station there is an
+
+option to mark the document
+
+as an exception
+
+so in or else if you open the
+
+validation station or classification
+
+station
+
+if you just close it without validating
+
+it will throw an error saying
+
+it's an exception exception document
+
+so we need to hold those exceptions
+
+to build our process in a successful way
+
+without running into errors
+
+because even though use a market as
+
+exception
+
+we should we should log the exception
+
+and proceed with the next steps
+
+so that's why we are going to track it
+
+and to set the stage
+
+to reset the flow
+
+because we are talking about processing
+
+one file here irrespective of
+
+this parallel of uh sequential
+
+you just need to think this steps that
+
+it should
+
+follow so to reset
+
+we are going to have two variables as
+
+classification exception
+
+and validation exception
+
+and the data type of that
+
+is of exception so this is system
+
+exception
+
+you can find them in browse
+
+just need to type system dot exception
+
+and you can find that variable type
+
+so you have to create two variables as
+
+exception
+
+again inside process one file which is
+
+inside this sequence
+
+and assign both to nothing because there
+
+won't be any exceptions at the beginning
+
+and i have another variable over here
+
+require manual classification
+
+which means once the
+
+document is digitized and when you get
+
+to
+
+classification
+
+[Music]
+
+section you are going to decide
+
+whether you need to classify that
+
+document manually
+
+or whether it can be automatically
+
+classified
+
+how we are going to do that we will talk
+
+about that
+
+in the next section so for now we'll
+
+just create this variable
+
+require manual classification of type
+
+boolean as you see here
+
+and again the scope is process one file
+
+why we have these variables in scope
+
+process one file is because these are
+
+unique to each and every document
+
+so once you have done that and assign
+
+that to false
+
+next step is the digitized document data
+
+which again you can find that activity
+
+on the intelligent ocr digitized
+
+document
+
+the document path is going to be
+
+the variable you have mentioned in your
+
+parallel for each
+
+in my case it's doc item of type string
+
+so the document path is that because it
+
+contains
+
+the path for the document and this
+
+activity gives you two outputs
+
+it's going to document object model
+
+and document text so again
+
+get to this point press ctrl k
+
+and type the variable name for
+
+document object model in my case it's
+
+dock
+
+object model and for document text
+
+it's dock text so pressing ctrl
+
+k and creating the variable itself
+
+will be easy for you so that it will
+
+create it will identify the
+
+required data type and create the
+
+variable in that data
+
+so if you check here document object
+
+model is of type document
+
+dot text is of type string
+
+and again these two are in the process
+
+one file scope
+
+so to do this i also need ocr
+
+engine so as i explained at the
+
+beginning i'm using the omnipotence ocr
+
+so that's why i'm using that over here
+
+i just drag it and i haven't done
+
+anything over here
+
+so one important point to understand
+
+here is
+
+this ocr engine is not used all the time
+
+if the document is a native pdf file
+
+well if the document is computer
+
+generated
+
+it will not be using the ocr it will
+
+just
+
+digitize the document because it's
+
+already in some sort of a digital font
+
+but if the document is a scan copy or if
+
+it's
+
+image it will use this ocr engine
+
+to convert into to a digital format
+
+and to get the data as a string
+
+and as object model which basically
+
+hits this object model is used to
+
+show the document in the validation
+
+station or specification station
+
+as an image
+
+so once you have got to this point
+
+next step is the classification
+
+so we'll talk about the classification
+
+because we have a lot of things to
+
+discuss there in the next video
+
+so up to this point uh
+
+carefully create these variables and
+
+place these activities
+
+and we have after this point we have
+
+discussed about
+
+setting up the environment uh how to
+
+parallel process documents using
+
+firewall for each
+
+and digitization and also creating the
+
+taxonomy
+
+so in the next video we will talk about
+
+how we are going to use the
+
+classification
+
+and until then
+
+um create your workflow up to this
+
+friend and i'll see you
+
+in the next video thank you very much
+
