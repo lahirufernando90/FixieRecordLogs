@@ -1,0 +1,2392 @@
+Processing documents is not always straightforward. We work with many different documents that have data represented in simple to highly complex forms every day. We talk about many #DocumentUnderstanding #ML models that we label and train to extract data from structured and semi-structured documents. However, sometimes we have to extract specific data elements from unstructured documents. This can be very tricky and may require some level of logical thinking.
+
+Named Entity Recognition is a model that allows extracting specific data points from a string. Interestingly, this model easily works on documents to address unstructured and complex data extraction scenarios.
+
+This is part 1 of this series, where we talk about using NER with Document Understanding.
+
+ Contents of this video  
+
+- Introduction
+- What, Why, When, and How to NER with DU
+- Deploying NER Model in AI Center
+- Building Simple DU Workflow with NER
+- Debugging to Generate Results to Discuss
+
+hello everyone this is the first video
+
+of this year
+
+and
+
+as i mentioned in my updates video
+
+i said that
+
+we are going to cover a lot of
+
+interesting things around document
+
+understanding
+
+and here we are with the first video
+
+that
+
+looks at
+
+how we are going to use document
+
+understanding
+
+with
+
+named entity recognition
+
+so this 90 recognition is another
+
+ai model that we have in ai center used
+
+for some
+
+purpose
+
+but we can easily connect document
+
+understanding with that
+
+so
+
+uh it's a very interesting thing and
+
+uh we'll see how we can do that to
+
+address very specific and very
+
+challenging
+
+scenarios
+
+so
+
+before getting into the details
+
+let's
+
+first understand what is an er
+
+and the use of it
+
+and then we'll get into
+
+how and when we can use ner with
+
+document
+
+understanding so this video is
+
+connecting document understanding with
+
+in your extract
+
+specific data we will also have
+
+two more paths on this
+
+and maybe even more
+
+uh depending on how
+
+uh things comes
+
+uh that address
+
+more complicated things and also i will
+
+share some tips and tricks
+
+on how to improve the accuracy
+
+so
+
+enjoy the first video and let's have a
+
+look at it
+
+so as i start we'll first start with
+
+understanding what is ner and how we can
+
+create a model
+
+so i'm now in ai center
+
+i have several projects over here
+
+the one i have created for ner is
+
+this particular project
+
+you can create any project
+
+uh
+
+through this option you just need to
+
+give a name
+
+and a description if you have one
+
+and create the models
+
+so in in my case i already have created
+
+it
+
+so i will go into in here
+
+project
+
+and
+
+you don't need to create any data sets
+
+or any data labeling any of that for any
+
+r
+
+all you need to do is
+
+you can go to ml packages
+
+and under out of the box packages
+
+in language analysis
+
+you can find the named entity
+
+recognition
+
+this is the model that we are going to
+
+use
+
+so how does this work and what's the use
+
+of this
+
+so basically for this particular model
+
+the input is a string
+
+any paragraph or any
+
+string that has certain information
+
+and as the output
+
+it will give you certain specific
+
+values such as names of people or
+
+locations
+
+of
+
+the amounts converted in text and also
+
+in numeric format
+
+or certain
+
+organization names such as uipath
+
+microsoft and so on
+
+and it also has the capability to
+
+provide many other information
+
+but this model is not trainable so this
+
+thing has
+
+been trained by ui paths to extract
+
+certain information and we are going to
+
+use that trained model
+
+so as an example before we get into the
+
+details
+
+here you can see
+
+uh a small example
+
+of how the output is going to be
+
+like
+
+so in here
+
+uh let's imagine we passed a
+
+string and out of that it's going to
+
+give you a name of a person
+
+so this type defines what it is if it's
+
+per it's a person and you get the
+
+confidence
+
+and if it's a city
+
+as shown here
+
+loc
+
+will
+
+give you the first
+
+location
+
+uh and there are many other tags like
+
+that
+
+um so we'll see how we use these tags
+
+and how all of this comes into action
+
+once we use it
+
+but this is the model and this is the
+
+output that we are going to
+
+i
+
+use
+
+and
+
+[Music]
+
+the next thing is
+
+what's the actual use of this in
+
+document understanding because we
+
+already have discussed
+
+a lot of ai models around document
+
+understanding such as the
+
+uh document understanding model and in
+
+noise model
+
+which is automotive and there are many
+
+many models
+
+so why talk about named entity
+
+recognition
+
+what's the benefit that it gives you
+
+so
+
+this is actually based on
+
+some experience that i also got during
+
+the last couple of months
+
+so when it comes to documents
+
+um as you can imagine
+
+things can be very complicated
+
+because we can represent data in many
+
+different ways
+
+and it can be represented in different
+
+places on the page
+
+and
+
+it can be mentioned in unimaginable
+
+space
+
+so we need to find ways to extract the
+
+information we need
+
+irrespective of how the data is
+
+presented in the document
+
+so the tricky thing is when it comes to
+
+uh such values such as the names of
+
+people locations
+
+and so on
+
+sometimes it can be tricky
+
+to use
+
+the same models that we have used such
+
+as the invoice module the
+
+purchase order model and those
+
+extraction models
+
+to locate this information precisely
+
+i'll tell you why
+
+let's
+
+oh is he understanding let's have a look
+
+at some documents
+
+so in my case i have actually come up
+
+with some documents
+
+um
+
+like this
+
+so these are
+
+some legal related documents but it's
+
+nothing that i downloaded
+
+i just created some of these documents
+
+through this template.net
+
+where you can actually download some
+
+sample documents for yourself you can
+
+edit those online in this
+
+uh platform itself and you can just
+
+download so it's a easy way of doing
+
+things
+
+so i just
+
+went through this and came up with some
+
+documents and i also edited some of
+
+those
+
+so for example let's have a look at
+
+these documents
+
+okay
+
+so
+
+let's say i want to extract
+
+the names and addresses and
+
+some
+
+other stuff out of these documents
+
+so for example
+
+i'll tell you that i need to extract the
+
+names
+
+and
+
+in here you can see
+
+these names are comma separate
+
+so if i'm to use the same data labeling
+
+and
+
+the usual stuff that we have been
+
+talking about all these days this can be
+
+tricky
+
+because this is just not one name
+
+i need all of this name
+
+and sometimes
+
+in the document you can have just one
+
+name you can have names separated like
+
+this
+
+or else you can also have these names
+
+row wise
+
+such as
+
+let me find something
+
+this one
+
+um there was another document
+
+um
+
+this one so in here
+
+the names are
+
+based on the row
+
+and also sometimes you will also see
+
+certain documents
+
+where you have the name and some
+
+descriptions happening here and this
+
+name is have
+
+mentioned after that and then another
+
+description or a table
+
+things can be a lot more complicated
+
+when it comes to document
+
+so it's not always straightforward
+
+and in those cases we cannot really say
+
+that this is the place that we need to
+
+extract the names and
+
+uh things like that
+
+so
+
+when it comes to such situations named
+
+entity recognition model
+
+can play a key role
+
+so i came across a similar
+
+scenario in one of the things that i
+
+worked on where i had to extract certain
+
+key information like this such as names
+
+and many other things
+
+but
+
+due to the nature of the document it was
+
+very difficult to come up with a
+
+specific
+
+place to extract or specific way of
+
+extracting because sometimes it's comma
+
+separated sometimes it's
+
+row wise as you have seen and sometimes
+
+it can be in many other different
+
+formats
+
+so that's where
+
+where we can use named entry recognition
+
+to identify those specific things that
+
+we are looking at
+
+such as names addresses
+
+company names and so on
+
+so
+
+this is
+
+how it is interesting and this is how
+
+you can use these models in complicated
+
+or complex document understanding
+
+scenarios
+
+so now since you have a small idea about
+
+what this is
+
+let's have a look how we can use this
+
+okay going back to
+
+our
+
+package over here
+
+you can easily create this name related
+
+recognition by clicking on submit
+
+and give it a package name and click on
+
+submit
+
+this will create the ml package
+
+in your ml packages
+
+and then we need to deploy this
+
+so for that go to ml skills
+
+since i have already done that i will
+
+just show how to do it
+
+you can click on create new
+
+give it a unique name
+
+select the
+
+package and the version
+
+and just click on create
+
+it will
+
+give the status deploying over here for
+
+a while so it will take couple of
+
+minutes
+
+and then it will
+
+be available for you so you don't need
+
+to do any training because it's not
+
+retrainable
+
+and you might also wonder what if i want
+
+to extract certain other information
+
+which are not supported by this model
+
+so for that
+
+we also have the capability of training
+
+custom named entity recognition models
+
+but
+
+that's the topic for another video
+
+so in this one we'll see how we can use
+
+this particular model
+
+so once the status is available
+
+then you're all set to go
+
+and now it's time to create it
+
+in the uipath workflow
+
+so in studio
+
+i have created a small solution and also
+
+two sample workflow files for us
+
+but let's see i'll guide you
+
+on what kind of dependencies what we
+
+need
+
+on for this model
+
+to work
+
+so create your first project
+
+uh empty process or
+
+order document understanding process you
+
+wish but i started with this because i
+
+just wanted to keep things simple
+
+so create a process
+
+and then
+
+the first thing is we need to add
+
+certain dependencies
+
+so you can right click here and go to
+
+manage or you can click on manage
+
+packages here
+
+and then we need to add ui paths
+
+document understanding ml activities
+
+and you need to add uipath ocr
+
+activities because
+
+now the all the ocr modules are
+
+integrated into this particular activity
+
+and then
+
+you need to get the intelligent ocr
+
+so these are the common
+
+activities that we are going to add for
+
+any document understanding solution
+
+as we did in our previous series
+
+and then
+
+there's something new that we need to
+
+add
+
+um for this particular thing to work
+
+because we are using something
+
+additional
+
+so for that we need to use
+
+uipath dot ml services activities
+
+this you can find by clicking on all
+
+packages
+
+and search for uipath ml services and it
+
+will be available
+
+just click on
+
+for you it will show us install
+
+click on install and save
+
+and we need one more
+
+we need uipath
+
+web api
+
+because as you saw in the previous
+
+screen when i explained about the named
+
+entity recognition
+
+it gives us the json
+
+string as the output so we need to use
+
+web api to get the output we need out of
+
+those modules
+
+so that's why we are using these two
+
+packages
+
+to install these two
+
+and you're all set to go
+
+okay
+
+so
+
+i'm going to show you two scenarios
+
+one is the most simple
+
+output that we can get
+
+through document understanding and
+
+to connect with this
+
+uh
+
+ml package that we just deployed
+
+and the second scenario is more
+
+specific
+
+and we'll get to that
+
+the first scenario
+
+is a simplest one
+
+okay
+
+so in the first
+
+scenario here i'm not going to talk
+
+about any of the taxonomy things
+
+or classification or data extraction
+
+stuff
+
+this is
+
+how we can use
+
+the document understanding workflow
+
+to connect with
+
+the
+
+package that we create
+
+or the skill that we created
+
+so
+
+if you are new to document understanding
+
+before going through this video i will i
+
+would really recommend
+
+to go through the document understand in
+
+tutorials in the uipath academy
+
+as as the start so that you understand
+
+the components around document
+
+understanding
+
+and
+
+what each and every step does
+
+and also
+
+it's good
+
+there's another playlist in my
+
+youtube channel around advanced version
+
+of document understanding where we talk
+
+about many other stuff
+
+just wait for you to go through that as
+
+well
+
+okay
+
+now coming back to the topic
+
+so in here what i'm trying to do is
+
+i want i have a small document
+
+understanding flow because here i have a
+
+list of files
+
+i have like
+
+five files
+
+and each file has a different layout as
+
+you see
+
+so i'll show you again
+
+this is one file
+
+so
+
+the pages can
+
+span across multiple
+
+edges
+
+and this is another
+
+file
+
+the structure is a bit different
+
+and this is another one
+
+so likewise i have a set of files
+
+uh like this
+
+these are very simple files that i just
+
+created and downloaded through that site
+
+but when it comes to the actual scenario
+
+things can
+
+be
+
+a lot more varied
+
+because we will be working around many
+
+many different document types
+
+so
+
+this is just to show you
+
+the use of ner
+
+in certain scenarios like this
+
+okay so what i want to do with this ner
+
+model is
+
+i want to extract
+
+the names of companies involved in these
+
+documents
+
+names of people
+
+and
+
+these dates
+
+and also probably this location names if
+
+possible
+
+this is my main target
+
+and also when it comes to amounts
+
+uh such as this one
+
+i want to extract
+
+this amount in words
+
+and also the amounts in
+
+figures
+
+so these are the things i am looking at
+
+to extract
+
+using the named entity recognition
+
+so let's see how we can do that
+
+through document understanding
+
+connecting to named entity recognition
+
+okay since now you have the idea
+
+let's go to studio
+
+and uh
+
+yeah so as the first step
+
+i will explain the flow
+
+so i have some variables defined here
+
+the first one is the document path which
+
+is pointing to my input files folder
+
+which is this one
+
+because this is where the files are
+
+going to be
+
+and
+
+here i have also created a data table
+
+to hold the output given
+
+to us by the named entity recognition
+
+so let's have a look
+
+so here i have
+
+the file name
+
+the type
+
+i mean the type given to us through the
+
+name identification like whether it's a
+
+person whether it's a location
+
+whether it's
+
+amount what it is
+
+and the actual value that we're
+
+extracting
+
+and the confidence
+
+so these are the things i would like to
+
+have
+
+through this workflow
+
+okay so since we have defined that
+
+through the build data table
+
+and the output is set to ner
+
+data the data table variable that you
+
+see over here
+
+then it's time to loop through the files
+
+so in here
+
+the usual thing that comes to our mind
+
+is a assign activity that
+
+that we can use to do the directory dot
+
+get files and provide the final path
+
+but now there's the easy way
+
+we don't need to define that
+
+so if you go into for each
+
+you have the usual for each and you have
+
+the
+
+for each file in folder
+
+so this is the activity that i have used
+
+here
+
+so in here the current file and the
+
+document
+
+part
+
+we need to define so if i just drag it
+
+here you will see
+
+the current file is equal to
+
+the item in the for each
+
+so
+
+this is what we are going to use
+
+the current file always refers to the
+
+item
+
+in the current iteration
+
+okay let me remove this
+
+all right so in the in this activity i'm
+
+defining the folder path as document
+
+path because that's my variable over
+
+here
+
+and
+
+the remaining things i kept it as it is
+
+so the list of files
+
+all that will be handled through this
+
+loop itself so we don't need to create
+
+any areas
+
+that's the benefit
+
+and in the do section
+
+so in a usual document understanding
+
+workflow
+
+we usually have
+
+the taxonomy creation
+
+then for each file we do have the
+
+digitized document we have the
+
+classification we do the data extraction
+
+and then we do the data
+
+these are the usual steps
+
+but here
+
+i didn't define the taxonomy yet
+
+in this workflow because i wanted to
+
+show the simplified version so that you
+
+can easily understand how we can connect
+
+these two in the scenario 2 i will show
+
+you how to use that action
+
+so here
+
+for each file
+
+the first step is digitize
+
+so we will use the digitized document
+
+activity
+
+and for the document path we use
+
+current file
+
+dot
+
+full name
+
+full name will actually give you the
+
+get the full path of the directory of
+
+file so it will basically give you the
+
+full file path
+
+so that is defined
+
+and as the output we get the document
+
+text and the document object model
+
+and we can use the uipath document ocr
+
+which you can find it over here
+
+this one
+
+and for this one we need to give two
+
+inputs the api key and the endpoint
+
+and endpoint is
+
+this
+
+du.com
+
+ocr
+
+the api key you can find it
+
+in your cloud platform
+
+if you go to admin
+
+um under licenses
+
+and robots and services you will see
+
+your document understanding key
+
+just copy it and paste it
+
+okay
+
+so
+
+once you have configured these two
+
+then
+
+so here i'm not going to show you the
+
+classification and the usual data
+
+extraction
+
+because i want to show
+
+how document understanding can easily
+
+link up with other models
+
+we have in ai center
+
+so for this particular thing the named
+
+entity recognition
+
+i'm going to use an activity called ml
+
+skill
+
+which is over here
+
+ml scale
+
+so before configuring this it will
+
+usually look like this
+
+okay
+
+so we have two connection options
+
+robot and the end point
+
+endpoint is
+
+if your model is oblique
+
+in ai center it will give you an end
+
+point to connect with it
+
+that is
+
+in other words
+
+if you go to
+
+where is my asset it's here
+
+and if you go into any r
+
+ml scales and if you click inside this
+
+modify current deployment here you have
+
+option to
+
+set this republic
+
+so once you set it to public and confirm
+
+it will take some time to update
+
+and then
+
+it will have a endpoint tone here right
+
+now it's not shown because i'm i haven't
+
+set it as popped
+
+but if you
+
+think you should do it you can try it
+
+out and in this same screen you will see
+
+the end point just copy it
+
+and
+
+set this to end point
+
+and provide the
+
+endpoint key here
+
+and
+
+you can use the
+
+api key
+
+as before
+
+okay so since we are using
+
+robot
+
+set it to robot
+
+that is it will connect through your
+
+robot and
+
+direct it to ai centers where it can
+
+find the models
+
+and then just click on this refresh
+
+button
+
+and your scale will be available here
+
+just select that and that's it
+
+that's all you need to do to point to
+
+the
+
+model
+
+then it's all about configuring the
+
+input and the output
+
+so let me remove this so that i can show
+
+you
+
+how to do that with the
+
+activity i have
+
+okay
+
+so i said that
+
+the named entity recognition accepts
+
+string as the input
+
+so
+
+where do we get the string from the
+
+document
+
+is through the digitized document
+
+so this gives you two outputs
+
+document text and the document object
+
+model
+
+so this document text has
+
+the entire string of the entire document
+
+of all the pages in one big string
+
+so this string or this variable we can
+
+use
+
+to fit it into the ner
+
+so i'm going to use that variable in
+
+here
+
+under duct text
+
+and the output is going to be adjacent
+
+response
+
+which is
+
+also a string
+
+so
+
+so this will be a string
+
+and for us to extract the data out of
+
+the string
+
+we need to d serialize it
+
+so
+
+what is the meaning of deserializing is
+
+first you get a string
+
+so that string
+
+will look
+
+something like
+
+um
+
+this
+
+if you
+
+look at an example
+
+so
+
+for us to make things easier to
+
+locate these values without
+
+doing any string manipulation
+
+we can deserialize that so we can access
+
+it as we usually do
+
+with collection variables such as
+
+uh data tables lists and so on we just
+
+give the name and
+
+access it right
+
+and
+
+that's what we try to do with
+
+deserializing
+
+so
+
+um let's see
+
+so when it comes to
+
+that part
+
+so this deserialized json array comes
+
+with the activity pack web api
+
+so that's why we added it
+
+so in here if you use the dc realize
+
+json array now
+
+remember so that when it comes to dc
+
+randomize there are
+
+several activities
+
+we have deserialized json
+
+and we have d serialized json array
+
+we have d serialized xml
+
+this is not needed for now
+
+but out of these two
+
+how do you decide whether you want to
+
+use deserialize json or array
+
+it depends on your output
+
+so as we know
+
+this skill
+
+can give you a lot of values
+
+not just one
+
+if it is just one output that you are
+
+getting you can use deserialize json
+
+or if you're getting a list of values
+
+uh like for example again going back you
+
+can see this is one item
+
+and then there's another item like that
+
+again
+
+so it's it's more like a list
+
+but in each item there are also multiple
+
+one
+
+so
+
+in such case
+
+it's like a list of arrays for example
+
+in easy to understand words
+
+so that's why we need to use d serialize
+
+array
+
+i hope that part is clear
+
+um if if that is not clear just feel
+
+free to ping me anytime i'll explain it
+
+to you
+
+so we use the d serialized json array
+
+and feed the output given to us through
+
+this
+
+and
+
+we get the output as json array
+
+so
+
+you can easily create this variable
+
+just by
+
+pressing
+
+ctrl k
+
+and provide the variable name so that
+
+the type is given to you automatically
+
+and you don't need to
+
+define and look for these types
+
+so this gives you a
+
+j array type
+
+and now since we have deserialized that
+
+now it's time to loop through each and
+
+every item
+
+and access what's there
+
+so
+
+then comes the for each
+
+so in this for each
+
+i'll also show you one configuration
+
+before getting into the foliage i have
+
+done
+
+so
+
+for this four inch we need to use this
+
+deserialize json
+
+and you also need to set the type vacuum
+
+so in this for each you can see the type
+
+argument is set to
+
+newton's soft json link j object
+
+so how to find that
+
+i'll show you how to do that
+
+so in here
+
+click on browse
+
+and look for j object
+
+and this is the one we need to use just
+
+select that and click ok
+
+so that's what i did to configure the
+
+for each
+
+so
+
+since we have the voice i'll just remove
+
+this again
+
+i just wanted to show you how to do that
+
+so in this for each
+
+now we have the item
+
+and
+
+remember i said that i need to extract
+
+this data into a data table
+
+that has this structure file name
+
+type
+
+data value and the config
+
+so this is how we access the values now
+
+so in this for each i'm going to use add
+
+data row
+
+so in this one
+
+this is a usual activity that we have
+
+the data table is ner data
+
+the
+
+output of this
+
+data table
+
+and then
+
+i'm going to define the array row
+
+so the first column in the table is the
+
+file name
+
+so we can get the file name using path
+
+dot
+
+get file name
+
+and within brackets
+
+current file
+
+full name
+
+as i mentioned before the full name
+
+gives you the full file path and out of
+
+that
+
+it will give you the file name using
+
+this function
+
+and then
+
+we need to get the type
+
+of basically what that value is
+
+so coming back here the type defines
+
+whether it's a person or an amount but
+
+it is
+
+and it's given by this tag
+
+type
+
+so that's what we are using here
+
+item
+
+within brackets type to string
+
+and how to get the actual value
+
+is using the key
+
+or the tag text
+
+same as before
+
+here you have
+
+the actual value
+
+and then the confidence
+
+is this time
+
+do the item
+
+so you do the item text and item
+
+confidence
+
+so for this confidence i don't have the
+
+two string because
+
+i'm going to capture it in that
+
+particular format itself
+
+uh so let me go back to build data table
+
+you can see the confidence data type is
+
+single
+
+so how to access single it's system dot
+
+single
+
+if you're not sure how to find it
+
+um you can
+
+do system dot single
+
+this one
+
+okay
+
+so
+
+we have that
+
+and we capture it
+
+like that so basically for each item
+
+that we find in a document we add all of
+
+those into a
+
+table
+
+and then
+
+once we have all the items for that
+
+particular document
+
+in the data table
+
+we append it
+
+we append the data
+
+into excel file
+
+so what happens here is
+
+i have a excel file with a specific
+
+structure
+
+in the output folder
+
+in scenario one
+
+so this is these are the columns that we
+
+have so we have the file name
+
+type document value and the config
+
+same things we have in the uh data table
+
+so
+
+um
+
+since i don't want to
+
+overwrite or make it bit complicated so
+
+i use fn range so that it will add all
+
+the values right below the heading
+
+all right
+
+so we have the flow now
+
+so let me do just one small change
+
+so i have defined the data table over
+
+here outside the loop
+
+but
+
+i think for this to work
+
+without having repeating data
+
+it's good to have this data table thing
+
+inside this
+
+because
+
+then it will clear out the data table
+
+and create it again
+
+within the loop for each and every file
+
+otherwise i will have to do it manual
+
+somewhere down
+
+so
+
+this will make it much better
+
+okay
+
+now since we have the flow created
+
+so let me just
+
+recap it again we are looking through
+
+for each file
+
+we are building the data table
+
+we are doing the digitization
+
+through document understanding
+
+and the output given to us by
+
+digitized document in the document
+
+understanding workflow we are passing
+
+that into ml skill which is our new
+
+activity
+
+and we do the d serialize json array
+
+because we get a list of values
+
+and for each
+
+item
+
+we get the file path the type
+
+the actual value
+
+confidence into the data table and we
+
+write it into
+
+away itself
+
+okay
+
+so that's the recap and let's quickly
+
+run this and see how this work
+
+so i have the log activities enabled so
+
+you can see it in the output panel
+
+and
+
+let's debug it
+
+so this will basically
+
+run for each and every file try to
+
+digitize it
+
+and give us the output that we are
+
+looking for
+
+so this is basically how you
+
+connect the document understanding
+
+workflow
+
+to named entity recognition
+
+it's simply by using this
+
+activity
+
+and
+
+giving the output of a digitized
+
+document
+
+let's
+
+wait for couple of seconds for this to
+
+complete
+
+should be almost done
+
+so while this trade runs i will also
+
+give you some other things the tips
+
+so
+
+the next scenario will be very much
+
+more
+
+specific
+
+so that will be using taxonomy
+
+and also we'll be using
+
+the
+
+the data extraction in document
+
+understanding along with ml skin
+
+uh okay before getting into that we have
+
+this
+
+thing completed
+
+so let's check the output
+
+so it's the scenario one that i'm
+
+looking for
+
+and here it is
+
+so this is how the output is going to
+
+look like
+
+okay so here we have the file name and
+
+here we can see
+
+all the names of people
+
+in that file
+
+so let's have a look at this file as
+
+well
+
+let me put
+
+it to a side and
+
+where's adobe
+
+um
+
+okay
+
+this one
+
+hope you see this
+
+let me
+
+okay
+
+so here we have the first one the
+
+complaint
+
+and here we have this name john smith
+
+um
+
+this organization
+
+which is
+
+having the tag orgy
+
+the
+
+[Music]
+
+which is this one
+
+and the date
+
+yes
+
+and also
+
+names of people jessica john john
+
+all those names are there and lastly
+
+adam baker
+
+yeah so you can see how it extracts the
+
+values and also there are some city
+
+names here like this
+
+this is also captured
+
+uh this one is not captured
+
+yeah
+
+so
+
+there are some missing things like that
+
+as well so for these things
+
+there are few other tweaks that we can
+
+do
+
+um
+
+so i'll get to that part in a separate
+
+video
+
+um and in the next one
+
+of your construction template let's see
+
+where that is
+
+um
+
+[Music]
+
+this one
+
+so in here also we have certain dates
+
+names of people
+
+like this
+
+so you can see basically how easily it
+
+gives you the values that you want
+
+um so this is irrespective of the layout
+
+it's purely based on the text
+
+so that's the
+
+beauty of namely to reckoning in
+
+recognition when you use with document
+
+understanding
+
+so it has
+
+a lot of capabilities like that
+
+to extract certain things
+
+let's also look at
+
+uh things where we have
+
+comma separated values that we said it's
+
+hard to extract
+
+let's see
+
+yeah so we have one document over here
+
+and this is
+
+oh it's the same thing construction
+
+template
+
+sorry i didn't see that earlier
+
+so let's see these names
+
+um
+
+[Music]
+
+see you have the
+
+names like this
+
+so
+
+i'll tell you one more thing
+
+if you
+
+do this through data manager
+
+try to train it
+
+it will be very
+
+confusing for you
+
+whether to have these values as one
+
+regular field or just one value
+
+and separate it later
+
+or whether to have it as
+
+as a
+
+table in data manager in labeling
+
+because things can be comma separated
+
+things can
+
+line wise
+
+as we saw in the previous video here in
+
+the complaint thing
+
+so
+
+with name data recognition
+
+irrespective of all those things we can
+
+extract all the things that we need
+
+like a nice table
+
+and
+
+then after you extract the data it's
+
+purely based on the logic
+
+what to get out of this and what are the
+
+unwanted things out of this how to
+
+ignore those based on the confidence
+
+it's it's purely based on logic
+
+actually document understanding
+
+if you think about it it's based on a
+
+lot of logic
+
+more than the
+
+the technology part involved once you
+
+have the data it's all about logic
+
+so
+
+so basically this is how you connect
+
+document understanding with this
+
+okay
+
+so
+
+next we have
+
+two other things to look at
+
+one is our scenario two
+
+and then
+
+along with this
+
+we get
+
+uh the tips and tricks
+
+where i will be telling you
+
+how to improve the
+
+extraction
+
+out of this
+
+because it's not just one sentence that
+
+we are giving
+
+it's a document
+
+and it's a lot of text a lot of
+
+structures inside it
+
+so there are a lot of things involved
+
+so
+
+i'll tell you how to improve the
+
+extraction
+
+in the named entity recognition when you
+
+are using document understanding in a
+
+different video and scenario 2 as well
+
+in a different video because it's going
+
+to be lengthy and i don't want to have
+
+this video
+
+for too long because it will be too
+
+boring
+
+okay
+
+so now you have the idea about how to do
+
+this and
+
+i also want to tell you one more thing
+
+before we wrap up for this video
+
+if you actually look at how things are
+
+being extracted
+
+it's going to extract from up left
+
+and going down
+
+in the document because of the order
+
+that you see here
+
+first you will see the first one and
+
+then
+
+the organization then the date and so on
+
+so you see the pattern
+
+and these are the things that we need to
+
+keep in mind
+
+when working with these models
+
+for us to come up with our logic
+
+more on that in our next video
+
+so
+
+i hope this one was helpful
+
+and easy to follow
+
+and i hope it's interesting as well
+
+so you can also give a try just
+
+log into that side try
+
+doing some getting some documents out of
+
+there
+
+tested
+
+using the flow that i just showed you
+
+so
+
+i will also try to add the workflow
+
+in the
+
+in a shared drive
+
+and i'll provide the link in the
+
+description so that you can
+
+real downl until then take care
+

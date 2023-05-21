@@ -1,0 +1,1728 @@
+There are many approaches for extracting data from structured documents. Among those is template creation. However, template creation can be tricky when some parts change from time to time, such as rows of a structured table. This is where machine learning can help us easily predict and extract data from structured documents. 
+
+#UiPath Forms AI lets us easily train a machine learning model without writing any code to extract data from documents. This video is focused on using Forms AI for document processing.
+
+ Contents of this video  
+- Introduction
+- Exploring UiPath Document Understanding App
+- Creating New Project in Document Understanding App
+- Configuring and Training Model in Forms AI
+- Configuring UiPath Document Understanding Workflow
+- Examine the Output and Discussing Additional Points
+
+hello everyone
+
+welcome to my new video on uipathforms
+
+ai
+
+so in this video we'll be looking at how
+
+we can
+
+create
+
+um
+
+ai model to extract data from structured
+
+documents
+
+so let's
+
+first see what are the documents that we
+
+are going to process and why we can use
+
+forms ai to make this easier
+
+so i have a set of documents like this
+
+so let me quickly open it and show you
+
+basically these documents look something
+
+similar to this
+
+um so here
+
+what you can see is mostly the document
+
+is structured except for this table so
+
+these are some documents that i
+
+downloaded from some of the websites
+
+which you can also do it's already there
+
+so here you can see
+
+the table
+
+it is dynamic in this page it can go up
+
+to
+
+in in this document it can go up to two
+
+pages
+
+in this document
+
+it's pretty much the same but
+
+the number of rows in this table is
+
+less than the previous one and this has
+
+a
+
+this has only two rows
+
+and in this is just one row
+
+so
+
+so these are some scenarios that we
+
+encounter
+
+most of the time
+
+and we
+
+try to see how we can extract
+
+the documents from these kind of
+
+and we see how we can extract data from
+
+these kind of documents
+
+so when you say structured documents
+
+what comes to our mind is the form
+
+extractor that we used
+
+all these days to extract data from
+
+structured documents
+
+but the
+
+limitation we had with that is that when
+
+you have tables
+
+where the row count differs time to time
+
+we basically had to figure out the
+
+different ways to
+
+extract
+
+data from those tables
+
+so with forms ai we can make it
+
+simplified
+
+um and we can easily create a ai model
+
+to extract
+
+data from these structured documents
+
+and even when the number of rows change
+
+so let's see how we can do this in
+
+uipath forms ai
+
+so this is available on the cloud
+
+platform which i'm using right now um
+
+and you can also enable this feature if
+
+you go to admin
+
+and under this section you can see
+
+forms ai as the document understanding
+
+option
+
+just make sure this is enabled
+
+and once it is enabled you can find it
+
+here on the left hand side panel called
+
+document understanding
+
+this is the
+
+app that we are going to use to build
+
+the forms ai model
+
+so let me quickly brief you on this so
+
+here
+
+first we get into the overview page here
+
+we can have multiple projects just like
+
+in ai center we have multiple projects
+
+and in each project we have different ai
+
+models
+
+so just like that in document
+
+understanding
+
+here also we can create multiple
+
+projects and in each project we can have
+
+different extractors
+
+so
+
+the first thing is we first need to
+
+create a new project here
+
+since those some of those are actually
+
+um
+
+documents that relate to financial stuff
+
+let's
+
+give it a name something
+
+related to that area so all you need to
+
+do is just click on new project
+
+and let me give a name like
+
+mr analysis
+
+so the description bar is optional
+
+uh other than that here you have a
+
+couple of options like using the
+
+ocr method
+
+so if you use uipath document ocr
+
+um the
+
+ocr url is
+
+this one and the document api
+
+or the document understanding api call
+
+it will automatically get it from the
+
+platform itself
+
+so you don't need to uh type it
+
+so in our case let's use ui part
+
+document ocr
+
+and i'll keep these settings as it is
+
+but if you are using a different ocr
+
+module
+
+um like this then you need to provide
+
+the additional information
+
+let's stick with this and i'll click on
+
+create
+
+and here we have our first project
+
+so now what we need to do is we need to
+
+get into this project and see
+
+how we can use it
+
+so just click on the project
+
+and once you are here you have a couple
+
+of options you have document types you
+
+have a page called extractors
+
+and this is something that is
+
+uh coming up soon
+
+we will see about that once that is
+
+available
+
+and you also have a settings option so
+
+in settings you can just change the
+
+project settings the same screen that
+
+you saw before
+
+so
+
+once you are here the next thing that we
+
+need to do is
+
+we need to create a new document type
+
+so for that you can click on this new
+
+button
+
+and we can
+
+do it by actually using forms ai
+
+we need to select on this option
+
+and here we need to give a name for the
+
+document type
+
+and in our case these documents are form
+
+4
+
+so let's use the name form 4 for this
+
+and then click on save
+
+so after doing that you will actually
+
+get redirected to a
+
+different page
+
+so this is
+
+very much similar to the data manager
+
+all the document
+
+manager
+
+um so it's the same thing used for forms
+
+ai
+
+and so we have a new tab here but in the
+
+previous page
+
+you can see
+
+the
+
+type is already created
+
+and the extraction method is from say i
+
+and that's what we are going to build
+
+now
+
+so the first step
+
+we need to add a few documents here
+
+so
+
+this is what's recommended for now add
+
+two to twenty similar documents with
+
+maximum pages maximum five pages and
+
+these are the different supported types
+
+so let's add few documents we already
+
+have four documents here
+
+you can drag it over here
+
+and
+
+click on save so that it will start
+
+uploading this document
+
+it will take a couple of seconds to
+
+finish the upload
+
+just like in
+
+data manager or the document manager
+
+um once you upload it
+
+uses the ocr engine to
+
+read the document and
+
+understand what's there right
+
+so it's the same thing that is happening
+
+here
+
+it will
+
+upload the files it will read it using
+
+the ocr engine that we provided
+
+and it will display all the documents in
+
+the
+
+screen
+
+so let's give it a few minutes
+
+to finish the process
+
+okay so now we have
+
+all the files uploaded and you can also
+
+see
+
+now the files has three pages some files
+
+has two pages and these two files has
+
+only one
+
+and let's close it and start
+
+the
+
+process
+
+so here you can see
+
+it is automatically identifying the
+
+fields
+
+and it is automatically doing the
+
+extraction
+
+so for the first document it is already
+
+done for us so now what we need to do is
+
+um we need to figure out what are the
+
+fields that we need and what are the
+
+things that are not needed and just fine
+
+tune this
+
+extraction it automatically did
+
+so let's see
+
+so for our scenario let's only focus on
+
+few fields
+
+so let's
+
+look at this omb number
+
+and
+
+this one this name is the requester name
+
+and the issuer name and this date
+
+and the rest will ignore for now
+
+so let's delete this so i'll show you
+
+how to delete
+
+so if this field is not needed you can
+
+click on this edit field
+
+and hit on delete
+
+and this is also not needed
+
+this is okay this is okay and let's
+
+delete the other pins as well
+
+this process has been
+
+uh
+
+automated so that it's easy for us
+
+only part that we need to
+
+do
+
+by ourselves is the
+
+table extraction
+
+so i'll show you how to do that after
+
+configuring this part
+
+okay
+
+we have all the
+
+normal fields that we need to extract or
+
+the regular fields
+
+we have omb number and let's also refine
+
+this name
+
+we can click on edit again
+
+and click on this edit button
+
+so that we can update the name
+
+we can say
+
+um
+
+sure you don't have any spaces or any
+
+other
+
+special characters
+
+um if you if you want to separate things
+
+use this uh
+
+iphone just like i have used it
+
+and then click on set
+
+and let's do the same thing for the
+
+other one
+
+okay so here we have the four fields
+
+now
+
+is the
+
+part where we need to extract data from
+
+this table
+
+so so for that we need to use this
+
+column fields so that part is not
+
+automatically extracted so that we need
+
+to define
+
+for the first document
+
+so let's see
+
+um first we'll
+
+add the fields that we need to extract
+
+so let's focus only on three columns we
+
+can use this title
+
+transaction date over here and this
+
+amount
+
+so let's create that you just need to
+
+click on this plus sign
+
+and give a name
+
+we have that column
+
+and let's add the other one
+
+and finally the amount
+
+so once we add the
+
+columns here we need to update one of
+
+these columns
+
+with a
+
+special setting
+
+so that setting actually defines
+
+um
+
+how you want to separate the rows
+
+so here you can see so i clicked on the
+
+title
+
+here we have a additional option called
+
+split items
+
+as the description says use field as a
+
+delimiter between line items or rows in
+
+a table
+
+so basically
+
+we can use this column
+
+to identify different rows
+
+so let's
+
+click on this option enable it and save
+
+else what will happen is
+
+um whatever you extract it will be in a
+
+single row
+
+okay so now we have the columns set up
+
+now we need to
+
+add the values to those
+
+columns as rows
+
+so i will not add all these rows i will
+
+just add couple of rows
+
+because adding all these rows will take
+
+some time
+
+so the first thing we need to define is
+
+the items included in the row
+
+so
+
+we highlight the first row
+
+and press on the slash
+
+sign
+
+so that it will highlight this
+
+thing in green color
+
+and then
+
+you need to
+
+identify
+
+the elements inside
+
+so we'll first highlight all the rows so
+
+that it's easy
+
+keep pressing that
+
+so i will do this for like uh
+
+six or seven rows
+
+okay so this is my last row
+
+but ideally you have to do this for
+
+all the rows and one thing to remember
+
+here is
+
+when you have tables like this
+
+that varies in number of rows
+
+um you need to have a lot of samples
+
+i cannot exactly say how many samples
+
+you need so that depends on on your
+
+scenario
+
+but
+
+if you have
+
+tables in these documents that has
+
+different
+
+row counts
+
+make sure you have a
+
+large data set so that you can train it
+
+on those so that the model will be much
+
+more accurate because this is a part
+
+that is dynamic
+
+it's not as easy as
+
+the normal fields that you see over here
+
+so because of that
+
+um
+
+make sure you have enough documents to
+
+do the training
+
+okay
+
+so now
+
+we have all the documents ready
+
+and we have highlighted
+
+the columns here
+
+so in my case i only have four documents
+
+this just for this to show you how to do
+
+this
+
+um so let's
+
+add the values to the first column
+
+we highlight
+
+the items that needs to go into that
+
+from the rows that we identified
+
+and then press on this shortcut key
+
+and it will get added
+
+to the
+
+columns over here
+
+you can do the same thing
+
+to
+
+transaction dates
+
+which is r
+
+and lastly the amounts
+
+and eight
+
+so you have everything in a single line
+
+so we are done with the first document
+
+now let's go to the second one
+
+you can navigate through the documents
+
+from here just like in
+
+document manager when we are doing the
+
+labeling through ai center
+
+and now here instead of us
+
+manually adding these values so it if
+
+you remember it did the prediction
+
+automatically for the first documents
+
+for the regular fields but here it is
+
+not there
+
+but we can actually add it we can add
+
+those things manually as well but
+
+we can also use this predict option so
+
+that is easier
+
+so let's hit on predict and see how it
+
+identifies the values
+
+you can see it extracted the omb number
+
+reporting person issuer name
+
+and this thing is missing
+
+so now we can update the things
+
+um so
+
+omb number is correct it's here
+
+reporting person a part of it is missing
+
+so all we need to do is just highlight
+
+it and press on the shortcut
+
+so that that part is also added
+
+data earliest is this one
+
+we can click on that and press the
+
+uh e
+
+and let's have take a look at the roka
+
+in the table
+
+so
+
+based on my
+
+update in the first document it was able
+
+to identify
+
+two rows here
+
+but
+
+it did not extract the remaining rows so
+
+these things we need to update
+
+so that's why i said when it comes to
+
+rows over here we need more samples and
+
+higher the number of documents we have
+
+higher the accuracies
+
+so let's quickly do a update here
+
+so i'll update this entire line
+
+you can also remove this row by pressing
+
+the same slash key again
+
+and
+
+press it again so it updates the entire
+
+row
+
+the values are extracted properly
+
+we'll do the same here
+
+and
+
+here the value is not correct so we'll
+
+it extracted this value
+
+so let me press on delete
+
+and let's update the full row again
+
+this is e
+
+r
+
+and the amount is
+
+a so you can see the values are getting
+
+updated
+
+and let's quickly do that for the other
+
+two
+
+and
+
+and lastly we have another row here
+
+and we can select all three rows
+
+press t
+
+and r
+
+and then the amount
+
+you can see it's getting updated
+
+the second document is also done
+
+now the third one
+
+we do the same thing
+
+and click on predict
+
+and see how it predicts
+
+the tables will require a little bit of
+
+fine tuning
+
+just like you see over here
+
+but
+
+usually you can see the regular fields
+
+are populated automatically without an
+
+issue
+
+this thing require a lot more training
+
+because
+
+the rows
+
+don't change and you can see a lot of
+
+green over here so let's
+
+first highlight the whole thing and
+
+press on the delete button so that
+
+everything is deleted
+
+and then we'll define our row
+
+t
+
+is the date
+
+and the amount
+
+that's the
+
+third one and finally we'll do the same
+
+thing for the other one
+
+and this is the last document let's
+
+click on predict again
+
+okay so the first part is okay
+
+let's update this part
+
+this part will require a little bit of
+
+training as i mentioned before
+
+and okay
+
+okay so we have our model
+
+created
+
+and we have labeled the values that we
+
+need to extract
+
+so
+
+now what we need to do is we need to
+
+publish this
+
+um here there's a small change
+
+you can see
+
+along with this omb number
+
+it also
+
+extracted
+
+one value over here which is extra
+
+we can easily remove that
+
+we need to highlight this and press on
+
+delete
+
+so the unnecessary things do not get
+
+selected
+
+okay so now we are done with this one
+
+so now we can
+
+click on publish so once we have labeled
+
+everything the next step is publishing
+
+it
+
+and we need to give a name
+
+so we can say
+
+form
+
+extractor for example
+
+and click on publish
+
+and then you will get this message box
+
+saying publish is successful and we need
+
+to copy this endpoint
+
+so now relating this to what we have in
+
+ai center if you're familiar about the
+
+process over there
+
+once we do the export from ai center
+
+document labeling session it
+
+expose the data into a data set and we
+
+need to create the skill
+
+but here
+
+it creates the extractor for us
+
+and we don't need to get involved in any
+
+data sets or anything
+
+all we need to do is just copy this
+
+endpoint
+
+and copy it
+
+and close this
+
+and if you go back to that previous tab
+
+here we had
+
+the document type and now if we go to
+
+extractors
+
+we can see the extractor that got
+
+created just now
+
+you can also copy the
+
+endpoint url from here
+
+and now from now onwards
+
+it's the usual document understanding
+
+flow
+
+in uipath studio
+
+so let's get to the studio
+
+and again here what i have done is
+
+i have the taxonomy created so let me
+
+quickly show you
+
+but before that let me show you the
+
+dependencies i'm using here
+
+these are the dependencies
+
+document understanding ml activities
+
+intelligent ocr
+
+and the ocr activities
+
+okay
+
+so now let's quickly look at the
+
+taxonomy that i have
+
+just like in any other document
+
+understanding process
+
+we need to follow the same thing
+
+so here i have created a group called
+
+taxonomy
+
+and uh
+
+thing called finance and inside that we
+
+have
+
+coming
+
+and then form four
+
+so how
+
+do you create all this is actually by
+
+coming here and clicking on this group
+
+creation and then the document types and
+
+you can just basically follow the steps
+
+and here we have
+
+the form form
+
+so here we have the fields that we need
+
+to extract like the omb number the same
+
+fields we have in the model
+
+and under items we have those
+
+three columns that we are looking at
+
+we have everything defined here
+
+the data types if you want to see
+
+the amount is number this is date
+
+this is string
+
+this is again dead
+
+text
+
+text and this is also text
+
+these are the
+
+this is the configuration
+
+this basically tells the robot that when
+
+it comes to form four these are the
+
+trees that we need to extract
+
+all right so this is the first step
+
+and we have the load taxonomy activity
+
+and then i'm looking through a folder
+
+so this folder is actually defined
+
+in this foot folder so this is where my
+
+all the documents are
+
+you can see here
+
+um
+
+and for each document
+
+as usual i do the digitize document
+
+and here we have the uipath document ocr
+
+and for the document ocr we need to use
+
+the
+
+endpoint
+
+u dot uipad.com ocr and the api key
+
+we can copy that from the cloud platform
+
+if you are not sure let me show you
+
+you can copy that from this admin page
+
+and
+
+under licenses
+
+and services here you have the document
+
+understanding api key
+
+you just need to copy it
+
+and
+
+paste it here
+
+let me quickly update this
+
+okay
+
+so
+
+that's the digitization part and then
+
+comes the data extraction scope
+
+and over here for us to do the data
+
+extraction we also need to give the
+
+document type
+
+what's the type of document that we are
+
+going to extract
+
+so in our case we don't have any
+
+classifications here because we are just
+
+dealing with only form four
+
+and because of that i have given this
+
+document type id
+
+and this is coming from the tag summary
+
+manager
+
+and if you actually go to that document
+
+com4 here you can find it finance
+
+incoming form 4
+
+and copy that
+
+and paste it here
+
+so
+
+now
+
+in the data extraction scope first the
+
+activity or the extractor that we are
+
+going to use
+
+so here what we created is a ai model
+
+so when it comes to ai models we need to
+
+use the machine learning extractor
+
+all we need to do is just look for that
+
+machine learning
+
+and
+
+here we have it under extractors
+
+drag it over here
+
+once you put it it will ask you the
+
+endpoint
+
+ml scale and the api key
+
+so let's copy the api key first
+
+because i'm already here
+
+copied
+
+and then you can
+
+not within double quotes just press the
+
+api key here
+
+and then the end point so for that we
+
+need to
+
+go back to our document understanding
+
+go inside the project
+
+extractors
+
+copy url
+
+and paste it here
+
+make sure this is enabled and click on
+
+get capabilities
+
+so now we need to configure the
+
+extractor so now you can see the
+
+endpoint is here the api key is here
+
+let's click on configure extractors
+
+and
+
+here we have
+
+the
+
+drop down the fields that are coming
+
+from dml scale just like in any ml
+
+extractor
+
+we just need to map it now
+
+i'll ump number
+
+reporting person
+
+issuer
+
+um data earliest
+
+and for items
+
+um title
+
+and the amount
+
+and click on save
+
+we have configured the extraction
+
+now lastly to see the data here i'm
+
+using the present validation station
+
+so in this example i'm actually not
+
+writing this data into any excel
+
+um because that part is already covered
+
+in
+
+most of the videos that i have done
+
+um
+
+so that's why i'm
+
+focusing only on the part where we need
+
+to configure this thing
+
+just to show you how it works
+
+so here i will use the present
+
+validation station to show the output of
+
+the
+
+data extraction scope
+
+so that you can see how our forms ai is
+
+working
+
+so now we have actually completed the
+
+flow
+
+and let's do a quick run and see how it
+
+works
+
+so i already started the process and we
+
+should see
+
+the
+
+variation station shortly
+
+let's give it a couple of seconds
+
+okay so we have the validation station
+
+on my other screen
+
+and this is how it looks like
+
+so here we have
+
+the omb number
+
+this is a bit wrong so you can just
+
+accept
+
+but the reporting person that's correct
+
+issuer name is correct
+
+it is right
+
+and let's see how the items look
+
+you can see it was able to extract the
+
+items
+
+the things we define
+
+and
+
+there are few things
+
+that are not extracted properly but as i
+
+mentioned when it comes to these line
+
+items you need more samples because
+
+there is a dynamic part
+
+let's click on save and continue
+
+and let's see how the other document
+
+looks like
+
+it opened up in my
+
+so this is the other one
+
+here you can see the omb number is
+
+correct
+
+and i think even the line items up
+
+yeah
+
+for the last one you don't have a
+
+transaction date
+
+but it extracted everything properly
+
+so
+
+this is basically how you can use forms
+
+ai
+
+on structured documents and also on
+
+parts where things are little bit
+
+dynamic just like in these
+
+tables so
+
+i kept on repeating the dynamic parts
+
+these tables make sure you have
+
+more sample documents so that you can do
+
+more labeling
+
+and it will
+
+try to extract
+
+that data
+
+automatically
+
+and more accurately
+
+and you can see how easy it is it's not
+
+difficult
+
+um
+
+so i hope this is helpful for you to
+
+understand how
+
+the document understanding app and the
+
+forms ai inside that
+
+works
+
+um so let me give you just one more
+
+thing before wrapping up so let me
+
+stop this if you wonder
+
+how
+
+to train uh already available extract
+
+because this might be a question that
+
+might be running in your heads right now
+
+um so here let me close this
+
+if you want to add more documents
+
+to this uh
+
+extractor
+
+right now we only have like four docking
+
+we just need to click on home 4
+
+and it will open the forms ai
+
+and from here
+
+you can import any document
+
+but make sure it is following the same
+
+structure
+
+you can add more documents you can
+
+start labeling on those things just like
+
+we did
+
+and once you are exporting
+
+or publishing
+
+it will always ask for this name
+
+and
+
+if you don't want to use multiple
+
+extractors
+
+like
+
+to be listed over here
+
+you can easily
+
+delete this
+
+from here
+
+and then give the same name over here so
+
+that it will publish with that name
+
+but the endpoint url might be different
+
+so always make sure you copy it and
+
+update it
+
+you can actually verify
+
+um whether that is different or not so
+
+we'll give it a try
+
+um since we talked about that
+
+let me
+
+delete this from 4 extractor
+
+i already have the endpoint on the other
+
+side
+
+and we'll give the same name over
+
+here and copy the endpoint
+
+and
+
+over here
+
+um this is our previous endpoint let me
+
+just
+
+copy this new end point right below that
+
+yeah
+
+so you can see there's a small
+
+difference
+
+and
+
+it's not the same so
+
+if you are doing that make sure you
+
+change the end point as well
+
+okay
+
+so that
+
+brings to the end of the video
+
+i hope this is helpful for you to
+
+understand the forms ai
+
+and
+
+thank you very much and i'll see you in
+
+another video if you have any questions
+
+or any
+
+thing that you want to ask
+
+about anything related to uipath you can
+
+feel free to ask
+
+and i'll see you in the next video until
+
+then take care
+

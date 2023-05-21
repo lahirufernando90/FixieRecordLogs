@@ -1,0 +1,2858 @@
+Signatures are one of the most critical data elements we see in documents every day. There are many use cases for signature verification that require manual involvement. However, UiPath Document Understanding provides the capability to extract and compare signatures in documents within the automated workflow.
+
+The video explains the concept along with a use case. The use case is to extract information in a bank check and compare the signature in the check against a dataset preloaded in UiPath Data Service.
+
+We use UiPath Document Understanding, machine learning models in AI Center, and Image Processing techniques to extract the signature and perform the comparison.
+
+Contents of this video  
+- Introduction
+- Creating Signature Comparison Model
+- Prepare UiPath Studio Solution
+- Start Building DU Workflow
+- Saving Extracted Data in Excel
+- Building Signature Extraction Flow
+- Building Data Service Querying Workflow
+- Building Signature Comparison Flow
+- Final Execution
+
+
+hello everyone it's been a while since i
+
+last posted
+
+well there has been a lot of things
+
+going on on my side
+
+um like i got
+
+really busy with
+
+the uipath associate certification guide
+
+the book
+
+that got published
+
+and a few other things on the
+
+work side and through personal stuff
+
+so really sorry for not posting any
+
+videos for the last two months but
+
+now all those things are
+
+aware and now we are
+
+back again so
+
+this is my
+
+next video
+
+so today we are going to talk about
+
+uipath document understanding and we are
+
+going to special especially focus on the
+
+signature extraction
+
+so
+
+um
+
+when it comes to signatures it's like
+
+one important part in every document
+
+where we need to sometimes check whether
+
+the signature exists in the document
+
+and if so we might also need to
+
+extract the signature and compare with
+
+another database to ensure that
+
+signature is correct or wrong
+
+so this
+
+is one important thing and especially we
+
+can consider a use case like checks
+
+in banks
+
+we always need to cross check the
+
+signature and verify whether the
+
+signature is there in the check
+
+and if it is the whether it's the
+
+correct signature or not
+
+so today we are going to talk about this
+
+special scenario
+
+so let's
+
+see what our use case is today
+
+so
+
+we have few things to look at so this is
+
+going to be our flow for this session so
+
+we'll be reading a few checks from a
+
+folder and we'll be extracting the data
+
+and we'll also extract the signature
+
+as an image and try to compare it with
+
+the another database we already have in
+
+uipath data service so we'll be using
+
+combination of
+
+things here we'll be using document
+
+understanding
+
+to extract the data
+
+and then you have our data service which
+
+acts as our
+
+database where we have all the
+
+signatures
+
+so we'll be downloading the signature
+
+from the data service and trying to
+
+compare it using
+
+signature comparison model we have
+
+in ai center
+
+so we'll be using all three
+
+things today
+
+so let's get started
+
+so
+
+where can we find the signatures so i'll
+
+quickly show you upstairs
+
+so if you go to this side
+
+um here you can actually find a whole
+
+lot of samples
+
+or checks that you can download this is
+
+a public data set that's available on
+
+this site so you can just create a login
+
+and download
+
+so it will have a whole lot of
+
+information which you can use
+
+so i actually selected few samples for
+
+our scenario here
+
+let me quickly go into the input files
+
+so these are some checks that i
+
+got from that downloaded data set
+
+so we'll be extracting few fields from
+
+this check
+
+like the name
+
+the date
+
+amount
+
+account number
+
+check number
+
+and also we'll try to extract this
+
+reference code
+
+and then the signature
+
+so these are the fields we will be
+
+trying to extract
+
+but we'll be mainly focusing on this
+
+signature part
+
+so we'll try to build this use case and
+
+see how it works
+
+so for this to work i need to prepare a
+
+few things first
+
+so i initially said that we need to use
+
+ai center for the signature comparison
+
+model
+
+so we need to prepare
+
+the
+
+uh
+
+ml skill for that
+
+so what we need to do is we need to go
+
+to
+
+automation cloud
+
+go to ai center
+
+and if you don't have any projects
+
+created here you can create one i
+
+already have a few created for me
+
+in here under ml packages
+
+if you go to out of the box packages
+
+um under uipath image analysis so
+
+there's another separate image analysis
+
+here but we are focusing on the uipath
+
+one
+
+here you can see a model for signature
+
+comparison
+
+so you can
+
+[Music]
+
+create this package and remember that
+
+this is not retrainable because it's
+
+already trained
+
+but you can use this to
+
+compare different signatures
+
+so just create this model by hitting on
+
+the submit button
+
+and providing it a name
+
+and then hitting on submit again
+
+i have already done that so i'm not
+
+going to do it again so in my ml
+
+packages i have the signature comparison
+
+model
+
+and once it is
+
+created you don't need to do any
+
+training under pipelines
+
+so just go to ml skills
+
+and using that package we created
+
+you can click on create new
+
+provide a name
+
+choose the package
+
+signature comparison
+
+you can select the version
+
+and then hit on create
+
+it will take a while to create this
+
+skill
+
+but at the end it will show you the
+
+status as available
+
+and once that is done
+
+you're ready with your ml skill for the
+
+comparison
+
+so
+
+one part is done
+
+now what we need to do is we need to
+
+prepare our
+
+solution the uipath
+
+environment
+
+to start building this workflow
+
+so let's get to this studio
+
+so i have already created one
+
+project for us
+
+but here i have few dependencies
+
+just like for any uipat document
+
+understanding project
+
+we need to use uipath document
+
+understanding ml activities i'm using
+
+the latest version as of today
+
+and intelligent ocr activities
+
+uipath ocr activities to use the ocr
+
+engines
+
+and uh
+
+yeah that's it for now
+
+so install all these packages by you can
+
+search from here
+
+and
+
+once that is installed we are ready to
+
+start our workflow
+
+so
+
+just to start
+
+we need few things to set up here
+
+so i have created some config variables
+
+over here
+
+i'm not using any config
+
+the dictionary thing for the time being
+
+because i'm just trying to explain how
+
+to do this just to keep it simple
+
+so i already have few file paths defined
+
+the first one is where my input files
+
+are going to be and then the second one
+
+is
+
+where the extracted data is going to be
+
+saved the excel file basically
+
+and then i will be also extracting the
+
+image or the signature image on the
+
+check so i need to place
+
+i need to have a place to save it
+
+so this is where i'm going to save that
+
+and then
+
+finally
+
+when we try to compare it with the data
+
+set we have
+
+in the data service
+
+then we also need to download a file
+
+from them so i'll show you the data
+
+service part after this
+
+um once we get to that point but for the
+
+time being we need to have a folder to
+
+download it
+
+so that's why i already have four
+
+parts defined and those four are
+
+actually here so this is my input folder
+
+we'll be having five files
+
+this is where my extracted data is going
+
+to be saved
+
+i
+
+for now i just have our excel file over
+
+here it is
+
+empty
+
+and then i have the extractor signature
+
+folder it's empty and the original
+
+signages
+
+so these are the four folders
+
+so let's get to the data service part a
+
+little later
+
+first we'll try to
+
+read the invo read the check and extract
+
+the signatures out of it
+
+so
+
+let's get to the studio
+
+and uh
+
+yeah to start with
+
+we need to define the taxonomy
+
+so we need to go to taxonomy manager
+
+so in the taxonomy manager we need to
+
+configure this and start creating the
+
+groups and the different document types
+
+so let's start with the group
+
+so let's say
+
+financial
+
+and in here we need to have a category
+
+so
+
+we can just create let's say
+
+incoming
+
+and in this
+
+the document type is a check
+
+let's now define the fields that we are
+
+going to extract
+
+so if we go to the input files
+
+we need
+
+the name
+
+date
+
+amount account number and this view
+
+information so let's quickly try to
+
+create those
+
+um yeah
+
+so the first one is a date
+
+the name so the field let's say
+
+a name
+
+type is text
+
+same
+
+and then comes the date
+
+check date
+
+here i will define it as date
+
+but i'll be doing few additional things
+
+here
+
+i will
+
+provide the format so in a check the
+
+date goes like
+
+date month and year so i can give the
+
+format as
+
+dd
+
+mm
+
+and four
+
+wise m should be capital to define the
+
+month
+
+and then
+
+the total amount
+
+um
+
+let's say amount
+
+and i'll just set it as text for the
+
+time being
+
+the account number
+
+again text
+
+and then the check number and the
+
+reference number
+
+and lastly we need to have the signature
+
+so for the signature there we don't have
+
+a type called signature under field
+
+types
+
+so for that we'll be using a boolean
+
+type just to specify whether we have a
+
+signature or not
+
+so this is the first step in defining
+
+the signature
+
+okay
+
+so now we have all the fields we need to
+
+so the taxonomy part is done
+
+and now here we are in the studio again
+
+so let's start our first step
+
+we need to use the taxonomy
+
+so we need to look for the load taxonomy
+
+activity
+
+and provide the output as
+
+we need to create a variable you can do
+
+it by ctrl
+
+k pressing it together
+
+so we have the document taxonomy
+
+now what we need to do is we need to
+
+find a way to look through the
+
+documents
+
+so since we are just doing a demo i will
+
+just use
+
+each
+
+activity here
+
+for each file in folder
+
+but
+
+when you actually building a real
+
+workflow for a project
+
+don't use this one
+
+either use parallel for each if you are
+
+using
+
+the action center for validation
+
+or create a process that
+
+runs um
+
+once per document and put it into
+
+the ui file orchestrator and use cues to
+
+hold your
+
+files like
+
+each queue item can be a separate file
+
+and your process can be triggered
+
+for each
+
+file
+
+it's one of the best practices to do
+
+so for the time being i'll just use this
+
+activity for each file in folder
+
+and we need to define the input folder
+
+which we have here already
+
+so i'll just say config
+
+input file path
+
+and the first step is once we're inside
+
+the folder
+
+uh
+
+what's going inside the loop we need to
+
+do a digitize activity
+
+digitize document
+
+so here we are going to use this current
+
+file
+
+object
+
+and
+
+full name so this will give you the full
+
+file path
+
+and we need to create the
+
+output variables
+
+document text
+
+document object model
+
+and by default we'll be having the
+
+uipath document ocr
+
+in the digitized document activity
+
+but we need to configure it
+
+we need to provide the api key and the
+
+endpoint
+
+so the endpoints you can actually find
+
+it
+
+um
+
+here and uh
+
+docs.up.com you can easily find the
+
+public endpoints using this url
+
+and this is the ufo document ocr
+
+endpoint
+
+and the api key you can find it
+
+under admin
+
+and if you go to
+
+licenses
+
+robots and services you can find the api
+
+key over here
+
+so just need to copy it and use it in
+
+your workflow
+
+so for the time being i have both
+
+created in my
+
+two variables dock api key
+
+and the doc osr url so i'll be using
+
+those two variables here
+
+ocr url
+
+we have completed the digitized document
+
+now we are not doing any classification
+
+here because we are only trying to
+
+process checks so we can directly move
+
+into the data extraction part
+
+so inside this do
+
+i will place a data extraction scope
+
+right below the digitizing
+
+and we need to define this
+
+things again
+
+current file
+
+full name
+
+we already have the variables for
+
+document text
+
+document object model
+
+and also the taxonomy
+
+um so we need to define the output for
+
+the extraction results so we will create
+
+a new variable by pressing ctrl k
+
+let's say auto extraction results
+
+and we need to define the document type
+
+here since we are not using the
+
+classification
+
+we can find the document type id from
+
+the taxonomy manager
+
+so if we go here
+
+you select this check this is your
+
+document type
+
+you can copy that
+
+and paste it here within double quotes
+
+so for this
+
+one
+
+will be using the form extractor because
+
+the check layout is the same
+
+and
+
+every time the signature is in a
+
+selected area it won't change
+
+so for this purpose we'll be using the
+
+form extractor
+
+but if
+
+in addition to checks if you are using
+
+now or trying to process different
+
+types of documents where you don't know
+
+where the signature will be
+
+in that case you might need extra help
+
+to figure out
+
+whether the document has a signature or
+
+not
+
+so you might need to use some object
+
+detection models
+
+to
+
+and train it to identify signatures
+
+and see
+
+um
+
+and see whether you can find the
+
+signature in those documents or not
+
+so for the time being just to keep it
+
+simple
+
+let's only focus on the form extractor
+
+but we can definitely look at
+
+the object detection and training it for
+
+identifying signatures in a different
+
+video
+
+so for now let's use
+
+form extractor
+
+um so if you remember earlier we used to
+
+use intelligent form extractor for
+
+handwritten data but now the form
+
+extractor has the same capability
+
+to detect a handwritten information so
+
+we can use the form extractor instead
+
+and intelligent form extractor will be
+
+eventually removed
+
+so
+
+it is important
+
+to use form extractor
+
+and here we need to provide the api key
+
+so since i have it in my variable i'll
+
+just copy it from there
+
+oh i need i can directly give it as a
+
+variable
+
+it's needed
+
+for me
+
+when the when we are creating the
+
+template so i will just copy it anyway
+
+okay so now let's go into manage
+
+templates to create a template for our
+
+checks
+
+and here we can create the template
+
+we need to select the type we only have
+
+checks
+
+we can say
+
+then check
+
+and we need to
+
+select a document
+
+so let's go ahead and do that
+
+so let me try to get this folder path
+
+and let's select one check
+
+and we are using the ocr engine
+
+you have what document was here
+
+oh
+
+i
+
+copied this okay now get the api key
+
+from here
+
+and
+
+click on configure
+
+let's give it like okay
+
+so here we are in the
+
+in the screen where we need to define
+
+our templates so this is our sample
+
+document
+
+so
+
+first place we need to provide some
+
+matching info so that it knows we are
+
+looking at the correct page so here we
+
+need to define at least five words that
+
+does not change across all these
+
+documents
+
+so
+
+since we are having checks of
+
+just one type of bank here
+
+you can use that as a name as well
+
+so we need to define like unique
+
+keywords so let's try to capture some
+
+text like this
+
+okay i think that is enough
+
+and plus
+
+okay
+
+and now we need to
+
+get the pair name
+
+so we need to
+
+highlight this entire region
+
+so let's try to highlight it
+
+okay let's try again
+
+okay
+
+and we need to select custom area
+
+and click on plus
+
+we need to do the same for the check
+
+date
+
+custom area
+
+check date
+
+the amount
+
+custom area
+
+and then the account number
+
+so i think i saw in couple of images
+
+it's not always in the box it's a little
+
+bit
+
+above as well
+
+so let's try to cover that area as well
+
+when defining the region
+
+so we'll define it like this
+
+so we should be able to capture if it is
+
+outside as well
+
+custom area account number
+
+and the check number so let's see
+
+whether we can extract this uh text
+
+because it's like
+
+a different
+
+it has a different look so let's see if
+
+it works
+
+so let me try to highlight that area
+
+custom area check number
+
+and this reference as well
+
+and then the signature
+
+so signature is always
+
+in this area so we can
+
+just try to highlight this area
+
+we can make it little bit bigger
+
+yeah custom area
+
+okay
+
+so we have it defined for this template
+
+so let's submit it
+
+and here
+
+we have option to select
+
+uh whether we have signature fields or
+
+not so we do have one which is a
+
+signature so these are the phase we
+
+defined in the taxonomy
+
+so we'll select signature
+
+and
+
+yeah so we have done the template
+
+so close
+
+and let's go to configure extractors
+
+and here we have all the fields so let's
+
+enable
+
+all the fields for form extractor and
+
+click on save so what this means is the
+
+form extractor will be used to extract
+
+values for all these fields
+
+and now
+
+we have the data extraction part so
+
+let's put a validation station and let's
+
+see
+
+let's quickly run it and see whether we
+
+can actually see the values
+
+let's
+
+configure this as well
+
+text
+
+document object model
+
+document taxonomy
+
+auto extraction results and we'll change
+
+it to
+
+validated
+
+extraction results
+
+okay so since we have this
+
+let's run it and see
+
+all documents to see whether we have the
+
+data as we expect
+
+so we should get the first one now
+
+yep
+
+okay so we have the type and we have the
+
+pair name
+
+perfectly extracted
+
+check
+
+date so you can see it was able to
+
+identify the day month and year
+
+the amount is captured account number is
+
+captured
+
+check number is also captured which is
+
+good
+
+check reference
+
+it was able to identify all this
+
+like
+
+it has a different
+
+font altogether but it was able to
+
+identify that which is good
+
+and see this
+
+it says
+
+you have a signature
+
+so it was able to identify it
+
+so this view is
+
+new it has some couple of new features
+
+so uh let me cover that one as well
+
+along with this
+
+so here we can see the ocr confidence
+
+and the extraction confidence
+
+so if you go to ocr you can see
+
+this one has a low ocr confidence
+
+because could be because it's hand
+
+written stuff
+
+but when it comes to extraction
+
+it has a different confidence
+
+and also we have this filtering
+
+mechanism
+
+if you click here
+
+so based on the confidence levels you
+
+can
+
+see
+
+only fields that fall into that region
+
+like if you
+
+select 0 to 54 percent confidence
+
+um so these are the fields that
+
+that are inside that range so this way
+
+we get an easy way of filtering the
+
+fields and just focusing on low
+
+confidence fields
+
+instead of looking into all the fields
+
+and it has a nice way of grouping those
+
+as well
+
+okay
+
+so we have this document
+
+ready so let's see the other document
+
+yep so this also works fine and we were
+
+able to extract the signature so it
+
+seems like we are on the right track
+
+so let's stop it and try to extract the
+
+signature
+
+so let's have the present validation
+
+station and below that let's also try to
+
+save this data in excel
+
+so let me add a sequence here
+
+to
+
+organize this a little bit
+
+data so for this one we need to use
+
+export extraction results
+
+validated extraction results and we have
+
+a data set
+
+let us set
+
+for now i don't need the ocr confidences
+
+and
+
+let's try to use it for each
+
+because i need to look through this data
+
+set
+
+so this is a data set that has data
+
+tables so we need to say data set dot
+
+tables
+
+current table let's say
+
+and let's uh
+
+let's try to use the append range for
+
+now
+
+because i already have excel file there
+
+and my path is
+
+extracted data path
+
+bus
+
+extractor okay
+
+all right
+
+so let me change this thing
+
+a bit
+
+since i already have this let me get the
+
+properties and fold a path here
+
+okay
+
+um next raption data path so let me
+
+update this one
+
+so it will be
+
+in a single excel file everything we
+
+extract
+
+one
+
+and current
+
+table
+
+so for this for each we need to change
+
+the type argument to data table
+
+and in addition to saving this i also
+
+need to take
+
+the
+
+name of this person
+
+because we need to compare that
+
+with
+
+the
+
+signatures
+
+so let's try to get that
+
+and
+
+so how to get it is actually by looping
+
+through this one so
+
+in the taxonomy
+
+name is the first field so we can get it
+
+from there
+
+so under current
+
+table
+
+we go to rows
+
+first row
+
+first column
+
+string so this will give me the name
+
+okay so that part is done
+
+so this will generate us the excel sheet
+
+and i need to change the scope of this
+
+sphere name to the outermost
+
+okay
+
+and
+
+now
+
+let's try to create our signature so
+
+this is the most important part
+
+so let me get another sequence here
+
+extract signature
+
+so after now it is quite
+
+common across all the oppas
+
+new projects
+
+so this is the most specific part for
+
+the signature extraction
+
+so for this one we need to
+
+understand a bit about the structure of
+
+this validated extraction result
+
+variable
+
+so i kind of have a sample here which i
+
+took earlier
+
+so this just to get an idea how this
+
+thing looks like
+
+so this extraction result has a lot of
+
+information
+
+but we need to only look at few things
+
+so under extraction result
+
+it is the type
+
+you can see information like
+
+the document category the group the
+
+things we created while defining the
+
+taxonomy
+
+so this is the document type
+
+so this is a bit different than what we
+
+defined but this is just a sample
+
+so
+
+in
+
+in the extraction result we need to look
+
+at the results document
+
+inside that we need to look at fields
+
+so inside fields we have results data
+
+points
+
+this can repeat
+
+for each field
+
+so for each field we have a result data
+
+point that says
+
+that has everything about the field id
+
+the field name basically
+
+and whether the value was extracted or
+
+not as a boolean
+
+is missing
+
+and if the value was extracted we can
+
+see the value inside the values section
+
+if we
+
+go inside values we have the result
+
+value
+
+and for that we see the ocr confidence
+
+and if we scroll down
+
+under value we see the
+
+extracted value so this is the name that
+
+we saw
+
+and for that same name
+
+it is actually defined inside a small
+
+box
+
+every text that got extracted it is
+
+inside the box
+
+so that box defines the region
+
+so inside here
+
+you can see
+
+for this name
+
+it had three boxes like
+
+separated by spaces
+
+so that's why under boxes you see three
+
+things so this has the
+
+coordinates of the box
+
+top
+
+left width and height
+
+same way you can check for another
+
+fields in the results data point
+
+you have the same information
+
+and
+
+the box as well
+
+so these are the things we need to
+
+remember
+
+when trying to do this because we need
+
+to navigate through this to locate
+
+our fields so we'll be locating the
+
+field using the field id
+
+and we'll be using these boxes
+
+to identify the area and try to crop and
+
+get the image the signature
+
+so we'll be needing to look for the
+
+signature field
+
+so that's the first step now
+
+so first we need to find
+
+this field
+
+so let's try it
+
+so inside the extract signature
+
+so let's use a assign
+
+in here
+
+we need to use that validated extraction
+
+results
+
+and
+
+if you go to taxonomy manager
+
+if you look at the field
+
+signature
+
+here is the
+
+field id so we can just copy it and keep
+
+it with us
+
+so in the s9
+
+let's use the validated extraction
+
+results
+
+so i'm trying to go through that
+
+path now
+
+and then next we need to go to results
+
+document
+
+this as document
+
+then as i mentioned before
+
+fields
+
+and let's try to find the fields using
+
+this expression
+
+where
+
+function
+
+f
+
+you can have any name here
+
+field id is what we need because that's
+
+where we see this thing
+
+field id is equal to
+
+the thing we copied
+
+and let's only get the
+
+first one
+
+so we can have
+
+multiple things so let's try to get only
+
+the first
+
+and then assign it to a variable called
+
+signature field
+
+so this signature field should have a
+
+specific
+
+uh type it should be
+
+um
+
+result data point because it's inside
+
+this
+
+so let's try to find that
+
+um
+
+here
+
+so it should not be string we need to go
+
+to browse for types
+
+and you look for ui paths dot
+
+document processing
+
+under contracts
+
+um
+
+not under contracts it should be under
+
+results
+
+and
+
+results data point so this is what we
+
+need
+
+so we have the signature field now
+
+so once we have the field we need to use
+
+that field to get that region
+
+so now is trying to get the region so
+
+let's use another assign
+
+so let's call it the box
+
+let's say signature box
+
+let's change the type later
+
+and this time we are using this
+
+signature field
+
+and inside this now we need to look for
+
+the values
+
+so again coming back to this structure
+
+now we are here we need to look for
+
+these values because inside that only we
+
+can find these boxes
+
+so let's add values
+
+so these are arrays so we need to
+
+use the zeroth one always
+
+then we have something called reference
+
+inside that we have something called
+
+tokens
+
+again 0
+
+and then we have boxes
+
+and 0 again
+
+so what we did here was
+
+we found this value section
+
+then we got into this reference section
+
+tokens and inside that boxes so we were
+
+basically traveling through this
+
+structure
+
+and for this one we need to have a box
+
+type
+
+not string
+
+so signature box has to change
+
+again uipath
+
+document contracts
+
+box
+
+so that gives you the region
+
+now now we have the region now we have
+
+the signature field now using this
+
+region we can
+
+try to crop the image
+
+the entire document because it's the
+
+image
+
+and
+
+get only that part out of it
+
+so to to do this
+
+we need to use some special activity so
+
+let's try to add it to the solution
+
+we need to look for activity called
+
+image activities
+
+dot
+
+activities
+
+so we'll be using
+
+this one is actually done by uipath
+
+itself
+
+so there are two
+
+use only the one that says cropping
+
+images
+
+install
+
+and save
+
+so this pack
+
+has a couple of activities that we can
+
+use
+
+to
+
+extract the signature out of this
+
+document we are processing
+
+and do some
+
+improvements
+
+to the image and then save it
+
+okay
+
+so the first one is
+
+first we need to load our document as an
+
+image
+
+so we have the document here as a object
+
+model and a text but not as an image
+
+so that's the first step because we need
+
+to crop using that image
+
+so we need to use the activity called
+
+load image
+
+and here we are giving the
+
+document path
+
+and output is
+
+check image
+
+now
+
+is the cropping part
+
+so for this one we first need to use a
+
+invoke code activity
+
+to crop it
+
+basically
+
+um yeah so we'll use it here
+
+so we still did not use the
+
+uh the image activities let's try and
+
+still trying to get there
+
+so in this invoke code we are going to
+
+write a single line
+
+that allows us
+
+to crop the image using this box
+
+but to do that we need few arguments to
+
+send in
+
+we basically need the
+
+document image the check image
+
+and we need to send the region
+
+and we also need to send a scale
+
+that defines the cropping
+
+and as the output
+
+we are getting the cropped image
+
+so let's try to pass those
+
+so we are going to create an argument
+
+called
+
+check image this is the actual document
+
+as an image the type has to be image
+
+so we are trying to look for ui paths
+
+dot co
+
+image
+
+so this is the image type
+
+and we already have this variable
+
+check image
+
+then again another input argument is the
+
+box
+
+signature box
+
+this is of type
+
+signature box we need to look for it
+
+again
+
+so ui paths document closing
+
+contracts
+
+box
+
+and then we need to pass a scale this is
+
+of type double
+
+system
+
+double
+
+we don't have a variable for this so
+
+let's create one
+
+scale
+
+and finally we are getting the cropped
+
+image
+
+extract
+
+[Music]
+
+signature
+
+as the output
+
+of type image
+
+and let's create a variable for that
+
+extracted
+
+image
+
+we have the arguments ready
+
+three inputs and one output
+
+and let's try to edit the code
+
+so here
+
+we need to assign the output argument
+
+extractor signature
+
+equals
+
+the check image
+
+the input variables might not show here
+
+but it will work
+
+make sure you use the same name check
+
+image is my input argument
+
+and
+
+simple crop
+
+new
+
+rectangle because those are rectangles
+
+and inside that
+
+we can define
+
+our
+
+regions
+
+as a c end
+
+uh signature
+
+box
+
+dot
+
+left
+
+so this is how we define
+
+can copy this one
+
+left
+
+comma
+
+copy it this can be
+
+top
+
+again comma and paste
+
+this is with
+
+comma and space
+
+and height
+
+that's it
+
+and another bracket
+
+to close it
+
+okay so we have our code
+
+and let's click on ok
+
+so this will basically give us
+
+the
+
+cropped image
+
+and now what we need to do is
+
+we we are going to use the activity here
+
+that we
+
+included from one of those
+
+new things
+
+so we are going to use
+
+let me try to find it
+
+image contrast
+
+why i'm using this is because
+
+so if you actually look at the
+
+signatures
+
+you have a colorful background
+
+so for us to do a proper comparison
+
+we need to make sure
+
+we see only the signature
+
+because usually that's how the
+
+signatures are captured
+
+to eliminate all the noise and just
+
+focus on the part which we need to use
+
+so what happens with this contrast is we
+
+can
+
+change the contrast and get only the
+
+required part of that cropped image
+
+so since we have the extracted image i'm
+
+using the extracted image here
+
+i'll set this to 100
+
+and save it
+
+save the image
+
+in my
+
+extracted
+
+[Music]
+
+signature path here
+
+with the name of the person so that's
+
+why i extract that the name
+
+from here
+
+so i'll say config
+
+extractor signature path
+
+plus
+
+here name
+
+plus dot jpg so this is how we need to
+
+say
+
+okay
+
+so
+
+we have that part done so let's try to
+
+run it for one document and let's see if
+
+this works
+
+so let's wait for the validation station
+
+we have everything extracted here so i'm
+
+not going to do any changes let's click
+
+on submit
+
+so we should see
+
+this excel file getting updated
+
+okay so we are here for the next
+
+document let's quickly have a look
+
+yeah so the excel file got updated with
+
+this info
+
+and
+
+let's go back here
+
+for extractor signages and here we have
+
+the signature
+
+so you can see it was able to crop and
+
+remove all the background noise
+
+and we just have the signature so this
+
+is the best format to extract and save a
+
+signature from a document
+
+so that we can easily compare it and we
+
+don't have anything else in the
+
+background
+
+so let's do another quick run for this
+
+document as well
+
+and let's have a look
+
+you can see how clear it is
+
+okay
+
+so let's stop this again
+
+so let me now quickly create another
+
+simple workflow
+
+to do a comparison and let me also show
+
+you where my
+
+data services
+
+so let me go to data service
+
+and i have a
+
+entity already here for signature data
+
+in here i have two fields customer name
+
+and customer signature this is of type
+
+file
+
+so the name is the same name we see here
+
+in these documents because we are
+
+extracting the name
+
+so using that name
+
+we have a database
+
+and a signature file for each of them
+
+which we need to download and compare
+
+so this is how it is going to be
+
+so let's try to download it
+
+and try to compare these two
+
+signatures that we have
+
+using our model
+
+um
+
+so let's quickly try to create a
+
+separate workflow for this
+
+in the same solution
+
+so for this one we need
+
+two things as the input argument
+
+we need the file that got created after
+
+extraction
+
+click manager file path
+
+and
+
+next we need
+
+where we are going to save the
+
+file that we are going to download
+
+uh original signature
+
+okay so here let's
+
+let's now connect this studio to the
+
+service
+
+data service so how to do that is
+
+you need to go to
+
+manage entities
+
+uh just
+
+select
+
+what we need
+
+signature data we need to use system
+
+user
+
+and click on save
+
+i don't want anything else that's why
+
+i'm using only that one
+
+[Music]
+
+so it will update our dependencies
+
+according to that
+
+um
+
+so we have this thing here but we need
+
+to in install the activity data service
+
+activities so let's click on this
+
+install package
+
+or you can look for it
+
+here under manage packages
+
+data service
+
+this one install
+
+and save
+
+okay so we need one more thing so we
+
+have the extractor signature file for
+
+the original path where the files are
+
+going to be downloaded and we also need
+
+the name of the person which we have on
+
+the other workflow
+
+your name
+
+okay so now we need to browse this
+
+entity
+
+signature data so let me just drag it
+
+over here
+
+and this will give me a list of
+
+activities
+
+query entity records
+
+for signature data
+
+so let's try to build the query
+
+um i need
+
+the customer name that should be equal
+
+to
+
+in
+
+your name
+
+and that's the record i'm looking for
+
+and the output records this will be a
+
+collection
+
+for us
+
+um
+
+let's say their
+
+information
+
+you can see this is actually a list but
+
+ideally in our data service we have only
+
+one record so we don't need to really
+
+look through it we can just
+
+get the value
+
+so all i need is to download that file
+
+so i'll use a download file
+
+from this activity
+
+so i need the record id which i can get
+
+from this variable
+
+pair information dot
+
+[Music]
+
+dot
+
+zero index because it's a list
+
+and id
+
+the field
+
+um
+
+yeah so i need to change this to
+
+signature data
+
+field is customer signature
+
+and the file path
+
+so this is where i'm going to store it
+
+this is just the path
+
+let's add
+
+in
+
+their name
+
+jpg
+
+here it will get downloaded and saved
+
+and now let's try to
+
+compare
+
+the two
+
+files
+
+so for the comparison we need to use the
+
+machine learning model
+
+and for that we need another dependency
+
+here
+
+for ml skills
+
+so let's search ml scale
+
+ml services
+
+install
+
+okay so let's use the ml skill activity
+
+now
+
+to try and compare this
+
+so i'm connecting as a robot for now i'm
+
+not using any endpoints
+
+so let's search signature comparison
+
+and
+
+for the input we need to give both files
+
+both file paths separated by a comma
+
+so for that we'll just create a assign
+
+signature parts
+
+and
+
+um
+
+so i already have the
+
+extractor signature
+
+and i need to use
+
+this one because this is where the other
+
+one is going to be saved
+
+this plus
+
+separated by a comma
+
+and the other part
+
+okay so we'll be using signature files
+
+now
+
+and we'll be getting the json response
+
+so i'll be not going through the
+
+json response
+
+i'll only show you the output
+
+but if you are going to actually read
+
+the response you need web api activities
+
+to convert it into a json structure and
+
+read it
+
+you can learn more about this part
+
+from
+
+one of the videos that nissan did on
+
+this specific scale so
+
+since he has already done that i'm not
+
+going to repeat so i'll just show you
+
+how the output is going to look like
+
+but you can find that video in the
+
+description below
+
+as a link for his channel
+
+okay so we have this one now
+
+so let's try to configure the input
+
+arguments on the other side
+
+so after this
+
+i'm going to
+
+add another sequence
+
+violation
+
+and here i'm going to
+
+invoke that workflow
+
+signature comparison
+
+okay so i have the extractor signature
+
+path
+
+let me see
+
+where did i save it
+
+it is saved here so i'll just use the
+
+same name
+
+and for this original signature download
+
+file i'll pass the
+
+the folder path
+
+and the player name
+
+like this
+
+that's all we need
+
+so
+
+let's run it again for one more time
+
+let me remove all this stuff
+
+and this time let's try to run it for
+
+all the documents
+
+so we can see it
+
+so our comparison research should show
+
+in the output panel
+
+so there's the document
+
+submit
+
+so we know now that our image is getting
+
+extracted
+
+this is the image let's see the output
+
+and you can see
+
+same author similarity is
+
+1.0 is 100 percent
+
+let's try the next one
+
+same because it's actually
+
+having a very close similarity
+
+you can
+
+try this by trying to
+
+compare between
+
+different signatures and see how it
+
+looks like
+
+yeah so this one there's a small
+
+difference like 0.97 which is 97 percent
+
+accuracy
+
+100 percent
+
+so our main goal is to say this
+
+and try to compare it with the data we
+
+see in a
+
+data service
+
+so
+
+the execution ended let's quickly have a
+
+look at this
+
+this is our comparison result
+
+and
+
+here are our signatures
+
+everything we extracted
+
+from those documents
+
+so using this now you know how to
+
+extract a
+
+specific region and crop it from an
+
+image
+
+so in addition if you think
+
+if you might wonder what if my document
+
+is a pdf file so here my input files are
+
+images
+
+so if it's a pdf file
+
+you can easily do one thing you can use
+
+the pdf activities
+
+and in the pdf activities there's
+
+activity to
+
+convert a page of a pdf file into an
+
+image file
+
+so you can use that
+
+to convert your document into a
+
+jpg file or image file and use it with
+
+this same code
+
+so that's all you need to do if your
+
+file is a pdf
+
+so with that
+
+that covers our main topic
+
+it was a long session but i guess this
+
+was uh helpful for you to understand and
+
+i wanted to do that in one session
+
+because
+
+then it will be easy to follow
+
+so
+
+with this i hope you got the idea to
+
+how to do the signature extraction
+
+and i'll be adding this code in the
+
+description as a link which you can go
+
+and download
+
+um so
+
+reach out to me if you have any
+
+questions around this
+
+and i hope this will be helpful
+
+so
+
+i'll be back with another couple of
+
+videos around topics like this
+
+so until then take care and see you soon
+

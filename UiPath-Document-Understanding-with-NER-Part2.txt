@@ -1,0 +1,2334 @@
+Named Entity Recognition (#NER) can extract key information from unstructured documents. It is one great mixture that we can introduce into Document Understanding workflows.
+
+In this video, we will showcase how the data extracted through NER models can be merged into data provided through usual Document Understanding data extraction models. We also focus on identifying patterns in the data extracted by NER to come up with different logics to exact values that we are looking for.
+
+ Contents of this video  
+
+- Introduction
+- Explanation on the Use Case
+- Explaining the DU workflow (Taxonomy, Form Extractor), Exporting to Excel, NER extraction
+- Quick Demo to showcase Results for Better Understanding of Data Extracted
+- Finding data patterns on NER
+- Building Custom Logic to Filter & Extract Key Information Out of NER Data
+- Some Quick Tips
+
+hello everyone
+
+welcome to the second video on uipath
+
+document understanding with ner
+
+so in our first video we looked at how
+
+to create a ner model in ai center
+
+and how to create a simple workflow
+
+to extract
+
+data using an er from a document
+
+so in this video
+
+we'll be looking at in a little bit of a
+
+complicated thing
+
+uh where you also have
+
+data coming in from
+
+the uipath document understanding data
+
+extraction methods
+
+and also with ner so we'll see how we
+
+can combine this data and
+
+perform some data cleansing to extract
+
+all the information that we need
+
+let's get to the
+
+scenario
+
+okay so i'm using the
+
+same ui studio solution i have a
+
+a new workflow file that i created
+
+to start on this
+
+so before explaining the workflow i'll
+
+show you the document so that
+
+you get a clear idea about what we are
+
+trying to do
+
+so this is my document
+
+so let's say uh part of this document is
+
+very unstructured
+
+and a part of this document is
+
+a bit structured so let's say whatever
+
+the document we get we have this portion
+
+as it is
+
+but the remaining parts
+
+are
+
+dynamic and we will not know where
+
+things will be
+
+this can happen in real scenarios
+
+that's why i took this document as an
+
+example out of the previous documents
+
+that we ran
+
+in the part one
+
+so that i can build a nice scenario
+
+so in this case
+
+because this part is
+
+always the same
+
+i will use a form extractor to extract
+
+this part of the document
+
+and for the rest
+
+we'll be using
+
+ner or named entity recognition
+
+to extract the names of people and some
+
+dates
+
+so
+
+having said that let's get to the
+
+um uipath workflow and see how we can do
+
+this
+
+so in my studio
+
+i am using the same solution as i
+
+mentioned before
+
+um so i have a new workflow file
+
+only addition i did here is because we
+
+are using the uipath document
+
+understanding as well for this
+
+i have created some
+
+taxonomy managers here
+
+basically some document types in
+
+taxonomy meaning
+
+um so if you are not familiar with
+
+taxonomy manager or form extractor
+
+um have a look at the uipath
+
+document understanding videos in
+
+uipath academy or in my youtube channel
+
+um so there's a series for
+
+advanced document understanding and
+
+there are some
+
+parts of that series
+
+where you can actually look at how to
+
+create these things
+
+so
+
+for this scenario i have created a
+
+taxonomy like this
+
+so it's under documents imports
+
+and legal
+
+and in here i have a set of fields
+
+i have company name and set of items
+
+over here to extract that table in the
+
+document
+
+and few other fields all together
+
+so
+
+true form extract only part of these
+
+things will be extracted so let's have a
+
+look
+
+so this is our taxonomy
+
+and in my workflow
+
+i have a build data table this is purely
+
+for the ner just like in our previous
+
+solution
+
+so i'll be using the same structure here
+
+then i have the load taxonomy activity
+
+and
+
+then i'm looking through the files in
+
+the folder
+
+i would perform the digitize session
+
+just like i did before
+
+in the previous video
+
+so what will happen here is it will
+
+convert the document into a digital
+
+format and it will
+
+give me the text
+
+the text of the entire document so that
+
+i can perform the ner data extraction
+
+so this is common to both ner
+
+and for the usual document understand
+
+and in addition here i have the data
+
+extraction scope
+
+to extract the data using form extractor
+
+and i have the form extractor configured
+
+so i'll show you how i did that
+
+so this is my
+
+form
+
+a template that i created
+
+so as you can see here
+
+um
+
+i'm extracting the grand total which is
+
+over here
+
+and only these items
+
+the table items
+
+just like this
+
+and the title the company name basically
+
+this part
+
+the other fields i'm not extracting any
+
+of those
+
+that will be done by the name 92
+
+recognition
+
+so this is my form
+
+and
+
+in the configure extractors
+
+as you see
+
+we have a lot of fields but i'm only
+
+focusing on
+
+this part
+
+and all these feels like the internal
+
+person name bendy name document date and
+
+document title
+
+will be extracted through named entity
+
+replication
+
+so when i say internal person name and
+
+the vending name documented and title
+
+that will be
+
+these names
+
+internal person name is this guy
+
+document title is this
+
+and the wendy
+
+is this guy
+
+and the date is going to be this
+
+so let's assume this part is very
+
+unstructured
+
+and it will not always be the same
+
+and
+
+having that as a thought let's continue
+
+with this
+
+okay so this part is done
+
+and then i have a present validation
+
+station so that i can actually show you
+
+the results
+
+and right after that
+
+just like in my previous workflow i have
+
+the ml skill
+
+to extract
+
+the ner data
+
+and i get the json response deserialize
+
+it
+
+add all those information to the data
+
+table i declared above
+
+and down here
+
+we are writing all the data into a
+
+excel file
+
+so basically
+
+um in document understanding
+
+the
+
+data you extract through this
+
+presentation station or data extraction
+
+scope
+
+needs to be converted into a
+
+data set
+
+that is done through export extraction
+
+results activity
+
+you pass the auto extraction result
+
+this is actually the output of
+
+the present validation station
+
+and that i'm using for each loop for the
+
+data set
+
+the type argument here is actually data
+
+table
+
+so you can see auto extraction data set
+
+dot tables
+
+and for each table i write everything
+
+into
+
+excel file
+
+and in addition i'm also getting the
+
+confidence so that you can also see
+
+how it looks like
+
+so that is for the data that's coming
+
+from the form extra
+
+but
+
+for the data that's coming from our
+
+named entity recognition
+
+in here this data table
+
+i'm writing that data also into the same
+
+excel
+
+so remember
+
+um
+
+anyway document understanding will
+
+provide you with the excel file
+
+at the end through this step
+
+so we can use that excel file as a base
+
+for the any other data as well but
+
+in a new sheet in the same file
+
+so that we can perform additional
+
+things on the ner data
+
+to get the data that we need
+
+so
+
+first of all to get an idea about how
+
+this thing work let's quickly run it and
+
+see
+
+so let me remove this breakpoint here
+
+and let's run
+
+so this file will be created
+
+under this output folder
+
+oops i already have this
+
+um
+
+let me just stop it so that
+
+can delete
+
+it let me run it again
+
+so you can see the data extraction is
+
+happening
+
+and here i have my
+
+validation station
+
+for the document
+
+so you can see i have the company name
+
+and the grand total right over here
+
+and all the lining
+
+so this is coming from the form
+
+extractor
+
+and also you can see this part is not
+
+extra because we don't know where it is
+
+and
+
+my form extractor cannot do that because
+
+this part is going to be unstructured in
+
+our scenario
+
+so
+
+this is handled by the
+
+uh named editor recognition
+
+so the challenge here
+
+is um
+
+once you extract the data through the
+
+named entity recognition we will
+
+actually not know where it is going to
+
+be
+
+so that's why i cannot show that data in
+
+this validation station
+
+to give you in more detail
+
+for the validation station to highlight
+
+this information like this
+
+and provide the confidence levels and
+
+everything it needs a lot more data
+
+than this than just the text that we see
+
+here
+
+so that kind of data we cannot provide
+
+through named entity recognition because
+
+you already know it gives you only the
+
+extracted value and the confidence
+
+um so for this kind of highlighting it
+
+needs the position of this thing the
+
+length
+
+and a lot more info
+
+so that is
+
+not possible don't have negative
+
+recognition because
+
+we have we don't know where it is and it
+
+extracts data
+
+from a text
+
+a string basically
+
+so
+
+if you're wondering then how am i
+
+supposed to do a validation
+
+that can be done
+
+once you extract the data you can maybe
+
+create a ui path form
+
+or
+
+um
+
+like a form
+
+in attendant mode or you can create a
+
+form action
+
+that you can put it into action center
+
+so that people can
+
+look at the data that's extracted
+
+so it's going to be your customized
+
+version of
+
+uh
+
+the evaluation station basically
+
+where you can have all these data
+
+except for this highlighting
+
+but the main purpose is to show the
+
+extracted data to ensure that it is
+
+correct
+
+by manual verification
+
+okay so
+
+for now i'm not going to do that because
+
+that's going to be a separate thing
+
+so for now let's see
+
+how we can extract the rest of the data
+
+so let me save this so that it will
+
+create our
+
+excel sheet after doing the named entity
+
+recognition data extraction
+
+okay
+
+so we have the new file
+
+that was created
+
+right now
+
+so in here we have the usual
+
+um fields and the sheets that we get
+
+through
+
+um document understanding so these are
+
+the fields that i extracted through the
+
+form instructor
+
+what you see here is the computer it's
+
+all one
+
+means it's one hundred percent because
+
+it's coming from the uh the validation
+
+station
+
+so other than this info we also have
+
+this ner data
+
+okay
+
+so now is the tricky part so we have the
+
+data extracted
+
+so
+
+what we need to do now is
+
+we need to find the information out of
+
+this data
+
+so you are you can see other than what
+
+we need
+
+it also has few other additional things
+
+and some things are not really required
+
+so we need to filter certain information
+
+out of it
+
+and
+
+that we can do through this confidence
+
+so again a small tip
+
+as i mentioned in my previous video the
+
+named entity recognition works from top
+
+to bottom
+
+in the text
+
+so basically whatever the things that
+
+extracted first
+
+are the things that you see in the
+
+document at the very top
+
+so in our case
+
+um
+
+this is my file
+
+you can see these are the things
+
+where i
+
+started to extract
+
+so those names will be here at the top
+
+in the list in the normal
+
+starting order
+
+so just keep that in mind because this
+
+is a very helpful
+
+uh tip when you're actually trying to
+
+extract this data or trying to build a
+
+logic around this
+
+and now let's do a quick starting here
+
+uh
+
+sorting through the confidence
+
+so that we can actually see
+
+um
+
+from where we can start filtering
+
+the unwanted information because we
+
+actually don't need any of these things
+
+so in our case what do we need to
+
+extract
+
+um
+
+we basically need to extract
+
+let me see
+
+uh this info
+
+internal person name
+
+wendy name
+
+document date and the title
+
+we have four fields to extract
+
+and
+
+in our
+
+extracted list here
+
+let's see from where we can filter
+
+so we have a
+
+person name here
+
+it's 69 confidence
+
+and i think this is a good place to
+
+start filtering so whatever is above
+
+let's say 68 we can
+
+get that info
+
+and do the
+
+validation logic or the data extraction
+
+logic out of this
+
+so let's see how we can filter this
+
+um so ideally we should go for a new
+
+workflow so let me create it
+
+so that it's clear for you
+
+i would say near validation
+
+and the first step is read the
+
+data from the file
+
+read range
+
+um let me copy the file name from here
+
+because it's easy
+
+and our sheet name is
+
+in your data
+
+copying that
+
+and i'll be pasting it here
+
+and let me extract everything
+
+that
+
+data i'll be saving it in a
+
+let's say in your
+
+raw data
+
+in a data table
+
+and from that i can start filtering
+
+filter data table so again why we are
+
+doing this is because we have a lot of
+
+unwanted things here and i only want
+
+four
+
+uh
+
+four types of data out of this so we're
+
+trying to build a logic to extract that
+
+this
+
+logic building is very important when
+
+you're using models like this so that's
+
+why i'm trying to show you how to do it
+
+but it can be different from scenario to
+
+scenario
+
+um so you need to think
+
+by looking at the data
+
+and
+
+thinking
+
+what kind of logic that should
+
+work
+
+so in this case this is what this is the
+
+first step filtering out the unwanted
+
+things based on the confidence
+
+okay
+
+so let me add this
+
+and let me configure the filter
+
+so the column name is confidence
+
+so if the confidence is greater than
+
+let's say
+
+um
+
+0.68
+
+if it is greater than 0.68
+
+then i'll take all that information
+
+and let's say
+
+filtered
+
+raw data again
+
+so for us to see how this looks like let
+
+me just
+
+uh
+
+write it into the same excel so we can
+
+see how it got filtered
+
+it doesn't necessarily
+
+require to write it to the excel all the
+
+time but this is
+
+just for our
+
+[Music]
+
+visual
+
+thing
+
+so we can easily understand what we are
+
+doing
+
+and add headers okay
+
+so let me close this file
+
+and
+
+yeah
+
+let's run it and see
+
+okay
+
+so i should have my new data here
+
+yeah
+
+so this is my filtered version
+
+you can see i have
+
+all together 20 rows so in
+
+let's do a quick comparison
+
+let me
+
+do a filter
+
+sorry yeah so it extracted up to this
+
+point
+
+okay
+
+so this is the data that i need
+
+and again
+
+if i just remove this filter
+
+um let me quickly undo
+
+yeah
+
+so this is our original version
+
+in the sort order
+
+and here i have the same order
+
+nothing changed
+
+as you see
+
+i only filtered the unwanted stuff but
+
+the order is the same
+
+so let's quickly verify you have this
+
+name
+
+this name
+
+these two
+
+yeah so you have the
+
+same one
+
+why i kept that order is because it's
+
+important when we are extracting the
+
+information
+
+that's why i didn't sort
+
+now
+
+now what are the information that we
+
+need we first need the person name the
+
+internal person name
+
+so in our case here it's always the
+
+first thing
+
+um
+
+so
+
+assuming that there can be lot more
+
+things
+
+before this
+
+so
+
+we cannot just say that the first row in
+
+the excel file is always that
+
+so we need to filter it based on this
+
+type
+
+and from that type we can find the first
+
+guy
+
+that's how it works
+
+um because for example let's say there
+
+are some organization
+
+items before this some days before this
+
+we will not know
+
+so
+
+always keep in mind that look at this
+
+type and then do the extraction from
+
+that
+
+list
+
+so now we need to do another filter
+
+okay so let's
+
+do a filter
+
+so i'm filtering it
+
+using the output of this filter draw
+
+data
+
+and this time
+
+i'm going to use the
+
+type column
+
+type and this is going to be
+
+person
+
+because we are looking at people
+
+i'll be adding it within double quotes
+
+and
+
+this will be
+
+i'm creating a new data table
+
+filtered
+
+person data
+
+and this will give me
+
+all the information of this person type
+
+so you can see we have only three rows
+
+here
+
+let me just highlight it
+
+so we know the internal guy is always
+
+the first person
+
+but
+
+who is the other guy so what's my other
+
+field
+
+let me
+
+quickly go here
+
+um
+
+i'm referring this [ __ ] because this it
+
+has the name
+
+so internal person name
+
+and the wendy name
+
+so the wendy name in our document
+
+is this guy
+
+so you can
+
+see that there's something additional in
+
+our excel
+
+this person
+
+some
+
+clinton
+
+thing
+
+what is this clinton is actually a
+
+street name
+
+this can happen um
+
+because it's ner and you might get some
+
+unwanted data as well so we need to find
+
+base
+
+to filter the unwanted stuff
+
+even the confidence level is high so you
+
+can see this has a 80 concrete
+
+but it's actually not a name
+
+in our case
+
+so
+
+um
+
+now you have to think what kind of logic
+
+that you can build
+
+to
+
+extract only the things that we need
+
+so probably you can have a look at
+
+things like this is like
+
+one word
+
+you can maybe come up with a logic where
+
+you check
+
+whether there is more than one word
+
+like splitting this and seeing the
+
+number of items spreading it by space
+
+for example
+
+um so using those kind of stuff you can
+
+eliminate the unwanted
+
+so
+
+let let us do that so what i will do is
+
+the pattern one pattern that i say is
+
+this is just one word so you can use the
+
+space and try to split it and see the
+
+count
+
+if it is more than one that means it's a
+
+valid name for example
+
+these logics can
+
+change according to your scenario but
+
+so you need to find ways to do it
+
+okay so we have the filtered data and
+
+using this
+
+each so i'm going to use a for each
+
+to loop through the person data
+
+so filtered person data
+
+for each
+
+sorry
+
+the data table
+
+um so i have to use for each row
+
+return person data
+
+and from this
+
+so i'll be taking one item at a time
+
+and i can use a if condition to see
+
+whether it has
+
+my validation whether it goes through my
+
+validation
+
+so what i can do is i can say current
+
+row
+
+was the value
+
+its
+
+data value column name
+
+if the data value
+
+to string so i can split it
+
+dot split
+
+using a
+
+face
+
+and then
+
+get the length of this
+
+and see whether it is greater than
+
+one
+
+if it is greater than one that means is
+
+the valid name we know okay
+
+and from that
+
+now we can look at the things
+
+so the first name is the internal guy
+
+and the second name is the vendee so i
+
+can easily extract the info
+
+now
+
+don't loop in through this so how can i
+
+find
+
+uh which one is which because it's going
+
+to be a
+
+loop
+
+so in that case i can use a
+
+index in this case
+
+index can be created by this for each
+
+row itself
+
+let's say
+
+person row index
+
+it's a number
+
+and it will increment for each iteration
+
+it starts from zero
+
+so inside this
+
+i can probably have a
+
+simple if condition
+
+is ideal if you can do this in a flow
+
+chart
+
+um
+
+because it will be much more clear
+
+so if
+
+person row index equals
+
+1 sorry 0 because it's the first row
+
+then i can assign that value
+
+to
+
+[Music]
+
+the internal person name
+
+so what i can do is probably i can use
+
+this
+
+same excel file
+
+and let's say i will i will use the
+
+simple fields
+
+for example
+
+um so this is our two columns internal
+
+person name and the computer i can get
+
+the confidence from our ner
+
+so it's the column j and k
+
+okay
+
+so let's do this
+
+um so i'm going to use a
+
+right
+
+cell
+
+so in here i'm going to write
+
+is going to be in the same excel
+
+and what's my sheet name simple fields
+
+oops
+
+and the column name is j
+
+i can say it's going to be in j2 because
+
+the first row is the header
+
+which is this
+
+and from here i can use
+
+current row
+
+data value
+
+to string
+
+and same way you can just copy paste the
+
+same thing here
+
+and then it goes for the
+
+column k
+
+to get the confidence
+
+my confidence is with this title
+
+column name
+
+okay
+
+that part is done
+
+and let's try to do the same thing
+
+for the
+
+other one the when d
+
+so if the person row is
+
+not equal to 0 then we can use the wendy
+
+sequence
+
+let me just copy these two here so it's
+
+easy
+
+for the windy where can we save that
+
+um it's m and n
+
+let's quickly do the change
+
+we are changing only the
+
+um
+
+column names in excel
+
+so we have done the first part
+
+and we have two fields
+
+let's do a quick run and see how this
+
+works
+
+let me close this so you can see these
+
+fields are empty
+
+and let's run it
+
+so i'm running only the validation
+
+okay
+
+so let's see
+
+in simple fields
+
+um
+
+here we have the name internal person
+
+name
+
+along with the confidence and the
+
+vending name
+
+which is exactly what we need
+
+so that's
+
+one part of the logic
+
+so this is how you
+
+build simple logics based on in your
+
+data
+
+sometimes you will need to do some
+
+cleansing
+
+filtering it is needed
+
+when working with unstructured
+
+information
+
+so let's see what else we can extract
+
+we need the document date
+
+and the document title
+
+the last
+
+trophy so coming back to when you are
+
+filtered
+
+let's see how we can get the date
+
+and for the date again
+
+we have two dates here
+
+this is one
+
+and this is another one
+
+so if you actually look at the
+
+confidence
+
+it can vary
+
+highest confidence is this date which is
+
+not the day that i'm looking for because
+
+in my case i want this debt
+
+we cannot always go based on the
+
+confidence
+
+it can be a filter for us
+
+but after that it's purely based on the
+
+data
+
+so in this
+
+thing again we are coming back to our
+
+basic logic
+
+when ner works it starts from the
+
+beginning
+
+so whatever the date we come up first
+
+is going to be our effective date
+
+so let's
+
+use that as our foundation
+
+so we need to do another filter
+
+um
+
+let me just quickly group this into a
+
+sequence so it's easy
+
+this is
+
+this sequence is for
+
+person data
+
+we have
+
+everything
+
+in a nicely ordered way
+
+this is for the person data
+
+and let's do another sequence for
+
+effective date extraction
+
+and i need a simple filter okay
+
+so let me do a filter
+
+data table
+
+so again the base is filter draw data
+
+and in here my configuration is going to
+
+be
+
+the type is going to be
+
+it
+
+because it's of type date
+
+equal
+
+and this can be
+
+filtered
+
+so this should ideally give us two rows
+
+and
+
+we only want the first row
+
+so because we know that we only want the
+
+first row i'm not going to use a loop
+
+here i will just write it in the cell
+
+just to keep it simple
+
+right
+
+yeah so let me just
+
+copy
+
+some of these things
+
+i don't need to retype
+
+simple fields
+
+okay
+
+and our column name is going to be
+
+documented is p and q
+
+so i can say
+
+p
+
+2
+
+and in this case i have to write it in a
+
+different way because i'm not using a
+
+loop
+
+so i can say filter dates
+
+rows
+
+0
+
+0 is the first row
+
+and
+
+the
+
+title the column name is going to be
+
+date value
+
+yes
+
+to string
+
+and let's do the same thing
+
+for the confidence
+
+you
+
+and this is for the confidence
+
+now we have that one as well
+
+okay so now is the last one
+
+to get the document title
+
+so
+
+getting the title here
+
+what i'm looking for is this
+
+scope of engagement
+
+so that is actually under a specific
+
+type called
+
+law
+
+and again we have two types here
+
+it can be a contract
+
+and
+
+yeah
+
+so
+
+in this case i'll try to do something
+
+different here
+
+i want to actually merge
+
+the contract
+
+and this name
+
+and also remove this below part
+
+um let's see how we can do that
+
+right the actual output should be
+
+contract
+
+dash pop-up engagement something like
+
+that
+
+um
+
+so again what's our basic filter it's
+
+filtering by the type
+
+let's quickly do that
+
+let me add a simple sequence
+
+i'll try to reuse some of the things so
+
+that i don't
+
+use a lot of time
+
+this time is going to be
+
+law
+
+it's in capital here
+
+[Music]
+
+oh sorry
+
+this is type
+
+this is law
+
+and here i can say
+
+filtered
+
+law so i have the info
+
+and now i need to combine everything
+
+so i will not know how many rows will be
+
+there
+
+so whatever the names that i see on the
+
+law let's say i want to
+
+combine it so that i have a nice name
+
+these are some scenarios the real world
+
+scenarios that i'm telling you
+
+because i also had to work on something
+
+similar
+
+so
+
+for each row i need to loop through it
+
+to extract the info i need
+
+so i will say filtered law
+
+and let's first add it to a variable
+
+and assign
+
+and i need to look at this
+
+um
+
+[Music]
+
+so basically
+
+um
+
+let's also say
+
+i need it based on
+
+um
+
+okay so let's keep it simple
+
+um
+
+if this
+
+special character is there i need to
+
+remove those stuff
+
+and if not i will just use the exact
+
+same thing
+
+so
+
+let's try that
+
+okay
+
+okay so before the assign i need to
+
+check for special things
+
+let me do a if condition
+
+and current row
+
+data value
+
+here i'm checking whether it contains
+
+this special character
+
+if it contains i will split it
+
+and get only the info i need
+
+so i will use a sign
+
+and on the right hand side
+
+i will write the same
+
+code
+
+current row
+
+and
+
+ask to split
+
+and i want
+
+whatever is on the right hand side
+
+so it's going to be once you split
+
+the index also starts from zero
+
+so in our case
+
+if you split from this
+
+this below part would be
+
+the first index
+
+this could be the second index
+
+um so
+
+in
+
+computer language the index starts from
+
+zero so this is zero
+
+and this is one
+
+i want one here
+
+so let's try to say one
+
+and
+
+two string
+
+so this is going to be
+
+my
+
+uh let's say
+
+talk title
+
+i think i need to change the scope
+
+to
+
+um
+
+yeah let's say an er validation oh no
+
+so he's going to assign it to this
+
+and
+
+basically this will overwrite so i
+
+should say
+
+uh
+
+subtitle
+
+plus
+
+this
+
+so whatever it is there
+
+it will just append it at the end
+
+okay
+
+so i add that part
+
+and then
+
+for the else thing
+
+i can just assign without a split
+
+um
+
+yeah like this
+
+that makes sense
+
+hope this part is clear
+
+so basically what i did is
+
+uh let me just repeat it real quick
+
+for the log types i need to have all the
+
+values
+
+as one
+
+in a one single cell
+
+and since these are two different rows
+
+what i did is i first filtered by the
+
+type log
+
+and then
+
+started looping through it
+
+and also since we need to remove some
+
+special
+
+uh like
+
+remove unwanted things like using this
+
+special characters
+
+i did the split
+
+using by checking if condition to see
+
+whether it's there if it is there then i
+
+split if not i don't
+
+and actually combined
+
+the values into a single
+
+variable by appending it
+
+that's what i did here
+
+and after getting out of this loop
+
+i can assign it to the cell
+
+um right
+
+okay again yeah
+
+let me just copy some stuff
+
+okay so where do we need to write
+
+um
+
+it is in document title
+
+okay
+
+that is
+
+column s
+
+yes
+
+and here i'm going to write doc title
+
+and in this case i will not add the
+
+confidence
+
+okay
+
+um all right so let's try to run this
+
+and see how it works
+
+so in your case if you want to try to
+
+add the confidence
+
+for this kind of things what you can do
+
+is
+
+maybe you can get the confidence as well
+
+and try to come up with the average
+
+out of all those items and add that as a
+
+confidence
+
+there are a lot of things that you can
+
+do when you have the data
+
+so
+
+for me to just keep it simple i will
+
+just keep it as it is
+
+and let me just run it and see
+
+all right
+
+okay so we have the simple fields
+
+so we already saw the names
+
+and here we have the date
+
+the first date that i need
+
+august 5th
+
+um and here i have the
+
+the document title
+
+there are some
+
+okay so this part i actually
+
+didn't
+
+notice but you get the idea now so just
+
+think how we can remove this kind of
+
+things as well
+
+so there are a lot of things that you
+
+can come up with
+
+okay so this is basically how you
+
+combine
+
+the document understanding
+
+extracted data through the usual machine
+
+learning models or the form extractors
+
+and
+
+performing cleansing over the ner data
+
+and combining that info
+
+into a single sheet like this
+
+so
+
+why i added this into the same sheet
+
+usually in document understanding
+
+projects what we do is
+
+we first extract the data and put it
+
+into excel file
+
+or into a database
+
+whatever that suits your requirement so
+
+let's say it's excel file
+
+so
+
+however you extract the data we need to
+
+put it
+
+into one single
+
+file
+
+so that our downstream systems or the
+
+other automation solutions that you
+
+build
+
+and use this data
+
+and update the downstream applications
+
+so that's why it is important to have
+
+everything in one place
+
+and
+
+that way you can actually minimize the
+
+overhead on those systems because it
+
+doesn't need to
+
+do this kind of filtering and cleansing
+
+and stuff like that
+
+it has all the information in one place
+
+you can just read it and put it into the
+
+systems
+
+so when it comes to document
+
+understanding this is one tricky part
+
+um once you have the data you also need
+
+to make sure you remove unwanted stuff
+
+and you have the actual data that you
+
+need to process
+
+using these kind of logics
+
+so
+
+how you build these logics
+
+you have to do it by actually looking at
+
+the data
+
+so this is just one document
+
+in the real scenarios you have to like
+
+process multiple documents like this
+
+just like we did in our previous
+
+video
+
+and see how the data is coming through
+
+and analyze that data using the
+
+confidence the order of things getting
+
+extracted
+
+what are the things that you need to
+
+remove
+
+and things like that you need to focus
+
+on those things and come up with a
+
+logic that suits all those scenarios
+
+it's not difficult it's easy when you
+
+actually see the data so you can
+
+at the back of your head you can come up
+
+with some nice logics to create those
+
+things
+
+okay so in my next video i will show you
+
+some
+
+tips and some tricks
+
+to actually do this kind of stuff so
+
+what i showed here is just a simple
+
+thing for just one document
+
+in my next one i'll show you
+
+some more things
+
+in more detail so that you can use those
+
+kind of things when you're creating your
+
+solution
+
+so
+
+i hope this is helpful
+
+and
+
+it was entry interesting for you
+
+and
+
+until i see you in the next video
+
+take care and see you soon
+

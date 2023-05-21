@@ -1,0 +1,1856 @@
+We have learned how to process handwritten data in documents through previous videos. However, that was always limited to extracting handwritten data through Intelligent Keyword Classifier on structured documents.
+
+With the latest release, 22.4, the UiPath Document OCR can understand the handwriting. This has given so much potential to document processing, as now we can use handwritten documents for digitization, classification, extraction, and validation. Furthermore, we also can train our machine learning models to recognize and extract handwritten text on any kind of document.
+
+There are always challenges regarding handwritten text because we all tend to write in many different ways. However, this is an excellent achievement in document processing. This video is focused on the following topics:
+
+Contents of this video  
+
+- Introduction
+- 22.4 Document Understanding Updates
+- Classify & Train Classifiers on Handwritten Documents
+- Extract Handwritten Data using Form Extractor
+- Training ML Models on Handwritten Documents Through Document Manager
+
+hello everyone
+
+welcome to my new video on uipath
+
+document understanding and this is
+
+mainly focused on handwritten documents
+
+so
+
+if you might have seen the previous
+
+videos there was one video that actually
+
+talks about handwritten data extraction
+
+and that is mainly around intelligent
+
+form extractor
+
+but in this video what we are going to
+
+show is
+
+something that uipath has introduced in
+
+the in the
+
+recent release 22.4
+
+so now
+
+handwritten data processing is not just
+
+limited to intelligent form extractor
+
+now you can process handwritten data
+
+across the document understanding
+
+framework starting from digitizing
+
+classifying extraction and also
+
+validation
+
+so this is one of the most important
+
+features that they released and along
+
+with that there are a couple of other
+
+updates
+
+so
+
+before getting to the handwritten data
+
+extraction let's quickly have a look at
+
+the new updates that we have on the
+
+document understand
+
+okay
+
+so
+
+um in this
+
+document you can see
+
+some of the recent updates that
+
+they have released in the 22.4 release
+
+so let's have a look
+
+the first one
+
+is consume form ai extraction models so
+
+this is a totally separate topic
+
+a forms ai that uipath has introduced to
+
+extract data from structured documents
+
+without
+
+you
+
+really spending a lot of time to create
+
+a template
+
+it will do that for you true forms ai so
+
+we'll look at that in a separate video
+
+and we'll until that will move to the
+
+next topic because we are mainly
+
+focusing on handwritten stuff
+
+and the next one is around
+
+um detecting handwritten
+
+data using ui document ocr so this is
+
+the most important thing
+
+so earlier it was only possible in the
+
+intelligent keyword classifier but now
+
+because the ufo document ocr supports
+
+handwritten data
+
+now you can use it throughout your
+
+document understanding framework
+
+and along with that intelligent keyword
+
+classifier is going to be duplicate soon
+
+so
+
+the form extractor which we used earlier
+
+only for digital uh or computer
+
+generated documents
+
+it has been improved to recognize
+
+handwritten data and also signatures so
+
+that
+
+um even though the intelligent keyword
+
+plus
+
+intelligent form extractor is removed we
+
+can still use all the functions that it
+
+had
+
+and there are some improvements on the
+
+digitization algorithms and along with
+
+that
+
+we also have specific
+
+features on the ocr itself
+
+um like we can select
+
+whether we want to use the ocr all the
+
+time
+
+or whether
+
+letting the framework decide whether to
+
+use it or not
+
+and there are some enhancements in the
+
+validation station and classification
+
+station to improve the
+
+accessibility on certain things so we
+
+will also have a look at those from
+
+and
+
+lastly
+
+um the machine learning extractor and
+
+the machine learning classifiers those
+
+are also improved
+
+to
+
+work with handwritten data
+
+so we'll have a look at those stuff as
+
+well and now
+
+now we'll go to the
+
+workflow just to see how this thing
+
+works
+
+so i have actually created two separate
+
+workflows here just to show
+
+how we can work with the uh handwritten
+
+data
+
+so this is very much similar to what we
+
+usually do there's no much of a
+
+difference because everything is done
+
+and given to us by the ocr engine itself
+
+so our workflow remains the same
+
+so what i want to show you is even
+
+though it's handwritten data
+
+how to use it for classification and
+
+data extraction
+
+so i have a few sample documents that i
+
+downloaded
+
+and
+
+you can also try downloading these
+
+sample documents for your document
+
+understanding related things
+
+so this is one
+
+um
+
+place that i found
+
+and this has a lot of documents that you
+
+can actually
+
+try and download so you can see so many
+
+different types of documents including
+
+our written
+
+documents
+
+this would be a good place to get some
+
+good samples
+
+i'll share the link in the document of
+
+the video description so you can have a
+
+look at that as well so from here i
+
+actually downloaded a few
+
+um
+
+documents which i'm going to show you
+
+now
+
+this is one document
+
+which i downloaded
+
+this is one
+
+you can see it is uh
+
+it's being
+
+it's filled with um
+
+it's written to fill it with the
+
+document and here also you can see some
+
+android phone stuff
+
+and the other document
+
+is actually a letter kind of
+
+and the handwriting is not very much
+
+clear but let's see how this thing go
+
+and this is also another
+
+so we have three samples to have a look
+
+that being said
+
+i actually
+
+did a simple
+
+categorization on these
+
+so let me take you through the flow
+
+and
+
+i'm using the latest dependencies on
+
+document understanding ml activities
+
+and intelligent ocr
+
+and
+
+the ocr activities so i'm using the
+
+latest version
+
+okay that being said let's quickly have
+
+a look at the taxonomy manager
+
+so here i have actually created a
+
+three different types of documents
+
+one for the progress report that we saw
+
+i will show you again
+
+so this is the progress report because
+
+you see it here
+
+and
+
+the in the progress report i am thinking
+
+of extracting these three sender
+
+receiver and that table
+
+and when it comes to stairs
+
+uh i just created some dummy uh types so
+
+that we can see how it classifies
+
+the status is more like this
+
+because i see the word status here
+
+and the other one is this
+
+using this
+
+l7f
+
+not sure what those things are but the
+
+idea here is this will see how we can
+
+use the handwritten data
+
+um to extract some information
+
+okay
+
+so
+
+and in this i'm just extracting one
+
+simple thing
+
+so we have the taxonomy and in case
+
+you're not familiar with how to create
+
+these things um
+
+it's easy
+
+you can
+
+once you open it you will be in a screen
+
+like this you just need to create a
+
+group first
+
+and that group is actually shown here
+
+and under each group you can have
+
+different document types that you need
+
+to create
+
+and in the under that
+
+you can have all the document types
+
+it's like that
+
+and then you can create your own fields
+
+um let's say for this one you need to
+
+create a field you can add it from here
+
+okay so that is the first part
+
+and
+
+in case you are not familiar with the
+
+framework again i actually do recommend
+
+you to go through the uipath academy
+
+the course on document understanding
+
+that will give you a very good
+
+understanding around
+
+what are these activities and how each
+
+and everything links together and also
+
+you can have a look at my video series
+
+on document understanding in my channel
+
+okay
+
+so
+
+now i have all those three documents in
+
+a specific folder
+
+and here i'm loading the taxonomy
+
+and
+
+i'm looking through each file in that
+
+folder
+
+what i'm doing here is i'm doing the
+
+digitization
+
+and
+
+here you can see that additional
+
+property
+
+whether we apply ocr or not
+
+so by default it is set to auto
+
+so you can keep it as it is
+
+and i'm using the ui document ocr
+
+so in this the end point is
+
+this one
+
+and you can get the api key from your
+
+cloud platform you can go into admin and
+
+that
+
+licenses and from there you can get the
+
+api key
+
+so we do the digitizing using uipat
+
+document ocr because that's supposed
+
+handwriting
+
+and then we do the classification
+
+document scope so this is pretty much
+
+the same
+
+as before there's nothing different
+
+and i'm using a keyword based classifier
+
+so what i will do is i just ran some
+
+test runs before this
+
+let me
+
+go into this folder
+
+talking about using keyword classifier
+
+yeah so you can see i have given some
+
+things here what i will do is i will
+
+just delete everything
+
+so that
+
+it does not have any keywords
+
+that we have mentioned
+
+so we can train it from scratch
+
+and under configure i have enabled it
+
+for all three
+
+and here we have the present
+
+classification station
+
+and lastly
+
+we have the trend classifier scope using
+
+the same
+
+thing
+
+the keyword based classifier trainer
+
+to
+
+train it for all three types
+
+so since we don't have any training
+
+uh given now
+
+we'll just run it and see how we can use
+
+the
+
+handwritten data to train our
+
+keyword based classifier
+
+let's give it a try
+
+so it will
+
+take a while
+
+okay so it's running
+
+and we have the first
+
+classification station over here
+
+so as i mentioned earlier since we don't
+
+have any training data
+
+um
+
+it is not specifying it into any type so
+
+what we are going to do here is we are
+
+going to
+
+give the keywords
+
+on this handwriting
+
+so
+
+before giving the keywords let's zoom it
+
+in a little bit
+
+so you can see all these handwritten
+
+data is actually being recognized
+
+except
+
+for a few
+
+and we can actually
+
+see
+
+the text version of this
+
+from here
+
+and you can see the text
+
+along with
+
+that we also have a couple of new
+
+features
+
+one is you can actually search
+
+this was not there before
+
+so if you know a word that you would
+
+like to see
+
+you can search and it will hide
+
+as you see here
+
+so it highlights the word status
+
+so that's also a nice feature that we
+
+have
+
+and in addition to that we have these
+
+features were there before
+
+and you have a menu option to show the
+
+keyboard shortcuts
+
+switch panel size you can
+
+switch between these sides
+
+and we also have option to rotate the
+
+page
+
+okay so for this one we'll give the
+
+keyword
+
+so what we can do is just like any other
+
+document there's no difference just
+
+highlight it
+
+and add reference you give the keyword
+
+and let's add this to our
+
+status
+
+and set
+
+so everything is
+
+the same there's no difference
+
+it's all done by the ocr itself
+
+and
+
+this is the other document
+
+so we'll use this one
+
+and let me quickly show you the text
+
+version so you can see
+
+s7
+
+you can highlight the words from here as
+
+well
+
+what you can do is
+
+go to token mode
+
+and just highlight it
+
+and add reference
+
+and say some
+
+that's it
+
+and the last document
+
+here we have it
+
+for this one instead of any handwriting
+
+i will just
+
+highlight the normal
+
+printed text
+
+so you can see it works for both
+
+and this is a
+
+progressive and save
+
+so we did the initial training
+
+and next time if i run this it should
+
+automatically identify that
+
+so
+
+let's do a quick run and see
+
+and here we have it
+
+so here you can see
+
+um it's it has identified
+
+it as status with 63 confidence
+
+and if you actually highlight the
+
+reference
+
+it has the proper one so you can see
+
+it's just like any other document now
+
+you can even work on handwritten data
+
+but the there is always a challenge with
+
+handwritten data because
+
+we can write in many different ways
+
+so there's always a
+
+there's always room for errors so we
+
+need to be careful with those things
+
+and this is also correct
+
+so that part is done
+
+so you get the idea
+
+and now let's quickly have a look on
+
+how to use the
+
+form extractor
+
+to
+
+um actually extract data from this
+
+document so i have actually created the
+
+template so i'll show you
+
+how it works
+
+so this is again correct so let me just
+
+quickly click on save
+
+okay so let's get to the other workflow
+
+so this is
+
+the same workflow i just took a copy and
+
+i just added few additional activities
+
+to do the extraction
+
+so earlier it stops at present
+
+classification station and then the
+
+training
+
+but here i have a few things in addition
+
+just to do the data extraction using the
+
+form extractor
+
+so earlier we had the intelligent form
+
+extractor for handwritten data as i
+
+explained before we still have it
+
+if i show you
+
+we still have it but
+
+um
+
+it will be removed soon so it's always
+
+good to use the form extractor instead
+
+of the intelligent form extractor
+
+okay so here we have the bom extractor
+
+which is all you need to do is just go
+
+to manage templates
+
+already have one created
+
+i will show you that one
+
+and i will also show you how to create a
+
+new one
+
+so here we have selected progress report
+
+and these are some keywords that we have
+
+given
+
+and
+
+these are the areas that we are going to
+
+extract
+
+the values from
+
+and here is the table
+
+so let me show you quickly how to create
+
+this
+
+i will not do any changes here
+
+um
+
+okay so let's quickly create one all you
+
+need to do is just click on create
+
+template
+
+select the document type
+
+and the template name
+
+and for the ocr engine you need to
+
+select the
+
+ufo document ocr because that's the one
+
+that supports
+
+handwritten data in our case
+
+the end point is this the api key you
+
+need to get it from
+
+the
+
+um from the cloud platform
+
+if you are using
+
+the community version
+
+we need to go to admin
+
+and
+
+licenses
+
+and from here you can
+
+copy it
+
+this path
+
+okay so here we are the form designer
+
+and here we have all the fields that we
+
+are going to extract so the first thing
+
+is we need to provide some matching info
+
+some unique keywords to identify this so
+
+let me just add some of these
+
+painted text
+
+it's always good to use printed text for
+
+this one
+
+because those things will not change so
+
+the handwritten things may change
+
+and for the center
+
+center is this guy
+
+we just need to highlight
+
+and custom area
+
+and add it over here
+
+so it's easy
+
+same goes for this
+
+custom area
+
+receiver and lastly the table
+
+we just need to click on this one
+
+just drag this
+
+down a bit
+
+so first we need to
+
+define the table
+
+for that you can click here
+
+click on extract table
+
+and
+
+draw the table
+
+like this
+
+and we just need to define the
+
+two columns
+
+so the first one is account name
+
+and the first second one is stroka
+
+so these are defined in the taxonomy
+
+and then
+
+we just need to
+
+define the rows so
+
+as you see when my mouse cursor moves up
+
+moves across it identifies
+
+without looking for a column
+
+or a row
+
+crazy
+
+um
+
+you just need to include in the header
+
+just click on the places where you need
+
+to separate
+
+okay so that is good for now
+
+and
+
+you can say extract header
+
+and
+
+save
+
+and here you have your new table
+
+if you click on the first row it
+
+identifies the first row here
+
+that gives you the structure
+
+we have defined that and
+
+here we have
+
+two options one
+
+use confidence levels for guidance only
+
+do not rely on exclusively on them for
+
+detecting extraction errors so that is
+
+true
+
+um so
+
+once you do the extraction as you have
+
+you might have seen if you have followed
+
+the document understanding series of the
+
+course in the
+
+um ufo academy once you do the
+
+extraction it always gives you a
+
+confidence level and using that
+
+confidence level we need to write our
+
+own logic
+
+to figure out whether it is
+
+the value is extracted properly or not
+
+so
+
+all right
+
+let's
+
+save it
+
+save it again
+
+and
+
+we have the
+
+template here the demo
+
+okay so we have done that oh i also want
+
+to show you one thing
+
+in here
+
+in the
+
+in any of these things
+
+you can actually
+
+look for signature fields
+
+if there are any you can select that
+
+okay
+
+and then just configure the extractor
+
+and
+
+use it for the document type that you
+
+are using
+
+we have this here
+
+so we'll just run it and see
+
+how it works so once you do that
+
+extraction you are presenting it in the
+
+evaluation station
+
+and here you have the current
+
+classifiers
+
+just like before
+
+so i'm not using any validation logic
+
+here because the idea here is just to
+
+show you how this thing works
+
+so in reality you need to write your
+
+logic
+
+to verify the extracted data is valid or
+
+not
+
+and
+
+the other thing is
+
+for
+
+for data sets
+
+if you have machine learning models you
+
+can actually push that data into the ai
+
+center directly so
+
+that is a different topic we'll talk
+
+about that later
+
+okay so first we'll just quickly run it
+
+and see
+
+and before running it let me just
+
+remove the other two documents so that
+
+you only focus on the one that we create
+
+is only the first one
+
+this is for template
+
+based extraction
+
+so similarly
+
+just like using the template here
+
+um
+
+for the extraction you can use any other
+
+extractor
+
+to extract the
+
+data even if you want to combine this is
+
+the classification station
+
+even if you want to combine form
+
+extractor along with brackets
+
+basically
+
+you can still do that
+
+because you already have the digital
+
+version of this um
+
+the document like you get this string
+
+so
+
+here we see
+
+the extraction
+
+so we have the names here
+
+looks pretty much accurate
+
+and then here we have the other one with
+
+some good confidence levels
+
+and when it comes to line items it's a
+
+bit low
+
+yeah so that's the reason
+
+so some of these things are
+
+not extracted
+
+um
+
+so this can happen with handwritten data
+
+um because
+
+it may not work as expected all the time
+
+and writing can be different
+
+so
+
+so based on what we have we can see
+
+whatever the things that got extracted
+
+is
+
+very much
+
+accurate
+
+that's good
+
+when it comes to handwritten data always
+
+make sure that you will
+
+always need to have some level of manual
+
+intervention to validate the data
+
+because it is standard
+
+and you can write in many different ways
+
+so
+
+just to show you um in case you uh you
+
+want to
+
+um use any regex on this
+
+you just need to look for the text
+
+version
+
+from here go to the text only view
+
+and from here you can actually see the
+
+text
+
+and even the handwritten stuff
+
+in clear text
+
+so using this
+
+you can actually write your own brackets
+
+in the regular extractor
+
+simply to extract these things so you
+
+can
+
+let's say we don't have the form
+
+extractor you can use the regits to
+
+look for this
+
+and extract whatever comes up to that
+
+so
+
+it's just like any other
+
+document or
+
+or any other
+
+different scenario that we are going to
+
+use
+
+think of it as a string
+
+and you can use use it on any
+
+um
+
+any regex that you like to use
+
+okay so this is how we do the
+
+handwritten data extraction
+
+so
+
+um and also
+
+before clicking on save
+
+here also i would like to show you you
+
+can still do the search
+
+let's say
+
+this is identified
+
+let me search for any unwritten thing
+
+let's search for the name
+
+so that is also very highlighted
+
+so
+
+this will give you a good level of
+
+flexibility in searching these documents
+
+when it comes to large documents this is
+
+very much helpful
+
+okay so that
+
+is given
+
+yeah so here you can see the two options
+
+the extraction has given you this
+
+confidence
+
+but when it comes to ocr
+
+um
+
+the ocr has given you 37 confidence for
+
+the document type
+
+but here it is 100
+
+and for the sender yoser did not give
+
+any
+
+confidence
+
+but for the receiver has
+
+but when it comes to the extraction
+
+it is giving you a good confidence so
+
+earlier this option was not there
+
+we could only see these two options in
+
+the
+
+once we put it into the once you
+
+actually export the data into excel
+
+we we were having an option to
+
+uh
+
+add these two
+
+in the export activity
+
+but now here in the validation station
+
+itself you can see the two options and
+
+the confidence level
+
+this will actually help in building your
+
+own logic
+
+all right
+
+so that's how you do the variation
+
+and
+
+lastly
+
+now i want to show you how this thing
+
+works on
+
+machine learning extractors
+
+so i'm not going to train any model now
+
+because i also don't have that kind of
+
+documents
+
+so what i will do is i will just use the
+
+same document that we have here
+
+and i will show you how it works on the
+
+data manager where we trained it up
+
+so let's quickly go into case
+
+so in ai center we have the data
+
+labeling session that we use
+
+to label the data in the documents
+
+so we can create a new project
+
+i will just say
+
+you know
+
+and here i will just go to data labeling
+
+and create a new document understanding
+
+labeling session
+
+um
+
+and since i do not have any data set
+
+created
+
+i can create a new data set here itself
+
+so this data set will hold the data that
+
+we are training
+
+and once you have done the training once
+
+you export it from the data manager all
+
+that data will get saved in this data
+
+set
+
+this data set will get created in this
+
+section
+
+we can also make this data set public if
+
+needed
+
+um
+
+so that
+
+the
+
+the workflow can
+
+actually directly connect with the data
+
+set and update the data set through a
+
+url
+
+that you don't need to select the
+
+project of
+
+any data set by name
+
+you will have a url to do that
+
+so let me show you that as well
+
+make this data set copy
+
+create
+
+and in the data sets here
+
+here you have the data set and here is
+
+the endpoint
+
+this is what you are going to use in the
+
+train activity
+
+to um
+
+upload the data
+
+so we'll look at that a little later
+
+we'll go to the data labeling session
+
+it is available
+
+go in here
+
+and
+
+so here we have the data manager
+
+and since we are using this document
+
+so this can be uh any kind of document
+
+it could be a handwritten a noise it
+
+could be computer generated invoice it
+
+could be a
+
+mixture of everything
+
+so
+
+if you are using the proper cr it will
+
+support all kind of
+
+things irrespective of whether it's
+
+handwritten or computer generator
+
+so
+
+let's
+
+not create a
+
+lot of things because we have already
+
+done
+
+the template creations before so i will
+
+just show you how to get the name and
+
+one column from here
+
+and if you are again not familiar with
+
+document
+
+data manager
+
+uh go through the course that i have on
+
+training machine learning models
+
+that will actually help to
+
+get an understanding about how things
+
+happen in the
+
+document manager
+
+okay so let me quickly create a regular
+
+field here
+
+and the data type is string
+
+and a simple column field
+
+um
+
+let's say
+
+is that column name
+
+it is called account name
+
+and now we look at the ocr engine
+
+by default
+
+it is pointing to the uipath document
+
+ocr
+
+we don't need to do anything here
+
+just click on save
+
+and let's import some documents
+
+we can click on import
+
+give it a name
+
+like patch one
+
+and we only have one file
+
+you can just add it there
+
+so the user engine will do
+
+its uh processing
+
+so that we can do the left
+
+just click on yes
+
+and we have done the processing
+
+and just like before here also you can
+
+see all these words highlighted
+
+including printed
+
+and
+
+including hand
+
+so if i want to add this into my
+
+regular fill just highlight it and press
+
+on this
+
+key yes
+
+and here is the value
+
+and let's try the column
+
+select the
+
+first one
+
+mark it as a row by pressing on the
+
+slash key
+
+um and then
+
+the shortcut hey
+
+so it extracts that so you can see you
+
+and your data document manager
+
+um
+
+you can irrespective whether it's
+
+handwritten or
+
+computer generated
+
+you can now
+
+do the data labeling and training
+
+and use it
+
+for any
+
+document understanding
+
+ml model it could be an invoice model it
+
+could be a generic talk about
+
+understanding model it could be anything
+
+you can use this on
+
+any du model to train it and use it in
+
+your workflow
+
+just like a normal scenario
+
+nothing extra
+
+okay
+
+so this is what i wanted to show you
+
+and let me quickly go back to the
+
+data sets here
+
+and here you have the endpoint and the
+
+api key for this data set
+
+so how to use that
+
+let me show you
+
+so just like the friend classifier scope
+
+you will also have
+
+train extractor sport
+
+there you have
+
+displays it here
+
+and
+
+and
+
+in here we need to use the machine
+
+learning
+
+extractor trainer because we have the
+
+data set in ai center used for map
+
+i'm going to search for that machine
+
+learning extractor trainer
+
+and here it is asking for the endpoint
+
+the ml server the skill
+
+right now we don't have a skill so i
+
+cannot use this thing so i'll just click
+
+on cancel
+
+but in here
+
+you can see the two options the data set
+
+endpoint and the api key
+
+so this is where you can use those two
+
+options
+
+to
+
+push the data that you write it
+
+and use it for training
+
+so that basically covers the
+
+uh
+
+topics that we wanted to talk about in
+
+this
+
+video mainly around hand data
+
+and in addition to that we also covered
+
+few things that are additional in the
+
+new release
+
+um
+
+so
+
+i hope this is helpful for you to
+
+go through the new
+
+features that we have in the document
+
+understanding solution
+
+and if there's anything just feel free
+
+to reach out to me i'm always here to
+
+help
+
+and in the meantime
+
+enjoy your day and we'll see you in
+
+another video
+
