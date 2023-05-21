@@ -1,0 +1,2557 @@
+[Music]
+
+We have come across many topics discussing invoice processing, purchase order processing, etc. 
+But, what about document types that are not common to everyone?
+
+If you have a specific set of document types that you would like to classify and extract data, how can we do that?
+
+This is where the requirement comes in to build custom data extraction models for those documents. To make this easier, #UiPath has an out-of-the-box custom ML model that we can easily train to any kind of document. 
+
+This video is a discussion-based video focusing on how we can build and train a custom "Document Understanding" ML Model to suit our documents.
+
+Note: The documents used in the video may seem similar to other videos. However, some of the points discussed here are not covered in other videos...
+
+Thank you so much for coming up with this idea Prabhu Teja and for the awesome questions you asked during the recording.
+
+Contents of this video  
+
+- Introduction
+- Explaining Different DU ML Models Available in AI Center
+- Creating out-of-the-box Custom ML Package
+- Setting up Datasets and Configuring Data Labeling Session (Field Configuration Options Explained)
+- Uploading Documents into Data Manager
+- Labeling and Mapping Document Data into Fields
+- Exporting Labeled Data for Training
+- Creating Training Pipeline
+- Discussion on Common Questions
+
+[Music]
+
+so hi so
+
+uh
+
+this time we are discussing about the
+
+document understanding out of the pack
+
+box packages where it would be the
+
+retrainable model uh fernando is going
+
+to explain us how to achieve that auto
+
+written retrieval model using document
+
+understanding packages
+
+so so for i know you can
+
+start that
+
+okay
+
+yeah
+
+hello everyone and uh
+
+so today also we have
+
+uh
+
+from researcher discussing about the
+
+document understanding with us
+
+um
+
+[Music]
+
+so yeah so
+
+so when it comes to document
+
+understanding the ml models
+
+usually we look into the ai center and
+
+in ai center under out of the box
+
+packages we see several
+
+document related models
+
+as you see on the screen right now
+
+and
+
+actually most of these models are free
+
+trend
+
+uh invoices purchase orders recepts
+
+uh ids and passport these two are very
+
+new
+
+so these are
+
+yeah
+
+sorry to do step uh just want to know so
+
+what is the major difference between
+
+document understanding and the invoices
+
+which are we are doing so basically uh
+
+yeah
+
+why
+
+yeah actually that's a very good
+
+question
+
+yeah
+
+so these these models the invoices
+
+invoice australia invoice india
+
+these things are actually pre-trained
+
+specifically for invoices
+
+so
+
+okay you might also have another
+
+question like why do we have invoices
+
+and invoice japan india australia and
+
+likewise
+
+so this invoices model is generic for
+
+any kind of
+
+invoices but on the other hand these
+
+invoice models
+
+are specific
+
+to this country
+
+invoices in japan mostly or invoices in
+
+india
+
+australia and likewise
+
+okay so based on the pattern of the
+
+structure uh usually what the country
+
+uses the package was built on that right
+
+yes
+
+yeah
+
+so if you do not want to stick with a
+
+particular country you can just use the
+
+invoice module that's yeah specific for
+
+any kind of document that you can think
+
+of yeah so
+
+okay so the major difference between
+
+document understanding and invoices yes
+
+the major difference between this and
+
+these other
+
+document related models are
+
+as i explained earlier
+
+these models are pre-trained for this
+
+particular type of documents
+
+but
+
+in cover scenario where you have
+
+different kind of documents
+
+it's not an invoice it's not a passport
+
+it's not a receipt or a purchase order
+
+you have some different kind of
+
+maybe some
+
+yeah maybe some internal uh pdfs or yes
+
+uh
+
+uh
+
+budget planet pdfs which would be very
+
+specific and structured for the
+
+particular company or the
+
+particular organization right
+
+yeah so when it comes to those kind of
+
+documents
+
+this model we can use it easily and we
+
+can
+
+train it to support your type of
+
+documents
+
+that's why we have this and the major
+
+another major difference is
+
+because we don't know to for what kind
+
+of document we are using it
+
+this model is not free trained
+
+it doesn't know anything about any kind
+
+of document so you just need to before
+
+using it we need to
+
+train it
+
+got it
+
+yeah
+
+so
+
+let's try it out so i'm going inside
+
+this
+
+okay
+
+and so this is the latest version of the
+
+document understanding model so let's
+
+create a submit to create a new model
+
+um
+
+you
+
+give all
+
+make it like this for now
+
+so down here it also asks for any ocr
+
+related stuff
+
+so if you don't if you want to stick
+
+with the particles here you can select
+
+it if not you can just say no ocr and
+
+let the workflow handle everything
+
+for you
+
+okay if you select the specific cursor
+
+it will use that only that specific ocr
+
+right yes if you leave it uh it will use
+
+a as per its uh requirement yeah
+
+okay
+
+so we'll go with no ocr for now
+
+and click on submit
+
+so this will create a
+
+package for us
+
+so now you can see this is still not
+
+deployed
+
+but right training enabled and by
+
+default it recommends gpu but as of now
+
+i'm using the trial version so i don't
+
+have any gpu
+
+so what gpu means is it's like extra
+
+processing power
+
+wrapping up the speed yeah
+
+because when it comes to this training
+
+data uh we will over time you will get
+
+loads of documents to train
+
+um so
+
+it will run sometimes it will run for
+
+days
+
+so just to improve the
+
+processing or the training process
+
+it's good to have gpu
+
+okay so now we have created the package
+
+and the next thing is
+
+go here
+
+to data sets
+
+and we need to have a data set
+
+this data set is created to store the
+
+documents that we use for training
+
+and
+
+the export
+
+after training those all those things
+
+will be stored in that data set
+
+okay so let's create a new data set
+
+i will just say dude
+
+and click on create
+
+so this is empty data set we will use it
+
+later in the data labeling session
+
+so now we have the package we have the
+
+data set
+
+the next thing is training it
+
+training is done
+
+in the data labeling session
+
+[Music]
+
+okay we will go to data manager and we
+
+will try and write yes in the domain
+
+okay because
+
+this document
+
+model does not know anything about the
+
+documents so we need to go to data
+
+manager
+
+import some documents and say
+
+from where to extract and what to
+
+extract
+
+yeah good yeah
+
+so once you're in the data labeling
+
+session you need to go to your document
+
+understanding to create a new session
+
+[Music]
+
+say
+
+data manager
+
+and from here we need to select
+
+which data set we are going to use for
+
+this so this is the one i created
+
+or if you have not created you can
+
+create it from here itself so we already
+
+have it
+
+okay
+
+and it's being deployed
+
+yeah and it's available
+
+so
+
+once we are here we will get the data
+
+manager interface
+
+right where we can import and
+
+do the labeling
+
+yeah
+
+so for this one um
+
+because i don't have any custom
+
+documents i will just use couple of
+
+invoices for us yeah sure sure yeah but
+
+the
+
+process is the same the same same right
+
+here
+
+so i have several invoices i think i
+
+have
+
+how many 10 items oh no
+
+i need another one
+
+let's try to find something
+
+this will do
+
+yeah so why i added another one is
+
+in data manager
+
+uh after doing the labeling
+
+when you do the export you need to have
+
+at least 10 documents
+
+to continue with the training process
+
+that's why i added
+
+another one
+
+and these 10 documents is not the same
+
+document repeating 10 times it has to be
+
+unique that our documents
+
+yeah i got it
+
+okay so in data manager these are the
+
+steps
+
+the first thing is configure the ocr
+
+then set up the fields and import the
+
+documents and perform the label
+
+so first things first
+
+we will do the
+
+ocr setup you can just click on this
+
+okay
+
+so we'll stick with the uipath document
+
+ocr
+
+this ocr url is the same
+
+the key this key we have to get it from
+
+the
+
+the cloud platform
+
+so if i go to
+
+this place again
+
+and under licenses
+
+over here you can find the document
+
+understanding key
+
+so you can copy it
+
+and
+
+i will go here
+
+and paste it
+
+so the first thing is done
+
+now let's see what kind of fields that
+
+we can create
+
+so
+
+so let's quickly have a look at some of
+
+these documents
+
+so let's keep it simple i uh i don't
+
+want to
+
+uh
+
+okay
+
+keep the guys boring
+
+labeling takes time right here right
+
+right we'll take couple of things
+
+okay sure we'll take the
+
+these four items from the table
+
+and the invoice number
+
+invoice date
+
+i think that's enough right
+
+yeah i think only invoice number is good
+
+because uh a lot of the specific one
+
+invoice number invoice number total and
+
+inline uh these three would be the good
+
+one
+
+okay so invoice number
+
+this set the total
+
+and maybe a address as well because it
+
+has this underlying thing
+
+right right
+
+yeah so let's take with that
+
+okay uh so
+
+keep one document open so that i can see
+
+what's there
+
+and uh
+
+yeah so this regular fields are the
+
+normal fields
+
+not these stuff
+
+the individual feels like the invoice
+
+number the date due date
+
+address
+
+likewise
+
+so
+
+and i want to show you one additional
+
+thing
+
+so let's just imagine that
+
+we are showing invoices but imagine that
+
+you are trying to do this for you for
+
+your custom document
+
+so when you try to create these fields
+
+it will ask for different properties
+
+and if you are not sure whether to go
+
+ahead with that or not
+
+i think what i'm going to show you next
+
+will be helpful
+
+so
+
+in
+
+docs.uft.com under data manager
+
+there's a part that actually gives you
+
+some samples
+
+so these are predefined schemas for the
+
+invoice model the received model and so
+
+on
+
+but this will come in very handy for you
+
+to understand the properties
+
+so what i just did is i just downloaded
+
+the invoice schema
+
+to show you
+
+and in the file that gets downloaded
+
+you get two files
+
+sorry
+
+so just go through this schema json file
+
+in this one
+
+let me
+
+yeah
+
+so in this
+
+one um
+
+[Music]
+
+we need to
+
+by looking at these things
+
+i also will share some best practices in
+
+naming these fields
+
+so you can see
+
+none of these fields have any capital
+
+letters
+
+and none of these fields have any spaces
+
+the reason is to keep it simple and
+
+that's always the best when it comes to
+
+machine learning
+
+to
+
+have
+
+everything in simple and instead of
+
+spaces just use a dash
+
+or underscore
+
+so these are the usual properties that
+
+we get
+
+one is the name
+
+the data type what kind of a field this
+
+is
+
+and
+
+can that field have multiline
+
+so for example
+
+if it's a address
+
+it can go for multiple lines
+
+right
+
+so these are the properties that you see
+
+in general
+
+uh so having that in mind
+
+let's start to create our
+
+fields
+
+um okay
+
+so first one is the invoice number
+
+inverse number right
+
+so let me go here
+
+click on
+
+this
+
+and let's give a name
+
+invoice
+
+number
+
+okay so this is where we need to set
+
+different things
+
+so invoice number can be
+
+a string or it can be a id so this thing
+
+also has a description as you see
+
+used for company names addresses payment
+
+terms and so on
+
+but over here
+
+use file for numeric codes new numbers
+
+of ids and likewise
+
+so you can decide based on your document
+
+which field to go ahead
+
+so
+
+for now i will just select id for this
+
+one you don't need to worry much about
+
+these stuff it's post processing
+
+first span longest value just keep it as
+
+it is
+
+and
+
+these kind of values do not go
+
+multi-line so you can keep this
+
+disabled
+
+so this particular
+
+option multi-page
+
+so what this thing says is
+
+when you have a multi-page document
+
+where can you find this particular field
+
+and
+
+if the same value is repeated in
+
+multiple pages which one should i pick
+
+so
+
+this can be a possible scenario right
+
+so in that case
+
+by default is the
+
+first occurrence
+
+so
+
+when it comes to the invoice number in
+
+our case
+
+wherever it finds the invoice number
+
+first it will pick that
+
+or else you can say
+
+if you have multiple values you can ask
+
+or you can train it to pick the highest
+
+confidence value
+
+wherever that thing is in that document
+
+these are some of the things that you
+
+can consider
+
+so for now i will just stick with the
+
+first occurrence and i'll set the data
+
+type and i'll click on save
+
+so once the field is created what you
+
+see over here is actually the hotkey to
+
+access that field we will talk about
+
+that later
+
+so we have the first field the next one
+
+is
+
+uh the invoice
+
+next one is what the address right
+
+address right okay
+
+so uh
+
+just save from address for now
+
+so you can click on plus
+
+on address
+
+and this can be a string
+
+and it will also go for multi-line
+
+this time we are enabling that
+
+and click on save
+
+and
+
+lastly the
+
+total
+
+so these things can also be found here
+
+so in case you have address kind of
+
+things that span across multiple lines
+
+you can just quickly refer to one of
+
+these json files to see what kind of
+
+properties that you usually need to use
+
+as you see
+
+address
+
+multiline is true
+
+likewise and for numeric stuff you can
+
+also refer
+
+what kind of things that
+
+it usually recommends to use right
+
+um
+
+[Music]
+
+so you can say
+
+total
+
+again maybe you can enable multi-line if
+
+needed
+
+and
+
+yeah i think that's good
+
+and instead of string this is the number
+
+and
+
+same okay so regular fields are ready
+
+on the other side now what we need to do
+
+is we need to create the
+
+table
+
+values
+
+let's start with the quantity and again
+
+now if you may wonder
+
+what kind of properties we need to have
+
+for a table
+
+let's have a look
+
+so this time we are going ahead with
+
+column fields
+
+let's say
+
+quantity
+
+and this is a number as we know
+
+okay so this time we have couple of
+
+additional things
+
+split items so what is split items
+
+so in a table how are we going to
+
+separate these things
+
+so you can see the description
+
+use field as a delimiter between line
+
+items or rows in a table
+
+so
+
+do we need to use this let's have a look
+
+so in this sample
+
+you can easily find one of these things
+
+yeah see
+
+quantity split values is set to true
+
+so
+
+right why we are setting it to true is
+
+because it's a
+
+build coming in from a table and we can
+
+use it to
+
+separate the
+
+data
+
+and use it as a delimiter
+
+so we can enable that
+
+and just click on save
+
+we have the first one
+
+let's do the same for the remaining
+
+things
+
+um
+
+hold on fields
+
+what's the next one
+
+description
+
+and
+
+this is a string
+
+yeah the next one is
+
+when it comes to tables
+
+and when it comes to multiple lines
+
+what to do
+
+so let's see
+
+where can i find the description
+
+yeah
+
+it's here
+
+so in here there's no such property as
+
+multi-line
+
+it's just type string
+
+uh yeah
+
+so
+
+now the tricky thing is
+
+if you use a delimiter here
+
+when it comes to multi-line it might
+
+cause bit of problems so we are not
+
+going to say this is going to be a split
+
+item
+
+because this has this thing has a
+
+separate
+
+uh
+
+property right because it might need to
+
+go into multiple lines
+
+and if you see here
+
+use field as a delimiter between line
+
+items or rows
+
+so multiple line means if you enable
+
+this it might consider that as a
+
+separate row
+
+and let's add
+
+one more item
+
+let's say you need price
+
+unit
+
+price
+
+and this is a number you can say it's a
+
+split item
+
+and save
+
+yeah so i'll stick with three items for
+
+now just for our demo purpose
+
+yeah so now we have the fields defined
+
+columns and the usual fields
+
+next one is
+
+getting the documents
+
+into the data manager
+
+so how to do that is actually by
+
+clicking on this import
+
+so
+
+once you click on that you get this
+
+screen
+
+and
+
+you just need to give some name
+
+i'll just say batch one
+
+um yeah
+
+so
+
+there's one additional property here
+
+enable large documents
+
+so the description says remove number of
+
+pages
+
+limitation very large documents might
+
+not work
+
+yeah um so
+
+since you are not going into large
+
+documents you can just keep it disabled
+
+uh so basically what happens is if you
+
+have a large set of documents that you
+
+need to use for training you may need to
+
+enable this
+
+but still very large documents might not
+
+work
+
+okay okay large documents in the same
+
+large batch or the multiple
+
+pages spanned documents it's like
+
+multiple page documents
+
+okay not the best size batch size can
+
+have any number of documents but this is
+
+specifically for a specific document
+
+considering the page numbers
+
+okay
+
+yeah um so we'll give a name and let's
+
+try to find my
+
+set of documents over here
+
+you can either drag and drop or you can
+
+go here
+
+and select the documents
+
+yeah
+
+so it's
+
+saying it has
+
+12 files 11 pages
+
+uh yeah and out of that sorry um 10 pdf
+
+files
+
+so you're good and i'll just say yes
+
+so what happens now is based on the ocr
+
+that we gave
+
+it will
+
+start reading the document and identify
+
+what
+
+what what is there in the pages
+
+and process it so that we can continue
+
+with the labeling once it's done
+
+you can see it's happening for all the
+
+documents
+
+yeah
+
+and it's done
+
+so here now you can see
+
+this
+
+text in the documents these are
+
+highlighted in
+
+gray color
+
+this highlight means that it was able to
+
+recognize
+
+these
+
+this data
+
+so now what we need to do is we just
+
+need to highlight and assign the things
+
+to our
+
+fields over here
+
+so we have 10 documents because the
+
+first time
+
+so let's try to
+
+do it without
+
+making you guys bored
+
+yeah so we'll start with the noise
+
+number
+
+so it's here
+
+so all you need to do is just highlight
+
+and it's getting highlighted like this
+
+and to assign it to a field
+
+use this hotkey
+
+so for invoice number is i
+
+as soon as you press it it gets assigned
+
+with a color and also the value is
+
+updated
+
+same for the address so i'll go ahead
+
+like this
+
+so here it's multi-line
+
+no worries just highlight everything
+
+and press the hotkey
+
+you can see everything is captured
+
+the trojan
+
+rootless right here
+
+right
+
+now when it comes to
+
+columns
+
+in a table
+
+here
+
+following that is not enough
+
+we need to do something additional
+
+we need to say
+
+what is the row
+
+so we have three items right so all
+
+these three items has to be in the same
+
+row
+
+so first thing is we need to
+
+show the row
+
+so in our case you can see the
+
+description spans across multiple lines
+
+all three lines
+
+so the first thing is we'll highlight
+
+the first row
+
+like this
+
+and then you need to
+
+press the slash key
+
+the slash key next to your shift button
+
+on your on the right hand side
+
+not the one above the enter
+
+so once you press on that you can see
+
+it's highlighting
+
+in green color
+
+so this means this is a row
+
+now in this row
+
+where can i find the quantity
+
+so that's right over here
+
+so just click on it and press the
+
+shortcut key
+
+now you can see 3 over here
+
+now the description
+
+i write that part
+
+and you can see that's added to the same
+
+line
+
+if you do not do this grouping
+
+it will add
+
+this next item to a different line
+
+that's how it work
+
+then the unit price
+
+you
+
+so we need to follow the same thing for
+
+all the lines
+
+so let's quickly do that
+
+this is for d and you can see it's
+
+getting added to the second line
+
+q
+
+q
+
+so the first document is done
+
+and the next thing to make sure is in
+
+the initial training make sure you
+
+provide values to all the fields
+
+or at least for 10 documents
+
+okay okay 10 is the minimum one yes 10
+
+is the minimum
+
+so let's quickly do for the remaining
+
+stuff i'll just
+
+proceed
+
+and
+
+[Music]
+
+i
+
+these
+
+documents are pretty easy
+
+so again it's the same pattern
+
+you need to group
+
+and then assign
+
+this is quantity
+
+description
+
+unit price
+
+so for now i will not do for everything
+
+right because
+
+you get the idea
+
+i'll just keep it as it is
+
+and
+
+is the address
+
+you may ask why you are not adding the
+
+name for the address
+
+usually having the name as a separate
+
+field is the best that's why i'm not
+
+adding it
+
+so here also it's the same
+
+group it
+
+added
+
+okay
+
+so i'm skipping some of the stuff but
+
+it's the same pattern
+
+yeah
+
+[Music]
+
+you can assign in any order you don't
+
+need to really start with the first one
+
+you can start with description
+
+and then go to quantity and then do the
+
+unit price
+
+that's
+
+okay
+
+okay okay
+
+and the next
+
+here is the noise number
+
+on
+
+the total is here
+
+um
+
+so um
+
+usually this is
+
+this can be done for a smaller number of
+
+documents as the initial training
+
+okay
+
+and then going forward you can do the
+
+training
+
+while the process runs
+
+so
+
+okay
+
+the data set created when when the
+
+process is running then we can use that
+
+data set to try yeah
+
+okay
+
+only thing is
+
+for the first one we need to do all
+
+these things because otherwise
+
+the model will not know
+
+and then after a couple of training runs
+
+we can
+
+speed more data yeah yeah
+
+most of the time it would be the in the
+
+car way but sometimes maybe the first
+
+then at that time you need to correct it
+
+yeah and return that yeah it will take
+
+couple of runs
+
+not really couple but it will take some
+
+several training runs to get a better
+
+result depending on the number of
+
+documents you are
+
+reading it with
+
+and
+
+and the quality of the documents and
+
+everything
+
+there's i
+
+am literally
+
+in
+
+last three documents
+
+okay so this is the interesting one
+
+um
+
+where is the invoice number it's here
+
+from date
+
+um
+
+[Music]
+
+yeah let's take this one
+
+so
+
+here you can see i cannot directly add
+
+everything
+
+because if i highlight like this
+
+some of the unwanted stuff will also get
+
+selected
+
+right
+
+so in that case what you can do is
+
+just highlight
+
+and while pressing the control
+
+click on the things that you do not need
+
+okay
+
+and that gives you the
+
+address
+
+okay
+
+like
+
+that's the problem
+
+this is my description
+
+into the
+
+um entering this assignment
+
+in range
+
+number and
+
+yeah this is the last one
+
+yeah
+
+i
+
+okay so we are done with the labeling
+
+so once you do that the next step is
+
+just export it
+
+so
+
+once you click on export
+
+you get couple of options
+
+first is you need to give a name
+
+okay and here we have additional
+
+property this is new that came in as a
+
+part of the
+
+newest version
+
+okay backward compatible expo that means
+
+apply legacy export behavior which is
+
+to export each page as a separate
+
+document
+
+try this if the model trend using
+
+default export is below expectations
+
+yeah so
+
+the
+
+earlier versions uh what they did is
+
+when you had multiple pages those things
+
+got exported as
+
+separate
+
+document okay
+
+okay so either you can go ahead with
+
+that or you can just keep it
+
+disabled and use the latest version
+
+okay and the next thing is scheduling
+
+so if you wonder
+
+that
+
+whether you need to do this each and
+
+every time no
+
+so once you schedule
+
+um
+
+it has the capability to look into the
+
+data set we created earlier
+
+for new files
+
+new files are added to that data set
+
+through the workflow
+
+okay
+
+yeah so
+
+once you schedule it can run at a
+
+specific time look for new documents
+
+okay so when we run the workflow so
+
+automatically data set will be created
+
+when you give the scheduling here it
+
+will use the data set to retrain right
+
+yes it will use the data set the new
+
+data set
+
+along with your old data set
+
+so great yeah so over time you will have
+
+a large data set
+
+let's say you are doing this training
+
+this week
+
+and over the next week you processed
+
+about 1000 other documents
+
+and next weekend you again
+
+you have the schedule and it's running
+
+so what it will do is it will consider
+
+your
+
+data set that you had today
+
+and the new data set that got processed
+
+over the next few days
+
+and
+
+use that entire chunk as the training
+
+data to train the model
+
+so over time you will have a huge number
+
+of documents to actually train
+
+okay
+
+so you just need to enable and configure
+
+as you need
+
+so for now i don't need that so i'll
+
+just give it a name
+
+and again here no capital
+
+no space
+
+and
+
+if you want any logs those things will
+
+be shown here
+
+and just click on export
+
+so this button starts flashing
+
+um
+
+and if you go to ai center
+
+under data sets
+
+this is our data set so you can see
+
+we did not have these things earlier
+
+but now we have
+
+a couple of folders
+
+the initial export the name i gave
+
+and inside that you have the schema json
+
+so this theme of json is the one
+
+that we just created for our model
+
+okay so for the free trend models you
+
+know
+
+we can guess
+
+yeah okay so now we created the schema
+
+for our own model
+
+okay
+
+so now if you if someone wants to look
+
+at the schema you can just download it
+
+and share it with them
+
+[Music]
+
+yeah
+
+okay so we have done the export it
+
+stopped flashing that means the export
+
+is done
+
+so the next thing is
+
+go to pipelines
+
+this is where we do the initial training
+
+[Music]
+
+yeah
+
+so you can click on
+
+new
+
+okay
+
+and uh
+
+for now you don't need the full pipeline
+
+full pipeline means training and
+
+evaluation both
+
+so for now you don't have any evaluation
+
+data
+
+okay so you can just go ahead with penny
+
+and this is our package
+
+yeah
+
+and the major version
+
+the lowest version
+
+where is our
+
+data
+
+it's in
+
+this data set
+
+you can select
+
+that and now
+
+[Music]
+
+do you want to have authority training
+
+okay so see the see how things are
+
+connecting now
+
+from the workflow you can
+
+update the data set whenever the process
+
+runs
+
+so that data set will anyway
+
+automatically get updated
+
+okay from the data manager you can
+
+schedule the export
+
+okay once you schedule the export what
+
+happens is it will get that data from
+
+the data set
+
+into the data manager and it will create
+
+the export
+
+for the data needed for the training
+
+automatically so no one needs to
+
+have a look at data manager how things
+
+are labeled
+
+it's only for quality purpose if some
+
+someone has to be there just to make
+
+sure things are okay but you don't need
+
+to sit and do the labeling because
+
+labeling is done through the workflow
+
+itself
+
+right right yeah because either the
+
+machine learning model will
+
+uh
+
+do the labeling because it has the
+
+capability to automatically identify
+
+if something was is wrong
+
+user may also do the corrections
+
+so that's the data we feed it into
+
+the training
+
+yeah yeah got it
+
+only thing the guy needs to do is just
+
+ensure everything is perfect in the
+
+place or not
+
+so
+
+that export will handle that and this
+
+auto retraining if this is enabled
+
+what will happen is
+
+this pipeline
+
+will get
+
+pain see
+
+the description is here enable this
+
+option
+
+when the pipeline you are creating is a
+
+scheduled automatic pipeline
+
+so once you set this to enable
+
+you can
+
+decide how you want to run it it is a
+
+recurring thing
+
+and schedule it
+
+so you can see the export is scheduled
+
+pipeline is also scheduled
+
+you get the data from the workflow and
+
+things are running very smoothly
+
+okay
+
+got it
+
+now i'll just keep it false and i'll
+
+just run it now
+
+so this will take some time
+
+because i don't have gpu and
+
+will take
+
+i don't know maybe sometimes half an
+
+hour or sometimes one hour depending on
+
+the
+
+yeah but the concept is the same
+
+so once this is done
+
+you can go to ml skills and create your
+
+new skill based on the new version
+
+new version will look like 11.1
+
+yeah so that's how we do it
+
+so the next process would be the same as
+
+invoices uh
+
+for what we've done the first invoices
+
+right yeah
+
+okay so the major thing here is when it
+
+comes to uh
+
+yeah hold on when it comes to this
+
+uh document understanding the generic
+
+model we see here
+
+the one we did over here on data manager
+
+is the important thing
+
+the risk is
+
+always the same for all the models
+
+okay
+
+okay yeah because this is where we say
+
+that in our module these are the fields
+
+we need and these are some of the sample
+
+documents that we get
+
+and from those sample documents this is
+
+where we can find those uh
+
+data we need to extract
+
+oh great great
+
+okay but you you can place your playlist
+
+of that invoices so that uh
+
+people can uh check out that for the
+
+workflow to build the how to retrievable
+
+workflow yeah
+
+yeah so there's a
+
+nice playlist um yeah right auto
+
+retraining capabilities in the channel
+
+so i'll add a
+
+card over here so people can have a look
+
+yeah
+
+so okay then i'll go i got that some
+
+idea about this
+
+so basically this can apply throughout
+
+any document or the customized document
+
+as per our requirement
+
+yeah so it can apply to any kind of
+
+document
+
+but um
+
+there is kind of a limitation so i have
+
+to say that as well um because see this
+
+the structure wise it looks for regular
+
+fields
+
+and for a table
+
+so if you have multiple tables uh
+
+things might be a little bit tricky
+
+okay because here we see only one table
+
+but
+
+still you can
+
+do some work around here to get those
+
+things working
+
+okay yeah but i think those things will
+
+be addressed in future versions i don't
+
+know i'm just guessing
+
+right got it
+
+so if the pdf
+
+spans multiple pages also do uh
+
+same process right yes
+
+so remember when we clicked or created
+
+these fields
+
+okay when the pdf spans to multiple
+
+pages
+
+that's why this
+
+the properties offer
+
+so let's say the invoice number
+
+let's assume this pdf has multiple pages
+
+and
+
+this invoice number is repeated in two
+
+or three pages
+
+okay let us assume in this way that we
+
+have some uh 20 documents in the 20
+
+documents not all are spent in the
+
+multiple pages a few are spammed in
+
+multiple pages and some are in single
+
+pages
+
+so in that way what the uh what we need
+
+to select yeah let us take invoices
+
+there in the second page for some of the
+
+what is that some of the pdfs
+
+so what is we need to select yeah so in
+
+that case let's have a look at these
+
+things
+
+so by default it is saying the first
+
+occurrence so
+
+in our case if we have
+
+the invoice number in
+
+two pages first page and the second page
+
+if you select first occurrence it will
+
+take the one in the first page
+
+okay
+
+but if you go for last occurrence
+
+it will take the one in the last page
+
+[Music]
+
+okay last page i mean it's not the last
+
+page of the document
+
+wherever it is lastly mentioned
+
+okay okay got it got it
+
+and if you go for
+
+uh highest confidence let's say okay
+
+in our case the
+
+the invoice number in the first page
+
+gave like
+
+70 confidence
+
+okay and invoice number in the second
+
+page gave 90 percent confidence
+
+[Music]
+
+okay
+
+and sometimes it may depend on the
+
+string length
+
+longer string shorter string
+
+these
+
+things
+
+okay but you can configure those things
+
+depending on
+
+our requirement
+
+so that's how we connect the generator
+
+yeah
+
+yeah this generic model
+
+so uh in case
+
+uh
+
+okay okay once the data set
+
+was created means in the sense uh the
+
+data was in the current format only
+
+right
+
+if you give that
+
+we should keep the fit the data set
+
+after the validation step right yes same
+
+who we have in that invoices workflow
+
+because why we do that is
+
+sometimes so in our case look at this
+
+particular model this model is very new
+
+it is trained right only for 10
+
+documents
+
+right so we can make you the errors yeah
+
+when we feed a different kind of
+
+documents that it has never seen before
+
+it may capture it may not capture you
+
+don't know
+
+right so do we need to train the model
+
+with
+
+uh
+
+wrong data no right
+
+but it always has to be after the
+
+validation
+
+the validation can be done in two
+
+different ways the automatic validation
+
+and manual verification
+
+automatically is done
+
+if more than 90 percent yes you can
+
+configure you can write your own logic
+
+how you want reality yeah
+
+yeah we have this uh
+
+logic in our uh document understanding
+
+series also right yeah yeah that is
+
+expanded yeah you can place that link
+
+also in the description
+
+[Music]
+
+the manual verification can be attended
+
+on it under using yeah user action
+
+center or
+
+anything
+
+got it
+
+so basically if you are using the action
+
+center then
+
+after the validation that should be in
+
+the orchestration process right yes that
+
+has to be in the orchestration process
+
+the part after the validation should be
+
+in the orchestration process
+
+um
+
+well it's like this
+
+so the concept of the orchestration
+
+process so
+
+we did that the other day right yeah
+
+right
+
+if you remember
+
+you have to get the data from a
+
+different source you're not doing any ui
+
+automation
+
+right right you have to have the source
+
+data ready once you get that data you do
+
+the initial checks
+
+and pass it for
+
+verification
+
+and
+
+when you are done with the verification
+
+the latter part the post-processing part
+
+there you can do the training
+
+and you can
+
+do
+
+everything else
+
+so
+
+feeding the data into the training
+
+process like
+
+updating that data set in our case can
+
+be done in that part after the
+
+validation
+
+oh yeah yeah so validation is also done
+
+after
+
+uh
+
+doing the
+
+annual automatic check
+
+and uh
+
+training happens after that
+
+right right you're right
+
+okay cool so basically i will cover this
+
+also today yeah
+
+yeah
+
+fine then banana i cleared my dots
+
+uh so i think
+
+the other rest of the things were
+
+covered in our other series which we
+
+have
+
+this is what we left and i think this
+
+was a good session
+
+so thank you fernando that was great
+
+thank you very much for
+
+this and
+
+i hope everyone got
+
+something new to learn
+
+um yeah all right we'll see you guys in
+
+another video
+
+bye have a nice day
+

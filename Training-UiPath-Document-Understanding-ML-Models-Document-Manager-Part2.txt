@@ -1,0 +1,1983 @@
+This part of the video focuses on how we utilize the Data Manager to use training data generated through the Document Understanding workflow.
+
+Topics covered in the video:
+- Use of Machine Learning Extractor Trainer
+- Generating training data through the data validation process of the DU workflow
+- Using training data in Data Manager
+- Use of single Data Manager session for multiple training batches
+- Training ML Model
+
+hello welcome to part two
+
+of training document understanding ml
+
+models
+
+through data manager so in this part
+
+we'll be talking about how we are going
+
+to use the validated data
+
+generated through the document
+
+understanding workflow
+
+to train our ml models
+
+in ai center and also
+
+we will be covering few uh new features
+
+that were introduced
+
+in the 21.6 release as well
+
+so let's get to the
+
+ai center first
+
+so in our part one
+
+we created a data set and we created
+
+a ml package and we
+
+are into data manager
+
+we uploaded 10 documents we labeled them
+
+and we exported and
+
+did a training run so in that training
+
+run
+
+this was the initial one that we did
+
+but after that i actually did couple of
+
+more training runs
+
+on the same exported data set to improve
+
+the accuracy of the model
+
+so what uh the point to take here is
+
+you need to do a good level of training
+
+for your model to
+
+um give you a proper or a good output
+
+so at least it could be multiple rainy
+
+runs or it could be a large
+
+data set that's what we did last time
+
+and in today's session
+
+we are going to do the
+
+data extraction through the document
+
+understanding workflow
+
+and use that validated information
+
+in the data manager the last time we
+
+labeled each and every field
+
+but this time we are trying to use the
+
+data
+
+generated through the uh workflow itself
+
+so that we don't need to label it as we
+
+did last time
+
+so to do that let's get to your first
+
+studio
+
+this is the workflow that we created
+
+last time
+
+and when it comes to the
+
+validation there can be different
+
+approaches
+
+you can use the validation station or
+
+you can use
+
+the action center by creating a task
+
+or you can use the confidence level
+
+of the extracted data and then decide
+
+whether you need to show the validation
+
+station
+
+or create a task in actions if
+
+there's a good level of accuracy through
+
+the confidence
+
+you can automatically verify to do
+
+if you are new to that part you can go
+
+through the
+
+document understanding series the
+
+validation
+
+video to get to know more around that
+
+for our case over here for now we will
+
+just use the present validation station
+
+so one thing to highlight here is since
+
+the new release is up
+
+for 21.6 my studio is
+
+on the latest version along with that
+
+i also updated the packages
+
+intelligent ocr to the latest preview
+
+and also uh
+
+the document understand ml activate
+
+so i upgraded this to the latest preview
+
+so that we can use some of the new
+
+features so if you're following this
+
+make sure you update that
+
+okay that being said let's try to
+
+use the validated information
+
+to create our
+
+workflow
+
+before creating the workflow i have one
+
+thing to mention
+
+over here in the data manager aspect or
+
+in the ai center
+
+the last time we created this data
+
+manager
+
+we already have in document so today
+
+for today's thing i'm actually going to
+
+use the same set of documents
+
+because i don't have any other documents
+
+so we cannot upload those
+
+same documents into this same data
+
+manager session because
+
+it will be identified as duplicates
+
+unless
+
+you're going to add as a separate batch
+
+and also to keep things simple
+
+and easy to follow i have created
+
+another
+
+data management session with the same
+
+exact fields
+
+and i have also created a new data set
+
+which is ml trainer data set just like
+
+before
+
+is the same exact steps that i followed
+
+we just need to create the data manager
+
+session and create the
+
+fields and columns everything is the
+
+same
+
+only difference is we don't have the
+
+document
+
+okay and now let's get back to
+
+studio so based on the training last
+
+time
+
+i have done couple of trainings and i
+
+have upgraded our ml package to the
+
+latest one in ai center
+
+if i go to my skills it shows the
+
+very latest one as i did multiple
+
+training runs
+
+so this is one important thing i need to
+
+show you
+
+in the data extraction scope you have
+
+the machine learning extractor
+
+and if i click on configure extractors
+
+get into this option and click on get
+
+capabilities
+
+so remember last time when we created
+
+the initial model we had a lot of fields
+
+that it was able to extract but since
+
+we did the training only for a selected
+
+num fields
+
+once you upgrade to the latest version
+
+you will see only those fields
+
+because we trained it only for the
+
+specific set of key
+
+so this is one important point that we
+
+should remember
+
+and also you can um
+
+we can try to add different fields we
+
+can remove fields
+
+and we will talk about that in more
+
+detail in a session but
+
+you can do that so here
+
+one important thing to look at is
+
+one field is actually missing which is
+
+the billing address
+
+you may ask why the reason is in our
+
+previous training
+
+go to that data manager session
+
+we could see that billing address was
+
+not available in all the fields
+
+all the documents so we had to mark it
+
+as
+
+hidden and then export the documents
+
+into where i sent and train it basically
+
+we ignored this thing
+
+and that is why it is it is not showing
+
+so the important point here is
+
+when you are doing the training for a
+
+ml model you need to make sure you are
+
+passing the documents
+
+that has all the required fields
+
+if not you will not be able to train
+
+these the fields all the things
+
+that is one important thing that you
+
+should
+
+if you have documents that do not have
+
+certain fields you can
+
+still use it for evaluation
+
+how to do that again that comes in
+
+another video
+
+but just remember that for us to
+
+train a model you need to have documents
+
+that has all the required feed
+
+okay so that being said
+
+let's go here and now you can see we are
+
+only
+
+having a limited number of fields apart
+
+from billing address
+
+so for today's session we'll just
+
+ignore the billing address and
+
+continue with the rest of the field
+
+so this is done
+
+and how to create the training data
+
+through validation so for that we have
+
+activity called let's
+
+search for scope and over here
+
+we see a activity called trend factor
+
+scope
+
+so here we use data extraction scope but
+
+now we are using
+
+train extractors because we are
+
+training the extractor this should come
+
+in after
+
+your validation step once your
+
+validation data is ready
+
+and in here the input is coming from
+
+the validation output of the present
+
+validation station
+
+or it could be the weight activity in
+
+the
+
+action center related ask or it could be
+
+the automatic
+
+validated information in my case i will
+
+be using this validated
+
+why we are using the validated data is
+
+actually to make sure
+
+training on the accurate data
+
+okay so input for document path is
+
+as before as we did in the data
+
+extractions
+
+and then comes the document text
+
+and the document object model
+
+and the next activity that we should use
+
+inside
+
+the extractor scope is the trainer
+
+search for the trainer and here you can
+
+find it
+
+machine learning uh extractor
+
+trainer so here we use the machine
+
+learning extractor
+
+now we are using the machine learning
+
+extractor trainer
+
+so let's drag it over here and as soon
+
+as you
+
+place it you will get a pop-up like this
+
+asking for the end point and then my
+
+skill so we are not using any
+
+endpoints as of now
+
+so let's click on the refresh button and
+
+get our uh
+
+the scale available in ai center
+
+and click on get capabilities
+
+just like before and now here you see
+
+a couple of other properties like the
+
+output folder project
+
+and data set but before configuring this
+
+let's quickly go to configure extractors
+
+and over here you see the same window
+
+let's make sure we are pointing to the
+
+right fields
+
+you need to do that configuration just
+
+like you did for extraction
+
+so for the invoice date invoice number
+
+it
+
+this is basically you are saying these
+
+are the fields that i need
+
+and we don't have the billing address so
+
+we are ignoring that
+
+keeping address and address
+
+total for line items we are going to go
+
+on items
+
+quantity description
+
+unit price and the line amount
+
+here we are and let's click on save
+
+okay so that configuration is done
+
+and these two are coming in as a part of
+
+the 21.6 release
+
+so what happens here is
+
+the project will actually show all the
+
+projects available in ai
+
+center so let's click on refresh
+
+and here it will show you all the
+
+projects available
+
+in my case i have only one project so i
+
+will select that
+
+and then comes the data set
+
+and clicking on the refresh button it
+
+will give me the two data sets
+
+the one we created for the last part of
+
+the week and the one i created
+
+to prepare for today's suite
+
+so in our case if you go back to ai
+
+center
+
+go to data sets these are the two data
+
+sets
+
+and under data labeling you can see
+
+the invoice labeling was the one that we
+
+created last time
+
+and this is our new one my new
+
+data manager environment which i created
+
+to show you
+
+the things in a much cleaner environment
+
+and we are using the ml trainer data set
+
+here
+
+for that for that labeling session so
+
+we'll
+
+for now we'll point it to this data set
+
+so basically what happens here is
+
+the data generated by this train
+
+activity
+
+it will be sent to ai center
+
+into this data set and it will store
+
+that
+
+training information over there
+
+also in addition this is the new feature
+
+but this was the feature that we had
+
+earlier
+
+output you can also
+
+save a copy of that training data
+
+in your local drive so let's configure
+
+that as well
+
+so i will go to my solution folder
+
+for the time being
+
+and i will create a new folder
+
+and let's give this folder path
+
+so basically what will happen is it will
+
+uh
+
+upload the data to this data set and it
+
+will also save
+
+the data in this local drive
+
+okay so in terms of the workflow you're
+
+good
+
+you have configured everything
+
+now what we have to do is we just need
+
+to run the process
+
+so for us i'm using the same
+
+set of documents again because these are
+
+the documents that i have in hand
+
+so basically we have 10 dot payments if
+
+you remember
+
+the minimum limit is 10
+
+so let's quickly go through run this
+
+process for this
+
+10 documents and
+
+let's generate our training data
+
+and one more thing to show before
+
+running
+
+this is our new data set it's empty
+
+we'll see how these things get populated
+
+as we go okay so let me run the process
+
+now
+
+clicking on run
+
+this should extract the data from the
+
+documents
+
+and show us the validation station soon
+
+it's running give it a couple of seconds
+
+yep so here we have the first one
+
+so you are seeing the output over here
+
+so one thing again that i should mention
+
+is i did several trainings
+
+because our initial training contained
+
+only 10 documents
+
+so actually 10 documents is not really
+
+enough
+
+so that's why i did multiple training
+
+runs
+
+on the same extracted data set to
+
+improve the accuracy of the model
+
+so i have trained it four times
+
+and i have upgraded the package to the
+
+latest version
+
+as you see over here
+
+um and the output that we are seeing is
+
+actually based on
+
+these trainings and
+
+if at any point if you wish to roll back
+
+all you need to do is go to ml skills
+
+and click on roll back and roll back to
+
+the previous version
+
+or if you want to roll back to the most
+
+initial one
+
+you can do it from here by clicking on
+
+this option
+
+so as of now we are on level point oh so
+
+let's see
+
+how our output is 11.4
+
+and here is the validation station and
+
+we can see
+
+based on our training it is extracting
+
+this information
+
+so let's make sure we have the proper
+
+values
+
+except for the billing address
+
+we have the invoice have been it
+
+build it
+
+don't have the billing address but let's
+
+have a look at the shipping address
+
+this one looks good
+
+render address is also fine total is
+
+fine and let's have a look at the line
+
+items it's all captured
+
+very nicely let's go ahead and save it
+
+why i am making sure that all the values
+
+are available is because
+
+as i mentioned earlier we need to have
+
+these values properly for us to do the
+
+training
+
+and here is the next document so we'll
+
+quickly do the validation over here
+
+the invoice of the due date
+
+address oh okay so here you can see
+
+um part of that is not captured
+
+new york and this code let's quickly fix
+
+it
+
+and see the confidence level it is very
+
+good
+
+but still let's improve that
+
+by clicking on change it will update the
+
+remaining things
+
+when the address is captured
+
+but let's also update that
+
+well as i mentioned earlier these things
+
+will be improved when you
+
+keep on training okay training for
+
+a very large number of documents i
+
+cannot say
+
+or exact number it depends so
+
+you should basically train it for a good
+
+number of document
+
+and let's have a look at the line items
+
+this looks good
+
+click on save
+
+and quickly do it for the remaining egg
+
+i really need to do that because
+
+otherwise i won't give
+
+you the output of how we are going to
+
+use it
+
+let's do it quickly
+
+now the other one
+
+um this information except the billing
+
+address
+
+this address looks fine this address
+
+looks fine
+
+code is good items
+
+only one item looks good
+
+let's click on save
+
+and the other document
+
+have all this information captured
+
+address looks fine yeah ignoring the
+
+billing address
+
+but wait here you can see
+
+it is capturing data from both sides so
+
+let's quickly fix it
+
+because we need only tipping part
+
+and vendor address is good
+
+fine items is fine
+
+these kind of improvements will be
+
+handled
+
+through the training as i mentioned
+
+earlier
+
+okay so here we have a different
+
+scenario the due date
+
+is not captured but it is here let's
+
+quickly highlight that
+
+and click on this plus sign
+
+billing address is not there clicking
+
+address
+
+only part of it is captured let's
+
+quickly highlight and add it
+
+um render address looks fine
+
+this is good
+
+and the line items are also okay let's
+
+move to the next one
+
+so in my case i'm using pdf files and if
+
+you have
+
+any invoices in image format or scanned
+
+invoices
+
+this thing will apply to those documents
+
+as well
+
+if you are thinking about that
+
+so in this one we have the dates
+
+captured
+
+keeping address good
+
+vendor address captured totally is fine
+
+now look at the line items it's good
+
+this thing will actually take some time
+
+but
+
+let's just do it because it will really
+
+help
+
+for us to understand the concept
+
+so in this case um
+
+[Music]
+
+okay so remember we did this purposely
+
+for the billing because we don't have
+
+the shipping item we
+
+added this as for under shipping
+
+so let's quickly fix this
+
+and this part is fine
+
+iodine items are good
+
+i think we are almost done last couple
+
+of documents
+
+and in this case invoice date
+
+right number is extracted oh no
+
+it's extracting a different one let's
+
+fix it
+
+price why is that so this is
+
+not giving us a good result but it will
+
+eventually improve
+
+my state
+
+you did
+
+we have a billing address no tipping
+
+address
+
+is actually this one
+
+quickly highlight
+
+but
+
+and do it in text
+
+and it yep it's over here
+
+let's add it to shipping address
+
+and let's have a look at the vendor
+
+drawers
+
+here this captured
+
+basically it's having some that is not
+
+right so we can
+
+i add only the required items
+
+and update it
+
+it's good total amount let's do that as
+
+well
+
+so you can see most of the invoices gave
+
+us
+
+a good result except this one
+
+and face
+
+add this unit price
+
+okay looks good clicking on save
+
+and this is the last one
+
+you can see invoice number is captured
+
+these are captured
+
+address is fine typing address is fine
+
+total is fine finite
+
+okay so line items view was
+
+dropped
+
+update that but it's capturing properly
+
+the remaining things are fine
+
+okay
+
+is this the last one um
+
+you do this we have the invoice number
+
+this is captured
+
+address is fine and address is also fine
+
+it's fine fine items
+
+good
+
+yeah so we have processed all 10
+
+or if i took too much time on that but i
+
+really need to
+
+show oh
+
+now let's quickly have a look at this
+
+output output folder
+
+yeah this is the folder we created now
+
+you can see
+
+we have three folders and inside the
+
+documents folder we will have all the 10
+
+documents that we process
+
+and in the metadata folder we have
+
+the json version of the documents
+
+basically this will contain all the
+
+validated information
+
+all the items that we added everything
+
+will be here
+
+and under predictions we should not have
+
+anything
+
+as of now and similarly this same
+
+output we should see in the data sets
+
+if you go to this data set here we can
+
+see another folder that is created
+
+called fine tune and inside that we have
+
+the documents
+
+all the 10 documents and
+
+the same metadata
+
+okay so this data can be stored in ai
+
+center which we can refer later
+
+for our training purposes
+
+all right now we have done this and we
+
+have
+
+generated our training data so now
+
+what's remaining is we should upload
+
+that data into
+
+data manager okay so how to do that is
+
+as of now we cannot
+
+uh upload directly from the data set
+
+itself
+
+but we can do it from the local drive
+
+but i think in the future they will
+
+introduce a feature where you can
+
+directly import to data manager through
+
+dataset because they introduce that
+
+feature
+
+okay um let's get back here
+
+and this is our training data folder
+
+only thing we should do is we should
+
+save this
+
+into because this is our shift
+
+folder and in here just like before
+
+as as i explained in the previous
+
+session
+
+i created the same set of fields there's
+
+nothing different
+
+except i don't have the billing address
+
+because it was hidden in our previous
+
+one
+
+so it's no point adding over here again
+
+i have removed that but the remaining
+
+set of fields
+
+settings that we did last time all is
+
+the same okay so let's import some new
+
+docking
+
+i'm going to click on import
+
+and i will just give a batch name let's
+
+say
+
+initial
+
+make sure you don't have any capitals or
+
+spaces
+
+and let's click or drag our file
+
+over here
+
+basically this will upload our
+
+data and you can see it says ml
+
+extractor trainer import
+
+basically our data set was generated by
+
+enacted and it has identified it
+
+let's click on yes this will start
+
+processing
+
+the document it will extract all the
+
+information from those
+
+so it's closing one by one
+
+let's give it a couple of seconds
+
+yep so it's done
+
+and we are good to close this
+
+okay so now you can see last time what
+
+we did was
+
+we had to label each and every field
+
+highlighting and we were adding to these
+
+fields but now you can see
+
+all these are extracted and labeled for
+
+us
+
+including these groups in the
+
+uh in the line items
+
+last time we had to do all those things
+
+but now
+
+through our validation process it's all
+
+done for us
+
+it makes our life easier over here
+
+when we are doing the labeling
+
+so only thing we need to do now is
+
+actually to fix
+
+whatever that is missing or whatever we
+
+need to fix
+
+so let's quickly go through the 10
+
+documents to see what's
+
+if everything is showing properly this
+
+one looks good
+
+let's move to the next one
+
+and again here you can see it has
+
+properly highlighted the values
+
+nothing is missing
+
+and the grouping is also done
+
+let's quickly navigate through the
+
+document
+
+all the data is extracted
+
+and here as well right
+
+so this is actually based on our
+
+validations and also the human involved
+
+so you might wonder what if
+
+there is any issue when we are doing the
+
+automatic verification based on the
+
+confidence
+
+so let's imagine a scenario
+
+uh you have that kind of a logic so
+
+how we are deciding that is if you go
+
+through the
+
+validation video that i have done in the
+
+documentary series this will be more
+
+clear
+
+but for the time being i will just
+
+expand in high level
+
+so if you are using the confidence based
+
+on the confidence level we will be
+
+creating a
+
+threshold saying so if
+
+the confidence level is more than 0.8
+
+or 80 then we do the automatic
+
+verification if not if it is less than
+
+that then we go for
+
+manual verification so
+
+those kind of things can be addressed
+
+based on how we design our workflow
+
+and if at any point if
+
+a value comes in here which is not
+
+properly extracted even with a high
+
+high confidence level still you can fix
+
+it
+
+over here last time what we did was
+
+we were highlighting those things but in
+
+this case
+
+we only need to highlight whatever that
+
+is wrong
+
+and click on this dot cut
+
+key or press on the shortcut key to
+
+assign the new value
+
+those things can be handled over here
+
+because
+
+the same functionality is available here
+
+only thing is
+
+all the values and everything is
+
+automatically
+
+extracted and placed for you based on
+
+the validation
+
+process so just keep that in mind
+
+we all good in this five documents let's
+
+quickly go through the rest
+
+works fine
+
+and this also looks good
+
+this fine
+
+oh wait i need to check something over
+
+here
+
+yeah so it has extracted the it
+
+go to the next one this is also fine so
+
+you can see
+
+the one the keys that were missing it's
+
+also captured because i highlighted them
+
+okay so all the values are extracted
+
+so let's imagine a scenario
+
+let's take this scenario let's say for
+
+example for us to
+
+have a look at this that this was not
+
+extracted
+
+these three letters were not extracted
+
+through the validation process let me
+
+delete it
+
+just to emulate this scenario
+
+so it is like this now
+
+and it gave us a good level of
+
+confidence so it didn't show up as well
+
+but when it comes to the training part
+
+for the guy who is doing this training
+
+he will notice this let's say he is what
+
+this issue and how is he going to fix
+
+this
+
+because now everything is added over
+
+here
+
+it's easy we can just
+
+highlight this entire section just like
+
+before
+
+and you can click on the shortcut key
+
+here press e
+
+all those things are added and if you go
+
+here you can see
+
+all those values will be shown here
+
+including spent price is hourly rate
+
+that's how you add it's good
+
+all right so we have done the
+
+verification
+
+for all the 10 documents now what is
+
+remaining is
+
+export this into ai center
+
+before doing that let me quickly mention
+
+one small thing so
+
+over here we used a new data manager
+
+session
+
+now we did not have any other kind of
+
+document
+
+you might wonder why can't we use the
+
+same data management
+
+we can only thing is we need to make
+
+sure
+
+that we are not uploading the same
+
+duplicate files
+
+you can upload but it will detect it and
+
+it will reject it
+
+saying these are duplicate files it's
+
+not
+
+by looking at the file name it will
+
+actually look at the data itself
+
+so the files has to be unique and
+
+one more thing if you are using the same
+
+data manager session
+
+to do multiple trainings
+
+we created a batch when we are importing
+
+remember
+
+and if we actually expand this drop down
+
+we can see that batch this is the one
+
+that we created
+
+and we have 10 documents let's say
+
+you did another another
+
+process where you extracted data from
+
+100 different documents and you want to
+
+do the training on those 100 documents
+
+in a separate patch
+
+but in the same data manager session
+
+what you can do is in the input
+
+option you can give a different name
+
+let's say batch one and upload those
+
+documents into that pack
+
+so once it is uploaded you will see two
+
+different options here
+
+like batch is the initial one and
+
+another one called
+
+patch one or something and those
+
+documents will be separated from the
+
+batch you see over here and that is
+
+handled separately
+
+this one is handled separately
+
+you can have uh things like that as well
+
+so through that you can actually use the
+
+same data manager session
+
+for multiple different batches and you
+
+can keep things separate
+
+from one another also you can add
+
+documents into the same patch
+
+as well so let's say all the
+
+new documents that you processed you
+
+want to add it to this
+
+same initial training set you can do
+
+that
+
+only thing you need to do is
+
+um you need to give the same batch name
+
+over here
+
+and then it will add all those documents
+
+into that same batch
+
+and also and it will ensure that it will
+
+not add any uh
+
+ticket uh documents if there are any
+
+those will be dropped
+
+the remaining things will be considered
+
+okay so since that part is explained
+
+i think this is clear how the validation
+
+is
+
+over here let's quickly export
+
+and now this export can also be
+
+scheduled
+
+which is in the preview
+
+uh yet but still you can see once this
+
+is enabled
+
+you can set the start time you can uh
+
+set how often do you want to uh record
+
+this process
+
+in the export part and schedule it
+
+so basically yeah going towards the
+
+auto retraining
+
+function so once you enable scheduling
+
+someone will have to add the documents
+
+to this thing
+
+and keep things verified and
+
+the export will happen automatically and
+
+automatically the data will be exported
+
+to ai center
+
+and you can have your training pipeline
+
+scheduled as well
+
+and all the exported data will be
+
+used in your scheduled training
+
+pipelines
+
+to further train your model
+
+so i will not enable this
+
+now i'll keep it disabled
+
+but here i will just
+
+training because this is what i need to
+
+export
+
+and i need to export all the label
+
+fields
+
+and i will click on export
+
+now this icon will flash
+
+and it will stop flashing once the
+
+export is complete
+
+as it was in the previous session
+
+okay so it's stopped let's get back to
+
+ai center
+
+and refresh our
+
+data set and we can see under export
+
+this is our data set that we exported
+
+so now what we can do is
+
+you can go to pipelines and do another
+
+training
+
+let's quickly create one
+
+using a training pipeline so we will
+
+talk about the evaluation
+
+later in another video but in this case
+
+we are using the training
+
+and the package
+
+and we have the level now for the minor
+
+version since i did couple of training
+
+runs
+
+current version is 11.4 so what i want
+
+to do is i want to train the mod
+
+on top of the current version not based
+
+on the
+
+previous version so i will select the
+
+latest possible version
+
+and under data set i will go inside this
+
+export and this is our
+
+new set so this is just like what we did
+
+in the previous video it's the same
+
+exact step
+
+that we are following and here also you
+
+can enable auto retraining
+
+but we will talk about those things in
+
+another video
+
+for now let's create this training run
+
+this is edging and it will start running
+
+soon so basically until this thing
+
+completes
+
+this is how you can use your
+
+document understanding workflow to
+
+generate
+
+the training data for you and use it
+
+in your data manager to
+
+pain your document understanding and
+
+again i am repeating the main important
+
+thing here is
+
+you have to use documents that has all
+
+the fields
+
+available in the ai to train your model
+
+otherwise just like what happened to us
+
+earlier
+
+with the that address field
+
+billing address and you will not be able
+
+to
+
+[Music]
+
+use the model for those things so once
+
+we have the fields defined in the mm
+
+model
+
+we need to pass the proper training data
+
+to train our model
+
+improve the accuracy
+
+okay so this training will take around
+
+20 minutes
+
+as you see so i will pause the video
+
+for some time
+
+get back once this is complete
+
+okay so you can see the pipeline has
+
+just completed successfully
+
+and over here if we have a look at the
+
+logs it says the training pipeline
+
+successfully complete
+
+so now we have the latest version
+
+and we now need to upgrade this our
+
+model
+
+to the latest one
+
+and over here it also shows us
+
+prediction
+
+based on the trainings and the runs that
+
+we did
+
+so for us to update this
+
+i mean ml skills so 11.4 was the
+
+earlier version and now you can see 11.5
+
+so all you need to do is you just need
+
+to click on this
+
+and click on confirm so that it will
+
+automatically update
+
+you'll have a look at these properties
+
+in another video
+
+so again once this update completes
+
+this will the status will change back to
+
+available and you can use the updated
+
+version in your workflows
+
+so basically this is how we can use the
+
+data manager to
+
+[Music]
+
+train our machine learning models based
+
+on the
+
+validated data already validated data
+
+so this comes if i mentioned this
+
+permission in this we are actually
+
+coming towards the end of the
+
+video and in the next video we'll
+
+have a look how we can um
+
+create new models
+
+so what we did is is for invoices
+
+so we'll see how we can create a new
+
+machine learning model for a
+
+different type of document which is
+
+not available in the ml packages and see
+
+how we can use data manager to support
+
+that
+
+so from here onwards this is the basic
+
+foundation
+
+for us to train the models and create
+
+new models
+
+having that in our mind let's go through
+
+the next
+
+set of videos so in the next one we'll
+
+see how we can use
+
+a model for a different kind of a
+
+document
+
+and also after that we'll have a look
+
+at how we can use this auto updating
+
+whatever retraining
+
+functions um as a part of the
+
+series okay so thank you very much for
+
+listening
+
+and see you soon in another video
+
+till then take care
+

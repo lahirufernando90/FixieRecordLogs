@@ -1,0 +1,1263 @@
+Artificial Intelligence, Machine Learning combined with Robotic Process Automation (#RPA) expand the automation capabilities of the robots. 
+
+So, how best can we train the ML models we create to help us do complicated activities such as prediction, data extraction, classification, etc.? 
+
+This video takes you through some common questions that help us better understand the best concepts around ML model training in #UiPath
+
+Contents of this video 
+
+- Introduction
+- How AI Robot License Work
+- Selecting Major & Minor Versions in Training Pipelines
+- Importance of Evaluating Your ML Models
+- Best Frequency to Schedule Training Pipelines
+- Use of Validation Station for Initial Training of Document Understanding ML Models
+- Should we Submit All Documents We Process for Retraining (Even the One's That Give Higher Confidence Levels)
+- I already have a Trained Model. A Production Scope Change Gives me New Invoices With a New Language the Model is Not Trained For. How to Handle This Scenario
+- Is it OK to Maintain Multiple Data Manager Sessions for a Single ML Model
+
+
+hello everyone
+
+welcome to our
+
+new video
+
+this is going to be a very special one
+
+because in this one we are going to talk
+
+about
+
+the machine learning
+
+and the training side of it
+
+so basically we'll be trying to cover
+
+the best practice
+
+of uh on how to train these machine
+
+learning models
+
+to get the best results out of it
+
+so it's going to be a very interesting
+
+topic
+
+and
+
+to do that
+
+we have a couple of questions that we
+
+would like to
+
+into
+
+so these are some of the questions that
+
+we plan to
+
+cover during our session so these are
+
+some common questions that we hear
+
+usually when it comes to
+
+ai center and the machine learning
+
+models
+
+and the training
+
+so let's try to tag one by one and see
+
+how we can
+
+address each and every question
+
+let's start with the first one
+
+um
+
+how the ai robot license work
+
+so
+
+by default in uipath
+
+you have two ai robot license
+
+that you get with the trial
+
+so
+
+how is this license utilized
+
+how it is being
+
+used
+
+so let's see about it
+
+okay so when it comes to ai robot
+
+licenses as i mentioned earlier there
+
+are two licenses that you get
+
+for ai robots
+
+so how it is being used
+
+as you create different ai models and
+
+you create training pipelines is a bit
+
+different than how you
+
+uh how it's being allocated to different
+
+things in usual attended and unattended
+
+scenarios
+
+uh
+
+the licenses basically so what happens
+
+is
+
+for each and every machine learning
+
+model that you create
+
+it requires certain licenses so as soon
+
+as you create the skill
+
+and once it's available
+
+um that
+
+utilize one license so basically
+
+uh for one ml or ai license you can have
+
+two ml skills available so basically one
+
+skill will utilize 50 of one license
+
+and when it comes to the training
+
+pipelines or the evaluation pipelines
+
+that you create in ai center
+
+that require one full license
+
+so
+
+if you
+
+think about the usage of these two
+
+licenses that we have
+
+we can
+
+create up to two
+
+ml models
+
+and use the next available license for
+
+the training purposes
+
+so you get the overall idea
+
+one license can handle two ml skills and
+
+one license is required to create one
+
+training or evaluation pipeline
+
+okay so next question is around the
+
+version selection during the pipeline
+
+creation
+
+so
+
+when you are creating these pipelines
+
+it require
+
+you to input two versions the major
+
+version and the minor version of a
+
+machine learning model
+
+so how can we select this
+
+okay so the major version is actually
+
+the version of the package itself so
+
+different packages have different
+
+versions
+
+um
+
+so we always need to select the latest
+
+version from the major version
+
+but when it comes to the minor version
+
+it's bit different
+
+minor version actually um
+
+can have multiple different versions for
+
+the same uh major version so for example
+
+let's say the major version is 11
+
+and the minor version is zero
+
+every time you run the training pipeline
+
+it will increase the minor version by
+
+one
+
+so
+
+for a given major version you have
+
+multiple minor versions
+
+but
+
+how to select the minor version what's
+
+the best way to do that
+
+is actually uh by using the lowest
+
+possible version
+
+in other words by default it's a zero
+
+so why we say that is uh this is
+
+mainly around document understanding
+
+projects as well uh so that applies to
+
+all the models
+
+so
+
+uipath has already trained these models
+
+up to a certain extent
+
+so
+
+what happens with each and every
+
+training pipeline is it kind of
+
+fine-tunes the data that's
+
+in the machine learning model
+
+and tries to improve its accuracy
+
+so
+
+we always need to select the
+
+lowest possible version which is the
+
+zero so that
+
+the training that we run
+
+that is added on top of what uipath has
+
+already trained
+
+and next time
+
+when the training pipeline completes it
+
+will just increase the minor version
+
+saying 11.1 or something
+
+but next time when you are doing the
+
+retraining again on that updated version
+
+again select the lowest possible version
+
+but at the end of the session
+
+it will automatically update to the next
+
+version like 11.2
+
+so the reason to do that is actually to
+
+use the use a larger data set
+
+for each and every training
+
+so as long as you are selecting the
+
+lowest version every time you run the
+
+training pipeline it will have a lot of
+
+new data and it will keep on training
+
+all the new things
+
+so for example let's take
+
+let's
+
+take one document understanding scenario
+
+so you are doing the initial training
+
+with 500
+
+documents
+
+and that gives you the
+
+the
+
+initial model
+
+and then over time you get about
+
+300 to 400 new documents
+
+so next time when you run the pipeline
+
+once you select the lowest possible
+
+version
+
+it will use the initial data that weapon
+
+has given
+
+and the initial training that training
+
+data said that you gave
+
+in addition to that it will also use the
+
+newest data
+
+so every time you see
+
+that when you run the pipeline you will
+
+get a much larger data set to train on
+
+this will not happen
+
+when you select the latest minor version
+
+because it's using a small data set it's
+
+always using the newest data that you
+
+have submitted so
+
+that can
+
+in a way reduce the accuracy
+
+so it's always recommended to use the
+
+lowest possible version for the minor
+
+version
+
+so that every time you will get a much
+
+larger data set to train on
+
+the next question is around evaluating
+
+your envelope
+
+so as you know
+
+when you are creating pipelines there
+
+are two options one is the training
+
+pipeline the other one is evaluation
+
+or you can run both
+
+so
+
+what is the evaluation pipeline and why
+
+it is
+
+simple yeah so this is actually a very
+
+good question that
+
+i always come across from different guys
+
+from the community
+
+so
+
+uh the importance of the evaluation
+
+pipeline and
+
+why we need to run it
+
+it's actually a very important thing
+
+because
+
+it's not only for document understanding
+
+or any specific tool it applies to all
+
+the machine learning models that we have
+
+so the important thing is
+
+once we train a model we need to check
+
+its accuracy we need to see how good it
+
+is performing its uh
+
+pretty prediction or
+
+extraction or whatever it is doing
+
+so through this evaluation pipeline what
+
+you can do is you can give a separate
+
+data set other than the data set that
+
+you give for training
+
+and see how the model works on the new
+
+data set under evaluation using the
+
+knowledge it gathered
+
+through the training data
+
+and to see how accurate it is
+
+so that's that's a very important uh
+
+thing that we need to look at because
+
+after all what we expect from these
+
+machine learning models is to be
+
+accurate and
+
+to predict the things uh
+
+in a better way
+
+so
+
+the other thing to notice is that
+
+for the data set that you give for
+
+evaluation it can be
+
+the same training data or it can be
+
+a new data set as well or a combination
+
+of both either way
+
+it will generate
+
+the
+
+the evaluation that it comes up with and
+
+it will give you a result
+
+on ai center
+
+so
+
+using this information we can decide uh
+
+we can see what kind of logics that we
+
+need to incorporate in our workflow
+
+to handle certain scenarios
+
+uh when it comes to this accuracy or
+
+extracting certain information
+
+and deciding the confidence threshold
+
+in our workflows so for example
+
+if you want to see
+
+uh
+
+the extracted data is
+
+having a higher confidence level like
+
+more than 70 or something
+
+so those things can be checked
+
+through this evaluation because through
+
+that we can see what's the confidence
+
+threshold that we can come up with
+
+to include in our workflows
+
+so this is a very interesting question
+
+what's the best frequency to schedule
+
+your training
+
+pipeline
+
+so let's see how we can answer that
+
+okay so when it comes to
+
+scheduling these pipelines
+
+it's not a good idea to
+
+schedule them every day
+
+because uh as i explained earlier
+
+these pipelines are going to have huge
+
+amounts of data that it's being
+
+used for training and evaluation
+
+so sometimes these pipelines may run for
+
+a couple of days
+
+or even
+
+some for so many hours
+
+based on the sample data set that you're
+
+giving
+
+so
+
+instead of thinking about it on a daily
+
+basis
+
+ideally it should be okay to uh schedule
+
+it on a monthly basis
+
+or even
+
+weekly basis or something maybe during
+
+the weekend
+
+based on your requirement
+
+so
+
+ideally
+
+those are the two options that we have
+
+in terms of
+
+scheduling this training and evaluation
+
+pipelines
+
+so changing our direction a little bit
+
+into document understanding
+
+um so when it comes to document
+
+understanding we have different
+
+uh models that we use like
+
+classification and data extraction
+
+models
+
+so
+
+when it comes to the initial training
+
+it
+
+uh it is a bit of a
+
+complicated thing or it takes time to
+
+train documents unlike any other model
+
+so
+
+you may also think that validation
+
+station in the document understanding
+
+workflow may help us do the initial
+
+training
+
+because it's easy uh you can do
+
+that while the process runs
+
+uh so is it actually a good idea
+
+to use the validation station for the
+
+initial training
+
+of any document understanding mode
+
+especially the generic document
+
+understanding model that you can use for
+
+you can paint and use for any kind of
+
+model
+
+well it's another good idea to use the
+
+validation station for the initial
+
+training
+
+the reason is if you compare the
+
+validation station the data extracted
+
+from validation station
+
+and the data given to you by the data
+
+manager
+
+the data manager gives you much more
+
+information about
+
+the extracted information
+
+and also the data manager has the
+
+capability to
+
+look for the same value in multiple
+
+pages like for example if the invoice
+
+number is available in
+
+two different pages in the same document
+
+you can
+
+label it
+
+in data manager whereas it's not going
+
+to be possible in validation station
+
+so
+
+considering that mainly
+
+it's always a good practice to
+
+use the data manager
+
+for the initial training
+
+rather than validation station
+
+and
+
+the important thing is uh to handle
+
+certain scenarios like that the data
+
+manager has very special options that we
+
+can enable
+
+during the data labeling session or
+
+whenever you are defining the fields
+
+so
+
+that will actually help to capture much
+
+more accurate information
+
+than the one than the things that you
+
+provide through validation station
+
+anyway the idea of using variation
+
+station is
+
+to fine tune your existing models not to
+
+do the initial training
+
+so that's why validation station is
+
+there just to validate
+
+what's being extracted and correct if
+
+anything is wrong
+
+so
+
+to answer the question
+
+you have to always use the data manager
+
+for the initial training not the
+
+validation station
+
+so this is a very interesting question
+
+so when you are processing documents
+
+every time we process a document we
+
+get a lot of validated information that
+
+we can make use to train our
+
+ai models that we have
+
+but is it really necessary to use
+
+every document that we process
+
+uh even though the model returns a
+
+higher confidence level to train the
+
+model
+
+let's have a look
+
+actually to answer that it's uh it's a
+
+very good question that i came across
+
+once um
+
+so you actually don't need to
+
+submit all the documents that you have
+
+for the training
+
+especially when you are getting a very
+
+high confidence level on the fields that
+
+you are extracting or in classifying
+
+these models
+
+uh the documents
+
+because if it's already giving a higher
+
+confidence level you actually don't need
+
+to train it further
+
+and on the other side
+
+if there are any documents that you come
+
+across that has major
+
+failures in extracting a certain fields
+
+those are the things that you need to
+
+focus
+
+so in our workflow we can always use the
+
+confidence
+
+that's given to us through the
+
+extraction
+
+and this confidence can be used to come
+
+up with certain logics where we can
+
+decide
+
+uh whether a specific documents needs to
+
+get
+
+into the training cycle or whether they
+
+can you can just ignore it
+
+from the training
+
+anyway we are using this confidence to
+
+validate our information during the
+
+process right after the extraction
+
+so that same process can be extend a
+
+little bit
+
+to do this part as well
+
+and the other important point is
+
+when you have large amounts of data to
+
+train your model at some point it's
+
+going to be very difficult to manage all
+
+these documents because
+
+you will be processing hundreds and
+
+thousands of documents
+
+every day in this workflows
+
+so at some point you are going to
+
+have to manage all the
+
+the training data that you have
+
+so
+
+uh once you grow the data set it's going
+
+to be a bit difficult to manage so
+
+what's being recommended is
+
+um
+
+let's take an example to explain so
+
+for the initial training if you take
+
+like 500 different documents
+
+uh the
+
+idea would be to have like twice that
+
+size or thrice that size
+
+so basically it's like
+
+since the initial training is 500 you
+
+can
+
+keep up to like a thousand or thousand
+
+500 documents as the data set
+
+to do the continuous training on your
+
+model
+
+and
+
+whatever that comes in
+
+next uh just we just need to focus on
+
+the parts that the model fails and
+
+add those manually into the training
+
+cycle so that
+
+you can keep on improving the
+
+the areas where it lacks in in the
+
+confidence and extracting information
+
+all right so here we have another
+
+question so this is
+
+a kind of a scenario
+
+so for example let's say that we already
+
+have a model trained for invoice data
+
+extract
+
+and over
+
+some requirements changed and now you're
+
+getting some new kind of documents for a
+
+different language
+
+that your model is not already trained
+
+for
+
+so in this case how are you going to
+
+handle
+
+so basically how are you going to train
+
+the model you need to
+
+look for different models to handle
+
+the new data that you see
+
+yeah so for the answer for that is you
+
+can use the same model
+
+but the training has to be done in a
+
+different way
+
+so
+
+to ha to train the model that you
+
+already had you did the initial training
+
+using the data manager
+
+so when it comes to this new
+
+documents that you see which the model
+
+is not already being trained
+
+what you can do is
+
+use the data manager session that you
+
+have
+
+import all these new documents that you
+
+get
+
+and do the training do the labeling
+
+there in data manager the reason is as i
+
+explained earlier
+
+data manager captures a lot more
+
+information and that's a place where you
+
+can
+
+do
+
+labeling for each and every field even
+
+when the value is available on multiple
+
+pages
+
+so it's a good place to
+
+do the initial training even at
+
+somewhere in the middle when you get
+
+certain new
+
+document types or new languages to
+
+process
+
+so always go for the data manager
+
+do the labeling the manually
+
+export the data
+
+do the training
+
+and then go for the fine tuning stuff
+
+through uh data manager sorry the
+
+validation station as i explained
+
+earlier
+
+so
+
+that's the way that you can handle it so
+
+you don't need to have multiple
+
+uh ml modules to take care of different
+
+different scenarios you can just keep on
+
+training the existing model
+
+and use that along with data manager to
+
+improve your accuracy and also the
+
+process
+
+so lastly this is
+
+the one last question that we have for
+
+today should i maintain multiple data
+
+manager sessions for a single machine
+
+learning model
+
+yeah so when it comes to document
+
+understanding we always need to create a
+
+data labeling session where we do
+
+the labeling on data manager
+
+but
+
+the question is
+
+can we maintain multiple
+
+machine learning or the data manager
+
+sessions for a single model it's
+
+actually not recommended
+
+the reason is
+
+when you have multiple data manager
+
+sessions the documents you have in that
+
+each and every
+
+session is going to be different
+
+the sample size is different
+
+let's say you have
+
+one data manager session with 1000
+
+documents and another one with 100
+
+documents
+
+so you can see the difference and if you
+
+keep all these documents in one session
+
+always whenever you do the labeling
+
+you export
+
+a huge data set that it can train on
+
+and the other thing is
+
+in
+
+in ai center
+
+you cannot
+
+have a single data set pointing to
+
+different data manager sessions so it
+
+has to be two different data sets uh
+
+pointing to
+
+uh its own data manager session
+
+so
+
+it's always a good idea to maintain a
+
+single data manager session for
+
+each machine learning model
+
+but within the data manager session you
+
+can have different
+
+batches because
+
+as we have seen in other videos
+
+whenever you are importing data we need
+
+to give the batch name
+
+so
+
+the same thing happens
+
+when it comes to automatic uh
+
+export through data manager as we
+
+explained in the scheduling part of
+
+things
+
+so
+
+each import will have its own unique
+
+batch name
+
+so as i mentioned use the same data
+
+manager session but different batch
+
+names to keep things organized so that
+
+you can easily refer to a particular set
+
+of documents
+
+and always keep in mind to use a single
+
+session
+
+so with that we come to the end of our
+
+video because we covered all the
+
+questions
+
+so i hope this
+
+video is helpful because
+
+these are some of the questions that i
+
+came across while talking to different
+
+people in the community
+
+and it seems to be that these are some
+
+common questions they have so i thought
+
+of doing this video
+
+so
+
+with that being said um i hope this is
+
+interesting and
+
+i plan to connect with you guys again
+
+with another interesting video
+
+until then take care and i'll see you
+
+soon
+
+you
+

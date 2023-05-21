@@ -1,0 +1,2268 @@
+In this part of the video, we will mainly focus on how we can use the Data Manager to label documents and train it for invoices. I know the invoice model is already available. But doing this gives you an idea of how to train a model for any type of document (by using the generic DocumentUnderstanding model) apart from what is readily available in AI Center.
+
+
+Contents of this video 
+
+- Introduction
+- Explaining about Out-of-the-box DU models and Creating First Package
+- Explaining Model Schema and Creating ML Skill
+- Setting up Data Labeling Session
+- Showcasing Fields Used in Taxonomy and How it relates to ML Skill Fields
+- Configuring Data Labelling Session (Data/ Document Manager)
+- Import Documents in Data Manager
+- Labeling Fields in Documents in Data Manager
+- Exporting Labelled Data from Data Manager
+- Creating Training Pipelines to Train Model Based on Labeled Data
+
+
+
+hello everyone
+
+welcome to my new video this is again
+
+on training document understanding
+
+machine learning models through data
+
+manager
+
+so i know this has been a long better
+
+video uh after the document
+
+understanding series that i did
+
+so why i got delayed is actually because
+
+data manager was inside the program
+
+but now since it is available in the
+
+trial
+
+i thought this is the best time to
+
+support you guys
+
+with this requirement
+
+so training these models
+
+uh we have to do that through ai center
+
+and through a tool called data manager
+
+that comes in as a part of
+
+ai center now so there are different
+
+ways to
+
+train the models let's get to
+
+the ai center so that i can show you
+
+how to do each other
+
+okay so we are in here is center now
+
+is our newly created project
+
+so if you go to ml packages
+
+under out of the box packages
+
+and under document understanding we see
+
+different
+
+models created for invoices purchase
+
+orders receipts and so on
+
+so these modules are actually
+
+pre-trained as we know
+
+and they these models have their own
+
+fields
+
+that we can easily deploy and use to
+
+read our documents
+
+and on the other hand this document
+
+understanding model which is
+
+a generic one which we can also retrain
+
+but compared to the invoice and purchase
+
+order models
+
+the document understanding model over
+
+here do not have any predefined fields
+
+so if we are using this model we need to
+
+train it from scratch
+
+so as of today's video i will focus on
+
+not on this but i will focus on
+
+how to train a model the invoice model
+
+so by doing this you will also get an
+
+idea how to
+
+apply that same concept to train the
+
+document understanding model
+
+which is this one which can be applied
+
+to trend for any kind of document
+
+because this is a generic model that you
+
+can use
+
+on different kind of other documents
+
+okay so for the time being let's focus
+
+on the invoice model
+
+so the concept is the same always
+
+but there are different ways first thing
+
+is
+
+using the data manager to do the initial
+
+training
+
+and then using the
+
+train extractor scope in the workflow
+
+itself
+
+to generate the training or the human
+
+validated
+
+results to do the training much more
+
+easily
+
+that is a part of another video so in
+
+this one we'll
+
+focus on how to do the initial training
+
+on these models okay
+
+so i'm going to use this a noise model
+
+as of now
+
+you can see there are different versions
+
+i'm using the latest
+
+for the name i'm going to say
+
+invoices i'm not going to change any of
+
+these things
+
+so as you know this is a free trend and
+
+it has its own fields
+
+we can just deploy it as an skill and
+
+use it it is already trained up to a
+
+certain action
+
+but i'm going to show you how to improve
+
+this
+
+through the data manager okay
+
+so once we have the package here
+
+how can we figure out what are the
+
+fields that this model has
+
+so to do that we can go to
+
+this link on the docs.web.com
+
+configure data manager and if you scroll
+
+down
+
+here we can have some we have some links
+
+to download the schema for these models
+
+so i have already downloaded this one
+
+for invoices because we are using the
+
+inverse
+
+they can also download and once you
+
+download and
+
+export it
+
+to download it and export you will see
+
+something
+
+download it
+
+we have a split file and also
+
+a json file so if we open this one
+
+and see all the available fields for
+
+that model
+
+including the data type and couple of
+
+other properties
+
+that will come in handy when you are
+
+using the data package
+
+we will get back to this after we create
+
+the mod
+
+coming back here now since we created
+
+the package
+
+i'm going to go for my skills and
+
+create a new film
+
+i'm going to use the package
+
+settings again so this major version and
+
+my version was
+
+actually coming from the package itself
+
+this is the only version that's
+
+available
+
+so for the time being i will keep this
+
+auto
+
+enable auto update uh thing disabled
+
+and we'll cover that in a separate video
+
+and this option on deploy skill after
+
+period of inactivity i will
+
+keep it default one week
+
+so it will automatically undeploy this
+
+if this model is inactive for one minute
+
+that's the idea
+
+okay so while this
+
+deploys now we can focus on
+
+um couple of other things
+
+yeah so for us to use the data manager
+
+we need to go to this data labeling
+
+and before creating the labeling session
+
+for us to store the data
+
+that we might need to put in into this
+
+labeling session or that that is
+
+exported from this labeling session
+
+we need to have a data set created
+
+so let's go to data sets and
+
+create a new data
+
+will name it training
+
+and click create
+
+so now we have a data set which is empty
+
+and now i'm going to go to data labeling
+
+and i'm going to create the first
+
+tabling session for us
+
+in here
+
+and we need to choose a dataset that's
+
+why i created one early
+
+if you did not create you can create it
+
+from here itself
+
+since we have already done that we can
+
+click on this
+
+and click on create
+
+okay so now you can see the data
+
+labeling session is
+
+being deployed and status is now
+
+available
+
+so this is where we can access the data
+
+manager
+
+so in the meantime we will just have a
+
+peek into my skills
+
+just to see how this is going so it's
+
+still being deployed
+
+that's fine um
+
+so in the meantime we'll go to
+
+data labeling but it's good if you can
+
+stay
+
+until this is deployed
+
+i'm going to pause the video for few
+
+seconds
+
+until this deploys so that we can have a
+
+fresh look
+
+into data manager and see the fields
+
+that we have
+
+okay so now you can see that model has
+
+been deployed successfully and the
+
+status is available
+
+so before getting into data labeling
+
+let's just have a quick look in the
+
+workflow itself
+
+so here i have created a simple workflow
+
+to read some documents that's available
+
+in this folder which is
+
+um right over here
+
+we have 10 documents i'm getting all
+
+that into an error
+
+and i'm taking the text so
+
+going into the taxonomy for this case
+
+i'm expecting these fields
+
+i have the invoice number date to date
+
+and so on along with you
+
+additional fly night
+
+so if you are new to this um and if you
+
+are not sure how to create the taxonomy
+
+i do recommend to go through document
+
+understanding
+
+video series that gives you a very
+
+detailed
+
+idea about how to do it for the time
+
+being
+
+we have created this
+
+so this gives you an idea what we are
+
+trying to do
+
+training and then
+
+i'm using a for each to look through the
+
+documents
+
+and i'm doing the digitization along
+
+with
+
+ui document ocr and
+
+here i have the data extraction
+
+so if someone is wondering why we don't
+
+have the classification
+
+i'm not doing the classification because
+
+for this particular scenario we are only
+
+focused on inputs we don't have multiple
+
+types
+
+so that's why i'm using the data
+
+extraction scope right after
+
+digitizing and
+
+since we don't have the classification
+
+how we are going to say that these are
+
+invoices
+
+by this document type and
+
+from where to type this is actually
+
+coming from the tax name
+
+if i click on here here you can find the
+
+document type id
+
+and copy that and put it here
+
+so i have configured the variables
+
+already
+
+everything i haven't done is adding the
+
+um extractor here in our case we have
+
+the machine learning
+
+audio so let's add
+
+the learning extractor
+
+so you can see once that is added it
+
+asks for
+
+the email skill to do this you need to
+
+have the studio connected to your
+
+orchestrator
+
+once that is connected and easily
+
+configure this thing
+
+so in my case it's already connected and
+
+i'm just clicking on this refresh button
+
+then we'll see the model that we
+
+created earlier i'm going to select that
+
+and provide the api key
+
+and i'm in this enabled update activity
+
+i'm going to click on get capabilities
+
+by doing this we will be getting the
+
+fields that our machine learning module
+
+can extract
+
+okay that is done and let's go to
+
+configure extractors
+
+and right here in this configuration
+
+window
+
+what you see on the left side is
+
+the fields that are coming from the
+
+taxonomy
+
+the fields that we created on the right
+
+hand side you can see
+
+couple of drop downs and these are
+
+coming from the machine learning model
+
+by clicking on that get capabilities
+
+what you did was
+
+you bought all these values from the
+
+model
+
+so in the initial configuration let's
+
+update
+
+before going further i'm going to map
+
+the invoice number
+
+to inverse number date
+
+today um
+
+you did billing address
+
+keeping address so
+
+this is a separate table so we need to
+
+click terms
+
+then it shows the values that you can
+
+get
+
+for this rate quantity
+
+description unit price
+
+and line amount okay these are the
+
+things that our model will
+
+extract right
+
+why i did that is actually to show you
+
+what are the fields that we are focusing
+
+on
+
+training today so you can see though we
+
+are focused on a very limited number of
+
+fields
+
+right over here the model is actually
+
+capable of
+
+extracting more than that but in our
+
+scenario
+
+we will only train for specific set of
+
+fields
+
+as of today
+
+okay now we can get back to aicent
+
+and we earlier created the data labeling
+
+session
+
+now available so i'm going to go
+
+into this enabling session
+
+so now we are in the data manager
+
+so the initial look of the data manager
+
+will
+
+be similar to this just to give you an
+
+idea
+
+we have couple of options here so we'll
+
+be not covering all the things
+
+today but we'll cover some other things
+
+so what you see over here will be your
+
+option to navigate through multiple
+
+documents
+
+on this big area you will see the
+
+document and
+
+here you can see couple of fields the
+
+regular fields
+
+and the column feed so we'll see what
+
+these fields are
+
+so how to configure this we need to do a
+
+bit of configuration here
+
+but it is easy
+
+you just need to follow these steps so
+
+on the first thing
+
+you just need to configure the ocr so
+
+just click on settings button
+
+so by default it is providing us with
+
+the uipath document
+
+but it is also capable of using couple
+
+of other criteria
+
+so nowadays this is the easiest
+
+let's do that so we are using the
+
+document ocr
+
+and the rosia url here
+
+the ocrp is actually our
+
+um document understanding api key
+
+which you can get from the admin page
+
+in my case i have already done it
+
+and let's copy it
+
+make sure i'll go back to admin
+
+and i'm going to licensing over here we
+
+see the
+
+key going into a center
+
+labeling
+
+all right in settings funnel
+
+and this i'm going to place the
+
+hierarchy
+
+and click on save you're not going to do
+
+anything
+
+clicking on save will configure the ocr
+
+engine for
+
+and in a while you will see a small tick
+
+here that says
+
+that has been done yeah
+
+now it is visible so the next step
+
+is to create the regular fields
+
+when you are saying regular fields these
+
+are the fields that we are
+
+extracting through the taxonomy
+
+and if you go back to taxonomy
+
+the fields that we see here the direct
+
+fields
+
+these are the regular fields and what
+
+you see on the line items
+
+are the column wave because these are
+
+coming inside a grid
+
+okay having that in mind
+
+let's get to creating the fields
+
+so now remember we are only focused on
+
+extracting couple of feet
+
+in our case you'll be focusing on
+
+is
+
+this one so
+
+you can see each of these are mapped to
+
+a specific
+
+field in the document order
+
+so let me get this studio on to the
+
+other side of the screen
+
+so i can show you the data manager
+
+while i can see the keys that we need to
+
+extract
+
+okay now the main thing to remember here
+
+is
+
+when you are creating these regular
+
+fields
+
+you are supposed to use the same field
+
+name that we see in the machine learning
+
+model
+
+how to know that is actually by
+
+going through uh that schema for
+
+the one we downloaded so if we open this
+
+here you can see the field name
+
+along with its data type and couple of
+
+other properties
+
+so
+
+so over here let's create our first feed
+
+the one the first one is we need to
+
+create the
+
+invoice number so for invoice number it
+
+is mapped to a field called
+
+cash number we need to use that
+
+so let's copy this one
+
+voice number
+
+over here i'm clicking on regular fields
+
+and i'm pasting that name and clicking
+
+ok now here comes the additional
+
+property
+
+here we see the content type which is
+
+the data type and couple of other
+
+properties
+
+so in our case if we go back to that
+
+json file you can see the type is id
+
+dash number so this is the data type
+
+let's find that in the content
+
+so why we are doing it this way is
+
+because we are
+
+trying to train for existing model
+
+if you are doing this for a totally new
+
+model you can have your own time
+
+but that we will cover in another part
+
+of the video
+
+it is so in this one we need to map it
+
+to the access string structure
+
+and the configuration that they have
+
+done so i'm using the id now
+
+the remaining things i will just keep as
+
+it is
+
+and click on save now you can see
+
+the regulator so likewise we need to
+
+create the other fields the next one is
+
+invoice date clicking on regular field
+
+again
+
+going to the json file
+
+the invoice did is actually captured by
+
+the state
+
+and i'm copying that right
+
+the data type is dead
+
+and i'm not changing anything here click
+
+on one save
+
+the next one is
+
+due date let's find it over here
+
+it's here need to use the same name
+
+otherwise the model will not know to
+
+what fields you're referring to
+
+and clicking on regular fields due date
+
+a dead
+
+and clicking on save
+
+and then comes the billing address
+
+that is over here
+
+filling dash led and now you can see we
+
+have a couple of
+
+other properties called multi line which
+
+is set to true
+
+so this might multi-line means the data
+
+can be
+
+there in the invoice in multiple times
+
+as you know
+
+addresses can span across multiple times
+
+so we need to do that configuration
+
+in regular fields filling address
+
+spring and we need to enable market
+
+and just click on save
+
+the next one is the shipping address
+
+which is right over here the same
+
+configuration
+
+why i have all these fields is actually
+
+to show you
+
+how to do this configuration
+
+so bear with me for this part
+
+next one is reading address
+
+sorry it's a vendetta
+
+because we created the building and for
+
+that
+
+also we need to get the multi line true
+
+have those pins
+
+and lastly we have the total to hold the
+
+total amount of paper
+
+and going down here you can see the
+
+total
+
+and that type is number and it can also
+
+have a multi line
+
+i'm selecting total
+
+and number 39 pro
+
+and set so now we are done with the
+
+regular
+
+similarly we need to do the same thing
+
+for columns
+
+so let's look for the
+
+remaining fields quantity description
+
+unit price and lineup
+
+for this one i'm going to click on
+
+column case
+
+and let's find the quantity over here
+
+and in here here you see the quantity
+
+which is under items
+
+because that falls underline items
+
+and the type is number
+
+and there's another property split items
+
+which is set to true
+
+let's see what that is
+
+i'm going to copy this quantity
+
+type is number and see this split items
+
+let's have a look at the description so
+
+it says
+
+use field as a delimiter between line
+
+items
+
+or rows in table you get the idea
+
+um on any line on which this field
+
+appears
+
+is considered to be a new line
+
+yeah so there's a hint that says most
+
+commonly this is used
+
+in line amount field because that's
+
+usually in invoices that's the last
+
+field in that
+
+rate but in our case this is um
+
+already configured in model so we have
+
+to use
+
+i'm doing that and
+
+clicking cell and that will appear over
+
+here because these are column
+
+so let's quickly do that for the
+
+remaining ones
+
+the next one is description which is
+
+string no additional properties
+
+description string
+
+that is over here and
+
+the next one is unit price
+
+fields unit price that is
+
+number and split items is set to true
+
+and the last column the line amount
+
+and for that as well the number is the
+
+type
+
+and split items is set to true
+
+number items
+
+okay so we have done the configuration
+
+over here and now we are ready to get
+
+documents into this so the next one over
+
+here
+
+create classification yes we'll talk
+
+about this
+
+in another section but i will just
+
+show you a glimpse of so in this json
+
+file
+
+there's a part called classification and
+
+here you can
+
+have any specifications that you need as
+
+for the currency for example
+
+this will talk about later
+
+for now we can ignore this one so
+
+we are coming to this particular step
+
+where we are going to import the
+
+document
+
+so why we are doing this here again
+
+is actually because we are doing the
+
+initial training
+
+uh and this is another way of actually
+
+doing it so that
+
+this same concept is applied when you're
+
+creating a model
+
+or creating a model for that generic
+
+type that you saw in the after the block
+
+packages in that case you will not be
+
+looking into a json file to get these
+
+fields but you will be creating your own
+
+but this is how it is usually done
+
+and one thing to make sure here is you
+
+can see
+
+for these specific fields
+
+you are not adding spaces first phase we
+
+are using a dash
+
+so make sure you do the same thing as a
+
+basis
+
+to have it as one
+
+so let's import some document
+
+how to do that is actually by clicking
+
+on this import
+
+and in here we can import in batches
+
+let's say this is batch one
+
+you can type anything
+
+so that's the option called make this a
+
+test
+
+set so in our case we are trying to
+
+train the model
+
+so we are not making this as a test set
+
+when this mod option is used that
+
+also will cover in another step let's
+
+keep this simple
+
+okay now here we can put the document
+
+so
+
+here is my input files and i'm going to
+
+drag
+
+all these files into this
+
+it will take couple of seconds to import
+
+all the documents now you can see it is
+
+state
+
+same it has 10 files now these are pdf
+
+okay yes
+
+and it will start processing and try to
+
+get
+
+all the documents yes
+
+so you can see also looking into the
+
+ocr engine
+
+this takes couple of seconds
+
+redundant is done
+
+all right so we have imported all 10 w
+
+and you might ask why are we importing
+
+10 of them
+
+can't we do that with 102 documents
+
+so for us to train a model we need to
+
+have at least
+
+10 documents in data menu
+
+that's the minimum requirement that's
+
+why i
+
+imported 10 of you
+
+all right so here we have the documents
+
+you can see none of the fields are
+
+assigned with anything
+
+and say the document is highlighted
+
+uh text and numbers are the ones that
+
+ocr was
+
+captured through this option you can
+
+navigate
+
+to multiple documents
+
+and if you want to delete any document
+
+by clicking on this you can do that
+
+so let's get to the first step
+
+okay this is where we do the initial
+
+labeling
+
+all right so now let's try to add values
+
+to these fields
+
+so you can see something for each and
+
+field there's a key assigned
+
+so this key is actually a shortcut key
+
+so in case we want to add a value to
+
+this invoice number
+
+we need to highlight the value and just
+
+click on the shortcut key
+
+or press it so that it will
+
+add it to the field okay
+
+so in this document the invoice number
+
+is this
+
+so let me highlight and i'm going to
+
+press the i
+
+key the keyboard and you can see it got
+
+a sign
+
+so likewise let's do for this field
+
+the date is this one
+
+so in this case we have three things
+
+identified
+
+i'm going to highlight all three and
+
+press on d
+
+you did same thing pressing on new
+
+now billing address is over here
+
+for this document this is the address
+
+i'm highlighting everything and pressing
+
+e
+
+you can see how easily it is getting at
+
+and for this one
+
+um it's the shipping address
+
+s render address this one
+
+and the total total is right over here
+
+pressing on t
+
+okay now we have done that then we come
+
+to the
+
+column fields
+
+which is this section
+
+so for quantity here we have the value
+
+just as you did earlier select the field
+
+and press on the shortcut
+
+and it will add the value the
+
+description comes next
+
+highlight everything press e
+
+and that is over here right
+
+is the unit price going to be n
+
+and the line amount
+
+l so we are done with this document
+
+so this is how we enable
+
+in data manager
+
+so we can do this automatically as well
+
+through the workflow itself
+
+to the validated data but that is
+
+another video
+
+here i'm going to show you how to do
+
+this in data manager
+
+let's get to the second off
+
+okay so this is a bit of a complicated
+
+one let's see
+
+noise number where is it it's here
+
+i the date is
+
+right over here e do we have a dividend
+
+yep and you
+
+billing address
+
+we don't have a billing address we can
+
+go for shipping address
+
+is this one yes
+
+so in this case we don't have this value
+
+oh i
+
+i'll tell you what will happen to those
+
+kind of feed
+
+so let's first label this whatever we
+
+have
+
+when address will select this one
+
+b and the total is
+
+okay okay so the next thing is
+
+adding values to this polynomial
+
+so in the previous document we simply
+
+did that
+
+by creating it in this way
+
+but over here in this one
+
+here we see a different scenario
+
+here we see the description for each
+
+item
+
+spanning across multiple
+
+so in that case we cannot do it
+
+that easily so we need to do a few
+
+additional
+
+so before adding the items to
+
+quantity description things we need to
+
+group this
+
+entire line
+
+so let's do that so how to group it is
+
+actually by
+
+pressing on this key so
+
+this is in documents uh
+
+docs.you have one.com under documents
+
+here there is option called proof table
+
+row
+
+so after you have labeled some fields
+
+and only if some rows span multiple
+
+lines
+
+next then you may need to group this
+
+using this key that's what we are trying
+
+to do
+
+let's go back so remember this
+
+is a slash so i'm coming
+
+here and i'm going to say that this
+
+entire line
+
+belongs to a single row
+
+i'm going to highlight this entire thing
+
+and pressing on that key which is
+
+this one i'm going to highlight it
+
+now you can see as soon as i press it
+
+this entire thing got highlighted in
+
+green
+
+this means this entire thing is a single
+
+row
+
+now let's add the values
+
+now the quantity i'm going to only
+
+select on the quantity
+
+inside this group is three and press on
+
+q
+
+so it's getting added over here and
+
+then the description so for description
+
+this particular portion highlighting
+
+that
+
+and pressing e you can see it
+
+got added the same line
+
+same thing goes for unit price which is
+
+n
+
+and the line amount is l
+
+let's do that for the remaining part
+
+okay to highlight this entire thing
+
+with by pressing the special grouping
+
+key
+
+and 4 goes to
+
+quantity is the second line
+
+this part goes to description
+
+n and f
+
+so it's easy same thing goes here
+
+right
+
+pressing on the special key
+
+and here we have one as the quantity
+
+as part as the description
+
+and
+
+here we have the line
+
+okay so this is how we label
+
+multiple lines let's get to the
+
+third document we need to keep on doing
+
+this for all the documents
+
+so i'll just show you this for a couple
+
+of
+
+documents and the remaining part i will
+
+just
+
+um so that you won't be too bored
+
+listening to me uh
+
+okay so let's quickly do this one
+
+here we have a different scenario so
+
+that's why i want to show it so we have
+
+the invoice number
+
+i uh
+
+e that's the due date
+
+billing address yeah
+
+here's the billing address which is
+
+keeping address
+
+yes vendor address is this one
+
+total goes
+
+all right so in this case here you have
+
+a single line of description and
+
+multiple line of this
+
+so can we do the same thing we did
+
+earlier
+
+yeah actually for both lines we can so
+
+let's do it
+
+here i'm going to show you how to group
+
+this thing
+
+i'm going to highlight this entire row
+
+and i will press on that special key
+
+hash
+
+so this entire line will get highlighted
+
+in screen
+
+and here goes the quantity q
+
+price is the unit price which is um
+
+n and l
+
+i'm find out in this section and this
+
+goes to
+
+this one line so quickly going to the
+
+second one
+
+highlighting i row
+
+grouping it quantity goes as q
+
+the description
+
+and the unit price and
+
+this is l okay
+
+so that also we have done
+
+okay so let me show you another special
+
+scenario
+
+which is in this one so after this
+
+i promise i won't board you too much i
+
+should do it
+
+uh and show it to you at the end
+
+let's quickly do this one
+
+this is the invoice number where is it
+
+i hate you that
+
+uh which is you
+
+okay so in this case
+
+let's say you don't have the billing
+
+address and this is only the shipping
+
+address
+
+and see so
+
+in my case i don't want the value
+
+address
+
+to be added to this thing so
+
+how can i remove that i cannot select
+
+values individually just like we
+
+are able to do in the validation step
+
+so in this case we can what we can do is
+
+so this is what i wanted to show you
+
+in this document so in this case we will
+
+highlight this entire section
+
+and i'm going to press s to add this
+
+thing to
+
+address and you can see the
+
+value address is also there i want to
+
+remove this
+
+we can easily do that just select
+
+on it and by right clicking it you can
+
+see this has been assigned to shipping
+
+address
+
+what i'm doing is selecting it and
+
+pressing my
+
+delete key and you can see
+
+it got updated automatically this is how
+
+you remove unwanted stuff
+
+from your fg and you can do the same
+
+thing over here
+
+see here it's a bit more complicated
+
+so the address starts from here
+
+and it ends somewhere over here let's
+
+highlight this entire section
+
+and i'm going to add this to e
+
+i'm going to remove this you can see
+
+those are already added
+
+village delete
+
+and i don't need the phone number and
+
+that's
+
+it you can see the updated one
+
+okay so that's how we do the tabling
+
+so let me do the remaining labeling
+
+offline and i'll start the video deposit
+
+here
+
+and i'll start it after
+
+completing the labeling stuff
+
+give me a couple of seconds
+
+all right so i have done the
+
+labeling for all the 10 documents i have
+
+grouped
+
+all the lines even for the single line
+
+ones
+
+so let's now
+
+try to export this how to do that is
+
+actually
+
+by um clicking on this
+
+export button
+
+all right so since we have done all this
+
+let's import
+
+so make sure you need to have at least
+
+10 documents
+
+to export right let's
+
+try to export now remember when we
+
+created this
+
+uh data labeling session
+
+it has its own data set so whatever we
+
+export now
+
+we'll go and save in the data set we go
+
+to data set
+
+as of now this is something that it has
+
+created automatically
+
+install some internal data
+
+when the session got created so
+
+let's export it now export tagged
+
+data okay
+
+so now exporting you need to make sure
+
+you won't enter any capital or space
+
+values just simple i will say
+
+initial
+
+i want to extract all the labels
+
+select that and click on export
+
+you can also download this as and
+
+for now we'll just do the expo
+
+when x14 you can see this flashing
+
+and here we have a message
+
+that says the following fields are
+
+labeled in less than tender
+
+each which is the field billing address
+
+all the fields as hidden or delete them
+
+or tag them in at least 10 dollars yeah
+
+so if we see we marked all the documents
+
+but this billing field billing address
+
+is not available in all the documents
+
+that's why
+
+i mentioned that it needs to be there in
+
+at least 10
+
+so either we need to have at least 10
+
+documents that has this value
+
+or else if we want to export this for
+
+training
+
+with the current data set what we can do
+
+is
+
+[Music]
+
+we need to hide this field id
+
+means go to edit
+
+and click on this hidden hide
+
+you can see the description hide field
+
+when exporting itself
+
+click that and click on save that will
+
+apply for all the document
+
+and you can see this hidden
+
+okay let's try to export
+
+that's it
+
+i mistakenly added capital
+
+and
+
+this time you should see it's flashing
+
+give it a couple of seconds
+
+yeah so the flashing stopped that means
+
+we have exported successfully going back
+
+to ai center
+
+and let's refresh this data
+
+refreshing and now you can see a folder
+
+called export
+
+like this here it is
+
+here is our export initial export demo
+
+inside this one you see the theme
+
+adjacent you see the split csv that got
+
+created
+
+and images contains all the
+
+files processed
+
+and a test contains the json version of
+
+the
+
+file right so this is what we need
+
+to train our model
+
+so we created this through the data
+
+manager
+
+every single thing we labeled it through
+
+the data manager
+
+so in case of
+
+when we are building models i am telling
+
+this time
+
+time just repeat myself so that
+
+on the same page
+
+when we are creating models from scratch
+
+even on that generic model
+
+this is the way to do it so we can train
+
+it initially based on
+
+some samples then you can do the
+
+training through the
+
+retraining activities that we'll talk
+
+about
+
+later in another week how to do that
+
+part
+
+again data manage is involved but we
+
+will not be labeling
+
+you will just be verified
+
+that's a topic for another video
+
+since we have this stuff over here and
+
+let's
+
+now try to upgrade this
+
+let's train it so we need to go to
+
+pipelines
+
+right and we need to
+
+do a full training run not a full
+
+pipeline run
+
+we are doing a full training run which
+
+is
+
+this option and i'm going to select my
+
+current version
+
+listen this so my inner version we have
+
+was
+
+and choosing the data now
+
+this is the data set that we created
+
+initially
+
+but while we were doing the labeling it
+
+created couple of
+
+other additional folders inside we are
+
+not interested in this
+
+internal we only want to go inside this
+
+export
+
+and this is what we are interested
+
+initial export
+
+the one that we gave the name we need to
+
+select that
+
+and we we'll have the auto retraining
+
+things false by default value for now
+
+talk about these things later in another
+
+and i'm going to click create while
+
+having the option run now
+
+so this is going to create a training
+
+pipeline which will train our model
+
+so this is packaging as of now it's
+
+going to take some time
+
+so let's have a try i'll get back to you
+
+this is gone i'm going to pause the
+
+video
+
+okay uh so now you can see
+
+the the model that we created
+
+it has it has successfully
+
+completed and
+
+the previous version was 11.0
+
+and if we go inside this we'll go to my
+
+skills
+
+if we go inside this one we can now see
+
+the latest version
+
+1.1 which is the one we trained and
+
+created so how to upgrade
+
+as of now you can see it's using the
+
+version 11.0
+
+by default so you can easily upgrade by
+
+clicking on this button over here
+
+just click on it so you can see
+
+the current version is this and u1 will
+
+be this one
+
+just confirm so
+
+again this will take couple of minutes
+
+just to complete
+
+but after that your workflow should be
+
+ready to work on the new
+
+and the trend model
+
+so this is how you
+
+train your ml models using
+
+data manager this is one way of doing it
+
+so
+
+just to summarize what we did is through
+
+data manager
+
+we created the labels we mapped
+
+everything
+
+and we trained
+
+so the other way to do this
+
+is instead of mapping all of these
+
+things manually
+
+we can do that while the process runs
+
+so through the validation part after
+
+extraction
+
+those information can be captured and
+
+we can feed that information into data
+
+manager
+
+and we will not be doing any labeling
+
+after that
+
+unless it's really needed uh
+
+so that's how that's the other way of
+
+doing it so
+
+you capture it through your process
+
+itself and
+
+push it to the ai center and train your
+
+model
+
+so that part we'll look at in the part
+
+two of the video
+
+and this one basically
+
+this is what we covered so this is
+
+purely focused on how we can use the
+
+data manager to label
+
+and you know train the models
+
+okay so and we tried this for invoices
+
+in the second one we will also look at
+
+the part now we can do the same thing
+
+for that
+
+generic model so it's kind of the same
+
+concept
+
+but if you remember we went through the
+
+json file but next time we'll be
+
+just creating our own food okay
+
+so i hope this was a
+
+good informative one for you i hope it's
+
+not boring
+
+because we have to do a lot of labeling
+
+while you guys are watching
+
+anyway um so thank you for watching
+
+hope this was useful and uh
+
+it was helpful for you to understand how
+
+to do the labeling over here
+
+thanks again and i'll see you in another
+
+video until then
+
+take care
+

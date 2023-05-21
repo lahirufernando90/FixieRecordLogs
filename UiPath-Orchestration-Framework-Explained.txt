@@ -1,0 +1,3783 @@
+Robotic Process Automation (RPA) is capable of automating business processes in attended, unattended, and also in hybrid methods. However, sometimes we need to bring in human expertise to perform certain actions based on their experience. This concept is called Human-in-the-loop.
+
+The robots process all the steps prior to the human involvement point and assign the required actions to human review. Once the users review the assigned actions, the robot takes over again and continues executing the remaining steps of the process. This concept comes in very handy when automating large business processes that require several human contact points for experience-based decisions.
+
+This video explains the human-in-the-loop concept in detail by going through a real use case provided by Prabhu Teja. 
+
+Special thanks go to Prabhu Teja for bringing this up and converting a learning session into a knowledge-sharing session so everyone can benefit.
+
+- This video is discussion based -
+
+ Contents of this video  
+
+- Introduction
+- UiPath Orchestration Framework and the Concept
+- Describing the Use Case & Building Orchestration Source Data
+- Updating Framework to Suit the Use Case
+- Updating Framework - Business Rules for Human-In-Loop
+- Updating Framework - Create Form Task
+- Updating Framework - Build Auto Verification Flow
+- Updating Framework - Task Assignment to Users
+- Updating Framework - Handling Wait and Resume and Capturing User Input
+- Updating Framework - Building Post Processing Logic
+- Process Execution and Discussion on Different Scenarios & Best Practices
+
+
+[Music]
+
+hi
+
+i'm prabhupada
+
+so today we are going to
+
+uh
+
+fernando is going to explain the human
+
+in the loop concept uh with a pretty
+
+much good example so let us look into
+
+that so fernando you can start that and
+
+explain it
+
+okay
+
+thank you
+
+and um
+
+this is also a request from
+
+you mainly
+
+uh so that we can
+
+go deep into this orchestration and
+
+human in the loop concept
+
+um and look into how we can use the new
+
+orchestration framework as well for this
+
+simple
+
+scenario so
+
+sorry
+
+it helps many people yeah
+
+yeah
+
+so i'll first show you the orchestration
+
+process itself and give you a brief
+
+introduction about what this is
+
+so you can create it from here from the
+
+studio this is the latest version
+
+and orchestration process i'll create a
+
+process somewhere
+
+me do
+
+find it
+
+in here there is a restoration process
+
+yep
+
+so earlier in the orchestration process
+
+we did not have
+
+a framework
+
+earlier what we had was a empty workflow
+
+where we had to build the
+
+framework
+
+so now
+
+we have a framework from uipath to
+
+actually
+
+try it
+
+and use it
+
+so this framework is also a little bit
+
+um
+
+similar to the re framework you will see
+
+some similar
+
+things like the initiation but not
+
+exactly the same because it works in a
+
+different way
+
+yeah
+
+um
+
+so in here also you will see the
+
+initiation
+
+face
+
+this is where you will actually read the
+
+necessary configuration
+
+stuff from the config file
+
+uh so this is very much similar to what
+
+you see
+
+in your usual reframework the init
+
+config workflow
+
+and the conflict file is actually
+
+located here in the configuration
+
+okay
+
+and that is also exactly same to what
+
+you see
+
+uh in the are framework only thing is
+
+you don't see much
+
+constants here as you
+
+do see there
+
+but the structure is the same
+
+so if you have any assets that you wish
+
+to use
+
+in the office traditional process you
+
+can put things over here
+
+and if there are any configurations that
+
+you like to use you can do those here
+
+sure
+
+and once that is done
+
+so i'm not going to go into detail there
+
+then
+
+what comes into this is actually your
+
+business
+
+lodging
+
+right so basically uh
+
+yeah so you're asking something sorry
+
+no no no i was saying according to your
+
+roots okay
+
+so the main thing to remember here in
+
+the orchestration process is you are not
+
+going to develop everything in inside
+
+the orchestration process
+
+the main concept here is the
+
+orchestration process has to be separate
+
+from everything
+
+else because the meaning of the
+
+orchestration process is
+
+to get the data from somewhere
+
+and decide
+
+whether you need manual intervention
+
+to
+
+handle certain decisions or not
+
+and if you need manual intervention
+
+uh you need to
+
+create a task in action center
+
+and if not
+
+you will
+
+automatically do that behind the scenes
+
+and get the required output
+
+and once you receive the required output
+
+you have to pass
+
+that into a different process
+
+where it will update the other
+
+applications or the excel files or
+
+whatever you are using
+
+so that's the concept of the
+
+orchestration process
+
+so this is more like
+
+three processors working together or
+
+minimum two processors working together
+
+right but the source has to be separate
+
+all the time because
+
+the source we might get the data from
+
+uh different applications excel files or
+
+through api calls we don't know it
+
+depends
+
+so better to have it separate and use a
+
+database or excel file
+
+or even a queue to
+
+connect that process into this
+
+orchestration
+
+okay so that you know these are the data
+
+that you need to process
+
+okay yeah so
+
+and once you have done that
+
+in this orchestration process you will
+
+be using that data
+
+to figure out whether you need to do
+
+manual
+
+uh verification
+
+or not
+
+so that is handled in this business
+
+process
+
+section
+
+okay
+
+so in this business process it's a
+
+workflow
+
+so by default this is given to us by
+
+uipath
+
+what we are doing here is
+
+so they are saying
+
+if you have a different way of doing it
+
+you can easily replace this part but we
+
+will see how we can use the default
+
+thing for our example
+
+okay
+
+yeah
+
+so in here what we are doing is
+
+if we need to create a task in the
+
+action center
+
+uh we need to create a list of
+
+task data
+
+okay yeah so it's called
+
+form task data
+
+and this is coming from
+
+the first instance activities
+
+so you can add it from here
+
+okay so by default when you create
+
+orchestration process it will be there
+
+for you
+
+all right
+
+so this form task is where you design
+
+your form how you want to present the
+
+data to the
+
+user in the action center
+
+and you build that interface
+
+if you have
+
+done anything on ui platforms
+
+normal forms
+
+it is the exact same thing
+
+okay but used in a different way
+
+yeah
+
+uh okay so here we create a disk
+
+okay
+
+so yeah so here we create a list
+
+and then
+
+so it's basically creating your object
+
+uh list an empty list of this task data
+
+type
+
+and then
+
+inside this workflow
+
+you start your business process
+
+so in here
+
+it's empty
+
+because this is for you to create
+
+right so from where where you are
+
+getting the data it depends on
+
+where you get the data if it's a queue
+
+you can design it in that way if it's
+
+excel file you can design it in that way
+
+so
+
+either way
+
+you build your flow
+
+and these are the our arguments by
+
+default that you get
+
+okay
+
+so you get two boolean
+
+variables sorry arguments as output
+
+one is saying whether you want to create
+
+a task or not
+
+okay and the other one is saying
+
+whether
+
+it's the end of the process or not so
+
+this end processing means not ending the
+
+entire process
+
+it's meaning whether
+
+you have reached the end of your data
+
+set
+
+okay
+
+yeah so it's a flag that you need to
+
+set
+
+and when you're creating a task you need
+
+to have a task title the catalog the
+
+grouping basically based on some
+
+business logic
+
+the task priority
+
+and
+
+where you're going to create this task
+
+in orchestrator there are folders right
+
+in which folder you are going to have
+
+yeah so those are the arguments by
+
+default you have
+
+and
+
+once you have done that and once you
+
+return the flow or the data to the
+
+calling function over here
+
+then you decide based on what you return
+
+whether you want to create a task or not
+
+if you want to create a task you go in
+
+this direction if you are not creating a
+
+task that means that can be
+
+automatically
+
+verified without any human involvement
+
+that's why the false part is not done
+
+here
+
+this part is for you to decide how you
+
+want to do it
+
+okay
+
+and in the true section
+
+here you have the
+
+create form task
+
+in this one
+
+you can by clicking on this
+
+you can build your interface as you like
+
+okay and then assign the values
+
+to the fields what you want to display
+
+through this form data collection so
+
+i'll show you how to do that
+
+and once you create the task
+
+you add it to the task list that you
+
+created here
+
+okay so basically whatever the things
+
+that you want to verify you create a
+
+list of tasks
+
+and then
+
+and here you check whether you have
+
+reached end of the data set if not go
+
+and take the next item
+
+check whether you want to create a task
+
+or not
+
+and keep on doing that until you reach
+
+the end
+
+okay
+
+and once you reach the end
+
+you don't have anything in the true it
+
+will go out of this workflow
+
+and that means we are coming here to the
+
+main workflow
+
+okay and now by the time you get here
+
+you will see
+
+you're
+
+giving out the task list
+
+okay
+
+and then
+
+what you need to do is once you create a
+
+task you also need to assign it to
+
+something
+
+right right
+
+that's what happens in here
+
+in here you will be passing your tasks
+
+list
+
+and
+
+will be
+
+writing your own logic
+
+on how to assign it
+
+so in the task assignment
+
+you are given with a set of activities
+
+all you need to do is write the rule
+
+on how you want to assign the task
+
+so based on
+
+the
+
+based on the data you may need to assign
+
+it to different people
+
+uh so that logic you have to write
+
+that you have to write it in this
+
+evaluate task assignment rule
+
+yeah this is also an empty workflow
+
+but
+
+from here you are returning
+
+one thing
+
+how you assign the tasks
+
+yeah
+
+so i'll show you again how to do that
+
+and then once you return it it will
+
+automatically assign by this default
+
+thing
+
+and
+
+you will be having the task assigned in
+
+the action center
+
+uh once this activity is
+
+executed
+
+right
+
+and then you are coming back to your
+
+main workflow again
+
+now here
+
+so sometimes you will need to
+
+run this for a large number of data
+
+yeah so basically
+
+um
+
+maybe sometimes more than thousand
+
+so that's why we have this option over
+
+here
+
+that actually says
+
+how do you want to do the weight part of
+
+the process and where you want to do it
+
+so if you see here
+
+you can also wait within the process
+
+itself
+
+so okay by default you are given with
+
+some uh configuration where in the
+
+current process means it will just wait
+
+in the same process
+
+once you have done all that
+
+but
+
+if the data volume is greater than
+
+thousand by default you can change this
+
+you can also wait in a different process
+
+you you can start another process
+
+and
+
+handle it there
+
+separately
+
+for more efficient uh
+
+handling
+
+yeah yeah so we'll not go into that part
+
+for now we'll
+
+look into the same first way of doing it
+
+so it's easy to understand
+
+so in here we wait in the current
+
+process
+
+and
+
+so now you have a list of tasks that you
+
+created and it's waiting for you to
+
+approve
+
+so uh so let's say you have five
+
+actions
+
+that you need to wait for
+
+so the best approach to handle that is
+
+to use a parallel for each
+
+so that it can handle
+
+uh all those actions in a synchronous
+
+way or in parallel
+
+in same place
+
+if you are clicking the uh i mean
+
+different users are accepting or
+
+approving at the same time then even
+
+though you can handle that right yes
+
+yeah so the user the task is assigned to
+
+is not relevant for this process that's
+
+only for the front end for the user
+
+only thing it knows is there is a task
+
+that
+
+got assigned to someone
+
+and we need to wait for it
+
+okay yeah
+
+so enhance multiple
+
+things yes yeah and we never know right
+
+in what order the user will reply
+
+yeah right yeah so we need to use a
+
+parallel for each to handle that
+
+so inside the for each
+
+we use for the task list
+
+we wait
+
+we wait until someone replies
+
+and once you reply
+
+it will auto resume
+
+and then
+
+decide
+
+uh
+
+what to do after you receive and that
+
+also you can do in the same process or
+
+in a different process
+
+let's say
+
+uh
+
+for example you want to write it into
+
+excel file
+
+it's simple right so you can do it
+
+inside this
+
+but
+
+the data that's getting verified that
+
+you need to log into some application
+
+like sap for example
+
+and you need to navigate to different
+
+screens and do the data entry there
+
+it's a totally different thing
+
+so
+
+in such cases what you can do is you can
+
+start and resume another process
+
+uh you can start another process and
+
+pass in all the data
+
+from this process to that process so
+
+that it knows what to insert and where
+
+okay so this guy is not
+
+worried about that
+
+okay so that's the
+
+basic flow of the orchestration
+
+okay
+
+i hope that part is clear
+
+yeah
+
+hold on i need to mute some notification
+
+because
+
+um
+
+yeah
+
+okay so that's the flow overall
+
+and uh now i have actually created a
+
+simple workflow to explain all this
+
+with a small scenario so it's easy to
+
+follow and it's quick
+
+so minimize this for now
+
+so this is my
+
+preferred workflow file
+
+and so here i have
+
+two workflow solutions
+
+one is to as i explained earlier we need
+
+to prepare the data for the
+
+orchestration process
+
+right so what i'm doing is i'm creating
+
+a process to read a excel file that has
+
+about three or four records
+
+and i'm going to add all that into a
+
+queue
+
+just simple two activities
+
+so let's look at the data
+
+uh so this is my sample data set
+
+so you are calling the sequence in the
+
+uh
+
+framework right no this is a separate
+
+process a separate uh empty sequence or
+
+a
+
+uh or a separate process that you can
+
+create
+
+i use the small process to keep it
+
+simple
+
+yeah
+
+i use the name orchestration source
+
+don't get confused
+
+yeah
+
+so what happens here is
+
+this is my excel
+
+i have three rows
+
+with the name email id amount and
+
+verification status saying pending
+
+so the scenario here is we will add all
+
+these items to a queue
+
+and the verification logic is
+
+if something
+
+some amount for a specific
+
+user here is greater than thousand
+
+we need to assign it to
+
+uh someone
+
+so you can manually verify it but if it
+
+is less than thousand
+
+you can automatically do the
+
+verification you don't need manual
+
+involvement
+
+okay so ideally this should get auto
+
+verified and these two get
+
+could get manually verified
+
+that's the scenario
+
+okay
+
+so we read the sum for data
+
+and i'm using bulk add queue items
+
+activity
+
+so that i don't need to loop through the
+
+data table you can add it as a
+
+yeah bug
+
+and this queue is already created in my
+
+orchestrator
+
+uh the queue name is orchestration items
+
+okay
+
+um
+
+and you can see the folder part is also
+
+called demos so if i go to orchestrator
+
+yeah
+
+yeah your properties for
+
+nothing nothing
+
+yeah
+
+yeah so okay i'm getting back to that
+
+the properties are the output of this
+
+the data table
+
+orchestrator queue name
+
+and where the cube is located
+
+okay the demos folder so here
+
+in the demos folder
+
+and under queues i have the
+
+orchestration items
+
+the key okay
+
+yeah
+
+so as of now i don't have any pending
+
+items everything is successful for now
+
+okay
+
+so what we can do is we'll just run this
+
+process
+
+to update the key
+
+okay
+
+so here i run it and
+
+it should add three items to the
+
+queue okay yeah this is just a simple uh
+
+add cue process right yes yes yes this
+
+is a simple process this could be any
+
+process
+
+you might get the data from
+
+application excel file text file
+
+anything
+
+simple dispatcher yes it's simple
+
+dispatcher basically
+
+and now now you have the data in the
+
+queue
+
+and this is the data that you are going
+
+to feed into the orchestration process
+
+okay so the data will look like this
+
+the name email id amount and the
+
+verification status all four columns
+
+yeah
+
+good so this part is done
+
+now we come to the orchestration process
+
+close the other one to avoid conclusion
+
+so we have little
+
+okay so in here
+
+in the initiation part we actually don't
+
+need to do anything
+
+because it automatically handles
+
+everything
+
+so all we need to do is
+
+in the config file
+
+we just need to add few things
+
+as you do in a normal repo
+
+because we have a queue here
+
+okay so i'm adding two items
+
+one is the orchestration queue
+
+and this is the queue name orchestration
+
+items
+
+that's the name that you see here
+
+and
+
+the other one is where this queue is
+
+located
+
+in the demos folder
+
+so that's all i have in my config file
+
+just to keep it simple
+
+you can also add few other things like
+
+the source file path and everything
+
+and do that okay
+
+so i have the
+
+config file crypt
+
+and at the end of this part
+
+you will get
+
+the
+
+config dictionary
+
+as the perfect variable
+
+all right
+
+so it's it's almost the same to what you
+
+see in the refrain
+
+yeah and then then we go to the business
+
+process
+
+this is where we write the logic
+
+right
+
+uh yeah so this is our workflow let's
+
+open it
+
+and this is the one that i showed you
+
+earlier
+
+so before explaining what i did over
+
+here i'll go into
+
+this part where we actually write our
+
+logic as i explained earlier
+
+so this is start business processing
+
+yeah so in my case
+
+i'm getting the transactions from a
+
+queue
+
+right so what i need to do is i need to
+
+use a get transaction item
+
+to get the items from the queue
+
+so in addition to what we saw earlier
+
+i'm adding a new argument because the in
+
+conflict the config argument was not
+
+there earlier right
+
+so i'm adding it so that i can use the
+
+data in the configuration file to find
+
+my queue and the folder
+
+okay
+
+so i did that
+
+and in return i'm also returning the
+
+queue item
+
+to the business process workflow
+
+okay why i do that in addition is
+
+because here we are only returning few
+
+things
+
+like the task title the catalog but you
+
+are not returning the data
+
+right so that's why i'm doing this
+
+so these are the two additional things
+
+so
+
+okay so now
+
+i create a get transaction item
+
+and that is assigned to a transaction
+
+item variable
+
+okay i'm using the config to find the
+
+queue name and the folder path
+
+a variable is defined here transaction
+
+item
+
+and then
+
+as you do in the array framework if you
+
+are very familiar
+
+if you
+
+remember in the get transaction data
+
+workflow you have this same condition
+
+to check whether the transaction item is
+
+none
+
+or not yes basically to check whether
+
+you have reached the end or not
+
+oh yeah so that's the first if condition
+
+so if the transaction item is not
+
+nothing
+
+that means you have data
+
+you come into the
+
+then section
+
+okay
+
+in here
+
+now we apply our logic the business rule
+
+now we have the data and now we can
+
+check
+
+our amount column
+
+whether it is greater than thousand or
+
+not
+
+okay
+
+so that's the condition here i'm
+
+transforming this into an integer
+
+and then checking this greater than
+
+thousand oh no
+
+and if it is greater than thousand
+
+now
+
+this part i'm using a multiple assign
+
+activity
+
+so
+
+just to keep it simple i follow the same
+
+order
+
+or same order of the arguments
+
+okay so now what i need to do so as i
+
+explained earlier
+
+if the amount is greater than thousand
+
+i need to create a task to verify
+
+manually
+
+so the first
+
+first argument
+
+create task it's a boolean do i need to
+
+create yes
+
+so i set it to true
+
+okay
+
+now the task title once you create the
+
+task what's the name what's the title
+
+that you can say verify amount or
+
+anything that you like just a string
+
+and the task catalog this is mostly used
+
+for
+
+those grouping purposes so you can use
+
+anything as you like
+
+so i used amount verification
+
+and for the task priority this is not a
+
+stream so you can see the task priority
+
+is of type
+
+task priority
+
+so how you can set the task priority is
+
+you can use this keyword
+
+see
+
+i'm using task priority dot and then it
+
+will say
+
+i low medium whatever
+
+so and you can just say hi oh whatever
+
+you need so in my case i am setting it
+
+to high
+
+and for the other one
+
+where this is located the folder
+
+that is actually the orchestrator uh
+
+folder
+
+okay so i'm using that same in config to
+
+locate the folder path
+
+okay and then
+
+the other one
+
+end processing have we already reached
+
+the end
+
+we don't know
+
+as of now only thing we know is we have
+
+some data to process because this
+
+variable is not null
+
+right so we are saying
+
+it's not the end of the process so it's
+
+set to false
+
+and because i need to send the data back
+
+to the calling workflow
+
+to create the task
+
+um assigning the data of the transaction
+
+item
+
+to out transaction argument
+
+okay
+
+it's simple
+
+yeah
+
+and the else part
+
+so this is when you need to create a
+
+pass
+
+but
+
+when this business
+
+logic is false though when you do not
+
+need to manually verify
+
+then
+
+you don't need to send all this
+
+information the task name and everything
+
+you only need to send three things
+
+one
+
+are you going to create a task
+
+no
+
+whether it's the end of the process
+
+no
+
+just like here
+
+and you just pass the data
+
+back because you are not creating the
+
+task but still you need to do the auto
+
+verification right
+
+so you need to update your downstream
+
+application the file
+
+so you need to still pass the data
+
+and that's why i'm doing it
+
+and
+
+the
+
+the else part here
+
+when you do not have a
+
+item to process so by default
+
+when all the items in the orchestrator
+
+queue is processed or in the successful
+
+state or whatever the state other than
+
+new
+
+so by default it gives you records
+
+of new status so if you don't have
+
+anything
+
+this will return you none or nothing for
+
+this transaction item
+
+okay so when it is nothing
+
+then what to do
+
+do we need to create a task again no
+
+because we don't have anything to create
+
+is it the end of the process yes
+
+do i have any data to
+
+update
+
+no
+
+so it's nothing
+
+yeah
+
+this is our business rule
+
+okay and we return this to our business
+
+process workflow
+
+okay so that part is clear right
+
+right right right
+
+yes
+
+so in here
+
+now just remember about those two flags
+
+task create and process
+
+okay that is by default assigned
+
+to
+
+these variables in this
+
+workflow
+
+but i had to create
+
+two
+
+uh
+
+two arguments so i'm also assigning
+
+those things
+
+to transaction item
+
+and the in country i'm passing
+
+it okay yeah because in here you have
+
+the in country
+
+it's here
+
+right
+
+yeah
+
+so once you get the data
+
+then you
+
+check do i need to create a task based
+
+on what you've written
+
+okay if yes you go here
+
+to create the task so i'll explain the
+
+false part later so earlier you didn't
+
+have this
+
+but because we are working on a
+
+created workflow for our scenario we
+
+have it so i'll explain
+
+so i'll go for this path first
+
+okay so in the create task
+
+you are using create form task
+
+now in here everything is configured but
+
+you need to design the
+
+form how you need to
+
+present it
+
+right so you are going to open form
+
+designer
+
+yeah
+
+and in here i have already done this but
+
+you can easily figure out because in
+
+here on the left hand side you see
+
+everything you need you see the buttons
+
+the radio buttons
+
+uh text areas where you can show the
+
+data
+
+and uh everything else
+
+okay so what you can do is you can just
+
+drag and drop these stuff into your
+
+right hand side
+
+area
+
+so i'll do example these things are
+
+already created just to show you
+
+so let's say i want to show
+
+some value so i'll drag it over here
+
+and you get this screen
+
+this is your label
+
+here yeah so i'll just say test
+
+output or user
+
+okay and these are the properties
+
+whether you want to keep it as enabled
+
+for the user to edit
+
+or you want to keep it disabled but
+
+still it's showing the value
+
+and so on
+
+these things depends on how you want to
+
+design it
+
+but the main thing here is
+
+uh
+
+data is the default value
+
+this field key
+
+field key is what we are going to use
+
+as a reference
+
+in your workflow how we are going to
+
+assign the value to this particular
+
+element or the component
+
+is by using this property name under
+
+field key
+
+so this name you have to
+
+use
+
+so i'll show you how we have done that
+
+okay
+
+so let's assume that you have already
+
+created this right so i have done that
+
+three text boxes or text fields and i
+
+have also two
+
+buttons here a pro and reject
+
+to
+
+have our decision
+
+by default you will have only approve or
+
+the submit but you can easily drag a
+
+button here and rename it
+
+right here all you need to do is just
+
+rename this field
+
+and that's it
+
+and this theme is what you show as green
+
+blue red
+
+success means green
+
+danger means red so for reject i thought
+
+of using red so that's why you see us
+
+ready
+
+yeah so that's done
+
+and in here so let me show you
+
+if i go to edit so this is where i show
+
+the name of that person
+
+yeah
+
+in here the label is profile name
+
+and that's what you see on the top
+
+and in the field key you see the profile
+
+name
+
+and for the email address
+
+i see the field key email address
+
+okay
+
+and total amount
+
+uh
+
+the field key is total amount so this is
+
+auto generated based on the name that
+
+you came here
+
+okay
+
+yeah so now remember that names
+
+and once you are done with this design
+
+just click on save
+
+okay save and close it
+
+so you are you have done the design
+
+so all these properties are by default
+
+done for you
+
+only thing you need to configure here is
+
+this form data
+
+so now remember now we have three field
+
+names
+
+in the designer and we have
+
+our transaction item
+
+this is why i return the transaction
+
+item because i need to assign it to this
+
+task
+
+right
+
+yeah so that is done over here you are
+
+building the connection between your
+
+task and the data so click on this
+
+now do you see anything similar
+
+you have seen this somewhere
+
+uh we have we created that in the task
+
+yes in the task that field key is what
+
+we mentioned here and this has to be
+
+exactly as what you see over there
+
+so it is appending to that
+
+yes
+
+so by default this this screen will be
+
+empty so you need to click on create
+
+argument and create it
+
+oh yeah right yeah so this name has to
+
+be exactly as you see in the form
+
+designer
+
+use it
+
+direction is in all the time because you
+
+are inserting values you are not getting
+
+anything out of that
+
+okay and
+
+i'm getting the name from the
+
+transaction item the name email id
+
+and
+
+the amount i'm giving as an integer
+
+okay okay so one last thing i wanted to
+
+show
+
+in the form designer if you want to
+
+provide any numeric fields to show any
+
+numeric fields you can actually use this
+
+the number
+
+okay it's also the it's also very much
+
+similar to text field but you have few
+
+additional properties like
+
+a few things like
+
+this thousand separate
+
+so it's easy to
+
+see how the data looks
+
+okay
+
+okay so now you have created the task
+
+and you have assigned oops
+
+you have assigned everything
+
+through the form data
+
+and you're good
+
+and then this activity is also there by
+
+default
+
+it will just add this created task to
+
+the list you have here
+
+okay
+
+and what i am doing in addition is
+
+now we are getting this from a queue
+
+right now i'm just saying
+
+to the queue okay so i have created the
+
+task so just change your status to
+
+successful i don't need you anymore
+
+so that and for that i'm using set
+
+transactional status
+
+that's also here from the activities
+
+pattern
+
+and under the projects you are saying
+
+what transaction item you want to set it
+
+to successful is what you return from
+
+here
+
+and the
+
+queue folder
+
+and the queue name
+
+the queue name is not mentioned here but
+
+transaction item is
+
+and you are setting it to successful
+
+wait a minute
+
+yeah yeah
+
+that is a separate thing this is
+
+this is what i used here is so this also
+
+can depend on your business rule for now
+
+what i assumed is
+
+these items that you see in the queue
+
+are for the orchestration process itself
+
+so
+
+irrespective of whether they get
+
+approved or rejected for now
+
+right uh
+
+i will just
+
+change it to successful because the task
+
+is creative
+
+okay yeah but if you want to maintain
+
+that data here
+
+whether
+
+it got rejected or successful or
+
+whatever
+
+you have to do this set transaction
+
+status after the wait part
+
+okay yeah
+
+so for now i will just do it here
+
+uh because you already created the task
+
+these things there are some things that
+
+depend on your actual requirement
+
+yeah and then once you do that you go
+
+back here
+
+whether it's the end of the processing
+
+note right
+
+because we return first and you go back
+
+here you get the next item you keep on
+
+doing that in a loop
+
+until you reach
+
+the end of the few items
+
+and then only you will go out of this
+
+okay now the else part
+
+if you do not need to create a task for
+
+our scenario okay
+
+i'm checking
+
+so in here if you remember
+
+creation task false is we are getting
+
+false from two points
+
+one is when your business logic
+
+says that you don't need to create a
+
+task
+
+right
+
+other one is when you actually don't
+
+have an item to process
+
+right so we need to check that the first
+
+thing you check is
+
+do i need to create a task no
+
+and why do i need to why don't i need to
+
+create a task whether it's the end of
+
+the transaction
+
+or
+
+you have something that needs to be
+
+automatically updated
+
+right yeah
+
+so that's what i'll check here the
+
+transaction item is nothing or not
+
+okay if it is
+
+not empty
+
+then
+
+in our simple logic
+
+i need to go to the excel file
+
+and
+
+for this particular guy right because
+
+it's less than thousand i need to change
+
+this verify status to
+
+auto approve
+
+yeah
+
+so that's what i do here so i just open
+
+excel file excel applications for
+
+so now i have the transaction item i
+
+know
+
+the data
+
+but i don't know where it is located in
+
+the excel file
+
+right
+
+so i'm doing a lookup range the same for
+
+the fringe to find
+
+right where this thing is located
+
+the easiest way is to email email id is
+
+unique
+
+okay so i'm using that email id from the
+
+transaction item
+
+to find
+
+where it is located so this lookup range
+
+will give you
+
+the cell
+
+of the email id
+
+where it is located so in our case it
+
+will return us
+
+it will return us c3
+
+right
+
+and
+
+so what i need to do is
+
+so in the d column only i need to update
+
+so i'm saying
+
+do a right cell as auto approved
+
+but in here
+
+this is the output of that
+
+lookup range it's it's assigned to excel
+
+cell number variable
+
+i'm doing a sub string to find only the
+
+number part
+
+in a string you will get
+
+two characters right
+
+one is the letter and the other one is
+
+the number
+
+so i need
+
+everything apart from the
+
+the letter so i'm doing a substring from
+
+the first point so i get the number
+
+uh so i get the number i
+
+add it to d column
+
+so i know where it is located now
+
+and i do the auto upload status and save
+
+it
+
+so part of it is already done
+
+right
+
+and when you don't have anything to
+
+update
+
+you go here again
+
+when processing is at the end so you go
+
+back to your
+
+main flow
+
+right
+
+so we are here and by the time you get
+
+here as i explained
+
+you will have the task list
+
+all right
+
+so now
+
+we have already created a setup task
+
+and i need to assign it to some guy
+
+so that happens in the next part
+
+so you go here
+
+open the workflow
+
+this is it this was the earlier right if
+
+you don't remember right
+
+so in the evaluation assignment row
+
+this was
+
+empty right
+
+here i have added three activities
+
+now this is one important thing because
+
+here we have
+
+new set of data types
+
+if you remember we get the in task list
+
+to assign and you return
+
+the assigned task list
+
+right
+
+you can see
+
+the argument type of the task list is
+
+list of
+
+form task data
+
+okay but you are returning a list of
+
+task user assignment
+
+okay so this is coming from system
+
+collection generic list
+
+and the rest is coming from uipath
+
+persistence activities task plus user
+
+assignment that's the data type
+
+so the first thing is
+
+we need to create a data type of task
+
+user assignment
+
+so i am creating a variable here
+
+a list of task user assignment
+
+um
+
+so if you want to find where this thing
+
+is coming from
+
+you can go here
+
+and search task user assignment and it
+
+will be available here
+
+that's the data type
+
+and you do that and in the assign
+
+i assign the value to my variable and i
+
+click create the variable new list
+
+of task users and
+
+it's an empty list
+
+why i do that is because for these kind
+
+of
+
+variables we need to first define it or
+
+declare it
+
+okay otherwise it will throw an error
+
+once you declare that
+
+then i have the task list
+
+now okay
+
+how we are going to assign it to a user
+
+also depend may depend on certain
+
+business rules
+
+so in our case just to keep it simple
+
+i'm assigning it just for myself
+
+everything okay
+
+so what we need to do is we are looking
+
+through the task
+
+list okay or each type
+
+is
+
+the type argument is
+
+a form task data
+
+because this list is of type
+
+form task data
+
+yeah
+
+so we basically need to find that same
+
+data type
+
+and then in the assign
+
+here i have a new variable
+
+task for user
+
+this is task user assignment type so
+
+earlier it was a list of task users i
+
+mean
+
+yeah in here so i'm now creating the
+
+data for that list
+
+of this type
+
+okay so this task user assignment
+
+also has to be declared in a way
+
+this is how you do that
+
+see this
+
+i'm going to say
+
+new task user assignment
+
+so you can see the expected ones
+
+you know the task id
+
+and you need the email or the username
+
+right
+
+so the task id how you can get it
+
+this item or the loop is of
+
+this form task data
+
+right
+
+so you can use that
+
+uh
+
+and dot
+
+you can
+
+look for the id this one
+
+this is your id
+
+and then
+
+you can give the username or the email
+
+address of the user
+
+so one thing to remember is this user
+
+has to be available in your cloud
+
+platform
+
+okay in the orchestra yes so when i say
+
+the cloud platform it's here and admin
+
+this user has to be there oops
+
+if not what will happen is
+
+it will not assign it to anybody
+
+it will just be in that unassigned
+
+section in your extracts this section
+
+yeah so in here under users where's my
+
+users
+
+uh
+
+yeah so in here that guy has to be there
+
+this is me
+
+okay yeah
+
+okay
+
+so for now i'm just hard coding because
+
+it's just for me but
+
+in your case you have to write your own
+
+logic
+
+yeah
+
+yeah
+
+once you do that
+
+you create the assignment
+
+then you add it to the collection
+
+this list
+
+using add to collection activity
+
+what you do is task assignment list what
+
+you have over here
+
+and you assign this task for user
+
+okay
+
+so you keep on doing that for all the
+
+tasks and then
+
+you just return it
+
+right
+
+we return it you do a sign so that you
+
+assign it to that
+
+right
+
+and then
+
+now we are here
+
+right so now we have the assignment
+
+and we are already given with this
+
+assigning stuff
+
+so using the assign task it will
+
+automatically assign everything based on
+
+your values provided
+
+and now you have the task created you
+
+have assigned it to your users
+
+and
+
+now only thing remaining is wait
+
+wait you have the user to complete it
+
+so in our case as i explained earlier we
+
+are waiting in the current process
+
+because it is how it is defined by
+
+default
+
+so we go here
+
+so all these are done for you you just
+
+you don't need to do anything
+
+you wait here it will come here to this
+
+weight activity and it will stop
+
+it will go into the suspended state
+
+okay
+
+and once you complete the action
+
+then what i need to do is
+
+i need to update my excel file
+
+so
+
+after resume what you need to do
+
+i want to update the excel file based on
+
+the data returned
+
+from this weight so the return data is
+
+coming from task output
+
+okay
+
+this is of type
+
+uh
+
+let's see
+
+now this task output is here it's again
+
+form task data
+
+okay
+
+so it will have all the data you
+
+assigned
+
+in addition it will also return which
+
+button you clicked
+
+okay
+
+yeah
+
+so
+
+you are passing this data into this
+
+after resume workflow
+
+okay this is also given to you by
+
+default
+
+okay
+
+and you go in here
+
+this is also an empty workflow that you
+
+will get
+
+okay you need to define how you want to
+
+do your thing
+
+so in my case
+
+now the thing to remember is
+
+when you get the data from this task
+
+object
+
+this is a form task data
+
+so it will have the task title the
+
+priority every single thing that you did
+
+in addition where you can find this data
+
+is
+
+under this data
+
+section okay
+
+and this is
+
+coming in as an object
+
+object right so once you convert it to a
+
+string you will see it is actually a
+
+adjacent
+
+let me try to show you
+
+like this
+
+it's here because i ran it earlier
+
+so i did it on purpose so i can explain
+
+these things as i
+
+do this
+
+okay so
+
+this is coming in like this the data
+
+part
+
+yeah so the profile name remember this
+
+it's
+
+in the task assignment but we had two
+
+buttons submit and reject
+
+right
+
+i clicked on submit that's why it's
+
+saying true
+
+and i did not click on reject so it's
+
+false
+
+but for the other guy
+
+i clicked on reject so it's true this is
+
+false
+
+that's how it will look like
+
+so for this one because you are getting
+
+a json string
+
+you need to deserialize this so that you
+
+can access each and every value easily
+
+without doing substring
+
+all right
+
+yeah so to do that
+
+by default you will not have this dc
+
+analyze json activities available
+
+but you can easily add it
+
+from dependencies
+
+you need to look for
+
+web api activities and edit
+
+and that will have this dc realize json
+
+what what i am doing is
+
+task object dot data dot to string
+
+will give you this json and you it will
+
+convert it to a json object
+
+okay
+
+uh
+
+yeah
+
+so you can see my output json is j
+
+object
+
+that's what it returns the value to
+
+okay
+
+yeah
+
+and then
+
+lastly i want to update my excel
+
+so if i click on
+
+approved
+
+yeah
+
+yeah so this is the same path
+
+that we
+
+updated
+
+earlier so i'm opening the excel file
+
+as before as i showed you earlier i'm
+
+looking for where it is located
+
+but this time
+
+earlier i use the transaction item but
+
+here i have the json object
+
+so what i do here is
+
+i get the output json
+
+the one that i got from here
+
+dot
+
+get value
+
+okay access what field i need to
+
+get
+
+out of this
+
+so get value within brackets i need to
+
+use these names email address profit
+
+name profile name
+
+whatever i need to use
+
+so i'm looking based on the email
+
+address
+
+so i need to use this name i see here
+
+email address
+
+this is the name that i see in the task
+
+when we created the task the form
+
+that name will be available here
+
+so get value email address to string
+
+and it will look for the value and give
+
+me the cell id where it is located
+
+and then
+
+then i need to do what i need to do is i
+
+need to see which button i clicked
+
+okay whether it's submit or the reject
+
+so it's either one we cannot click both
+
+at the same time
+
+what i do is
+
+just like before i check whether the
+
+submit
+
+thing is false or true
+
+okay so it's you can see it's not a
+
+string it's returning
+
+it's it's a boolean
+
+so i convert this
+
+into a boolean using boolean.pass
+
+okay so if it is true
+
+then i will say
+
+same logic as earlier and say
+
+else
+
+rejected
+
+right
+
+and save it
+
+so this is
+
+the flow
+
+right
+
+so let's run it and see
+
+so as of now do you have any questions
+
+no uh it was clear for me uh i haven't
+
+one question after the once from it then
+
+i can ask that okay
+
+so i'm going here just uh so we already
+
+ran this
+
+can we once publish this and do it
+
+again yeah so i'll first show it from
+
+the studio so you can see how it is
+
+executing
+
+okay so in the queue orchestration items
+
+here we have
+
+three items
+
+already
+
+and in the actions i don't have anything
+
+pending
+
+i'm going to run this from the main
+
+workflow i'll close all this
+
+and i have enabled execution trail and
+
+log activity so you can see
+
+how it is running
+
+right
+
+so i'm starting
+
+okay
+
+so as i explained it will read the
+
+config file
+
+and you can see it's opening up and then
+
+it will go through our business logic
+
+right and it will
+
+start doing the task creation data
+
+extract all the information
+
+and create the task
+
+and it's going into task assignment
+
+right evaluation our logic and here we
+
+go we are waiting
+
+right so ideally they should create only
+
+two tasks because one is less than
+
+thousand
+
+right and as of now if we open the excel
+
+file we should see auto uproot
+
+right
+
+and here you go it's here
+
+right
+
+yeah and for these two let's try to
+
+upload that
+
+okay
+
+so while this is waiting because we are
+
+running it from studio the studio has to
+
+be manually received once you do the
+
+uh approval
+
+but when you publish it to orchestrator
+
+it will automatically hurt that
+
+okay so now we are going to
+
+this actions refresh
+
+we have two actions assigned to us
+
+right
+
+i'm first doing this so for this guy i
+
+will say i will approve this
+
+i'm clicking on approve
+
+and just click on copy
+
+and this i'm going to say reject
+
+right click on reject
+
+you're done
+
+and here as i explained studio has to be
+
+manually received because we are running
+
+in the debug
+
+mode
+
+so i click on resume
+
+and it will resume automatically
+
+go into after resume
+
+check the data
+
+update
+
+you can see okay oops okay the
+
+something happened
+
+yeah that's fine so
+
+it's like some communication thing
+
+um so i can try
+
+yeah
+
+yeah so ideally that's how it works
+
+um so if we go here we should
+
+see at least half of
+
+yeah so this is approved
+
+and it got failed when trying to
+
+refresh this
+
+the reason could be
+
+it's trying to access the same excel
+
+file okay
+
+within a parallel for each
+
+yeah
+
+so we need to have that in the specific
+
+way
+
+so yeah this is just for the demo
+
+process right
+
+right okay so you can see
+
+both branches got executed
+
+yeah so that is how you use this
+
+uh
+
+arrow
+
+for each thing and also the new
+
+orchestration process
+
+okay
+
+so now i have it though that uh these
+
+are added to the so once can you publish
+
+publish
+
+publish to
+
+um
+
+okay
+
+and
+
+let me create the process as well over
+
+here
+
+where is it
+
+um okay
+
+orchestration for this is here
+
+i'm going to
+
+create a process
+
+next
+
+and create
+
+so we have the process now
+
+right
+
+so you want me to run it from here
+
+yeah
+
+okay so
+
+it will operate right uh as you see
+
+yeah so we'll first do this part
+
+okay so these two are crea linked
+
+through the
+
+queue right
+
+right so for now i will just trigger
+
+this thing to update the queue
+
+okay
+
+and i need to run this process from here
+
+this thing can be actually scheduled or
+
+you can create a queue trigger
+
+to run this part
+
+okay
+
+for now i will just create it from here
+
+this is going to be unintended and it's
+
+going to run
+
+in my machine
+
+okay
+
+so it's running
+
+and you should create the actions
+
+and go into suspended state
+
+okay
+
+give it some time
+
+okay so it's suspended
+
+right now in my actions if i resume
+
+yeah yeah you're breaking up a bit but
+
+now i can hear
+
+yeah
+
+so uh it was uh resumed at the wait
+
+stage right if any new data was added
+
+more to the queue
+
+so the task would not be created now
+
+right unless or until the stacks are
+
+clear no so wait
+
+okay it's a good question so what i did
+
+is if i add new items to a queue
+
+uh for now as of now i haven't
+
+given the orchestrator the instructions
+
+to run the orchestration process i ran
+
+it triggered it manually through the
+
+start option
+
+right so what you can do is
+
+if you want to
+
+automatically trigger this orchestration
+
+process instead of manually running it
+
+you have two options
+
+either schedule it
+
+at a given time
+
+or you can create the orchestrator queue
+
+the queue trigger
+
+and that q trigger will trigger this
+
+process as soon as you see a new item
+
+let's see that uh now the data was added
+
+uh let's assume that the cougar was
+
+there data was added to the queue and it
+
+was in now that was in the suspended
+
+state to get the approval from the firm
+
+and again the data was added so the
+
+suspended state will go from
+
+suspended to running and it will add
+
+that forms and again it comes through no
+
+no no
+
+this will be suspended until you reply
+
+to those actions it created this process
+
+created
+
+okay if you add some new items again
+
+and run the orchestration process again
+
+that guy will create the actions for
+
+that process and it will also go into
+
+suspender
+
+okay okay okay now got it got it uh once
+
+can you run that i have the data again
+
+and uh run it again so we'll get the two
+
+such penetrates yes so if i run the
+
+other part again this source
+
+so i'm adding again another three items
+
+to the queue
+
+done
+
+and uh yeah so i need to write from here
+
+i'm going to start a new process
+
+okay station unattended
+
+turn it on my machine start
+
+this is running you can see still this
+
+is suspended
+
+oh no okay now i got it
+
+yeah so this guy will handle its
+
+processors this guy will handle his uh
+
+tasks
+
+got it got it got it clear now
+
+yeah so both lines are suspended and
+
+over here i should see four actions
+
+okay
+
+so let's
+
+try the combination so i'll try it from
+
+the one from the first one
+
+15 years ago this i am going to uh
+
+yeah so ideally i should have like
+
+uh four
+
+uh or six items in the excel but let's
+
+see right how it works
+
+we know the output is going to update
+
+so this thing i'm going to reach
+
+okay
+
+and from the first see first one started
+
+okay
+
+this was run four minutes ago and it
+
+will update the excel
+
+and stop again
+
+why
+
+it has another pending item in the
+
+action center
+
+right right
+
+so it updated the excel let's just have
+
+a look to see how it looks like i know
+
+it updated earlier
+
+yeah so
+
+some value
+
+right okay
+
+now if i
+
+run the other one
+
+the one we just created
+
+this one will say approve
+
+and now you can see this is running
+
+can you see it's handling its own
+
+tasks
+
+right right
+
+so
+
+if i do this again
+
+i'm going to reject
+
+now this guy is running
+
+i'm going
+
+so it will not uh
+
+get confused with what you are trying to
+
+do
+
+it will handle its own thing
+
+right
+
+and now
+
+this is running and it will also go into
+
+successful
+
+right
+
+yeah
+
+my new excel file is updated based on
+
+that
+
+yeah so this is how you create the
+
+orchestration process
+
+right you got it
+
+it's
+
+okay so any more questions on this
+
+anything that's not clear
+
+it's fine everything is fine
+
+yeah
+
+yeah so the one additional thing if you
+
+can see this is a background process
+
+right
+
+so
+
+even while
+
+uh things are
+
+running
+
+even while multiple other processors are
+
+running this can still execute
+
+as long as it does not use any ui
+
+automation
+
+okay if there if there is any ui
+
+interaction then
+
+we need to change anything with
+
+automatically
+
+yeah
+
+good question so here
+
+in the orchestration process you can see
+
+we don't have ui automation
+
+okay
+
+why
+
+because
+
+orchestration process
+
+do not use ui automation it cannot go
+
+into that
+
+orchestration thing when you have ui
+
+automation and that's why
+
+we have this rule
+
+over here
+
+do you want to run it here or do you
+
+want to do it in a separate process
+
+okay got it
+
+so this is because it's a simple excel
+
+for our demo purpose
+
+i did it here but ideally as i explained
+
+earlier
+
+the
+
+source part from wherever you are
+
+getting the data that has to be a
+
+separate process
+
+after you do the verification what you
+
+do that has to go into another process
+
+so orchestration process
+
+is in the middle combining or connecting
+
+these two
+
+through the human in the loop
+
+okay got it yeah
+
+okay
+
+so what you can do is if that's the case
+
+let's say you are updating into a uh in
+
+house or
+
+application like sap or web something
+
+you can start a new process start job
+
+and pass the arguments okay so one thing
+
+uh so when the tasks are approving
+
+parallely it was uh
+
+doing the things parallelly right so in
+
+the when it came to ua interaction
+
+that cannot be possible right because
+
+uh the application with uh
+
+only one and it cannot barely work
+
+without opening an another one or
+
+something yes
+
+yeah that's another good question so
+
+again how you build the link
+
+now remember from the source to the
+
+orchestration process how we did the
+
+build connection through a cube
+
+okay
+
+and here what you can do is
+
+either you can say
+
+okay i'm not going to start a different
+
+process here i will just after resume i
+
+will add everything to another queue
+
+that q will trigger another process it
+
+will take care of what it needs to do
+
+okay got it
+
+yes
+
+the other approach you can still say
+
+okay i have the verified data
+
+start another process so let's say this
+
+in after resume process name
+
+it's a process to update a web
+
+application
+
+so what you can say is
+
+you are passing this data
+
+directly to the process itself
+
+from task data
+
+and saying hey start the process and
+
+here is the data go and update the
+
+system
+
+so for each and every action it will
+
+start a process
+
+okay and uh it it's
+
+each process will handle its own data
+
+passed by this workflow it will update
+
+close it
+
+the next process it will run update
+
+close
+
+like that
+
+got it got it so all that depends on how
+
+you want to configure
+
+right right
+
+right
+
+now
+
+yeah
+
+so
+
+rule of thumb no ui automation here
+
+source has to be separate
+
+the so
+
+what is the condition you have to give
+
+if it was to if need needs to go to l
+
+spot in after resume step in processing
+
+so here it's
+
+it's this one in after resume process
+
+name
+
+um
+
+you just need to set it to false
+
+people
+
+initially it was true so okay
+
+you need to keep it also fine then it
+
+will go inside this part
+
+so now
+
+actually it's very easy because all
+
+these things are given to you you just
+
+need to fill in the stuff as we did
+
+okay
+
+so i think you're good
+
+with this yeah
+
+and we can
+
+close for today
+
+it was a good session
+
+and thank you very much for bringing
+
+this up and it's a very good
+
+topic and it's right on time because
+
+they have also introduced this framework
+
+so it's a good way of explaining the
+
+framework with a real use case
+
+right so yeah
+
+great yeah
+
+okay this is helpful
+
+for you and also for everyone who is
+
+listening
+
+because this was very new i mean that
+
+the
+
+process itself is very new i think
+
+there isn't no much enough data also to
+
+follow up yeah
+
+yeah
+
+okay
+
+thank you for now okay thank you and
+
+we'll see you guys in another video
+
+thanks for listening
+
+yeah
+
+thank you
+

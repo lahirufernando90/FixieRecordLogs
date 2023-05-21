@@ -1,0 +1,866 @@
+hello welcome to my new video on
+
+train easy document classification
+
+in this video we'll be exploring a new
+
+feature
+
+in document classification which we call
+
+as
+
+references so in this video we'll be
+
+looking at how we can add change and
+
+remove
+
+these references when we are doing the
+
+classification
+
+while the process is running so that is
+
+the most important part
+
+so when we say references this is
+
+referring to
+
+the keywords so as we know
+
+when you are doing the classification we
+
+use keywords
+
+to classify a document
+
+and in uipath studio we have
+
+multiple specification methods
+
+the very basic one is the keyword based
+
+classifier
+
+which we provide keywords
+
+to classify the documents
+
+and on the other side we have the
+
+intelligent keyword classifier
+
+which is capable of automatically
+
+identifying keywords
+
+for each different type of document and
+
+the other one is
+
+um machine learning classifier which
+
+is used in combination with ai center
+
+so all three is using
+
+keywords to identify these documents
+
+so to explain this concept better i'm
+
+going to use the keyword based
+
+classifier which is the most
+
+basic one
+
+so earlier what we used to do is
+
+we used to provide the keywords
+
+in the um
+
+in the keyword based classifier
+
+but now with this feature instead of
+
+providing it first we can add it while
+
+the process is running
+
+so before getting into that let's have a
+
+look at
+
+the workflow and the type of documents
+
+we have so if
+
+you are not familiar with the activities
+
+we use for
+
+document understanding framework i
+
+highly recommend
+
+you to go through the document
+
+understanding courses available in
+
+academy
+
+and also in my youtube channel
+
+you have a full series there
+
+so coming back to the very top
+
+i have um
+
+[Music]
+
+three different files here process i
+
+have two invoices
+
+of different layouts these are sample
+
+documents which i was able to
+
+find on through the internet
+
+so we have two documents like this
+
+and also along with that i have another
+
+image
+
+for a purchase order
+
+so in the
+
+workflow let me take you through that
+
+first i have defined the taxonomy
+
+so in the taxonomy i have created two
+
+groups finance
+
+and incoming is the category and inside
+
+that i have the two
+
+um types of documents one is the invoice
+
+and the other one is the purchase order
+
+as you see we have not provided any
+
+field fills here as yet
+
+um we are not doing data extraction in
+
+this video
+
+this one will be only looking at the
+
+classification so it is not needed for
+
+now
+
+but in the ideal case you can have field
+
+fields as well
+
+so we have created two types
+
+and in the workflow the very first one
+
+is i am getting the data or the input
+
+files
+
+from the files folder which is available
+
+inside the same solution
+
+the three files i showed you earlier and
+
+then i'm doing the
+
+load taxonomy
+
+then to look through the files i'm using
+
+the
+
+for each activity for this array
+
+and for each file i do the
+
+digitized document and
+
+i'm using the omnifetch ocr for this
+
+instance
+
+the properties of these activities are
+
+the same as the
+
+default i have only defined the
+
+variables here
+
+so after digitizing i have the
+
+classified document score
+
+for this one i am providing the file
+
+paths the document text
+
+object model and the taxonomy output
+
+is the auto classific auto classified
+
+data which is off of classification
+
+result type array
+
+and in this one i'm using the
+
+keyword-based classifier
+
+so i have provided the file path for the
+
+json file
+
+so it is located in here
+
+if i open this you are classified so you
+
+can see this file is empty as of now
+
+i'm using this one because it's easy to
+
+explain
+
+and you can visually see what's
+
+happening
+
+but the same concept applies to the
+
+other two
+
+classification methods the intelligent
+
+keyword classifier
+
+and the machine learning classifier
+
+so i have provided the file path but i
+
+haven't done
+
+or provided any keywords yet
+
+and in the configure classifiers i have
+
+mentioned that i'll be using this
+
+keyword based classifier for specifying
+
+invoices and purchase orders
+
+and then i have the present
+
+classification station
+
+and after that using the validated
+
+classification
+
+results i'm going to train
+
+the classifier keyword-based classifier
+
+so i'm pointing to the same json file
+
+i'm pointing to the same json file but
+
+no key was defined yet and only thing
+
+i'm doing is
+
+i'm saying i'll be using the
+
+this trainer to train the invoice and
+
+purchase orders
+
+for keyword based classifier
+
+so why we have this trainer is actually
+
+to update the json file based on
+
+the references we provide
+
+so this is the simple workflow
+
+and let's run this and
+
+and then we'll look at how we are going
+
+to use the references
+
+i'm going to run it and it's going to
+
+pick the files from this location
+
+and here we see the
+
+classification station for the first
+
+document
+
+so as of now i'm not going to
+
+uh provide any keywords so the main
+
+thing is it is saying not classified
+
+because it is unable to figure out what
+
+type of
+
+document it is because we haven't
+
+provided the keywords
+
+so for now is instead of providing any
+
+references i will just say
+
+this is going to be an invoice and
+
+then
+
+and for this other document i will just
+
+do the same
+
+invoice and save
+
+and then we get the last one for the
+
+purchase order
+
+and i'll do purchase order and save it
+
+so the process completed successfully
+
+um let me enable the logs
+
+but if we look at the json file
+
+even though we said that those are
+
+invoices and purchase orders
+
+it didn't update the json file because
+
+we didn't provide any references
+
+and next time if you run you will see
+
+the same screen
+
+it will not know what type of document
+
+it is
+
+but this is because we are using the
+
+keyword classifier
+
+but if you use the intelligent keyword
+
+classifier
+
+it will automatically pick the
+
+references
+
+based on its uh knowledge and it will
+
+update the json file
+
+but later you can change the keywords
+
+or the references so let's
+
+now see how we can
+
+use uh the keyword based classifier
+
+to add and remove references
+
+so again i'm not using the intelligent
+
+keyword classifier here because it's
+
+difficult to actually show what's
+
+happening
+
+okay so we'll run the same thing again
+
+and we are here now
+
+so this time i'm going to select this as
+
+invoice
+
+and instead of giving the invoice as a
+
+reference i will just
+
+provide another value just to show you
+
+something
+
+so instead of using a common one i will
+
+just use
+
+this uipath sra
+
+so the good thing is you can either
+
+highlight the keywords here
+
+just like what you see here or else
+
+you can switch to
+
+text mode and from there
+
+you can go to the selection mode
+
+and go for tokens
+
+and then select the keywords that you
+
+need to
+
+include for this one we'll do it in the
+
+textbook
+
+so i'm going to select uipath and
+
+srl so i have two words selected here
+
+and how i'm going to add this as a
+
+references
+
+while this is selected i'm going to
+
+click on these three
+
+dots and say add reference
+
+and then you can see a small icon
+
+popping up here
+
+which also has options to highlight
+
+reference and remove reference
+
+we'll have a look at that in a bit
+
+so now for this document we have given
+
+the two
+
+references and we have selected the type
+
+and now i'm going to save save this
+
+and then here it comes to the next one
+
+so in this one this document does not
+
+have the ui path srl
+
+anywhere that's why it doesn't know that
+
+this is also
+
+a document of the same type
+
+so before showing this let me quickly
+
+open the
+
+keyword classifier so now you can see a
+
+value
+
+which is uipath sro the reference i
+
+selected
+
+so this is how you can add references
+
+to the keyword based classifier or the
+
+intelligent keyword pacifier
+
+it's the same concept
+
+so let's close this and try the same
+
+thing for this one
+
+so in this one instead of selecting
+
+invoice
+
+i'll select the date
+
+which means this date
+
+so i'm going to select click on this
+
+and and say add reference
+
+and select this as the inverse
+
+as the concept
+
+so let's see what happens now
+
+so the keyword classifier will update
+
+the file
+
+as you see now you have two values this
+
+is the first one
+
+and this is the second one
+
+and it also says how many times this
+
+this keyword was confirmed
+
+as of now it's only one
+
+and this is the next document which is a
+
+purchase order
+
+but see this is the trick now you can
+
+see that this purchase order has got
+
+selected as an
+
+invoice and showing us 44 percent
+
+confident
+
+but how did this become an invoice
+
+what are the references
+
+that made it become
+
+invoice instead of a purchase order
+
+that we can see by clicking on this
+
+small icon
+
+on top of this page and click highlight
+
+reference so you can see a small
+
+red color line
+
+highlighting the word date so in the
+
+previous document i specified
+
+date as a reference for invoice
+
+but here we have the same
+
+date in this document so that
+
+it is thinking that this is a
+
+invoice so now how to change this
+
+instead of just selecting this as a
+
+purchase order
+
+we'll also try to change this reference
+
+so what i'm going to do is
+
+i'm going to select this purchase order
+
+and click on these three dots
+
+and say you can either remove reference
+
+or you can change the reference so for
+
+now i'll just
+
+do change so if you remove
+
+you need to add it again so let's
+
+let me show you one thing as so i'm
+
+going to click on remove
+
+this remove will actually remove the
+
+reference so that this icon will also
+
+disappear
+
+and if you want to get that back to the
+
+previous state
+
+like undoing you can click on discard
+
+changes
+
+yeah so we'll need to confirm and i'm
+
+going to say this card
+
+and now you have this icon again
+
+and i can click on highlight reference
+
+so again it's showing the date
+
+okay so instead of dead i'm going to say
+
+use this purchase order so i'll select
+
+change reference
+
+and now it's changed to purchase order
+
+and i'm also going to say this is
+
+not an invoice it is a purchase order
+
+and click on save
+
+okay now let's have a look at the file
+
+again
+
+so now we have the date the previous one
+
+you have for the server and the purchase
+
+order
+
+the third keyword
+
+so that's the file now we'll have a look
+
+at
+
+the activity itself here
+
+keyword based classifier if i go to
+
+manage learning
+
+here you can see it has automatically
+
+updated itself
+
+so instead of typing now we can use this
+
+feature to train the model and you can
+
+see
+
+as you saw earlier it will also improve
+
+your classification so
+
+you don't need to specifically train now
+
+if
+
+the document is tagged as a different
+
+different type at the same time
+
+while the process is running you can
+
+manually add the reference
+
+and then update it so that next time it
+
+will use the new
+
+keywords so this is
+
+how it was done the same thing applies
+
+in the other classifiers as well but
+
+in those you will have a lot of more
+
+data in the json file
+
+so it will be very hard to track there
+
+but still it works
+
+okay so let's run this again to see
+
+how it is work how it is classifying the
+
+documents
+
+and this is our first file and it says
+
+this is an invoice which is correct
+
+but let's highlight the reference you
+
+can see
+
+this is highlighted so i don't want to
+
+use this
+
+because this is not a proper keyword to
+
+identify invoices
+
+invoice word is much better
+
+so i will say
+
+just remove this reference and i want to
+
+use
+
+this as the new reference
+
+and i'm going to add it
+
+and say save
+
+so in the next document let's see
+
+what happens so here it is identified as
+
+the invoice
+
+and let's see what's the keyword
+
+now you can see it didn't identify the
+
+date
+
+as the keyword it
+
+is highlighting invoice because i
+
+updated
+
+in the previous login so it all applies
+
+and it all works together
+
+this is correct and let's play concept
+
+and the purchase order now it is
+
+classifying it
+
+properly because i added the purchase
+
+order reference
+
+if i say highlight here you go
+
+that's how it works so let me click on
+
+save
+
+so this is the concept of changing
+
+adding and removing references it
+
+basically helps you to
+
+improve the accuracy of the
+
+classification
+
+in the documents use the same concept
+
+irrespective of whether you are using
+
+the keyword based classifier
+
+or the intelligent keyword classifier or
+
+the machine learning classifier
+
+it all works together to improve
+
+the accuracy of the classification
+
+process
+
+so i hope this
+
+video was helpful to understand how we
+
+can improve
+
+the classification process using the
+
+references
+
+try it out yourself and let's see
+
+how it improves your accuracy of the
+
+process
+
+thank you very much for listening and
+
+i'll see you back again
+
+in another video until then take care
+

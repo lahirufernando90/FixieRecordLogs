@@ -1,0 +1,1307 @@
+This part of the video focuses on how we can enable automatic retraining capabilities of UiPath AI Center, Data Manager, and Document Understanding workflows.
+
+Topics covered in the video:
+- Use of Train Machine Learning Extractor in uploading training data into Datasets in AI Center
+- Exploring the automatic retraining procedure in AI Center
+- Enabling automatic data import and export in Data Manager
+- Scheduling training pipelines
+- Enabling automatic upgrade of ML models to the latest version
+
+hello everyone
+
+welcome to the part 3 of the training
+
+document understanding ml models
+
+video series
+
+so
+
+in the previous video
+
+we discussed how to generate the
+
+training data through the document
+
+understand workflow
+
+and upload it
+
+to data manager manually
+
+and then from the
+
+ml training
+
+but this process that i showed you in
+
+the previous video was
+
+something that you have to do manually
+
+and uh when you are dealing with
+
+large amounts of documents it's not
+
+possible to sit down and go through each
+
+and every document
+
+and do the verification and perform the
+
+the machine learning training
+
+so to address that in this video we'll
+
+see
+
+what are the features that's available
+
+in the latest version of your path
+
+platform
+
+and see how we can do that
+
+so let's get to the workflow and the ai
+
+center
+
+okay so in ai center if you
+
+remember
+
+from the previous session
+
+we had uh the data labeling session
+
+done for us so let me open this
+
+and also
+
+uh in in the data manager
+
+what we did is we just
+
+imported
+
+several documents
+
+based on the validations done through
+
+the uipath workflow
+
+and that's what we exported and then
+
+trained the
+
+model so in here now what we are talking
+
+about is how we can do the same steps
+
+automatically without someone
+
+manually logging into the data manager
+
+and doing the import and export
+
+so
+
+for this one we'll be using the data
+
+manager
+
+and also
+
+we'll be using the data sets
+
+so again referring back to the previous
+
+video
+
+we discussed in the uipath document
+
+understanding workflow
+
+down here
+
+we introduced the train extractor scope
+
+activity along with machine learning
+
+extractor train active
+
+and we showed
+
+how
+
+the training data is generated
+
+and
+
+how it is uploaded to the
+
+uh
+
+data set in the ai center
+
+and also we discussed
+
+how
+
+and
+
+where we can store this same training
+
+data locally
+
+so just to brief uh you on that so let's
+
+quickly look at the
+
+local version
+
+so in this one we will see
+
+the documents where we have all the
+
+process documents
+
+and the metadata
+
+in
+
+in json format so this will basically
+
+have all the validation
+
+and the locations of the fields and
+
+every single thing that and find in the
+
+document
+
+these files are generated from this
+
+activity
+
+also if you look at this data set
+
+in the ai center you will see the same
+
+set of folders
+
+and the same files because it's
+
+automatically uploading the data into ai
+
+center
+
+so if we get to the data sets
+
+uh invoice training is our data set
+
+so you can see
+
+uh
+
+this export is the folder that was
+
+created once we exported the data last
+
+time
+
+and the internal one was
+
+some internal files that's used by data
+
+manager
+
+so
+
+what happens here is when you import
+
+documents into data manager and do the
+
+validation here and then export it
+
+uh it creates that export file
+
+but
+
+as and when the process runs
+
+through this activity when you upload
+
+the documents into the ai center data
+
+set it will create this fine tune
+
+folder
+
+inside the specified data set
+
+so basically all the new files that you
+
+process
+
+will be stored inside this fine tune
+
+folder
+
+so in this folder you can see the same
+
+structure
+
+documents folder and the metadata
+
+and here you will see all the json files
+
+and in the documents folder you will see
+
+all the documents that you process
+
+so the reason to have this data here is
+
+actually to help us automate the
+
+training
+
+part of the
+
+machine learning models
+
+as you know once we create these machine
+
+learning models
+
+we also need to maintain
+
+so this training is one of those
+
+maintaining
+
+actions
+
+so you might wonder are we training
+
+only on the data available in this fine
+
+tune folder
+
+well not really
+
+every time you run the process it will
+
+just keep on populating the data into
+
+this fine tune folder irrespective of
+
+when you are running it
+
+how many documents you are running
+
+so basically every time the retraining
+
+process happens from now on it will be
+
+processing
+
+every single
+
+file that you see in the fine tune
+
+folder
+
+and also the initial training that you
+
+did
+
+everything will be considered
+
+every time
+
+when you do the retraining it will be a
+
+larger data set than what to end before
+
+so basically it will be also using the
+
+old
+
+files that were used to train
+
+the previous versions as well to train
+
+the newer version
+
+so that's how you improve the accuracy
+
+of the machine learning model
+
+all right so that being said now we know
+
+that
+
+whatever the documents that we have in
+
+this fine tune folder will be used
+
+to trend the data
+
+so
+
+now let's have a look how we can get
+
+this data the documents into the data
+
+manager
+
+so in the data manager this is what we
+
+uh discussed last time this 10 documents
+
+but how to import the data automatically
+
+into
+
+data manager
+
+if you actually look at this import you
+
+don't see a auto import or a scheduling
+
+option
+
+to actually import the data
+
+basically the option here is just to
+
+uh browse and
+
+upload the document
+
+basically if you remember last time what
+
+we did was
+
+we saved this folder and then uploaded
+
+that
+
+but that was manual
+
+but
+
+when it comes to auto retraining we are
+
+not using the local
+
+file the training data that's created
+
+will be using the data available in the
+
+data set
+
+so
+
+to import data from a data set
+
+this is not the screen that we use
+
+so if you actually go to export
+
+in here there's a very interesting
+
+schedule
+
+so you can say this is travel in preview
+
+but this is a very good feature that we
+
+can use
+
+to
+
+automate the import of the documents
+
+into data manager
+
+and automatically export it
+
+into the data set
+
+so let's enable this
+
+so you can see once it is enabled it
+
+says you can configure the schedule
+
+at what time do you want to run
+
+the schedule
+
+and
+
+usually
+
+how do you want to recover the shadow
+
+basically every two days or every seven
+
+days and so on
+
+so the recommended approach is
+
+not to do the training every day
+
+so
+
+training a
+
+machine learning model on a small number
+
+of data like seven or ten documents is
+
+easy and it's fast
+
+but
+
+as i explained earlier as the
+
+process keep on running
+
+it generates more and more data for the
+
+model to get trained upon
+
+so at some point it will be having so
+
+much of data and the retraining process
+
+will take quite
+
+a lot of time to complete
+
+and probably
+
+it will take sometimes days
+
+for three days to complete one eye
+
+duration so it is always recommended to
+
+run
+
+maybe on a weekly basis
+
+or even on a monthly basis
+
+depending on the requirement and how
+
+how you want to train the models
+
+so basically
+
+in our scenario here
+
+let's quickly schedule it
+
+so i can set the time
+
+let's say now it's 11 46 my time you can
+
+see over here
+
+let's change it to
+
+maybe
+
+[Music]
+
+750
+
+2 minutes from now
+
+and for now i will say
+
+require every 7 days and you can also
+
+see the next scheduled export will
+
+happen today
+
+in about another two minutes as you see
+
+the time
+
+so let's click on schedule
+
+so once you schedule this
+
+you can see it is already enabled
+
+what will happen is
+
+when the schedule runs
+
+it will look into the data that's
+
+available in
+
+the fine tune folder
+
+it will automatically
+
+import that data into our data manager
+
+and automatically export it to this
+
+export folder
+
+so let's have a look at the export
+
+this is the structure of the export fold
+
+you can see a text file that says latest
+
+and also this is the previous export
+
+that we did
+
+for our previous demo
+
+so what will happen is when it creates
+
+this automatic import and export
+
+it will basically create a new folder
+
+here
+
+probably with the same name but
+
+the date timestamp will be different
+
+it will update
+
+update this folder with a new folder
+
+with a with the new date
+
+and it will also update this latest text
+
+file
+
+with the
+
+latest file information
+
+or the latest directory that
+
+it needs to look into to find the latest
+
+export
+
+okay
+
+so you can see i just refreshed and our
+
+schedule just ran just a while ago
+
+because
+
+scheduled it for the next minute
+
+say this
+
+now we have a folder called autoexport
+
+and this is the
+
+timestamp
+
+let's have a look
+
+so inside this we have the schema json
+
+the split file
+
+the images of the documents
+
+and also
+
+what are the latest documents that you
+
+can find so this is the data that we
+
+need to train the
+
+ml module
+
+so you can see it's automatically
+
+updating itself
+
+and if we quickly have a look at this
+
+latest text
+
+if i click on download
+
+here you can see
+
+it has the same folder name auto export
+
+and the date
+
+so basically the
+
+the training process will actually look
+
+into this latest text file to find what
+
+is the latest
+
+exported data set
+
+so make sure that you don't ever delete
+
+this text file
+
+because if you delete it
+
+the process will not be able to run
+
+all right
+
+so that's how you automatically import
+
+and export
+
+so
+
+in data manager you no longer need to
+
+sit down and go through the
+
+verification just like we did last time
+
+uh with the
+
+data
+
+so basically you can also see
+
+the count here it was 10 earlier
+
+it got updated
+
+with some
+
+latest document
+
+the reason is because it automatically
+
+imported the data
+
+through the schedule
+
+so maybe you can also check the logs
+
+have a look
+
+um
+
+this is the fine-tuned run
+
+that happened just a while ago
+
+you can see what actually happened
+
+in my case i did not have any new files
+
+uh except one
+
+the remaining were actually duplicates
+
+you can see
+
+the log says these are duplicate files
+
+and there's one fine-tuned documents
+
+that it was able to identify
+
+and the processing was complete
+
+so
+
+when this happens automatically
+
+only thing that you need to make sure is
+
+that
+
+you
+
+have the proper accurate data to train
+
+so it's always good to
+
+keep an overlook or overlook this
+
+process
+
+to ensure that you don't train the model
+
+with bad data or you
+
+do the proper verification
+
+uh
+
+so that you have the correct information
+
+to train the model
+
+that verification and how we are going
+
+to do that that may depend on the
+
+uh the
+
+company and the process itself
+
+it's a
+
+important thing to keep a note of
+
+so it is automated
+
+okay so now we know how it automatically
+
+works here in the data map
+
+and this schedule will keep on running
+
+based on how we configured it
+
+the next thing is now we are able to
+
+create the training data file
+
+so how to create the
+
+pipeline and how to
+
+uh
+
+run it without manually triggering
+
+let's have a look
+
+so now we are into the pipelines
+
+and let's quickly create a new file
+
+let's have a look our
+
+package name is
+
+pkg invoices
+
+and we'll create a new pipeline
+
+i'm going to say that this is a training
+
+part right
+
+and i'll be using my
+
+package
+
+and i will be using
+
+the
+
+version that i'm using right now
+
+okay so this is where you choose the
+
+data set and this is the important step
+
+so now you know
+
+that
+
+in the
+
+in the export folder
+
+that there will be multiple folders
+
+created
+
+how to find that
+
+uh
+
+folders
+
+so if you have a look
+
+okay let me get back here
+
+so once you click on this it will show
+
+all the data sets that's available so in
+
+our case invoice training is the
+
+data set
+
+and if you
+
+need to
+
+if we want to go inside you can click on
+
+this or the on the name
+
+and then you can see the export folder
+
+and the internal
+
+so
+
+uh what we are interested is on the
+
+export fold and inside that you can have
+
+any number of
+
+uh folders
+
+but it will look into that latest file
+
+and figure out what's the latest
+
+export
+
+let's as it will use all the information
+
+available here
+
+to train our ipad or the model
+
+so this is the folder that you need to
+
+indicate
+
+because that folder has all the
+
+information so let's click on select
+
+so you can see on the invoice training
+
+data set you are selecting the export
+
+folder for the train
+
+and this is where you enable
+
+the auto retraining
+
+see the parameters if you can set this
+
+auto retraining to true
+
+that will automatically
+
+uh
+
+do the tree training so you can see
+
+enable this option when the pipeline you
+
+are creating
+
+is scheduled automatic pipeline
+
+synchronized with automatic exports from
+
+data manager
+
+so we have done the first step we have
+
+done the auto export so now what we are
+
+doing is the second step
+
+auto
+
+pro training of the using the pipeline
+
+so what we can do is you can click on
+
+edit
+
+select this group
+
+click on save
+
+and then you can also
+
+make sure that this pipeline runs based
+
+on a schedule
+
+otherwise it will just run this
+
+particular pipeline and do the auto
+
+refrain but it will not
+
+run it again unless someone manually
+
+creates the pipeline
+
+so
+
+but this setting that we did here will
+
+ensure
+
+when the pipeline
+
+runs it will also automatically train
+
+the model and upgrade it to the latest
+
+version
+
+so for us to
+
+ensure the pipeline runs
+
+based on our specific
+
+uh schedule
+
+we need to
+
+go into these options
+
+so earlier we ran with run now
+
+now let's see what options we have here
+
+if you click on time based
+
+you get two options
+
+at what time do you want to run this
+
+but this is more like a schedule
+
+to
+
+to do only a single run so if i say run
+
+on august 12 at 12 o'clock
+
+midnight it will run the full run the
+
+pipeline at that time once that is
+
+complete it will stop
+
+but in my case i want to run this
+
+on a weekly basis
+
+in that case i need to click on
+
+recurrent
+
+so once you click here the first run
+
+here we get another option
+
+that recurring schedule
+
+how do you want to run it
+
+okay so we have two options test and
+
+advanced in advance you can run uh you
+
+can provide a current expression
+
+to
+
+decide on which schedule that you need
+
+to run this
+
+these front expressions are used in this
+
+thread as well
+
+in here is the same format so you can
+
+build your current expression and write
+
+it here
+
+and under the desk
+
+here you can say
+
+on which date or planning to run
+
+the first
+
+first process
+
+or the first
+
+execution the training one
+
+so let's say i will run this at
+
+1 o'clock
+
+1am
+
+starting
+
+13th
+
+so i will say starting on this date at 1
+
+am to the first run
+
+and from that onwards i need to run this
+
+training pipeline every 7 days
+
+you can see the first run
+
+will happen
+
+today
+
+1 am the next scheduled run is 7 days
+
+from now
+
+at 1 am
+
+so basically once you click on done
+
+it will make sure that the process will
+
+uh
+
+figure at the specified time and let's
+
+click on
+
+so you can see the new pipeline is
+
+scheduled
+
+uh
+
+so no other additional options
+
+and it will start running at the
+
+specified time and you can see the logs
+
+from
+
+all right
+
+so that's
+
+the second step
+
+and now i'm going to show you the first
+
+step and this is not mandatory this is
+
+an optional step because we have already
+
+figured the schedule
+
+the pipeline
+
+to do that
+
+so if you go into ml skills
+
+here we have the
+
+ml model that we have been using
+
+um so let's click on this
+
+and inside this ml model you can
+
+actually
+
+modify the deploy
+
+so let's click on this
+
+this is the
+
+twisting feature
+
+so you can see a couple of options over
+
+here you can enable gpu if you have it
+
+so that the process the training and the
+
+upgrading process is faster along with
+
+the prediction
+
+and
+
+make ml scale public
+
+if you do this you can actually
+
+get a endpoint created for this ml model
+
+which you can use
+
+anywhere that you like
+
+just like what we have with
+
+the other endpoints
+
+in other models
+
+and this is the
+
+new feature enable auto update
+
+so just like before we enable
+
+the
+
+import and exporting data manager
+
+and we created the pipeline with the
+
+schedule
+
+so that it will run automatically and in
+
+the same schedule
+
+enabled
+
+auto retraining to true
+
+so this is it's basically the same
+
+setting
+
+so
+
+you can also
+
+do the do the same thing here as well
+
+enable auto update
+
+and click on confirm
+
+so basically it will update itself
+
+and
+
+whenever the new version is available it
+
+will automatically
+
+update to the latest version
+
+so these are the easy steps that
+
+we can do to enable auto retraining of
+
+the
+
+models
+
+so that you don't need to manually
+
+create schedules and the
+
+document verification data center on
+
+data manager
+
+okay so that's
+
+pretty much it on
+
+auto retraining hope this is
+
+video and it's easy
+
+so
+
+in the next video we'll also see
+
+upload
+
+other features
+
+uh in in this import
+
+there are a few features like how to
+
+make this uh test set and what is
+
+actually requested but will
+
+if you do import in a test set so this
+
+thing will discuss the next part
+
+thank you very much for listening and i
+
+hope this uh is very much
+
+helpful for you guys
+
+and also just one additional thing for
+
+additional reading on auto retraining
+
+you can always refer to this
+
+link that explains most of the things
+
+that i already explained
+
+i will share the link in the video
+
+description
+
+okay thank you very much for listening
+
+and
+
+stay safe see you in another video
+

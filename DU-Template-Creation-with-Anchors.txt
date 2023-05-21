@@ -1,0 +1,1032 @@
+hello everyone welcome to
+
+my new video on document template
+
+creation
+
+with anchors in uipath document
+
+understanding
+
+so this feature was introduced in the
+
+latest
+
+release of uipath
+
+so as you guys know for us to create
+
+templates in uipath for document
+
+understanding we use
+
+the form extractor or the intelligent
+
+form extractor
+
+in case you need to do for handwritten
+
+data so we use the same
+
+two activities to create
+
+the template with anchors so
+
+anchoring is the new feature that was
+
+introduced
+
+so let's see how we can use this
+
+in uipath to get more accurate data
+
+when we are working with um
+
+fixed structure documents
+
+but the challenge is when it comes to
+
+these documents sometimes
+
+though you have the same layout just
+
+like
+
+what you see in this document sometimes
+
+you might
+
+come across these documents are
+
+different in size
+
+or it is flipped to the other side of
+
+the page just like what you see over
+
+here
+
+now this is the same document but
+
+it's rotated around
+
+and again you might come across
+
+especially when you are working with
+
+scanned documents
+
+the size might differ be different some
+
+time to time
+
+so this is the same document with a
+
+different size
+
+and this is as an image also
+
+you might also come across situations
+
+where
+
+the same scanned document is
+
+not in that proper layout
+
+so sometimes it might be tilted a little
+
+just like what you see here so usually
+
+this happens when you're scanning
+
+so in this case how can we use the form
+
+extractor
+
+with the anchors to capture
+
+the information irrespective of the size
+
+of the document
+
+of how it is placed in the document
+
+so as you know earlier this form
+
+extractor it was
+
+when you specify a range or a custom
+
+area
+
+it used to look for that value in that
+
+way
+
+but now it is a little bit more advanced
+
+so that
+
+we can use the same template in this
+
+kind of scenarios as well
+
+so let's see how we can do that
+
+so here we are in the uipath studio
+
+now i'm not going to build the entire
+
+flow from scratch
+
+so i have the basic things ready here
+
+as you see uh i'm using the
+
+so let me show you the dependencies so
+
+if i go to project dependencies you can
+
+see that i'm using the
+
+very latest version of the document
+
+understanding mail activities
+
+and the latest version of intelligent
+
+ocr
+
+activities so
+
+use the latest version and in here
+
+i have pointed this to the folder path
+
+where i have
+
+my input files
+
+which is right here so these are the
+
+files that you saw earlier
+
+and it is specified here in the
+
+folder part and i have done the
+
+load taxonomy so taxonomic creation is
+
+just the same as before
+
+so you have all these fields
+
+and these are
+
+the things that i have used to actually
+
+show you how this works
+
+so no difference in taxonomic creation
+
+you just need to specify the field and
+
+the data type and that's it
+
+so after the low taxonomy you go into
+
+the forage
+
+to look through each and every page the
+
+document
+
+and in the digitized document activity
+
+i have used the uipath document ocr
+
+and when it comes to data extraction
+
+code scope
+
+i'm not using the classification here
+
+because of that
+
+i'm using the document type id
+
+which i can grab from the taxonomy
+
+manager
+
+so if i go into this section here you
+
+see the document type id
+
+so in case you are not familiar with
+
+these activities how you should do this
+
+i actually recommend you to
+
+go through the video series that you can
+
+find in my
+
+youtube channel or you can go to your
+
+path academy
+
+and look for the document understanding
+
+courses available there
+
+okay so in the data extraction scope
+
+i have the variables assigned and i'm
+
+using the form extractor here
+
+this is the activity that we need to use
+
+to create templates
+
+so in my case i'm actually using the
+
+enterprise trial
+
+so the end point as you see it is
+
+pointed
+
+to the enterprise
+
+endpoint if you are using the community
+
+this part will not be there
+
+okay and you need to space the api key
+
+and let's
+
+create the template so though i have the
+
+activity i have not yet created the
+
+template so let's create one
+
+clicking on create template selecting
+
+the type as invoices
+
+and i'll be giving a name
+
+nice and since we have like
+
+four documents here let's create the
+
+template
+
+for the first document which is
+
+this one this is the native pdf file
+
+the rest are actually images as you see
+
+and this one as well so let's create the
+
+template for this document and let's see
+
+how it applies
+
+to all the other variants
+
+so i'm selecting the document here
+
+as the first one
+
+and i'll leave these things as it is
+
+click ok
+
+and here now you can see in the latest
+
+version there are few
+
+additional
+
+icons here which specify few things
+
+also this icon says that it accepts
+
+custom areas
+
+it was there earlier and this anchor
+
+kind of
+
+i can specifies that it also accepts
+
+anchors for each and every field
+
+so this anchoring concept is actually
+
+similar to
+
+the anchors that we use when we are
+
+doing ui automation
+
+um so if you are using the anchor base
+
+activity in ui automation
+
+you can specify your anchor and
+
+also the element that you are
+
+interacting so it's kind of the same
+
+thing
+
+in here we'll be also using a target
+
+that focus on the value that we need to
+
+extract
+
+and also we'll be specifying one or more
+
+anchors for each and every
+
+element or the target to easily identify
+
+that
+
+so along with this on the top here
+
+you can see another selection mode
+
+here we have tokens customer customer
+
+area
+
+choice on selection and also anchor
+
+tokens
+
+is these uh
+
+elements that we can capture and when
+
+you specify custom area
+
+you can specify an area like this
+
+and choice on selection is
+
+so you can see once i select that
+
+i can either select tokens or the entire
+
+custom area
+
+so in our case let's use the anchor
+
+but first first we need to specify
+
+matching info
+
+in the first page so
+
+by default you need to have at least
+
+five words here
+
+so let's give
+
+i see i'm pressing the ctrl key while
+
+selecting
+
+it allows me to create multiple words
+
+and maybe this this set
+
+so let's do that and also
+
+from here and clicking on plus
+
+and that goes as the matching info
+
+and we are coming to the invoice date
+
+so in the previous version we only
+
+specified the custom
+
+area now we can do the anchor
+
+we can actually specify the area and
+
+along with that we can specify
+
+anchor based on these identifiers
+
+in the document so to do that
+
+select invoice state
+
+and go to anchor the first thing you
+
+need to do is
+
+find the value so for the invoice date
+
+we will specify
+
+this as our value all you need to do is
+
+just
+
+highlight the area where you can find
+
+the value
+
+you can see it is highlighting in blue
+
+color
+
+and you can see it's as a target
+
+and you can also have see the delete
+
+button
+
+you click on that it deletes
+
+so let's highlight this
+
+and this is what i need to extract
+
+and how am i going to specify the anchor
+
+is
+
+it's always better to specify a
+
+element something closer to the
+
+target but use something
+
+unique here i don't recommend using
+
+any other values as the anchor
+
+but use the identifiers here it is
+
+always the same
+
+so once you specify this
+
+just drag on top of this
+
+to specify the anchor so you can see it
+
+is highlighting in
+
+green color just like in ui automation
+
+and it has a link saying that this
+
+anchor is related to this tab
+
+so once you do that click on this plus
+
+sign
+
+and you can see this
+
+was configured and also it has one micro
+
+and the main anchor is the date
+
+if you have multiple anchors this will
+
+have
+
+several anchors specified here
+
+the next thing is the invoice number
+
+so let's do the same thing for that and
+
+i'm
+
+selecting the invoice number and also
+
+these two as the anchor
+
+and click on class again
+
+the next is due date select on due date
+
+and i'm specifying the
+
+udate along with
+
+my anchor so you can see while
+
+highlighting it
+
+also highlights the
+
+words in in the region in green color
+
+for the anchor
+
+the next is the delivery address
+
+so let's use this one so first thing is
+
+the value and i can use this
+
+as the anchor
+
+okay and the last one here
+
+total so let's give two anchors for the
+
+total
+
+and i need to select that first
+
+and then highlight the value
+
+and let's give balance due and payment
+
+as
+
+the two anchors so i'll give the
+
+closest one and this is going to be the
+
+main anchor
+
+and along with that i will specify
+
+payments as a secondary
+
+so you can see how it links the main
+
+anchor is linked to the
+
+target and the secondary anchor is
+
+linked to the main anchor
+
+and when i click on plus you can see the
+
+two anchors
+
+main anchor with the blue color
+
+icon and the other with the black
+
+so that's how you do the anchoring
+
+so let's also configure the line items
+
+here
+
+so in the latest one it is actually easy
+
+some of these features were already
+
+there so i will extract a new table
+
+and if it is able to identify the
+
+columns
+
+and the rows it will automatically
+
+separate it out so i just need to
+
+separate the columns here
+
+and i need to specify item number
+
+description quantity so these are coming
+
+from the taxonomy
+
+uh unit price and this column is not
+
+required so i will say
+
+unused and
+
+final and then i will say
+
+um extract header and set
+
+so now you see four rows here but i only
+
+have
+
+three including the header
+
+so this is the header as you see
+
+it also highlights in red line here
+
+so let's make this as
+
+the make it the table header
+
+so this will now
+
+relate to the column header
+
+and this is the first line second answer
+
+so let's remove this as we don't need
+
+the third one
+
+okay answer so we have configured
+
+the template along with the anchors
+
+and let's click on save
+
+and close configure the extractor
+
+for all the fields so i have done that
+
+earlier
+
+so after doing this down here i have
+
+the present validation station which is
+
+configured to
+
+show us the values that were extracted
+
+and below i have the export extraction
+
+results
+
+to extract or convert the extractor
+
+results into a
+
+more usable format into a data set so
+
+that i can
+
+write it into excel file
+
+so the main thing we are focused here in
+
+this video is
+
+use of the form extractor so in case you
+
+have
+
+uh handwritten data instead of the form
+
+extractor
+
+use the intelligent form instructor and
+
+you
+
+follow the same steps
+
+okay so we have done that for the main
+
+document
+
+the first document so let's run this and
+
+see
+
+how it applies to the other
+
+layouts or basically the other type of
+
+documents where you have it
+
+as a horizontal one and you know
+
+smaller scale and also
+
+uh in this kind of documents
+
+which is a bit uh different
+
+compared to this one so let's see how it
+
+works
+
+okay so i'm going to run this
+
+okay so the validation station for the
+
+first document so this is our main
+
+document
+
+the same document that we use to create
+
+the template
+
+so you can see it is extracting the
+
+values as usual
+
+no much reference here and this is
+
+missing
+
+so i'll save it and continue and let's
+
+see
+
+so this is this should obviously be
+
+accurate because we use the same
+
+document for the template creation
+
+the challenge is how does it work in the
+
+other
+
+documents because the values are not in
+
+the same
+
+position it was as in the main document
+
+okay so the next one is ah
+
+sorry i had to drag it to this screen
+
+because it opens up
+
+in my other screen so this is the
+
+document that
+
+has the same layout in a smaller scale
+
+which is our second document this one
+
+so here you can still see that
+
+though the size of this is different
+
+it is still able to capture the values
+
+using the template and it is
+
+highlighting the same values
+
+but here in the invoice number you can
+
+see it is saying
+
+go here and it is this
+
+but along with that so this feature is
+
+also coming in as a
+
+new feature in the latest release so you
+
+can see
+
+three here and it says so
+
+show suggestions so let's click on that
+
+and see what's there
+
+okay so here we see three options
+
+one is go here which is the one already
+
+selected along with the confidence level
+
+and if you say footer it is pointing to
+
+this one
+
+and if i select the value
+
+this one which is exactly the one
+
+that i need to extract so
+
+how this is ordered is based on the
+
+confidence level
+
+so go here has the highest confidence
+
+but
+
+this is the one that i need to extract
+
+but it is
+
+showing here as a suggestion so it's
+
+good
+
+so for me to select this as the accurate
+
+one you just need to click on this
+
+replace value with suggestion
+
+and there you go so the due date is
+
+correct and the address
+
+is it has captured as usual
+
+let's see the line items so that is also
+
+captured
+
+irrespective of the size for the layout
+
+so you can see now that the template is
+
+more flexible
+
+and it doesn't need to be the exact same
+
+way
+
+but the intel structure has to be the
+
+same but
+
+how it is placed in the document can
+
+differ
+
+so let's save this and move to the next
+
+level
+
+so in the next document we should get
+
+the
+
+one that is uh
+
+yeah so this one you can see there's a
+
+difference
+
+so this is the third document you can
+
+see three
+
+which is
+
+this document so this is how it is in
+
+the original document
+
+it is on a
+
+horizontal basis but the
+
+document understanding was able to
+
+uh
+
+rotate it so that it comes in
+
+in this format and still you can see
+
+that it was able to apply the same
+
+template
+
+to capture the values that i need
+
+and those are really accurate
+
+even the line items
+
+okay so let's see the other document
+
+which is this one which is
+
+um so usually we come across these kind
+
+of documents when you are working with
+
+documents because sometimes
+
+you won't place the document in the
+
+exact same way
+
+yeah so this is that document and again
+
+you can see though it is it
+
+not very aligned still it
+
+applies the same template to capture the
+
+values
+
+so we have the invoice that we have the
+
+invoice number
+
+and the address let's see the line items
+
+so you can see it is capturing
+
+everything perfectly
+
+so that's really amazing
+
+and this is how you should or you can
+
+use
+
+the anchors along with the form
+
+extractor
+
+by creating templates to work on
+
+fixed structure documents but how it is
+
+placed
+
+or where it is placed in the document
+
+can change now
+
+so it is more easier to work with
+
+and to make things even easier you can
+
+create
+
+more than one template for the same big
+
+structure document
+
+to address more
+
+variated scenarios or more variances
+
+on how it is placed in the document for
+
+the page
+
+so this is how easy
+
+it is now to create templates and use it
+
+um so i hope this is helpful
+
+to understand how we can use the anchors
+
+to create
+
+the templates using the form extractor
+
+i will share this solution in the video
+
+description
+
+so that you can download and try
+
+yourself
+
+and thank you very much for listening
+
+hope this is helpful
+
+see you in another video until then
+
+enjoy
+
