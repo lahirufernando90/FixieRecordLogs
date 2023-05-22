@@ -1,0 +1,886 @@
+foreign
+
+[Music]
+
+for a document understanding project
+
+so in general we have three parts in a
+
+document understanding project one is
+
+the document Collection part the actual
+
+du step and then lastly the downstream
+
+system update so we basically need to
+
+consider all three stages
+
+to do a proper assessment
+
+so
+
+so let's quickly just have a look at uh
+
+these different stages and see how we
+
+can actually do the assessment so as I
+
+mentioned before we have three parts one
+
+is the document collection the actual
+
+document understanding part and then the
+
+first processing
+
+so when it comes to the document
+
+collection and the post processing part
+
+it's something similar to the usual
+
+normal RPA projects that we do
+
+so basically you can access those as
+
+something uh based on how you do it in
+
+our usual RPA processes like for example
+
+you can see what kind of source
+
+applications we are using to get the
+
+data
+
+and
+
+was the
+
+feasibility in accessing those systems
+
+how you need to access whether it's a UI
+
+automation or whether it's a simple
+
+a shared drive maybe where you have all
+
+the files that you need to process
+
+and what kind of business rules are
+
+there to find the files that you need to
+
+process
+
+like for example I can say that if it's
+
+a shared drive you can say
+
+so basically if this shared drive has
+
+all the files that you need to process
+
+how do you identify the latest set of
+
+files that you need to process is it
+
+based on some file name or is it based
+
+on the file creation date
+
+awesome other criteria
+
+so basically you need to find these
+
+things and the running frequency
+
+exceptions the data volume
+
+all of these things has to be considered
+
+um when assessing the post-processing or
+
+the document collection stage
+
+so I also have a
+
+a
+
+Blog that I did like a few months back
+
+as I remember this is actually published
+
+on uipath
+
+blogs page
+
+this is about how to start a du project
+
+and in here
+
+we have a small checklist
+
+so let me zoom in
+
+so if you look at the source this is the
+
+same thing that I mentioned earlier like
+
+what is the source of the document
+
+and how to identify the documents what's
+
+the approach they have taken to store
+
+this information all the files
+
+average number of documents processed
+
+so basically once you identify that
+
+information
+
+then you can do a assessment for the
+
+feasibility and the time estimate
+
+for the first part of the document
+
+understanding project so coming back to
+
+the architecture again we we usually
+
+have this architecture because
+
+we can manage things easily and we can
+
+split
+
+um separate components in different
+
+as different processor so it's easy to
+
+even update these systems because once
+
+you put everything together it will be
+
+much more difficult
+
+so by just looking at this stuff you can
+
+see like what's the feasibility what's
+
+the complexity and the time
+
+you need to build that part
+
+and once you have the information once
+
+you extract the information from about
+
+what documents you need to process then
+
+you can think of how you going to store
+
+that information and where maybe
+
+orchestrator queue or maybe Excel file
+
+or a database depending on your
+
+infrastructure and your requirements
+
+so that's the first part on how you do
+
+the assessment
+
+then comes the second step
+
+so in the second part of the process is
+
+where we look at the actual document
+
+understanding process so earlier we
+
+talked about how we collect the
+
+information
+
+and once you have that information like
+
+once you have the list of the documents
+
+that you
+
+want to process
+
+what are the things that you can look at
+
+to define whether it's a feasible
+
+project or it was the complexity and how
+
+you
+
+um
+
+identify what kind of things that you
+
+need to do to make it work
+
+so some other key things are what you
+
+see on the screen right now like what
+
+what's the document type whether the
+
+documents are structured semi-structured
+
+or unstructured
+
+and when it comes to the different
+
+documents that you are processing so
+
+like the simplest for example is the
+
+finance related things like invoices
+
+purchase orders and and things like that
+
+so what are those document types
+
+you need to identify all these things so
+
+sometimes in a project you might just
+
+process one type of document like
+
+invoices but sometimes you might have a
+
+requirement where you need to process
+
+multiple document types like invoices
+
+purchase orders on and many other
+
+different types
+
+um so we need to identify all these
+
+document types
+
+and then basically look at
+
+how the structure of the document
+
+in general so when I say the document
+
+type structure is the overall structure
+
+with the instructions and structures on
+
+structured but let's say if you have a
+
+document that has all these types in one
+
+file
+
+how does that structure looks like
+
+so a part of uh let's say in a PDF file
+
+you have two pages one is you know if
+
+the second one is the structure
+
+application form
+
+so if it's a invoice it's a
+
+semi-structured document but if it's the
+
+application form it could be a
+
+structured one
+
+and if you if you have a requirement to
+
+process these separately you need to see
+
+like uh how you need to handle each and
+
+every type
+
+or the classification type
+
+so that's where you actually need to
+
+look at certain other things like the
+
+file structure
+
+how does that look like and when it
+
+comes to classification what are the
+
+different types
+
+and even sometimes when it comes to
+
+classification like uh for example let's
+
+say a legal document
+
+all the legal document doesn't look
+
+exactly the same they are different
+
+so
+
+so in that case
+
+uh you might have a type called Google
+
+Document but
+
+how do you actually recognize these
+
+documents
+
+and and if you're if you need to extract
+
+the information from these different
+
+layouts
+
+how we want to do it so that's where
+
+this point is very important
+
+and and all of these combinations that's
+
+up to your feasibility of the process
+
+and that's up to your complexity of the
+
+overall document understanding process
+
+so you need to look at those things and
+
+capture all of that information
+
+and the next thing is whether you need
+
+to split documents
+
+because sometimes there can be a
+
+requirement where you have all the file
+
+all the documents in one PDF file and
+
+you need to split it to do some
+
+uh activities in the downstream
+
+application so
+
+you need to check that because all of
+
+these things actually
+
+um Define what's the approach you are
+
+going to use in classification
+
+like whether it's the keyword based
+
+classifier whether it's the intelligent
+
+keyword classifier
+
+and likewise
+
+and then if it's more of a unstructured
+
+document then how do you figure out
+
+the classification whether it's do you
+
+have any keywords that you can easily
+
+find
+
+or do you need to have a machine
+
+learning model to identify those things
+
+so all these things are part of the
+
+assessment
+
+and then lastly I mean not lastly so
+
+after the classifications what you have
+
+next is the data extraction
+
+so how much some of those things you
+
+understand during the classification
+
+stage also helps you to identify
+
+how you need to handle your data
+
+extraction path
+
+because
+
+again let's actually build document
+
+example you have a legal document and
+
+let's say you need to extract some names
+
+out of it so let's say
+
+in in in one specific file you have
+
+you have the names where you can easily
+
+extract and you're probably in a
+
+structured way but in the other field
+
+other documents that fall under legal
+
+let's say you need to find those things
+
+in the page or if and it could be in
+
+multiple Pages let's say
+
+So based on this you need to see what
+
+kind of extractor you are going to use
+
+so that's the next challenge So based on
+
+this information based on the layout of
+
+the document of that specific type
+
+uh you can figure out
+
+and based on the information you need to
+
+extract you can decide the feasibility
+
+of using certain extractors and the
+
+feasibility of using multiple extractors
+
+and likewise and and the feasibility of
+
+overall data extraction Parts in your
+
+process
+
+then lastly the validations so you do
+
+the data extraction but once you do that
+
+what happens next is you validate the
+
+extracted information
+
+so how do you do that so especially for
+
+when it comes to invoices you can
+
+probably do uh some cross validation
+
+yeah you you extract the information
+
+from the invoice and you can do some
+
+cross checks like for example if you
+
+want to uh check the line total of a
+
+specific line item you can do the unit
+
+price into quantity and whatever the
+
+other parameters and see whether that's
+
+correct the extracted value is
+
+so check for those things because
+
+the validation is not dependent on the
+
+confidence confidence is just one
+
+parameter that we are looking at and it
+
+doesn't always say that the extracted
+
+value is accurate
+
+so you need to find the different ways
+
+other than the confidence to check
+
+whether your extracted data is correct
+
+because we don't put everything into
+
+manual verification before putting
+
+everything into manual verification you
+
+need to see what is wrong and what is
+
+not accurate and then push only those to
+
+manual verification
+
+so checking those things
+
+and identifying what are the different
+
+ways to validate
+
+and coming up with those Logics whether
+
+it's possible what are the different
+
+business rules involved in the
+
+validation stage so check for all those
+
+things and
+
+then figure out the feasibility of that
+
+part
+
+and once you have done that then you
+
+have pretty much everything because you
+
+have covered how you do the extraction
+
+you have covered how you do the
+
+classification
+
+and the other thing I forgot to mention
+
+is the language of the documents because
+
+this also plays a critical role
+
+um
+
+so basically sometimes you come up with
+
+scenarios where you need to work with
+
+documents that that has multiple
+
+languages
+
+and also handwritten data and signatures
+
+or whether you have any other
+
+information or objects that you need to
+
+look at
+
+to do the data extraction and
+
+verification
+
+so check whether
+
+such things exist and also if you need
+
+to do anything of that sort see whether
+
+you're CR engine that extractor the
+
+classifier to those things support those
+
+languages
+
+and because you need to decide which OCR
+
+to use which extracted to use depending
+
+on all of these scenarios
+
+so look at all of those things and
+
+while you do the assessment you can also
+
+take a note on what kind of extractors
+
+that might work
+
+here so you can test it later once you
+
+start the developer because that gives
+
+you an understanding what are the things
+
+you need
+
+when it comes to development and you can
+
+prepare Data before getting into the
+
+development stage
+
+and So based on that once you do that
+
+you have everything for the document
+
+understanding part
+
+then it's just about the data extracted
+
+and classification but if you're if you
+
+need machine learning models to classify
+
+an extract
+
+you also need to look at whether you
+
+need to use those things and how you can
+
+train whether the documents exist what's
+
+the quality of the document
+
+that you need to train
+
+because usually when it comes to machine
+
+learning model training for data
+
+extraction is always good to use high
+
+quality documents
+
+um because that way you can
+
+train the models better
+
+and so these documents could be native
+
+PDF files it could be scanned documents
+
+but use some good quality documents
+
+so assets all of those things check
+
+whether those documents exist whether
+
+you can collect that information or if
+
+not you can request from the business
+
+people
+
+and see
+
+how you can do that and
+
+because when you actually get into the
+
+development all of these things takes
+
+time it takes your effort and you need
+
+to come up with some estimates like
+
+what's the estimate to do this part
+
+and what's the feasibility because
+
+everything might not be possible so what
+
+are the other workarounds and what's not
+
+possible how you can
+
+handle those things maybe in a later
+
+stage of
+
+you can come up with different solutions
+
+for those
+
+so check all of those things during your
+
+assessment stage
+
+for the document understanding project
+
+and lastly when it comes to process
+
+processing again it's similar to any
+
+other RPA project because usually first
+
+processing is a separate process again
+
+in the architecture
+
+and you can see what what are the SLA
+
+levels required in updating these
+
+systems
+
+to process these documents
+
+and how you need to access these systems
+
+whether it's UI automation so there is a
+
+API
+
+and all the other parameters just like
+
+you do a process assessment for any
+
+other RPF project
+
+so at the end you will have three
+
+different assessments for the first part
+
+where you talk about the document
+
+collection
+
+second part the actual document
+
+understanding process and lastly the
+
+first processing
+
+and once you look at the summary then
+
+you will get the overall picture and the
+
+effort needed for each and every stage
+
+so this is a very important information
+
+for you to actually start a Duo project
+
+and be prepared
+
+to the actual challenges that we may
+
+come across during the development and
+
+it it is also a good
+
+uh understanding it also gives you a
+
+good understanding on what kind of uh
+
+technical
+
+um features you need to use for your
+
+project and you can keep things ready
+
+ahead of the development stage
+
+so it it makes your life easier
+
+so I'm not saying that document
+
+understanding is very difficult it's not
+
+the idea but when it comes to documents
+
+you see a lot of variations
+
+um so we need to identify all of those
+
+things too
+
+come up with a good and
+
+are more effective solution to process
+
+documents so that's
+
+that's the whole idea behind looking at
+
+all of those things mentioned in this
+
+checklist
+
+and checking
+
+how we can do this
+
+just like how you do with any other RPA
+
+project
+
+so with that
+
+um
+
+I think I covered pretty much uh
+
+everything I might have missed one or
+
+two points and if you have any other
+
+questions you can always mention that in
+
+the comment section and I'll be happy to
+
+answer all of those things for all the
+
+things that I may have not covered and
+
+you have in your mind
+
+so um with that I'll start this video
+
+and thank you very much for listening
+
+and I hope this is helpful
+
+and again if you have anything always
+
+feel free to reach out through any
+
+social media platform
+
+and thank you again and I'll see you in
+
+the next video
+
+foreign
+
+[Music]
+

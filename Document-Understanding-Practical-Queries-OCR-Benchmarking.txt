@@ -1,0 +1,534 @@
+foreign
+
+since I last did a recording
+
+um so there has been a lot of things
+
+happening in the background and that's
+
+why I couldn't actually do a proper
+
+recording
+
+so basically in today's recording we'll
+
+be talking about
+
+document understanding
+
+it's mainly about the questions that we
+
+have been getting on
+
+um in creating document understanding
+
+projects
+
+so we thought of addressing all of these
+
+questions in a video so by taking one by
+
+one so in each video we'll be doing a
+
+answering a specific question and
+
+likewise we'll be doing a series on this
+
+so
+
+this is the first video so let's look at
+
+what our first question is
+
+and in today's one we'll be looking at
+
+how to select a OCR engine
+
+for document understanding projects
+
+because we have a lot of OCR engines so
+
+what is the best suitable OCR engine for
+
+our specific project
+
+what's the way to do that
+
+so this one is called OCR benchmarking
+
+so let's have a look at it
+
+so for different projects we will be
+
+having different document structures so
+
+depending on your scenario we might come
+
+across structured documents we might
+
+come across semi-structured documents or
+
+even unstructured documents
+
+and what we need to look at is before
+
+selecting the OCR engine we need to look
+
+at these documents and try to understand
+
+what are the different variations we
+
+have
+
+so this applies to all the three types
+
+structured semi-structured and
+
+unstructured so we need to take these
+
+separately let's say for example we have
+
+a combination of structured and
+
+semi-structured documents
+
+so you need to take a look at first the
+
+structured documents and see what are
+
+the variations we have in these
+
+structured documents like for example we
+
+could be having computer generated
+
+documents and it could be standards and
+
+sometimes it could be even images
+
+so identify this different categories or
+
+different types as you see in the first
+
+part of the diagram
+
+and then in each
+
+identify how those things are how what
+
+are the variations that you see in those
+
+specific things
+
+like for example if it's a scanned form
+
+we can have handwritten data or we could
+
+have computer generated data
+
+because sometimes some applications
+
+allow us to
+
+type without really typing on top of a
+
+scanned document
+
+so what are those variations and we just
+
+need to identify those things
+
+and then the third level
+
+once you have that information then look
+
+at how the pages are oriented whether
+
+it's inverted or whether it's not
+
+inverted and if they see the proper
+
+layout
+
+and just see what all these variations
+
+you can find because when it comes to
+
+documents there can be many different
+
+ways of representing the data and many
+
+different ways of
+
+presenting that data to us just like
+
+what we see on the screen
+
+so for each type
+
+identify what are the different
+
+variations how the data is presented and
+
+how the page is presented to us
+
+and once you have that information go
+
+down to the most granular level just
+
+like what you see on the screen in the
+
+below diagram
+
+and capture that as your final set of
+
+variations that you see for both
+
+for all the types structural
+
+semi-structured unstructured and
+
+whatever the tiles you see in each of
+
+those
+
+so once you have that
+
+then is the time to apply the OCR
+
+engines on top of this
+
+this also gives you an idea what kind of
+
+OCR engines you need to use like for
+
+example
+
+like looking at this you you know that
+
+we have handwritten text and we need to
+
+have our CR engine that's supposed
+
+so likewise you can select
+
+the OCR engines that support this kind
+
+of scenarios and then we need to apply
+
+the documents and run them through these
+
+OCR engines
+
+to see what gives the best accurate Visa
+
+so this is what we call the OCR
+
+benchmarking
+
+so why do we do this there are a couple
+
+of benefits first one by doing this
+
+segregation or by doing this analyst
+
+since you identify the different
+
+variations of data so that's the first
+
+point
+
+the second benefit is by doing this
+
+analysis you identify what are the best
+
+OCR engines that support
+
+the best extraction and the best
+
+accuracy that you can find
+
+so you might come across a question why
+
+can't I use the OCR engine I used in my
+
+previous project
+
+that depends
+
+the OCR engine that gave you the best
+
+result in the previous project might not
+
+be the best option for this one
+
+so that's why we need to perform this
+
+benchmarking analysis
+
+so how to perform the Benchmark that's
+
+our next question
+
+so once you have all these things you
+
+create another structure just like what
+
+I'm going to show you now
+
+so this is something that I created for
+
+our
+
+recording purpose
+
+so in my case I have identified three
+
+OCR engines and we have semi-structured
+
+documents
+
+so that's the categorization you see
+
+here so the same category that I showed
+
+you earlier is shown here in the excerpt
+
+and then once we have this category and
+
+once we have identified the different
+
+LCR engines
+
+then it's time to apply this OCR engine
+
+on the different variations you have
+
+identified before
+
+and on top of that
+
+we are not just
+
+identifying the accuracy of those CRS in
+
+just different variations we are also
+
+looking at specific fields that we would
+
+like to extract
+
+so if it's an invoice that we are trying
+
+to process
+
+we will need to focus on specific Fields
+
+like individual Fields like inverse
+
+number invoice date address and so on
+
+and also we will come across nine level
+
+information that are presenter in a
+
+table
+
+like the item code description quantity
+
+unit price and things like that
+
+so
+
+have those things in in your Excel and
+
+mention whether it's a regular field or
+
+a table it feels just for easy reference
+
+once you have that
+
+and once you have this all the
+
+variations identified get a good number
+
+of documents to run it through these
+
+social engines
+
+so let's say for example we have 10
+
+documents from each variation that we
+
+know so for example if it's an invoice
+
+let's get 10 documents from computer
+
+generated type and let's get
+
+10 documents from scanned but
+
+handwritten information and likewise so
+
+having the same number of documentation
+
+documents for each type will help you
+
+get a proper active result
+
+so it doesn't need to be 10 all the time
+
+but have a good number of documents so
+
+you can do a profile analysis
+
+so once you have that
+
+create a small flow and run these
+
+documents through these variations or
+
+through this OCR engines
+
+and check the accuracy level of the data
+
+that is extracted and note it down
+
+in an extra sheet like this
+
+so what you see over here is for one
+
+specific document from each type
+
+so likewise what you can do is if you
+
+have 10 documents for each variation
+
+note it down
+
+for all the 10 documents and see for
+
+which documents the OCR engine gives the
+
+best accuracy and which OCR gives the
+
+best accuracy for which variation
+
+so for example
+
+here if you look at this
+
+this description
+
+so you can see
+
+this is an example when it comes to
+
+description handwritten inverted gives
+
+us the lowest
+
+confidence level for this OCR engine but
+
+on the other side
+
+this OCR engine can give us
+
+a better result
+
+so this is just an example this is not
+
+showcasing the capabilities of different
+
+rows here this is just applying and
+
+showing you how the how we can do this
+
+analysis
+
+and with that you can see
+
+if you get an average of these OCR
+
+engines you can actually see which OCR
+
+engine gives you the best result for the
+
+different variations
+
+and in addition
+
+the next another Advantage you get here
+
+is you can decide which OCR engines to
+
+use
+
+and
+
+if there are scenarios like this there
+
+are certain Fields have a less accuracy
+
+or less confidence on that OCR that you
+
+select
+
+how can I achieve a better accuracy for
+
+those specific Fields you can actually
+
+use that secondary OCR that you
+
+identified through this analysis in your
+
+workflow
+
+so that you can write your own
+
+validation logic by combining the output
+
+of these two or three OCR engines that
+
+you are using
+
+and get the best best possible accuracy
+
+and the reliability of data
+
+so this is how you do the OCR
+
+benchmarking and those are the benefits
+
+of doing this so just remember always
+
+follow this pattern to easily identify
+
+the different variations
+
+and
+
+the best OCR engine for your specific
+
+project and the documents that you plan
+
+into process
+
+so that brings us to the end of this
+
+recording and if you have any other
+
+questions or any concerns regarding the
+
+same topic you can put all those
+
+questions in the comment section and
+
+we'll be taking up those things as well
+
+in the following recordings
+
+so thank you very much for listening and
+
+I'll see you in another video take care
+

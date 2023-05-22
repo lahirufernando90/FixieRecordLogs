@@ -1,0 +1,994 @@
+hello welcome back to my channel so this
+
+is the second part of the series of UFO
+
+document understanding solution
+
+architecture
+
+and in the first one we looked at the
+
+overall architecture of the solution
+
+how it should be
+
+so in this one we will look at how we
+
+can achieve this using the uipath
+
+document understanding framework
+
+so basically
+
+we are not going to cover everything
+
+about the framework in this video but we
+
+will see what are the different
+
+execution methods we have in the
+
+framework
+
+like the attended and unattended
+
+and then we'll look at the major
+
+difference between those two
+
+and finally we will look at how we can
+
+quickly set up a new document
+
+understanding framework
+
+to quickly run
+
+for invoices or research so that's
+
+the framework is
+
+already built to
+
+handling invoices than receipts so with
+
+quick steps we can easily get it up and
+
+run
+
+so we'll see how we can do that
+
+so in the framework this is uh how it
+
+looks like
+
+so over here you can see
+
+um two different options one is for
+
+unattended the other one is for
+
+attendance
+
+um if you look at the flow
+
+by high level you can see that it's
+
+almost the same
+
+the structure looks very much the same
+
+but there is a small difference
+
+so when it comes to unattended it is
+
+designed to run
+
+um without any
+
+intervention the only place where
+
+we can involve is for the validation so
+
+for that it will use the action center
+
+so the validation will happen for
+
+classification it will also happen for
+
+document data extraction
+
+and all these things will go into action
+
+center as a task and you can verify it
+
+from there this is
+
+we'll get into this stuff later
+
+but when it comes to attended it is
+
+slightly different
+
+so one more thing so for ordinary tender
+
+you can see it is using the queue as the
+
+source
+
+to process the documents but there is
+
+also an extra option
+
+you can also pass in the file as an
+
+argument and set this to false
+
+so this refers to the structure that we
+
+spoke about in the first part
+
+the a human can involve and process only
+
+this document processing flow
+
+so it is designed to do that and when it
+
+comes to attended it is slightly
+
+different you can see if in attended
+
+mode you also need to find a way to pass
+
+the file path
+
+so that will happen
+
+through a simple select document window
+
+so through that you can pass in the file
+
+and then the validation and
+
+classification sorry the classification
+
+and data extraction validation will
+
+happen through the validation station
+
+this it is the it will use the present
+
+classification station
+
+and it will use the present uh data
+
+validation station so it's the intended
+
+version of the action center task
+
+so that's the major difference that you
+
+see
+
+and even in this you can see the two
+
+input arguments
+
+the same as in the unattended so this
+
+way
+
+when you publish this process into
+
+orchestrator you can either use that job
+
+running screen or you can connect this
+
+with any other
+
+application like about apps to pass in
+
+the
+
+file path and process it
+
+so this is the major difference in these
+
+two
+
+but the overall architecture looks
+
+exactly the same
+
+and as I mentioned before the framework
+
+is originally designed to process
+
+invoices and receives
+
+um so with that we can quickly set it up
+
+and
+
+make it work for the either of these two
+
+document types
+
+but if you want to add any other extra
+
+document type
+
+you need to configure
+
+but that's the topic for another another
+
+video
+
+so for this one we'll just see how we
+
+can easily configure this and what are
+
+the steps required
+
+to do a quick setup and get it up and
+
+running
+
+so the major
+
+changes or the major things that you
+
+need to look at is not in the workflow
+
+it's actually in the config file so you
+
+can find the config file under the data
+
+folder
+
+give me a second to open this
+
+so in the config file
+
+we have a lot of
+
+settings here
+
+so you get a lot of settings in the
+
+settings sheet
+
+and the constants
+
+assets
+
+the noise processing analysis
+
+so in this video we will not look at all
+
+of these things we'll only look at the
+
+things needed to get it up and running
+
+real quick for invoices and it applies
+
+for receipts as well
+
+so in the setting sheet this highlighted
+
+uh
+
+options are the things that you need to
+
+look at
+
+so if we quickly go through the folders
+
+of the configurations the first one is
+
+to show or to have a folder where all
+
+the validated items that gets downloaded
+
+so all the documents that go into action
+
+center when it is resumed it downloads
+
+to a temporary folder
+
+so that's this one
+
+and this is where you are going to store
+
+all the exported data as in Excel files
+
+once the validation is done
+
+so you can keep it as the default path
+
+so you can change it to any other
+
+location
+
+and if you are using training to retrain
+
+your models
+
+this is where you are going to store the
+
+training data that you need to pass to
+
+the action center
+
+so this applies for receives and this
+
+applies for invoice
+
+and this is where you are going to have
+
+your uh intelligent keyword classifier
+
+or the keyword classifier Json file
+
+and these are your endpoints so as of
+
+now I'm not going to do any changes here
+
+I'll be using these endpoints as it is
+
+but let's assume in your process you
+
+have a invoice model that you have
+
+trained in your AI Center and you have
+
+it as a public skill
+
+so those things you can change this
+
+endpoint and easily connect it
+
+so that's all you need to do here
+
+in your assets sheet
+
+you have a set of assets so basically
+
+you have
+
+12 assets that you need to configure
+
+and first one is for the API key and
+
+this is to
+
+see or set whether you want to always
+
+run the validation uh
+
+manual validation
+
+you can also read through the thing
+
+and this is to mention whether you want
+
+to always do the manual data extraction
+
+verification
+
+whether you want to skip classifier and
+
+extract the training so all these are
+
+like Boolean values
+
+and then you have the action catalog
+
+that you need to create in action center
+
+and it's fold apart
+
+storage bucket folder path the name and
+
+the folder path
+
+and where you have the document
+
+understanding queue to get the documents
+
+from and the classification threshold
+
+and then you just need to mention the
+
+orchestrator folder path where all your
+
+assets are going to get created
+
+so let's get to the orchestra
+
+so in my orchestrator I have created all
+
+these Assets in this folder the demo
+
+slash document understand
+
+so if you go here all these are my
+
+assets
+
+so as of now this is my configuration so
+
+I'm saying I don't want to
+
+do the classification all the time I
+
+need to validate and only do it when
+
+needed same for validation the data
+
+extraction part
+
+and this is my catalog name I'll also
+
+show you how to create the catalog
+
+action folder path
+
+where the catalog is this is
+
+classification threshold queue name
+
+where the queue is
+
+and storage bucket path and storage
+
+bucket name
+
+so if I go to storage box under this
+
+folder
+
+you can see my storage box this is the
+
+orchestrator
+
+provided one
+
+so how to create the action catalog
+
+for that you need to go into actions
+
+so in actions
+
+um you need to go to the admin View
+
+from this admin settings
+
+and you can see the same folder
+
+structure as you see in your
+
+orchestrator
+
+go into the folder that you need to
+
+create the action catalog
+
+and you can create it from here
+
+just give a name and just click on
+
+create
+
+I already have mine created
+
+so that's the name that you see in my
+
+queues I'm sorry the assets
+
+here you go
+
+so once you have done that configuration
+
+and once you have created these assets
+
+in your config file just update where
+
+all these are located in your folder
+
+structure in Orchestra
+
+and that's it so once you have done this
+
+configuration
+
+you have solution is ready to run
+
+so if you go to
+
+um
+
+our workflow over here
+
+whether it's attended or whether it's
+
+unattended
+
+we need to find a source to run the
+
+documents
+
+so as I mentioned to you the other day
+
+in our structure
+
+um
+
+if we are going with unattended we need
+
+to have a source solution that focus on
+
+your data source and collects the
+
+documents and put it into a queue
+
+and then the document understanding flow
+
+will run as one job per document
+
+and it will process those
+
+so for attended you can give the folder
+
+path for unattended you need to have a
+
+solution
+
+so it will quickly run the attended
+
+version
+
+so I can show you how it works
+
+so I have configured everything now
+
+I'll close my config file
+
+and then I'll
+
+track so in our while this thing runs in
+
+our
+
+upcoming videos will also look into each
+
+and every workflow that's available here
+
+this is just the starting point
+
+um so it should give me a pop-up window
+
+foreign
+
+let me go to my folder structure
+
+have two invoices here let's try running
+
+with this
+
+so you can see it's the initialization
+
+started
+
+it will take few seconds so
+
+digitization started
+
+and here we have the classification
+
+so you can see it already identified it
+
+as an invoice
+
+and now the data extraction will take
+
+place
+
+and I should see the validation station
+
+and here we have it
+
+so it's used in the public endpoint of
+
+the invoices I don't have a invoice
+
+model created right now but if you have
+
+it you can update your config file with
+
+that end point
+
+so you can see it already it was already
+
+able to extract information so I'll just
+
+click on continue and
+
+okay
+
+and the files get saved by default in
+
+this export folder because I did not
+
+change the file path and here you can
+
+see this is the new file
+
+if we open the file
+
+we can see all the extracted information
+
+and this is the formula sheet with the
+
+formatting and here you have the line
+
+items
+
+so that's how it works
+
+so you basically saw the attended
+
+version of the process
+
+so what if we want to run this as
+
+unattended
+
+so I'll show this in the orchestrator is
+
+so that I can show you the two different
+
+variations
+
+so all you need to do is just publish
+
+this into your orchestrator
+
+and once you have it
+
+so I have already done it for my
+
+scenario over here
+
+so once you have it in your orchestrator
+
+just go to jobs
+
+and start so this is how you usually run
+
+the unattended part if it is scheduled
+
+it will create a job
+
+so just select the process
+
+and in this argument section you can see
+
+the two input arguments that we have in
+
+our workflow over here
+
+these are the two input arguments but
+
+for us to run this
+
+we need to have items in the queue
+
+but for this one we don't need because
+
+this is
+
+bypass in the queue and it will just
+
+take the value from here
+
+so let me confirm
+
+so if you go into the queues
+
+I already have a queue over here and I
+
+don't see any transactions inside
+
+um so for us to run this
+
+let me go to jobs I'll start a new job
+
+and under these two options will give a
+
+folder uh name so that we can try
+
+I'll copy the path from here I'll update
+
+this value
+
+we don't need double quotes
+
+save it
+
+change this to false because you're not
+
+going to use the queue
+
+so what happens here is we are changing
+
+these two only for this job the change
+
+we do here does not affect your process
+
+the default settings
+
+so this will only happen for the job and
+
+just click on start
+
+and now you can see the process is
+
+running
+
+Let me refresh
+
+here you can see the process running
+
+let's give it few seconds
+
+so you can see it is creating the
+
+validation action now
+
+and it went into suspended mode
+
+so let's get to the evaluation station
+
+we have one unassigned activity
+
+this created just few seconds ago let me
+
+assign to myself
+
+and this is our invoice so it was able
+
+to identify but I mentioned the
+
+threshold as 70 in the asset and that's
+
+why we are getting this
+
+so let's finish the action
+
+and this should start
+
+so you get the idea now
+
+um so through that
+
+option through that arguments option we
+
+see in the jobs you can run any process
+
+at any given time from uh
+
+from the user
+
+on the other side if you want to run
+
+this in a queue as the usual unattended
+
+fashion
+
+so I will not do the verification for
+
+the validation because
+
+is the usual procedure
+
+so if you want to run this in a queue
+
+um you need to have a different solution
+
+that updates the key
+
+so for that I have a separate uh Studio
+
+solution you can see here
+
+that monitors my invoices folder and all
+
+it does is it updates the items into a
+
+queue
+
+so let's run this and let's quickly
+
+update the queue
+
+so you can see on your left side output
+
+funnel it's updating the items to the
+
+key so we have like 10 documents
+
+and if we go to our queue now
+
+we should see
+
+10 new items earlier we had only one
+
+successful one
+
+that was processed like yesterday
+
+so now for this queue if we run our
+
+process over here
+
+it will learning process one item
+
+so let's start
+
+so this time I'm not going to change
+
+anything over here it's
+
+the default setting
+
+and for this one we'll do the full uh
+
+full cycle so that we can see how it
+
+works
+
+so we have the actions suspended we'll
+
+quickly go here
+
+and we'll take the latest one
+
+so that was the validation action that
+
+you saw earlier that we created
+
+so I'll finish this
+
+and here's the logs
+
+and it's creating the validation action
+
+now
+
+so if you come here
+
+this is the latest validation in action
+
+oh sorry
+
+yes this is the old one that we
+
+processed manually this is our latest
+
+one
+
+and I'll not go through the full
+
+validation
+
+so let's just submit
+
+all I wanted to show here is how this
+
+flow works
+
+and what happens when one iteration ends
+
+so the data export is happening and the
+
+process enter
+
+the reason is it process only one
+
+document in a job
+
+so how are you going to configure that
+
+so that it takes all the items in a
+
+queue without us triggering the job
+
+that is happening actually through a
+
+a trigger
+
+so if you go to automations and the
+
+triggers you can actually create a q
+
+trigger
+
+to look at that queue so this is a Time
+
+list one if you go to few triggers
+
+you can say I want to run this process
+
+and I want to monitor this queue
+
+and every time there are new items I
+
+want to trigger this process
+
+so once you have done that every time
+
+the queue gets updated it will
+
+automatically trigger the job for each
+
+item
+
+so that's how
+
+your du process is going to get executed
+
+so that way if you get 10 items into the
+
+queue you will have 10 jobs taking care
+
+of each item
+
+same happens for any number of documents
+
+you add to the queue
+
+so this is the high level easy setup
+
+um in the document understanding
+
+template
+
+and that's with those easy steps you can
+
+just quickly configure your process run
+
+it for invoices or visits
+
+and in the following videos
+
+we'll see we'll go into Asian average
+
+workflow here and see how we can
+
+configure those
+
+in the step by step
+
+okay so that's it for this video I hope
+
+this is helpful for you to understand
+
+how the document understanding framework
+
+works
+
+and how you can easily set it up in and
+
+do the configurations in the config
+
+sheet and action catalogs
+
+and that's it so thank you for listening
+
+and I'll see you in the next part of
+
+this series thank you so much and have a
+
+good day
+

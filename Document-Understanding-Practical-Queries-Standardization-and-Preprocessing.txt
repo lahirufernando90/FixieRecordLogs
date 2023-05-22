@@ -1,0 +1,374 @@
+foreign
+
+welcome to my new video so this time
+
+it's bit around intelligent document
+
+processing standardization and
+
+pre-processing tips
+
+so
+
+um why I thought of doing this recording
+
+is
+
+when it comes to document understanding
+
+projects sometimes the document
+
+standardizing and formatting matters a
+
+lot so when I say formatting it's not
+
+the format of the document that I'm
+
+referring to
+
+the document format can be anything it
+
+could be a structured one it could be
+
+semi-structured unstructured
+
+um anything
+
+what I'm specifically referring to is
+
+how this document is created
+
+because
+
+when we work with lot of documents
+
+and and these documents are actually
+
+created by so many people
+
+uh before it is submitted to the
+
+document understanding workflow
+
+so that creates a lot of variations
+
+so usually in in documents we could see
+
+handwritten text we could see computer
+
+generated
+
+documents but not just that we can see a
+
+lot more
+
+so sometimes if it's a form
+
+we can
+
+fill it digitally
+
+um using a PDF editing tool or something
+
+or else we can scan it you can write it
+
+and then
+
+sorry we can scan it and then edit it
+
+on a PDF editor
+
+or you can print it write it and scan it
+
+so there are so many different ways
+
+not just that you can also add digital
+
+signages digital stamps
+
+and sometimes
+
+you also add different attachments
+
+comments highlights
+
+um
+
+so many things
+
+so basically when these kind of
+
+variations happen
+
+sometimes you might also end up with
+
+content
+
+where those are not supported in a
+
+different machine or based on different
+
+versions and sometimes this might create
+
+uh issues in the file I have seen this
+
+happening many times in Enterprise
+
+projects
+
+so some of those common things are like
+
+some pages are hidden some documents
+
+have corrupted content unknown font
+
+types because those are edited
+
+through a PDF editing tool
+
+so there are so many variations which
+
+can actually
+
+break our process the document
+
+understanding process it could be the
+
+digitization step or it could be
+
+classification extraction
+
+anything can fail because of these
+
+variations
+
+now you might think
+
+we can have exception handling we can
+
+have different procedures in place
+
+but you can do that but there is a limit
+
+you can't have a
+
+code change for each and every variation
+
+that you see in documents
+
+and just one more thing I forgot to
+
+include here is the uh sometimes you
+
+might you might see PDF files with lot
+
+of pages but each page having a
+
+different size altogether
+
+so you can see how many variations we
+
+can get into when it comes to documents
+
+so I can quickly show you one example
+
+so if you take this invoice
+
+this is Adobe
+
+um so through this I can add comments
+
+or I can add stamps highlighting
+
+so basically this tool supports many
+
+things and I can also do signatures
+
+but this is just one tool there are so
+
+many PDF where it into is available and
+
+they might have a lot more features than
+
+this depending on the software that
+
+people are using
+
+So based on these things sometimes when
+
+you add these stuff on a document
+
+it might break the digitizing process
+
+so how can you do a quick
+
+standardization on these things
+
+so one option is
+
+either you do it through these tools
+
+like Adobe or as you can do it in the
+
+programming level as well
+
+so we'll focus on the programming side
+
+in a different video
+
+um because that require a little bit of
+
+workflow design
+
+and going through some
+
+components available to do that
+
+but one easy step that you can do is
+
+so if it's a document let's say for
+
+example I am using the same noise
+
+um but let's say you have a lot of
+
+documents with multiple pages and there
+
+are so many variations like that
+
+the easiest thing that you can do is
+
+go here into file option in print
+
+this gives you some configuration
+
+so basically you can
+
+use this print option to create another
+
+PDF file a copy of this
+
+with the settings that you see on the
+
+screen right now
+
+so you can set this option shrink
+
+oversize pages and comments and forms
+
+set it to the document property
+
+so there are multiple options here but
+
+set it to documents so that all those
+
+things get added into the document
+
+itself and there will be no extra things
+
+so let's say for example if someone
+
+added comments
+
+or someone added text to fill in blanks
+
+in the form
+
+when you select this option it will get
+
+kind of
+
+embedded into the document
+
+so it will not be a separate element
+
+that you can move around and edit
+
+so use this configuration and then once
+
+you click on print
+
+this will create us a new PDF file
+
+in addition to that if you also want to
+
+go one step further and make this
+
+document a grayscale black and white
+
+let's say you have a lot of colors in
+
+the background on behind text that might
+
+interfere
+
+in the accuracy levels in that way
+
+in that case you can change
+
+this document into a grayscale one which
+
+may help improving the accuracy in
+
+identifying text on a document
+
+so do that and create a new PDF file and
+
+then basically this step takes only few
+
+seconds for anyone
+
+do that and then submit that document
+
+into the workflow and that will solve a
+
+lot of issues
+
+but
+
+you can decide how you want to use it
+
+because sometimes you might not even see
+
+these kind of variations but sometimes
+
+depending on the process you will
+
+so analyze the process very well see
+
+what kind of variations you can find how
+
+people create these documents and based
+
+on that decide how are you going to do
+
+the standardization but it is important
+
+when you have a lot of variations as I
+
+told you
+
+um better to do this because that helps
+
+a lot in
+
+eliminating a lot of errors
+
+so this is one small tip for
+
+uh standardizing before submitting the
+
+document into document understanding
+
+workflows
+
+so I will see you in another video where
+
+I will be focusing on the code level
+
+and a few other things so this is just
+
+one tip for now and I hope this helps
+
+thank you so much and I'll see you soon
+

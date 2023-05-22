@@ -1,0 +1,3450 @@
+okay 20 questions
+
+and I have with me uh
+
+who is from Sri Lanka and he is also the
+
+entity of the UI Plus for consecutive
+
+three years and we are here to actually
+
+uh talk about intelligent document
+
+processing
+
+and our activities agenda more will be
+
+like uh interactive session to
+
+understand uh in condition that you have
+
+or maybe where can you start or
+
+something like that because you already
+
+might have seen uh
+
+because he's the expert actually uh so
+
+you already uh might have uh seen most
+
+of his videos on document understanding
+
+from YouTube and obviously from The
+
+Academy of UI part we have also seen
+
+some Hands-On where to uh I mean how to
+
+get started how to build your framework
+
+and how to process your documents but
+
+today's session we will more likely talk
+
+about the
+
+um real life use cases what we have seen
+
+any problems or challenges that we face
+
+and also from your uh I mean from
+
+yourselves we want to hear about any
+
+challenges any confusion that you are
+
+facing maybe while doing your projects
+
+or doing the exercises or any particular
+
+area that you want to learn for this on
+
+this particular
+
+Bill pillar of uipath
+
+so yeah that that would be our today's
+
+agenda
+
+and
+
+um and most most of the time you will be
+
+hearing from uh because you already know
+
+that he's the expert of Tu
+
+um and uh he also have more experience
+
+than doing in implementing this uh
+
+framework in a number of companies and
+
+he also knows more about the uh you know
+
+the appeals of these uh document
+
+understanding implementation
+
+so yeah so that that would be most most
+
+of the I mean that would be our agenda
+
+in uh in our today's session
+
+so yeah maybe you can uh move to the
+
+next slide and maybe we can start from
+
+there
+
+and I I request everyone you can unmute
+
+yourself and you can just talk we can
+
+discuss uh so yeah likewise we were
+
+gonna do our today's session
+
+so yep
+
+so like you
+
+yes so beautiful we get into anything if
+
+if you guys have any
+
+uh questions or any concerns about
+
+document understanding
+
+um that you would like to clarify on any
+
+project that you are working on feel
+
+free to run me out on us yep
+
+and also you can use this chat box to uh
+
+question to put your question in there
+
+so that you can see from there
+
+and also you are welcome to unmute
+
+yourself and talk
+
+so this document understanding uh it it
+
+comes in every every place is these
+
+things I'd say because
+
+I mean we we are whatever we are saying
+
+from the industry in the market whenever
+
+we are trying to do any POC the thing
+
+that we first see is that any documents
+
+that are coming up so it's it's all
+
+starting from any documents invoicing
+
+invoices uh I mean these are the these
+
+are the uh first stage of feeling your
+
+automation we have seen so this is the
+
+most important part where we need to
+
+actually digitize our document
+
+uh otherwise we can't start our
+
+operation here so that's why this
+
+document understanding understanding
+
+framework is also important
+
+yeah
+
+that's true and and
+
+many we can
+
+see some
+
+use cases
+
+[Music]
+
+Finance so that's the most common area
+
+because
+
+we have a lot of documentation
+
+around invoices purchase orders
+
+residents and many more things but there
+
+are also certain interesting use cases
+
+that we can find Outside these common
+
+domains like
+
+by
+
+e
+
+[Music]
+
+and you check your connections
+
+sometimes
+
+you also have a couple of use cases that
+
+we would like to share
+
+um that's a robin mentioned I mean areas
+
+hello yeah yeah it's better or better
+
+okay
+
+um yeah so basically uh as we wait for
+
+the questions from you guys so I would
+
+actually like to share some approaches
+
+that we have found
+
+um and that we have been following on
+
+the document understanding projects so
+
+uh
+
+um as we know it's also
+
+part of RPA but
+
+um the way we need to capture certain
+
+information is bit different compared to
+
+the normal rpfo checks that we do so as
+
+a checklist
+
+um these are what you see on the screen
+
+are some uh high-level categories that
+
+we could think of to start on a document
+
+understanding project
+
+um so we can say like the
+
+source file structures how we do the
+
+classification the document type itself
+
+and what are the required data
+
+validations and what we do after
+
+extracting everything so basically
+
+um so some of these questions that we
+
+see mostly from the industry are around
+
+these areas and that's the same exact
+
+area that we follow when we are doing
+
+the requirement Gathering
+
+um because these things come in very
+
+handy when we are actually deciding how
+
+our document understanding solution
+
+should look like what it should do
+
+and what kind of Technologies we need to
+
+use in our solution so the common
+
+questions that we come across is
+
+um what kind of OCR engines that we
+
+should use because we have so many
+
+different usdr engines available what is
+
+the best one yes
+
+Robin you are saying some
+
+foreign
+
+[Music]
+
+yes okay
+
+yeah
+
+I hope you can see my screen now
+
+yep
+
+okay yeah so okay some of the you know
+
+so what I was saying is some of the
+
+common questions that we come across is
+
+how to select the OCR engine and which
+
+OCR engine suits the best for my use
+
+case
+
+and um
+
+so that's part of the digitization and
+
+then comes uh Marine Council
+
+classification should I even do the
+
+classification and if I need to what
+
+exactly is the approach what I should do
+
+and how should I classify
+
+um so these are some questions we'll see
+
+so that's why we actually have this
+
+boxes here so the source part I'll take
+
+one by one
+
+um in the source part we can actually
+
+ask
+
+um when you are doing the process
+
+understanding we can actually ask what
+
+kind of uh platforms you are using to
+
+store this docking and it could be
+
+Google drive it could be OneDrive or it
+
+could be even emails
+
+um
+
+so basically we need to know where these
+
+documents are stored and if it's like a
+
+Google drive or OneDrive how exactly are
+
+we going to find the documents that we
+
+are going to process so let's say all of
+
+these documents are stored in one single
+
+folder for example
+
+if that's the case
+
+um how are we going to
+
+identify the new documents is it just
+
+based on the Creator date or is it based
+
+on something else
+
+and
+
+and sometimes we have seen that use the
+
+separate storage like the main storage
+
+can
+
+be a shared driver on drive or whatever
+
+for example but on the other side we we
+
+might read the main documents from there
+
+and we might store it in a temporary
+
+location like a local Drive in the
+
+machine Maybe
+
+so if that is possible we need to know
+
+because in in some of these projects
+
+um we we don't have access to
+
+we only have access to read the files
+
+but sometimes when it's needed for
+
+splitting and when it's needed for uh
+
+storing those documents that we split
+
+um should we use the same location or
+
+not we don't know
+
+so uh
+
+these kind of things we need to ask from
+
+them
+
+so basically it's all about
+
+understanding how we can identify the
+
+documents and how we can use that
+
+storage
+
+um and to build our process because
+
+that's the start of the whole document
+
+understanding process
+
+so that's mainly The Source area
+
+um The Source category so that way when
+
+we are building our solution we can plan
+
+our first part of the solution on how we
+
+should extract the documents from that
+
+location
+
+and then comes the
+
+file structure so this is all about
+
+what kind of files we are getting
+
+um so we can get files in different
+
+formats we could it could be PDF files
+
+it could be images
+
+it could be Excel Word documents it can
+
+be anything
+
+um so we just need to know what those
+
+files are and and whether it is password
+
+protected and whether those files are
+
+computer generated scanned documents
+
+or is it just a photo that's taken
+
+so these are some stuff that we need to
+
+know because this in turn affects the
+
+solution on what kind of Technology we
+
+need to use and what kind of ocrs that
+
+we need to use
+
+um
+
+and us so in some scenarios
+
+I'm not sure whether you have seen this
+
+in your your projects but in some of the
+
+projects we have noticed that in the
+
+files uh people
+
+also add comments like if you are using
+
+Adobe Reader for example using that you
+
+can add comments you can highlight text
+
+text you can also
+
+add text add attachments you can do so
+
+many things
+
+um so in that case if we addressed
+
+that information we need to know how it
+
+is placed in the document because the
+
+file could be a scan document but these
+
+things that we add are actually digital
+
+so it's a combination of two things
+
+so these things we need to look at and
+
+we need to understand how those things
+
+are done
+
+to add stack in those information and
+
+even in digitizing in some of the
+
+scenarios
+
+and then comes the classification
+
+um so basically when it comes to
+
+classification again one thing I forgot
+
+to mention is the file structure whether
+
+these files are structured
+
+semi-structured or unstructured because
+
+when it comes to classification it all
+
+depends on keywords
+
+and uh
+
+and sometimes if you are dealing with
+
+instruction
+
+different documents like legal documents
+
+for example and if you have a lot of
+
+them the keywords that you select might
+
+not be unique for each document type
+
+uh so in in such scenarios we need to
+
+know
+
+how we need to do the classification and
+
+what kind of keywords that we need to
+
+use
+
+and in addition to that we also need to
+
+know
+
+um
+
+how we
+
+to do the classification like whether
+
+it's a single document that we need to
+
+classify like your document might have
+
+like 10 15 pages
+
+and
+
+and
+
+um at that time
+
+is that a document
+
+that belongs to a single type
+
+oh whether it's the document that has
+
+multiple documents typed inside
+
+um so these things actually help us to
+
+understand whether we need to split the
+
+documents and how we need to split and
+
+how we can identify these things in the
+
+classification stage
+
+so that in turn also refers to the
+
+technical solution because
+
+um
+
+the keywords that your parents use
+
+if it's a very simple document we can
+
+just use the basic keyword classifier
+
+but if
+
+you have documents that you need to
+
+split then you need to go for the
+
+intelligent keyword classifier
+
+and on the other side if the documents
+
+are unstructured the keywords are not
+
+common sorry not unique
+
+and you also need to split at the same
+
+time so this this kind of things might
+
+need even multiple classifiers like so
+
+machine learning classifier the
+
+intelligent keyword classifier so I will
+
+also tell you one use case that we have
+
+done
+
+um by using all three of these
+
+classifiers because of its nature of the
+
+documents
+
+so these are some things that we need to
+
+understand during
+
+the requirement Gathering session
+
+by asking this kind of questions yeah in
+
+addition to that for the classification
+
+stage we also have the option not to use
+
+classification State I mean uh why is
+
+that because maybe sometimes you're only
+
+uh working with one single type of
+
+document and you don't need to classify
+
+your document there's only one type of
+
+government is coming so you don't need
+
+to put this stage to see okay uh what
+
+type of document I'm getting like
+
+invoice form or any other like uh in a
+
+payslip or something like that any
+
+checks so we don't need to put this
+
+stage when we are only handling let's
+
+say the invoices so we know this is the
+
+only type of job we will create we're
+
+gonna get so in those particular cases
+
+we also have the option not to use this
+
+classification stage
+
+okay
+
+yeah I'd like to open to you
+
+yeah yeah that's a good point and and
+
+also
+
+we can also decide whether we need to go
+
+for manual intervention or not in
+
+verifying this data so I'll get to that
+
+point after we discuss about the
+
+extraction of data
+
+and why do your voice is breaking
+
+I don't know if it's only me oh sorry
+
+you are
+
+getting anyone else confirmed
+
+I could hear everyone okay
+
+okay
+
+so I've just got a quick question
+
+yes when you mentioned about
+
+classification
+
+if all the documents so in one use case
+
+I'm trying to understand I've got
+
+three or four different types of
+
+documents if they've already been
+
+pre-sorted into their types
+
+then you're saying that we can just
+
+ignore the classification stage because
+
+we already know for certain that they
+
+are all going to be of the same type is
+
+that correct
+
+yes exactly so if we know the type and
+
+if it is like stored some uh maybe as a
+
+different
+
+folder like for example in in your data
+
+source where you're having all these
+
+files if it's stored like in several
+
+folders like invoices purchase orders
+
+and the files are inside that that is
+
+good enough for our process because from
+
+there we know what exactly that is
+
+so in in those cases we don't need to do
+
+the classification
+
+cool thanks
+
+okay
+
+um so just to add to that that's
+
+actually a very good question so I can
+
+actually take off another Point based on
+
+that so if your solution is focused on
+
+uh multiple different types of documents
+
+but it is pre-sorted somewhere
+
+and just like you mentioned
+
+um let's say it's invoices and purchase
+
+orders because that's that's something
+
+everybody knows
+
+um
+
+the way we process the way we extract
+
+the data is different in this type
+
+um so in that case
+
+we can use that in our taxonomy manager
+
+we can actually Define that these are
+
+the different types of documents we have
+
+but since we are omitting the
+
+classification step we can use that
+
+information that we already have let's
+
+say it's the folder name that says
+
+whether it's an invoice or a person
+
+order we can use that and build our
+
+logic according to that to say the word
+
+that this is the invoice and this is a
+
+purchase order for example
+
+in the place that you need to define the
+
+type of the document
+
+so that's another way of doing it
+
+[Music]
+
+sorry
+
+sorry
+
+um so it's then then actually comes the
+
+document type structure so this is about
+
+the second stage like first we talked
+
+about the different types of documents
+
+we have this and uh
+
+computer generated or whatever it is but
+
+then comes the document type which
+
+actually refers to
+
+um when you have multiple documents
+
+inside one file
+
+these things can also be different like
+
+in a single file first you might have a
+
+structured form
+
+but after that you might have a legal
+
+document which could be unstructured
+
+um so there can be different scenarios
+
+like that
+
+so in in certain in in such cases we
+
+need to know when we do the split what
+
+kind of a document that because this is
+
+needed when it comes to a data
+
+extraction path but we need to use
+
+different approaches in extracting data
+
+based on this layout of the document so
+
+if it's a structured one we can use a
+
+form instructor for example if it's semi
+
+structure we could use some skill that's
+
+developed but if it's unstructured we
+
+might need to use some language analysis
+
+models to understand what we need
+
+um
+
+so to do that we need to know what kind
+
+of document it is even the split
+
+document and what kind of information we
+
+need to get start and how it is
+
+presented like it could be handwritten
+
+data it would be computer generated it
+
+could be some check boxes uh could be
+
+anything
+
+so we just need to identify those things
+
+by getting deep into the files so it is
+
+sometimes when you are doing the
+
+requirement Gathering you might not see
+
+all the different types of talking but
+
+it's it's good if you can spend some
+
+time with the business team uh sit down
+
+and go through all the possible uh
+
+sample documents they have and have a
+
+look at it have collect as much as
+
+possible on these samples and go through
+
+them one by one have a look at the
+
+documents get the feel of it so that you
+
+get the understanding on how these
+
+documents look like and what are the
+
+different variations we see in each and
+
+every document
+
+um so this gives you a very good
+
+understanding on how we need to build
+
+our solution what kind of Technologies
+
+we need to
+
+process these documents
+
+so that's about the document structure
+
+and then comes the required data so this
+
+is all about
+
+identifying the data that we need to
+
+extract and how it is
+
+presented in these different layouts
+
+so here is the validation part so this
+
+is this kind of applies to both
+
+classification and data extraction part
+
+so because
+
+we don't send each and everything to the
+
+user to verify so
+
+we just need to sometimes verify the
+
+data that we extract so what's our
+
+approach to do that so sometimes these
+
+questions you might not ask from the
+
+business directly but this applies both
+
+rest sometimes you need to
+
+ask yourself
+
+if you're the one who is building it
+
+like how am I going to validate the data
+
+and you can also ask
+
+the business team what are the business
+
+rules now we are going to verify whether
+
+this extracted data that's available in
+
+the document whether it's valid or not
+
+so it kind of applies both
+
+so business rules you can ask from the
+
+business team but when it comes to the
+
+data accuracy
+
+um
+
+how we are going to do that
+
+like whatever the information you
+
+extract there could be OCR errors
+
+sometimes for example so how we are
+
+going to validate those things how we
+
+are going to find those things and
+
+correct those so validation is not just
+
+about
+
+validating what we extracted it's a part
+
+of it is also focused on correcting auto
+
+correcting the data before even moving
+
+into manual verification
+
+so I'll tell you one example
+
+um like for example in
+
+invoices we extract the amounts we
+
+extract the total invoice amount and we
+
+also extract the line items from the
+
+invoice
+
+so if we need to verify whether the
+
+amount that we extracted as the total
+
+amount is the same as the line numbers
+
+we can cross verify that data by getting
+
+the sum of the line items and verifying
+
+whether we extracted the proper value so
+
+this is again
+
+two ways we are actually verifying
+
+whether the data available in the
+
+invoice is correct and we are also
+
+verifying whether the data we extract or
+
+this step
+
+irrespective of this OCR and other
+
+issues
+
+so there will be different validation
+
+methods that we need to use to come up
+
+with a good solution for them
+
+so I'll get into detail on how we have
+
+actually used this in some of the use
+
+cases and then about post-processing is
+
+about
+
+once we extract the data and store it in
+
+a Excel or a database or anything
+
+where are we going to post it like if we
+
+need to put it into some application
+
+like sap or Salesforce or something how
+
+we are going to do that so that's
+
+another part of the first step so
+
+basically by looking at this you can
+
+actually see we have
+
+um three different parts one is the
+
+document collector and the document
+
+orchestrator is all about how you
+
+classify how you digitize how you
+
+extract and all of those stuff and the
+
+false processing is all about the normal
+
+RPS process
+
+on how you upload that information to
+
+the system that you're planning
+
+so uh this is this is
+
+some major areas that we look at
+
+when doing a requirement Gathering and
+
+I'm just trying to get an understanding
+
+of the process and the document itself
+
+um so Robin do you have anything to add
+
+on this or if anyone has any questions
+
+yeah you recovered actually everything
+
+and you discuss everything so smoothly
+
+uh so yeah it's good from my side but
+
+anyone else I mean if you get in the
+
+queries any questions confusion please
+
+uh unmute yourself and you can talk with
+
+us
+
+and we got the expert with us like you
+
+uh so it's our chance to clear out our
+
+confusion from him
+
+so yeah
+
+or you can just put your question in the
+
+chat box
+
+if not maybe we can move forward so I
+
+think maybe we can start with the use
+
+cases we have to use cases that we did
+
+so
+
+yes yeah uh do you want to start or
+
+should I
+
+yeah I can I can start
+
+so uh let me talk about the use cases
+
+that I faced recently so that's why I
+
+talk it in the classification stage
+
+because on this use cases the use case
+
+where we only have to work with all
+
+three or type of stuff
+
+so uh that's where some part might get
+
+confusing for someone that uh this is
+
+part of the framework uh this
+
+classification stage and we need to use
+
+it for every
+
+processes that we're gonna do using this
+
+firm
+
+um Robin I can't hear you is it just me
+
+or
+
+it's not just you I mean
+
+yeah
+
+uh thing yeah
+
+Robin can you hear us
+
+yeah
+
+Robin
+
+um
+
+I guess we have a problem
+
+from what ends today anyway
+
+can explain some of the use cases that
+
+we have been involved in so uh
+
+the first service case was actually done
+
+like uh two years ago so this is and
+
+this was actually focused on
+
+um child adoption it is a very different
+
+use case so basically
+
+um
+
+in this case uh it's all about providing
+
+a good home for the children who were
+
+abandoned and who are actually in
+
+different orphanages so there are like
+
+different agencies that take care of
+
+this stuff and and we actually did this
+
+for a company in the US
+
+um so basically
+
+they do so much of documentation on
+
+these things to basically find a good uh
+
+family for this children so this
+
+actually has about 50 to 60 different
+
+document types
+
+um and the interesting thing is these
+
+documents
+
+are very much unstructured
+
+and some of these things are like
+
+structured documents like different
+
+forms but these documents included
+
+images handwritten data scanned
+
+documents photos of different things
+
+just imagine the on on things that
+
+and
+
+and these documents are actually
+
+prepared by different people and once
+
+they send it to uh this particular
+
+process uh it is about 200 to 300 Page
+
+document and sometimes it's even more
+
+than that
+
+um so the the people in this
+
+organization they manually go through
+
+these documents identify
+
+what are the different documents that
+
+are there in this file and what they do
+
+is they actually link these documents
+
+into different files
+
+and splitting is also not that easy
+
+because it's not always in the proper
+
+page order like
+
+uh sometimes from page 1 to 10 could be
+
+a different file and page two to sorry
+
+uh 11 to 15 equals yes something else
+
+but there can be some pages that belongs
+
+to the first document after that so in
+
+such cases we need to merge these things
+
+and build that final file like it has
+
+about 50 60 different types and from
+
+each once that is ready we need to
+
+extract certain information
+
+and again that is also a challenge
+
+because we don't know in which order
+
+these spaces come in could be in any
+
+order
+
+so identifying where that information is
+
+and extracting that information using
+
+different techniques was the challenge
+
+so if that was the use case and finally
+
+once we have all that information we
+
+just need to upload all of these
+
+documents into some thread application
+
+so basically for a person it takes about
+
+five to six hours just to finish one
+
+such blocking but with the automation
+
+solution that was created for them
+
+it just does that in just uh 10 minutes
+
+so it reduces the overall effort a lot
+
+um
+
+so
+
+why I brought this up is because this is
+
+one scenario where we had to decide what
+
+kind of OCR engines that we need to use
+
+and what kind of
+
+um classification techniques you need to
+
+use
+
+so basically the OCR selection and this
+
+is also another question that usually
+
+people ask
+
+um
+
+yeah
+
+so basically there was a selection it's
+
+again sometimes if you are familiar with
+
+one OCR engine we tend to use it but
+
+that might not be the best OCR engine
+
+for every scenario
+
+so how we identify that
+
+so we use a concept called uh OCR
+
+benchmarking
+
+so what it is is that based on these
+
+scenarios that we identified uh at the
+
+beginning with all those questions that
+
+we asked um
+
+we try to find the OCR engines that
+
+support those scenarios like for example
+
+if we see documents that are scanned and
+
+that has check boxes and written data
+
+and stuff like that we
+
+look for OCR engines that support that
+
+kind of extraction
+
+and that can be multiple of CRM but we
+
+don't know this one is the best
+
+um so in that case
+
+what we do is we select
+
+through OCR engines and we collect some
+
+sample documents that belongs to each
+
+and every type
+
+that we identify and run it through the
+
+is OCR engines for each field that we
+
+need to extract and that way we get the
+
+confidence levels we get the percentages
+
+of the accuracy and we can cross verify
+
+the OCR engines for their performance on
+
+this and decide which one gives us the
+
+best accuracy and sometimes the best raw
+
+CR engine that you see might not work
+
+for a couple of fields that you have but
+
+the other OCR engine that is not good
+
+for all the other stuff but it is good
+
+in extracting that kind of case that is
+
+not capable
+
+a lot of extracting by your primary so
+
+in those cases you can even use a
+
+combination of multiple OCR engines to
+
+do our tasks to validate and properly
+
+extract that information so that is
+
+something that we actually did in this
+
+particular use case because there was so
+
+many different document types
+
+and a lot of different ways of
+
+extracting data
+
+um so we apply that kind that
+
+Technologies there and the user
+
+intervention was very minimal
+
+and the Second Use case it's again on
+
+this same company but on a different
+
+area this is all about managing legal
+
+stuff
+
+um so once this here and even get
+
+adopted they sometimes go through a lot
+
+of things like drugs
+
+um alcohol and
+
+violence at home and so many things so
+
+when those things happen you need to
+
+there are some legal things that's going
+
+on so even for those they have
+
+even more than 60. they had about 150 or
+
+60 different document types again
+
+and in that
+
+um even in one type there were so many
+
+different types of documents like if
+
+say a legal document you can see illegal
+
+contracts you can say legal I don't know
+
+code code orders you can see emails that
+
+are being sent uh here and there to
+
+discuss some of those stuff so there are
+
+so many different variations and for
+
+that
+
+that kind of a use case we had to use
+
+the classification very heavily because
+
+we just cannot say that this keyword
+
+will be there in this document because
+
+it varies so much
+
+so we have to use the combination of all
+
+three classifiers for some of the things
+
+that we know we specifically went
+
+through thousands of documents manually
+
+identify these keywords and mentioned in
+
+the keyword classifier whatever the in
+
+unique keywords that we can find
+
+and to suffer that that was just not
+
+enough but to support that we also use
+
+the machine learning classifier
+
+and trained it on more than 2000
+
+documents to properly classify
+
+and that was also not easy because these
+
+documents have so many pages
+
+and we need to split those
+
+um so and and that's also another part
+
+of the questions that we had to ask so
+
+when you have when you need to I do a
+
+classification and split it we need to
+
+train that model for each and every page
+
+because else
+
+the model will not know how what this
+
+page is
+
+um so in that case so based on that
+
+information we had to in in the initial
+
+samples we had to split those pages into
+
+one page documents and train the model
+
+on those stuff and then use that
+
+classification on top of that
+
+and that's a process where we don't have
+
+any kind of manual intervention so
+
+that's the
+
+that was given to us as a
+
+a requirement from the business
+
+because they process more than thousand
+
+documents a day for this particular
+
+process
+
+so for that they said the specifically
+
+said we can't just sit and verify the
+
+bird has to do it uh
+
+um without a single
+
+verification from any person in that
+
+organization
+
+so the business Logics has to be
+
+accurate the validations that we do has
+
+to be accurate the data has to be
+
+accurate it might not be 100 but but
+
+still we need to somehow get the highest
+
+possible accuracy so for this we again
+
+use multiple OCR engines to get the best
+
+possible Osceola accuracy and we used
+
+very
+
+um different validation mechanisms to
+
+verify the extracted data to see whether
+
+it's correct we even used firstly string
+
+logic to cross verify the information so
+
+the validation part was very uh
+
+strenuous and it was very complicated
+
+so that's the other use case on
+
+um document understand
+
+so why I brought this to office because
+
+of uh
+
+these things that I just mentioned and
+
+all of those things were actually
+
+captured at the very initial stage by
+
+asking all those all those questions I
+
+mentioned in that uh
+
+um different categories Spain I showed
+
+so that's that was the start and that
+
+gives us a lot of insight on how we need
+
+to plan our solution how we need to
+
+decide the different techniques we need
+
+to use so that's why I especially
+
+highlighted on those areas because when
+
+it comes to requirement Gathering they
+
+might not even show you all the possible
+
+samples that was the case with us as
+
+well so but
+
+when it comes to documents you have to
+
+see those and you have to get
+
+information as much as possible
+
+to properly plan else if you are
+
+supposed to change something at the end
+
+it's if and if the process is that
+
+complicated it's going to be a bit
+
+difficult
+
+yeah so those are some two use cases
+
+that I have you know Robin are you back
+
+yeah can you hear me now
+
+yes
+
+sorry everyone sorry for the
+
+connection issue
+
+and the the use case that I was talking
+
+about so let's let's just start from
+
+there so uh the solution that we
+
+provided recently that was for
+
+example
+
+here in Bangladesh
+
+and we physically visited that office
+
+and we have seen that we are in like
+
+piles of insurance forms
+
+and they're like 80 plus
+
+[Music]
+
+trying to understanding form and from
+
+where they were putting those data into
+
+their uses settings
+
+the amount of data they needed to handle
+
+and that was quite tiring for them and
+
+also the same tasks every time
+
+um and Robin is a bit difficult to hear
+
+you
+
+I think there's something wrong with
+
+your mic
+
+is it better now
+
+because what there's some
+
+a kind of fear as the robotic voice
+
+about now
+
+is it better now
+
+can you hear me now
+
+oh
+
+yep okay
+
+I can hear you but uh difficult to
+
+understand
+
+it's a bit of an echo coming through all
+
+right all right okay so where I was
+
+actually uh so yeah so uh the shifts the
+
+people were actually working was like
+
+ten to six but for the amount of the the
+
+form actually yeah
+
+you can't understand what you're saying
+
+we can hear like some nice but really
+
+difficult to understand
+
+that's what you're saying
+
+um I don't know why is that uh
+
+okay so Craig is saying it's better so
+
+he can hear
+
+all right so uh so this pile of data
+
+they needed like more of their shift of
+
+work to complete each day's task and
+
+every day they were like processing 700
+
+plus documents insurance form so these
+
+insurance forms were coming from all
+
+over the country and that was the head
+
+office
+
+and there the the employees were like 80
+
+employees were like processing those
+
+documents and importing those data in
+
+the uh Erp system
+
+so that's when we uh came into the
+
+picture and we tried to help them so
+
+there's
+
+always one opportunity with these kind
+
+of documents is that we also have the
+
+option to re-engineer those uh kind of
+
+documents
+
+so those documents which we are going to
+
+process let's say for this particular
+
+use case so those that insurance company
+
+were using like one eight page form and
+
+few of the pages were not actually that
+
+much important that they said when we
+
+visited so we tried to actually recreate
+
+the form for them and try to show them
+
+okay let's let's uh let's work with this
+
+one is it good for you or it is that
+
+fitting all of the information that you
+
+need to be need to get from blind and
+
+that's how we also try to help them in
+
+re-engineering the documents that we are
+
+getting
+
+and we also had the uh solution that I
+
+mean that we propose is that can't we
+
+have these uh formed I mean digital form
+
+online from from where we can get the
+
+information from the clients uh in that
+
+case maybe the uh work would be more
+
+easier for us for us something like that
+
+but
+
+uh I mean in in some particular
+
+countries we have this compliance the
+
+issue that government needs to have
+
+these documents for each of the clients
+
+otherwise this company can process or
+
+something like that so that's why that
+
+proposal was uh not working uh so that's
+
+uh and that's the place where we uh put
+
+this new uh form structure where we were
+
+being able to uh make this from like
+
+three pages and that was more easier
+
+after that because we did some boxing so
+
+that we can understand whatever written
+
+in there
+
+so and also lahiru just mentioned we
+
+need to carefully choose our OCR uh OCR
+
+tool because it's important while
+
+reading any scan document handwritten
+
+document I've I'd recommend always use
+
+uipath document I was here because
+
+because it's gonna give you I mean more
+
+accuracy than any other tools in the
+
+market I guess but obviously you have
+
+the option to try out uh each and every
+
+one of those tools to see from which
+
+tool you are getting more accuracy
+
+so uh after that we implemented this
+
+process and uh now I mean uh What uh
+
+what their requirement was like from 80
+
+people they can just move to 20 people
+
+or something like that that's that's
+
+team number they gave us that we can
+
+provide 20 people and other 60 maybe we
+
+can relocate them to other important
+
+tasks we don't want to waste their time
+
+in this particular job and also I don't
+
+wanna spend those 20 people to most of
+
+their days I mean most of their time of
+
+the shift in this particular process
+
+and you might also get this kind of
+
+requirements well with implementing this
+
+kind of du processes is that whether
+
+decline won this one in attended mode or
+
+unattended mode
+
+so the validation stage actually helps
+
+us to uh to implement in those
+
+particular area like when we are the
+
+management attended mode those when the
+
+employee is going to be sitting in front
+
+of their PCS and whenever the documents
+
+are coming processing they're going to
+
+see the validation stage okay this from
+
+this particular form these are the
+
+fields that were extracted and if
+
+anything
+
+um confusing or not extracted correctly
+
+they can correct it from there so this
+
+requirement was important for decline
+
+because they are insurance company and
+
+the information that they were getting
+
+was very sensitive those were important
+
+and any uh mismatch or anything
+
+unscribed from the document could create
+
+problem for them so that's why it was
+
+one of their requirement to um
+
+uh implement this one in attended mode
+
+but we also have this option to uh move
+
+this solution to unattended mode by uh
+
+giving some validation score to our
+
+extracting fields and send any uh any
+
+any information which are underscored in
+
+the AI center from where the user can
+
+get uh any email or text messages that
+
+these are the information you need to
+
+check so we also have the option to
+
+implement in that particular particular
+
+way as well
+
+use cases I also wanted to uh I brought
+
+this one up because this this was
+
+something else from Hero's use cases
+
+something may be easier but maybe uh we
+
+also get the opportunity to use
+
+something uh some re-engineering in the
+
+form and in the implementation we had to
+
+use this appended mode for something
+
+like that
+
+so yeah so that's that was about it my
+
+use cases and previously uh each of the
+
+employees they needed to spend 20
+
+minutes for each of the forms to process
+
+those I mean from the form to uh
+
+entering those items in the Erp system
+
+but also the implementation now it's it
+
+takes less than eight minutes to process
+
+each of the forms and that's how we were
+
+being able to help this company
+
+so that was about the use case and uh
+
+anyone got any question please
+
+feel free to ask
+
+hello myself shubham so my question is
+
+regarding to do only document
+
+understanding
+
+yeah
+
+Clan says that we don't want to use ml
+
+model instead of that we uh what we have
+
+to use uh suppose plant says we have to
+
+extract these are regarding document
+
+understanding but uh as we know there is
+
+uh we can create ml model uh through
+
+oxidator and through Community Edition
+
+as I am using communication only
+
+so for POC client says through the
+
+restrictions uh this check level we
+
+can't use ml model we have to use either
+
+public ones or endpoints or another
+
+things so what will be the criteria or
+
+something like that
+
+you want to check that question
+
+yes
+
+um so can you like tell me again what's
+
+the document uh is it a passport I'm
+
+making yeah so repeating again uh
+
+suppose I am making a
+
+you can say POC
+
+um uh the POC is extracting the Visa
+
+details from the documentation so client
+
+says we don't want to use ml model due
+
+to C-sections due to security purpose so
+
+what will be the exact criteria that we
+
+have to use as we know there is no
+
+public endpoint for the Visas
+
+so any other things like uh
+
+keyword classifier or you can say
+
+section how we can uh filled client
+
+criteria select that
+
+yeah and it's so yes so even with the
+
+public endpoints what happens with that
+
+is you will be sending your data out of
+
+your organization
+
+to that uh endpoint because
+
+um with uipath they do have public
+
+endpoints but even for that to work
+
+um you will need to send the digitized
+
+information to that server then get the
+
+results back
+
+um so if if you don't have uh on-prem
+
+version for this particular thing then
+
+probably
+
+um
+
+and even with the cloud you'll be
+
+sending some data outside so
+
+so the best thing to use is
+
+um
+
+I know the layouts will be changing for
+
+different Visa types
+
+um so
+
+if possible you can try to use and based
+
+on your scenario you can actually look
+
+at these things and see
+
+if if we can use the red gas the most
+
+simpler one that does not even require
+
+any extra cost
+
+um you can try to like capture some
+
+keywords and try to extract by
+
+implementing some brackets pattern over
+
+there
+
+um like for example if you want to
+
+extract the name and you see the name
+
+printed right next to it you can
+
+try to build a pattern based on that so
+
+that's one way of doing it the other way
+
+is to
+
+create a template
+
+using maybe form extractor for example
+
+so that way you can
+
+try extracting without creating any ml
+
+models
+
+so basically uh the answer as is the
+
+answer is there that we have to use
+
+rejects over there
+
+yes the most simpler one is that I gets
+
+in your case but in in the way of
+
+rejects uh it will it will be a
+
+difficult one uh Suppose there is a you
+
+can say address or something like that
+
+address name
+
+things like that it will okay I will try
+
+that okay I will try that
+
+so in every password you can see this
+
+name area this address so these are
+
+common fields yeah so
+
+so that's why maybe that's one option
+
+and the other option eject slot is just
+
+like players said so you can try maybe
+
+uh I mean from two options you might
+
+find some some I mean one of it maybe
+
+more efficient than the other
+
+so for the Simplicity and the
+
+realization that you got from the client
+
+side maybe these are the options that
+
+you can try out
+
+okay so I had to try passport instead uh
+
+passport also and rejects also okay in
+
+the terms of first name last name or
+
+something like that gender okay okay I
+
+got it okay okay because for every
+
+passports these are the common
+
+informations yeah yeah yeah
+
+so thanks
+
+Shivam for your question so anyone else
+
+any anything you want to ask
+
+any challenges you are facing while
+
+doing your processes or projects
+
+or any suggestion from your site on any
+
+particular topic that you want to clear
+
+out in our next event you can suggest
+
+yeah I've got a question so we
+
+we receive a lot of statements for our
+
+clients so we're uh like back office
+
+processing
+
+and
+
+we would receive probably I think last
+
+year it was like 46 or 47 000
+
+PDFs of the one type and that's
+
+basically a holding statement at the end
+
+of the month
+
+um what investments a client will have
+
+um so we're trying to process all of
+
+those now because we've pre-sorted them
+
+all as they come in we're moving them
+
+into separate folders so we know that
+
+they are only one type so that's easy so
+
+we don't have to use the classifier that
+
+um LaRue had said so if we don't have to
+
+classify them and then we go straight
+
+into the extraction
+
+the bits of data that we're trying to
+
+extract would be say that the client
+
+identifier so I've got a customer number
+
+however the statements that come in are
+
+coming in from lots of different
+
+providers and the label
+
+that precedes the actual client number
+
+may be different for all these different
+
+providers so it could be customer ref
+
+could be customer number spelled
+
+n-u-m-br could be customer no dot could
+
+be customer no it could be client ref
+
+client number so
+
+to and also the format is completely
+
+different and we could have
+
+hundreds and hundreds of different
+
+formats all contain the same sorts of
+
+information but the format is different
+
+so
+
+I'm just trying to get my head around if
+
+we were to do a template and do a form
+
+extraction
+
+that would be relatively easy if we had
+
+five different templates because we'll
+
+know what each one looks like and we
+
+know exactly where
+
+the custom references and what the label
+
+is
+
+if we're not with hundreds and hundreds
+
+of different forms and different formats
+
+should we then be using machine learning
+
+extractor
+
+as the way to go for that or should we
+
+or should we be using
+
+something different because obviously we
+
+can spend the time and create lots of
+
+templates but then there's the
+
+additional overhead and maintenance if
+
+they change or if they reorganize then
+
+obviously there could be lots of
+
+templates are suddenly stopped working
+
+so
+
+um you're going to get your thoughts on
+
+what's the best way what's the best
+
+extractor to use given the formats vary
+
+and those are the labels vary as well
+
+thank you so much for your question
+
+uh you want to take this one over to you
+
+okay
+
+yeah I think in this case since you have
+
+so many different uh
+
+um
+
+layouts and uh different variations I
+
+think
+
+um it's good to go for machine learning
+
+because
+
+um
+
+the nails change and the way the data is
+
+represented changed so even in the
+
+future if if you use machine learning
+
+even and properly train it
+
+in the future if you see something new
+
+coming in maybe the machine learning
+
+will be able to automatically
+
+figure out what it is and try to extract
+
+the information without much additional
+
+effort
+
+um
+
+so this is one way of building
+
+okay
+
+um so since you asked that question I
+
+would also like to share something
+
+um
+
+this same thing can also apply on this
+
+invoice processing stuff as well because
+
+um again
+
+um this is something that I noticed like
+
+uh when you have so many hundreds of
+
+different variations in invoices
+
+um and you train it for each different
+
+uh type that you are aware of but in the
+
+future
+
+there is another different layout that's
+
+coming in and the model will give some
+
+good
+
+uh predictions on those it might not be
+
+the perfect prediction that we are
+
+expecting but it will try to extract
+
+some of the information without much
+
+effort so this is something I have
+
+personally experienced with one of the
+
+University projects that I did not
+
+explain in much more detail but that is
+
+something I have seen so
+
+even for your case that might also work
+
+if you use the machine learning extra
+
+and we can continually train those using
+
+Action Center as well so the ones that
+
+it's not quite sure of what to extract
+
+then the user would be presented with
+
+those because they don't meet the
+
+confidence level and then as we
+
+as we identify the areas you're
+
+continually train them up and increase
+
+the confidence going forward in those
+
+additional ones
+
+yes exactly
+
+I'm sorry from what I can gather the
+
+with the ml machine learning process you
+
+because it's the data's going off to
+
+uipath then you actually
+
+pay
+
+there's a cost per
+
+machine learning unit or that that's
+
+what they refer to it as so every time
+
+you send a statement you you basically
+
+it's like a user pays if you send it one
+
+you pay for so many and then you have to
+
+pre-buy or purchase so many units is
+
+that the way the the usage costs work
+
+um yeah I think the new the AI unit
+
+concept Works in rid of that way for the
+
+different uh I think some units are used
+
+for the uh for hosting the model and
+
+some number of units are needed to run
+
+the training Pipelines
+
+um but on on processing side it's I
+
+think it's based on the number of pages
+
+we processed
+
+um as I remember
+
+and when you initially set up the
+
+extractor
+
+um so we'll leave the extractor into the
+
+extraction scope and then we'll do some
+
+initial training
+
+how many different variations different
+
+formats
+
+should we be using to uh to actually
+
+train it up is there is there like a a
+
+magical number should you use be using
+
+10 different formats or 30 different
+
+formats or or you go for more or less
+
+what's the the general rule and how to
+
+how to train the model up the first time
+
+yeah so that's a very good question so
+
+uh for the initial training
+
+um don't use the action center you know
+
+for the initial training use the
+
+document manager the one that you see in
+
+the AI Center itself
+
+the reason for that is comparing what
+
+you get from the valuation station or
+
+the action center and what you get from
+
+document manager document manager
+
+generates more data compared to the
+
+validation that we get
+
+to actually train the model
+
+and that is why it is recommended to
+
+always use the document manager for the
+
+initial training and use the action
+
+center or the validation station
+
+depending on how you use it to fine tune
+
+the model that you already have
+
+but in the initial World
+
+um if you have different variations
+
+let's say for example you have 20
+
+different variations in these documents
+
+try to get
+
+uh some good number of samples like
+
+um I would say for the start for a start
+
+you can start with
+
+um and some documents that ranging from
+
+20 to 30 let's say for example
+
+from each different uh layout that you
+
+see and train it on all those 20 or 30
+
+documents that you get so it it depends
+
+on the number of layouts you have so
+
+basically I'm again relating back to
+
+that invoice person thing because it
+
+says similar question so in that case we
+
+had about 150 different suppliers so
+
+what we did is from each supplier the
+
+each Supply also has different layouts
+
+um so what we did is we identify each
+
+layout and we got sample documents close
+
+to 30 in that case
+
+for the initial training from each
+
+layout and we trained
+
+the model on all of those layouts for
+
+each 30 files that we get for each
+
+different layout
+
+so that's a lot of documents uh thinking
+
+about 150 different supplies but
+
+um but that was actually helpful to get
+
+a good accuracy level so even in the
+
+evaluation run we were able to get about
+
+85 percent accuracy
+
+and as we go on we can even do more
+
+training on the document manager so
+
+that's something we also did so
+
+we actually in our case we had so much
+
+of documents so we actually separated
+
+uh the training into batches like each
+
+batch for each different layout we have
+
+about 30. and we Trend in two to three
+
+batches and each batch having 30 20
+
+documents twice there
+
+so that way we were able to get a good
+
+accuracy level for these models
+
+I think you can also follow a similar
+
+pattern
+
+yeah that's almost obviously it's a lot
+
+of documents that way as I said we
+
+received 45 or 46 000 in a year so
+
+um we can quite easily get you know 30
+
+documents per sample and
+
+we'll would have hundreds and hundreds
+
+of different samples so we'd pick the
+
+the most common
+
+samples that we'd get and then hopefully
+
+by training in the most common ones if
+
+we get some new ones coming in then
+
+hopefully it will understand
+
+most of them hopefully and then we'll
+
+just obviously have to continually train
+
+up some new ones if we if you happen to
+
+see some new formats and just just keep
+
+the process going so
+
+yeah
+
+right
+
+[Music]
+
+um
+
+yeah yeah so my question was uh question
+
+is that uh sometimes uh when we click on
+
+confidence level so sometimes data is
+
+incorrect but we get the confidence
+
+level accurate something
+
+suppose the data is incorrect but we get
+
+confidence level 0.8 0.7
+
+so can we do something that uh
+
+so we can get accurate data with
+
+accurate confidence level
+
+basically
+
+yeah so we have two different confidence
+
+servers so one is the OCR and the other
+
+one is the extractor
+
+um so when we are doing the validation
+
+logic we can actually check it on both
+
+so sometimes the OCR might be a bit less
+
+but the extractor might give a higher
+
+confidence
+
+um
+
+so
+
+that's so basically you need to identify
+
+such scenarios and that might happen for
+
+certain values or certain fields so in
+
+such case you might need to find a bit
+
+of extra steps to verify that data like
+
+for example if it's a amount that you
+
+are extracting and if you have a
+
+different way of press verifying that
+
+data based on the information you have
+
+in the invoice itself
+
+you can write that kind of logic to
+
+verify without solely relying on the
+
+confidence levels so try to find that
+
+kind of extra
+
+uh things that we can do in addition to
+
+confidence
+
+that will actually help
+
+okay I will do I will try
+
+great
+
+and more questions
+
+I guess not so Robin I think we can wrap
+
+up for today then
+
+yeah uh so as uh we don't have any other
+
+questions so
+
+I just want to say thanks to everyone
+
+for joining and
+
+these uh please just let us know if you
+
+want to learn anything uh for our next
+
+session so we can also uh publish an
+
+event on that
+
+so other than that maybe we're done
+
+we can maybe wrap up for today's to the
+
+sessions
+
+literally just have one one final
+
+question before you go
+
+um
+
+once we
+
+do the extraction can we then literally
+
+use any of that data to do
+
+subsequent tasks so for example
+
+if I can locate the customer reference
+
+can I then
+
+use that to rename
+
+the original file
+
+based on the data that I'm extracting
+
+from it
+
+yes we can actually do that
+
+yep and we and we just do that as a like
+
+basically as a loop so as we go through
+
+and process the document as we extract
+
+the data we'll then go off and then
+
+rename it at the same time and then we
+
+basically get the next statement
+
+process it extract what we need and just
+
+to set it up as a yeah
+
+as a for Loop for example you know
+
+yeah
+
+okay
+
+that's good here I'm just trying to
+
+think of all the different different
+
+things we can do with these documents
+
+because at the moment they're all being
+
+handled
+
+100 manual
+
+um
+
+so I've already built a
+
+a flow to
+
+take them out of a mailbox it's already
+
+been pre-categorized and then remove any
+
+of the
+
+um PDF passwords because Fair few of
+
+them are encrypted to send to or so that
+
+only we can open them
+
+um so I can strip all the passwords and
+
+it's now after that is then trying to
+
+extract all the information and and do
+
+some post processing so
+
+it'd be good to
+
+good to fully understand uh and get the
+
+machine learning extractors
+
+in and working so
+
+um so yeah I was following through one
+
+of your videos and I couldn't get the ml
+
+skill inside of orchestrator to work
+
+properly are there any orders in which
+
+you have to
+
+you have to set up all the all the
+
+parameters or is it you can
+
+so followed through I followed through
+
+the
+
+the clip here for some reason the the ml
+
+skills weren't refreshing
+
+uh inside my my project so I couldn't
+
+actually the ml skill to to appear
+
+um
+
+so I don't think there's any specific
+
+order because in in Air Center when
+
+you're creating you just create the data
+
+set with the back Edge and plan it we
+
+run the pipeline and then just bit by
+
+the scale
+
+and if our work is better sorry if our
+
+studio is connected to the same tenant
+
+uh which the AI Center is
+
+connected to
+
+um that should reflect in our studio
+
+but uh
+
+with the with the cloud and the on-prem
+
+when you have multiple
+
+tenants the problem with that is
+
+the Air Center is always connecting to
+
+one specific panel
+
+um
+
+so in with even with one of our clients
+
+that was the case so they have so many
+
+different tenants but
+
+the AI Center is connected to a specific
+
+panel and through other tunnels we don't
+
+have access
+
+um so what we did is whatever the models
+
+we are creating in AI Center to get
+
+access to all the tenants we
+
+we change the scaling to a public scale
+
+so use the public endpoint that gets
+
+generated
+
+um and using that
+
+in our workflows so maybe that's the
+
+case in your scenario as well so just
+
+have a look at that whether it's
+
+connected to the proper thing and
+
+whether you're connected to the correct
+
+environment here that's still not
+
+working maybe try to change it to a
+
+public skill and use the end point
+
+okay yeah because I went through when we
+
+created the
+
+electronic it's been a week since I did
+
+it but when we created the well we had
+
+the packages and then we created the
+
+pipelines when it was
+
+the pipelines and stuff we're trying to
+
+deploy I think trying to think of the
+
+the terminology but it was like
+
+provisioning
+
+it just kept failing on the provisioning
+
+so I couldn't actually get to the step
+
+of of establishing the ml skill
+
+um but I wasn't sure if it was just
+
+because I'm using Community Edition for
+
+the interim or whether or not it should
+
+work regardless so
+
+um I just wasn't sure but yeah I could
+
+it just wouldn't the pipelines just
+
+wouldn't wouldn't deploy so I had the
+
+had the data set had the ml packages but
+
+when I was trying to
+
+um
+
+to deploy the pipeline it just came up
+
+and just said
+
+failed and the ml packages
+
+didn't go through and then obviously
+
+with the
+
+set the ml skill but they just didn't
+
+just didn't deploy properly so I was
+
+sitting there when I was watching the
+
+video I think you know there was a you
+
+said it'll take some time for them to
+
+deploy but I could see the uh the clock
+
+in the bottom of the video and I think
+
+it was only like three or four minutes
+
+on your side for the deploy but mine sat
+
+there for like 20 minutes and hadn't
+
+deployed and then finally just come back
+
+as as failed so I wasn't sure if there
+
+was a particular order in which you had
+
+to apply you know the ml package then
+
+the pipeline and the ml skill or whether
+
+I just wasn't sure if there's a
+
+particular reason why they weren't
+
+deploying us at all weather just because
+
+I was sitting on a Community Edition for
+
+the time being
+
+um so yeah so in that case just uh
+
+check whether this can happen when the
+
+model is not free Trend
+
+um so I'm not sure which model you use
+
+but
+
+um just check whether it's a pre-trained
+
+model if that's the case you can just
+
+get the uh let's say for example the
+
+invoice a free Trend model that uipath
+
+has given so if you are using that we
+
+can just create the package and without
+
+doing any pipelines or anything you can
+
+directly create the skill and it will
+
+get deployed because it already trend
+
+but when it comes to the generic
+
+document understanding uh model which is
+
+not trend for that you need to create
+
+the package and then you need to do the
+
+data labeling
+
+run the training Pipeline and then run
+
+the uh skill deployment and only it will
+
+work
+
+Maybe
+
+that might be the cause
+
+yeah because it wasn't because this
+
+wasn't a um I could see all the all the
+
+pre-trained models for
+
+invoices and receipts and purchase
+
+orders but because I was using uh their
+
+statements and it didn't fit the mold of
+
+a pre-trained model I think I was using
+
+the
+
+generic
+
+model
+
+um so therefore there wasn't any
+
+they definitely weren't pre-trained
+
+um so the ml skills are the ones that
+
+are that I think I
+
+was trying to think of the terminology
+
+when I downloaded them they were the
+
+ones that yeah they were generic so you
+
+could you'd have to teach them
+
+which one you wanted
+
+they weren't the pre-trained one so
+
+that's okay it might be
+
+it might be that I'll have to
+
+do some further further investigating on
+
+that
+
+okay and if you have any questions feel
+
+free to reach out to any of us we are
+
+happy to have
+
+thank you yeah yeah I mean I have
+
+already shared mine and I use LinkedIn
+
+profile in the chat box so you can
+
+connect with us and yeah maybe you can
+
+also reach out to us
+
+okay brilliant thank you so much
+
+that's great
+
+so uh thanks everyone for joining
+
+um and we're almost I mean
+
+the time of ending our session so yeah
+
+so like you anything from you
+
+um well I think we've covered everything
+
+um let's plan for a couple of other
+
+sessions as well so we'll keep you guys
+
+informed and uh thank you very much for
+
+joining today and uh for this for this
+
+awesome this question and for the
+
+correct questions
+
+so thanks again and we'll see you soon
+
+again
+
+bye take care thanks Robin thanks Larry
+
+fantastic thanks Craig
+
+okay
+
+thanks thanks okay bye
+

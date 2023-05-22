@@ -1,0 +1,1530 @@
+[Music]
+
+hello everyone
+
+in this video we will look at the one
+
+click document classification and we'll
+
+see how we can easily create a document
+
+classification machine learning model
+
+through the document understanding
+
+then we will see how we can use the same
+
+data set to train the models
+
+machine learning models to do the data
+
+extraction and finally we'll see one of
+
+the new features in the taxonomy manager
+
+the field level validation
+
+and the use of it
+
+so let's get started
+
+so we are in the document understanding
+
+application over here you can access it
+
+through this option
+
+so the first thing you need to do is you
+
+just need to create a project now I have
+
+already created a project for this but I
+
+will show you some of the steps and then
+
+I will move into the one that I have
+
+already created so it's easier
+
+okay so how we can create a project is
+
+just by clicking on this new project
+
+so I will just say demo for now
+
+and yeah and the advanced options you
+
+will see the OCR method API key if it's
+
+your document OCR it is automatically
+
+picked from here
+
+and if it's the
+
+uipath OCR URL it is already here and we
+
+just can say apply OCR on videos Auto
+
+so these are the default properties you
+
+can change it as you wish there are a
+
+lot of ocrangies that you can use
+
+so let's create this project
+
+so once you have the project you can go
+
+inside
+
+and here we see a couple of options
+
+you can see the document types
+
+extractors and the classifiers so this
+
+is in public preview
+
+so the first thing is we need to define
+
+the document types for us to train a
+
+classifier
+
+so earlier what we used to do is we used
+
+to go into AI Center and use another
+
+uh machine learning model that's
+
+available in the out of the box packages
+
+called document classifier and used to
+
+train the documents from there but this
+
+is much more easier
+
+so how we can do this is first we need
+
+to create a couple of document types
+
+so in this case I have sample document
+
+types like invoices and purchase orders
+
+in each I have 10 files
+
+like this
+
+so first step is creating a new type
+
+so under this button we have two options
+
+one is
+
+you can either use forms AI or fixed
+
+layout forms or else you can use
+
+semi-structured AI which means it will
+
+take you to AI Center and you can train
+
+a classifier for any type of model that
+
+could be semi-structured or even
+
+structured
+
+whatever the document is
+
+so in my case it's semi-structured
+
+documents so you can basically use the
+
+combination of both here depending on
+
+your documents
+
+so I will just use only the
+
+semi-structure there
+
+so all I need to do is just click on
+
+this option and then
+
+give a name for the AI Center project
+
+so what this means is whenever you
+
+create this it will actually create
+
+another project in the AI center with
+
+this name
+
+so if you go into AI Center
+
+I already have something called
+
+so let me change the name
+
+so I will name it like this
+
+demo video
+
+so once I created
+
+it will ask for a session name
+
+so this
+
+basically means the type of the
+
+documents so first I will say invoices
+
+so the interesting thing here is you can
+
+even use out of the box
+
+ml models to train your model
+
+so it's it's something like you already
+
+have a set of AI models and you are
+
+using the capabilities of those AI
+
+models to train another AI model it's
+
+pretty cool
+
+so in my case I will just use this one
+
+noises so this is the invoices out of
+
+the box model
+
+and once you select that
+
+it will show you out of the box regular
+
+Fields the model which is already
+
+trained and these are the fields
+
+that's available in the model
+
+so just for the time being I will now
+
+select everything I will just go with
+
+the first few
+
+and I'll deselect the remaining ones
+
+you can basically do this depending on
+
+your requirement
+
+and then here you have the column fields
+
+and again I'll keep the first View and
+
+remove the rest
+
+the other option you have is if you are
+
+dealing with different currencies
+
+you can even select those here
+
+don't worry if you don't see your
+
+currency here you can always add it once
+
+the project is created
+
+so for now let's keep all these things
+
+and
+
+so we just selected some Fields based on
+
+the model we selected over here the out
+
+of the box model
+
+but let's say you have some extra Fields
+
+extra regular fields and extra column
+
+fields that you need to train on
+
+you can Define how many extra columns
+
+you need and depending on that it will
+
+create a provision for you once the
+
+the structure is created you will see a
+
+couple of extra columns in the document
+
+manager
+
+so I will not change that now
+
+and here we have the number of languages
+
+so if you are having documents with
+
+multiple languages you can Define
+
+how many languages you have
+
+and this is another important one
+
+so when we talk about semi-structured
+
+documents like invoices for example we
+
+have so many different layouts
+
+so we need to identify how many layouts
+
+we are dealing with because we need to
+
+train the model for all those layouts to
+
+get the best possible accuracy
+
+so in my case it's like 10 different
+
+layouts because I have 10 different
+
+invoices so I will just select 10.
+
+so you can see depending on the numbers
+
+and the configuration here it says you
+
+need to have at least 50
+
+documents to train it
+
+to get a good good accuracy level a good
+
+confidence level
+
+so this will change based on your
+
+selection
+
+so let's stick with 10.
+
+and once you create this will create
+
+your project over here
+
+so it's taking me to the document
+
+manager so we'll quickly
+
+check these two places
+
+so here you can see the invoices the new
+
+document type
+
+and on the projects
+
+if you refresh this page
+
+um let me quickly refresh
+
+you can see demo video this is the one I
+
+just created
+
+and if you go inside
+
+you see you have a data set called
+
+invoices
+
+and the rest is not available here
+
+you don't see anything under data
+
+leveling because it's happening from
+
+this place
+
+and
+
+for the data sets you will see the
+
+invoices one which we just create
+
+so let's get to the document manager
+
+so these are the fields we selected and
+
+if you select any custom field option
+
+you will see extra columns over here and
+
+in case if you want to change
+
+the
+
+currency classification
+
+you can easily edit and add or remove
+
+anything from here
+
+okay so what's left is we just need to
+
+import the documents here
+
+so let's quickly import so I will say
+
+patch on
+
+select all my noises
+
+and drag it over here
+
+so for us to train a classifier we don't
+
+need to label each and every document
+
+all you need is just have all the
+
+documents over here the different
+
+layouts that you are going to use
+
+and
+
+it will automatically figure out what
+
+kind of a document it is based on the
+
+training
+
+so you hit import
+
+to import all the documents
+
+so let's give it like couple of seconds
+
+to complete the upload
+
+in the meantime
+
+you can also use this same
+
+data set for the
+
+the data leveling as well so it's just
+
+using one data set to do both you train
+
+a classifier and you also train an
+
+extractor
+
+and extractor training is same as before
+
+as we used to do is just labeling the
+
+documents
+
+so once you have done this click on
+
+close
+
+and you have the documents over here
+
+so before moving into the other document
+
+type I'll quickly show you one
+
+interesting feature is this predict
+
+option so if you remember
+
+we selected out of the box model when we
+
+created this
+
+screen
+
+so what happens when you click on
+
+predict is it will use that out of the
+
+box model to actually predict the values
+
+over here
+
+so earlier we used revolutionary field
+
+but with this predict feature
+
+you can actually use the capabilities of
+
+the AI model and automatically extract
+
+the values
+
+you can see it selected the currency
+
+selected these fields
+
+and here are the line items
+
+you can see
+
+even with multiple lines it was able to
+
+accurately identify that
+
+so I'm not going to do the labeling for
+
+each and every document here but when
+
+you get into leveling this is how you
+
+can do you can click on fed it
+
+let it label it and then if there are
+
+any mistakes you can review and change
+
+it
+
+and let's say you want to change the
+
+invoice number
+
+all you need to do is just select the
+
+proper
+
+word or the set of words and click on
+
+this shortcut key
+
+press on the shortcut key so that the
+
+value gets updated so I'm not going to
+
+do any of that now
+
+so this is all we need to do so we
+
+basically don't need to label anything
+
+for us to train a classifier all we need
+
+is just have the documents here labeling
+
+can happen later if you want to use that
+
+data set for the extraction
+
+so our invoice import is done now let's
+
+try the purchase orders
+
+so we just need to create another
+
+semi-structured AI
+
+and this time is
+
+purchase
+
+and make sure this does not have any
+
+spaces
+
+and again I will use the purchase order
+
+model
+
+and I'll just select a couple of fields
+
+from here
+
+just for our purpose
+
+and same from column items
+
+okay let's say we only have this
+
+I don't have any custom Fields I just
+
+have another 10 layouts
+
+is the same procedure and then again
+
+that will take you to another document
+
+manager session session for the purchase
+
+orders
+
+so now we have two sessions
+
+and if we quickly review here you have
+
+the purchase orders
+
+and on this side
+
+to refresh the data sets you will see
+
+both results
+
+and under invoices you see nothing
+
+because you have not done any exports
+
+from the document manager
+
+okay so for the purchase orders same
+
+approach you just need to import
+
+and that way you can train our
+
+classified
+
+so let me quickly show you once this
+
+import is done
+
+so what we do with these documents is
+
+and and same way we Trend the invoices
+
+you can do it for purchase orders or if
+
+you have a different other document
+
+types you can still work on it so let's
+
+see what other out of the box options
+
+are available
+
+um as soon as this import is done
+
+before we actually train a classifier
+
+so our info is done for purchase orders
+
+and here we have the documents
+
+so same as before you can click on
+
+predict and label the documents when
+
+it's needed
+
+so as I promised Let's uh I will not
+
+create any other document type but let's
+
+just see what options we have over here
+
+so here we have custom document types
+
+yeah so in case you are not going to use
+
+any of these
+
+options over here so we having the
+
+titles different
+
+documentaries financial statements bank
+
+statements
+
+contracts utility bills basically all
+
+the out of the box options you have in
+
+AI Center out of the box packages
+
+and if you need to use any other
+
+document type that is not listed here
+
+you can always use this custom document
+
+type then you can
+
+training for those
+
+just like we did here but only
+
+difference is you will not have the
+
+predict option because it will not
+
+having
+
+custom models that you can use
+
+okay so let's cancel it and these are
+
+the two options that we are going to use
+
+and all you need to do is just click on
+
+classify
+
+and here we have two options
+
+automated training or manual trading so
+
+what's the difference
+
+manual training is
+
+when you select this it will only do the
+
+export
+
+it will export the data to our data set
+
+that we saw in the eye center and you
+
+can use that data set
+
+within the AI Center to create a
+
+training pipeline
+
+but with automatic training it will do
+
+that for you
+
+so if I select this it will ask
+
+what's the classifier name
+
+so I will say
+
+custom
+
+demo classifier let's say
+
+and I just need to select what are the
+
+different document types I need
+
+from what I created
+
+and click on train
+
+yeah so when we try to create it earlier
+
+it had a red color validation saying you
+
+have only
+
+you have to have at least less than
+
+10 documents so in my case I have 10
+
+documents in both places
+
+so as a quick installation just click on
+
+the refresh so that you can see it
+
+updates the page count here and then you
+
+can
+
+create your next one
+
+remove classifier
+
+and then select the options so that will
+
+resolve that option
+
+the issue
+
+and then you just can click on trend
+
+and if you go into
+
+classifiers you can say
+
+see that this is being trained at the
+
+moment
+
+so this will take a while so because of
+
+that I will quickly go back and use the
+
+one that I already
+
+have with me
+
+so let me close these extra things
+
+so that I can show you the one that I
+
+already have so it is the document
+
+understanding demo
+
+so I have two types the same two types
+
+over here
+
+and I have actually done the labeling as
+
+well for this using that same method I
+
+showed you
+
+um and under classifiers
+
+I have the classifier already available
+
+so as as soon as that training is done
+
+it will have the status available and it
+
+will also give you these options so if
+
+you click on detail
+
+it will give you the data set link the
+
+the score details
+
+this is basically referring to the
+
+confidence levels and accuracies
+
+so I trained it on very less number of
+
+documents
+
+then you have the pipeline details that
+
+it automatically created to train our
+
+model and then the machine learning
+
+skill so this is a public skill so you
+
+can get the URL
+
+um from here
+
+coffee URL
+
+so let me just quickly show you the
+
+extraction part as well
+
+I'll just show you for one
+
+so here I have done the labeling just
+
+like I showed you earlier
+
+and all I did is
+
+I can export it from here directly
+
+so once you do the export
+
+so
+
+for the extractors here we don't have
+
+the export option
+
+like under this extractors
+
+but
+
+we can create it from here using the
+
+same old method so you can export
+
+as you usually do
+
+click on all labeled
+
+and then
+
+export it so this will go and get
+
+exported into your
+
+um
+
+data sets so this is my
+
+previous data set
+
+sorry there's another one
+
+it is the document understanding demo
+
+sorry for that
+
+so here under data sets I have the
+
+invoices purchase orders
+
+and here you can see the export which I
+
+did earlier
+
+it's the same method that have in our
+
+previous
+
+videos
+
+and then you can use the pipeline to
+
+train it based on that export
+
+and
+
+then create the ml skill so for the
+
+classifier it automatically created it
+
+for me
+
+once it was done through the classifier
+
+option
+
+so so this is the first part so this way
+
+with
+
+wearing thick
+
+steps we can get a classifier up and
+
+running so you don't need to do any
+
+leveling all you need to do is just
+
+import the documents run the automatic
+
+training and you have the model
+
+available in few minutes
+
+and then the use of it I can quickly
+
+show you over here
+
+so here I have used the document
+
+classifier scope and I'm using the
+
+machine learning classifier
+
+so this is the endpoint or the URL I got
+
+API key you already know it is coming
+
+from the admin page
+
+and we can configure the classifiers
+
+from here so it will show you the
+
+document types we Trend it on
+
+so that way we can get the
+
+classification
+
+easily from an AI model
+
+so I will run this and show you but
+
+before that let me just quickly show you
+
+one thing
+
+um so we basically covered two topics
+
+first one is create a classification
+
+skill and then using the same data set
+
+to do the labeling and Export that data
+
+and perform the
+
+extraction skill creation
+
+so if you want to go into very detail on
+
+these topics you can refer to my machine
+
+learning skill training videos I have a
+
+separate series on that so it's the same
+
+procedure over there
+
+um so yes so we covered two and the last
+
+one is the field level validation
+
+so let me show you how it is done
+
+so in the taxonomy manager I'm using the
+
+latest version
+
+if you go into
+
+the document types
+
+so here I have the invoices here I have
+
+the purchase office
+
+so I did the field level validation just
+
+for a video purpose for these two Fields
+
+a client name and the total amount in
+
+purchase orders
+
+so where to do that is you can select
+
+the field and go into rules option
+
+and here you can create any role
+
+so we have a couple of operators here
+
+and or or
+
+and critical level is either should or
+
+must
+
+now what it should is
+
+here you can see should indicate rule
+
+which are not mandatory but rather a
+
+guidance
+
+but when you say it's a must that means
+
+that condition must be fulfilled
+
+and it is a
+
+important thing no
+
+so how you can create a rule is you can
+
+add new so I already have one
+
+which I created
+
+that says this field should not be empty
+
+so likewise you can create more
+
+conditions
+
+so for every condition you can add a
+
+name
+
+and you can say
+
+how your condition is going to look like
+
+so you can say either it is starting
+
+with something ending with something or
+
+contents or even you can have a records
+
+and based on your selection over here it
+
+will do the validation behind the scenes
+
+and it will give you the result
+
+so in my case so also once you create a
+
+rule
+
+give a meaningful name for this just
+
+like I have done for the top five
+
+so let me just delete this one
+
+so here I'm saying this is it should not
+
+be empty and this is my description
+
+and I have done the same thing for the
+
+total amount
+
+the field should not be empty
+
+so this will depend on the type you
+
+select in here
+
+the data type
+
+so here is the name here is a number
+
+so that is how you define the field
+
+level validations
+
+in
+
+in the taxonomy manager
+
+as business rules
+
+so once you have done that then you can
+
+easily consume it in your studio
+
+so all we need to do is here we have the
+
+present classification right after
+
+classification scope
+
+and we need to look through the
+
+classification
+
+and inside that we have the data
+
+extraction scope and again we are using
+
+the machine learning instructor
+
+for the skills we created using the same
+
+data set
+
+and here we have the present radiation
+
+station
+
+so before showing you how to do the
+
+field level validation let me
+
+run this whole processor once and then
+
+get to the last
+
+so I have actually hard-coded the
+
+document path here because it's for a
+
+video and this is a
+
+princess order
+
+so let's quickly run it and see
+
+and the other interesting thing I wanted
+
+to share is while this thing executes
+
+is when you have a lot of documents to
+
+Trend you can actually use the same
+
+document manager import all the document
+
+variations you have there
+
+and do the leveling
+
+using the same methods you can even
+
+create different schemes you can
+
+um categorize those documents based on
+
+your needs do all that and then you can
+
+easily export it
+
+and train the machine learning models
+
+from there itself so it is very easy
+
+when it comes to using that
+
+because that way you can maintain one
+
+data set to handle both
+
+extraction and classification in case
+
+you are using machine learning
+
+so here we can see the model was able to
+
+predict that this is a purchase order
+
+and it was 77 percent confident
+
+so now let's quickly see how the
+
+extraction was done so I only created
+
+the extraction for the purchase order I
+
+did not create for any noises though I
+
+didn't enabling
+
+and here you can see
+
+for the first disorder document we have
+
+all the fields
+
+and it was able to accurately extract
+
+based on my training so I don't have the
+
+line items here because it's again for
+
+the purpose of showing this to you
+
+but you can see one interesting thing so
+
+I have the field level validation for
+
+two Fields client name and the total
+
+amount
+
+and here you can see based on how I
+
+Define it
+
+it should be
+
+the should it is not a must field
+
+and you can see the condition what it is
+
+this should not be empty
+
+um
+
+same goes here
+
+so
+
+this is how the validation screen will
+
+show you this info
+
+but
+
+we also
+
+need to know this information
+
+before
+
+we put everything into manual
+
+verification
+
+how you do that is let me just click on
+
+subment here so I can stop the run
+
+so how you can do that is
+
+once you get the extraction results from
+
+the data extraction scope
+
+we anyway do a validation before getting
+
+into manual verification
+
+so in our validation logic we can use
+
+that information
+
+which is available in the auto
+
+extraction result variable
+
+and we can build our validation Logic
+
+the conditions based on that
+
+so how you can access the
+
+the field level validations that's that
+
+we did in the taxonomy manager is
+
+there is a property in this variable
+
+which we can use
+
+so for that let me just uh
+
+quickly enable this breakpoint so I can
+
+show that to you while it is run
+
+so let's run this again real quick
+
+so we first get the classification
+
+and then the data extraction will happen
+
+and before executing the validation
+
+station
+
+so I'm not going to write any logic but
+
+I'll show you that in the immediate one
+
+and then based on that we can figure out
+
+how we can build the logic
+
+so it is the auto extraction results
+
+variable
+
+under after this dot you have this new
+
+thing business rules result
+
+if you go inside that
+
+you can see a lot of information
+
+let me expand this a bit
+
+so here you can see rules that result
+
+there are two
+
+two items so this is kind of a array so
+
+we have the validations for two phase
+
+that's why we have two here
+
+so if we
+
+go here
+
+and select the first one
+
+it gives the results only for that field
+
+and here how do we know which one is
+
+which is actually based on the order of
+
+the fields we defined in the taxonomy
+
+manager
+
+and here it gives you only the fields
+
+that you have the validation defined
+
+and again it's in the same order as you
+
+see here the first one is
+
+um
+
+the client name
+
+here you can see the value
+
+and the second one is the total amount
+
+so in my case when I say zeroth first
+
+session it gives me the client name
+
+and here in the result you can see
+
+that field value result
+
+it is valid
+
+so the condition is valid and there is
+
+no issue with the condition
+
+so we can even check that
+
+so we can get the field ID
+
+and what the results are
+
+so you along with this you also get
+
+the field value
+
+and
+
+whether this result is true or not
+
+so basically based on this uh
+
+thing
+
+you can
+
+and for the condition you can also have
+
+multiple conditions so that's why we
+
+have a option here
+
+so you can get the value
+
+this is the actual value
+
+and whether it is valid
+
+so you can see the condition is true
+
+so using these options you can build
+
+your own validation logic when you're
+
+creating
+
+the flowchart probably
+
+to build your validation
+
+so this is one interesting feature
+
+because there are a lot of cases where
+
+we need to validate the content in
+
+fields like amounts and when it comes to
+
+text addresses
+
+we need to write a lot of logic
+
+and with this kind of features in
+
+taxonomy manager
+
+but still there are a lot more things
+
+that they will on they can add to make
+
+this experience much better but
+
+um these features are very much helpful
+
+to easily validate the content or the
+
+data in these fields thank you
+
+so
+
+this is how we can actually
+
+easily create a classification and
+
+easily use the same data set to build
+
+the extraction
+
+and then
+
+using the taxonomy manager he This Is
+
+How We Do the field level validation
+
+so you have all three in one video
+
+so with that
+
+um that's it for this particular video
+
+so thank you very much for listening and
+
+I hope this is this was helpful in
+
+understanding this concept
+
+so if there are any questions feel free
+
+to put it down in comments or you can
+
+always reach out then
+
+I'll do my best to answer each and every
+
+one of you
+
+so thanks again for listening and I'll
+
+see you in another interesting video
+
+bye for now
+
+all right
+

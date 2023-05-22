@@ -1,0 +1,1091 @@
+Document processing activities in any organization are highly manual and repetitive. Generally, these activities involve many users to process hundreds and thousands of documents. Introducing Intelligent Document Processing is one of the best solutions to automate these high-volume repetitive activities. UiPath Document Understanding is one of the best solutions to address IDP needs.
+
+The architecture of any Document Understanding solution plays a significant role in achieving high accuracy, efficiency, and scalability requirements. There are many points to consider when designing a document understanding solution. UiPath Document Understanding Template plays a crucial role in the overall architecture design.
+
+This is the first part of a series of videos that are coming up especially addressing the architecture of the Document Understanding solutions. This video will focus on the overall architecture of a DU solution. It will also give an overview of the UiPath DU Template and explain its role in the architecture. The following videos of this series will focus on various parts of the template, discussing it in more detail.
+
+ Contents of this video  
+
+- Introduction
+- Overall Architecture of a Document Understanding Solution
+- Important Things to Consider for Your Design
+- How UiPath Document Understanding Template Address Architecture Requirements
+
+hello welcome back to my channel
+
+so in this video
+
+um we'll be focusing on the uipath
+
+document understanding solution
+
+architecture
+
+this is actually the first part of a
+
+series of videos that's coming up that
+
+will specifically focus on the solution
+
+design how you can build effective and
+
+scalable solution uh using UFO document
+
+understanding template
+
+so
+
+before getting into the template and
+
+understanding how it works and how you
+
+can use it in your document
+
+understanding Solutions
+
+let's first get a high level idea about
+
+how the overall structure will look like
+
+so when it comes to uipath document
+
+understanding
+
+or job document processing in general
+
+what we can think of is we can have
+
+three different components
+
+one could be the
+
+Source where we get this documents
+
+and the second one could be the document
+
+understanding solution itself where you
+
+do the extraction and processing
+
+third one
+
+could be once you have the extracted
+
+data
+
+what you do with it you need to probably
+
+log into some application and put upload
+
+all that information there
+
+so in general we can see three different
+
+solutions
+
+all three different processes that
+
+connect to each other
+
+so if we look at the source
+
+from where can we get this information
+
+it could be
+
+a shared drive that has all the
+
+documents that we need to process
+
+or it could be
+
+um
+
+a source application where we need to
+
+look for this information so you could
+
+you you might need to log into this
+
+application do some filtering download
+
+the files that you need to process
+
+and it can be different sources or it
+
+could be a cloud
+
+uh environment as well like Google Drive
+
+for example
+
+so wherever it is you need to connect to
+
+that environment and identify the
+
+documents that you need to process
+
+and then
+
+once you have that data we need to put
+
+it into some sales
+
+saying that this is the whole list of
+
+documents that I need to process
+
+so usually when it comes to document
+
+processing we do it
+
+regularly like daily for example
+
+so in that case we need to
+
+we will probably connect to these
+
+applications identify the new documents
+
+each day
+
+and we need to put it somewhere saying
+
+that these are the documents I need to
+
+process
+
+why we need to do that because the
+
+sources could be
+
+it could be multiple sources like share
+
+drives and so on and even multiple
+
+applications that you need to connect to
+
+so instead of
+
+um
+
+some process going into each and every
+
+application and then getting directly
+
+from there what you can do is you can
+
+have separate processors or separate
+
+uipath solutions that
+
+specifically focus on those systems
+
+and extract or download that files into
+
+a specific folder Maybe
+
+and then update that information
+
+somewhere
+
+like in a UI product test data queue for
+
+example
+
+so wherever it is coming from you put it
+
+into one place and that's where we are
+
+going to store the entire list of files
+
+that needs to reprocessed
+
+so you might think that in that way this
+
+search any sources could be
+
+multiple like for each system you might
+
+have a different
+
+process
+
+it could be and if if you can do that
+
+that would be the best design because
+
+then for its solution or for its system
+
+that you're interacting with you have a
+
+dedicated process that is separate from
+
+everything else so if you need to change
+
+anything that's the only thing that
+
+you're going to change
+
+so that way
+
+you get all the documents and put it
+
+into a queue and this queue could be a
+
+orchestrator queue it could be your
+
+Excel file it could be a database it
+
+could be something on data service it
+
+could be anything
+
+just
+
+um you just need to put it into some
+
+place where you can keep track of what
+
+is being processed and what is here to
+
+be processed sorry
+
+so once you have that in one place then
+
+you can use that to connect with your
+
+next process which is the actual
+
+document understand
+
+so in this one once you let's say you
+
+have everything in a queue for example
+
+so once you have it you get each item
+
+from a queue you do the classification
+
+in extraction validation and then
+
+once you have the validated information
+
+you need to again pass it through
+
+another
+
+process which is updating the
+
+destination wherever it is it could be
+
+Excel file it could be some internal
+
+applications it could be anything
+
+depending on your process
+
+so to pass that information to that
+
+particular process
+
+that also needs to be stored somewhere
+
+because that part is not handled in the
+
+document understanding flow
+
+which is the second one here
+
+the reason is there need to be that
+
+separation because it interacts with
+
+different applications
+
+and when it comes to document processing
+
+like digitizing classifying validating
+
+it doesn't need to interact with any
+
+other applications so that part has to
+
+be separate and it needs to run in the
+
+background
+
+so that's one reason for this particular
+
+thing to be separated from the other
+
+stuff and to be connected via queues or
+
+any other data transformation
+
+so once you have that information
+
+you can
+
+you can export that validated info and
+
+again put it to a queue or maybe a
+
+database or whatever
+
+so once you have that
+
+then all you need to do is get it from
+
+there and then update
+
+the other applications
+
+like the different
+
+internal applications it could be
+
+anything it could be a web application
+
+it could be a desktop application it
+
+could be a Excel file it could be
+
+anything
+
+so that is the separate process
+
+so now you can see in general we have
+
+three processors one is to collect the
+
+documents the other one is to actually
+
+process it and lastly when we have the
+
+information to update other applications
+
+n
+
+there can also be scenarios where you
+
+need to update into multiple
+
+applications
+
+so in that case just like we discussed
+
+about the source we can also do the same
+
+approach for your destination
+
+you might have different processes uh to
+
+do that but all that refers to One
+
+Source
+
+where the document understanding flow
+
+goes and uploads its extractor
+
+deformation
+
+so this is the overall architecture
+
+so there are few things to consider when
+
+designing a solution
+
+so I'm not referring to the
+
+classification techniques the extraction
+
+techniques whether it's the machine
+
+learning or form extractor or those
+
+stuff that's that's a different thing
+
+here we only focus
+
+on the design and how you connect this
+
+and why we need to do it in this way
+
+so usually when it comes to document
+
+processing these are very manual
+
+activities
+
+and it's being done manually for a long
+
+time
+
+so there can be a huge backlog as well
+
+so whenever you are designing this kind
+
+of solution
+
+if they say if the business team say
+
+that you will have a backlog and you
+
+need to support that to support the
+
+processing of the backlog and also the
+
+daily activities
+
+you need to consider that in your
+
+solution
+
+and the next one
+
+um exception handling
+
+so
+
+usually what happens is when you try to
+
+process documents let's assume for some
+
+reason
+
+a specific set of documents did not get
+
+processed
+
+due to some error
+
+so how can you retry that
+
+because
+
+in a day you might process like
+
+thousands of documents we don't know
+
+so when that happens and if you have a
+
+list of documents that got failed
+
+you need to have a mechanism to identify
+
+those documents and retry those
+
+so that's a part of the overall
+
+architecture
+
+and then
+
+how about a scenario like this so you
+
+have the process that you take the
+
+documents from a queue you extract and
+
+do everything
+
+but
+
+let us let's assume a specific document
+
+got failed but the user did not get the
+
+time to look at it to see what actually
+
+happened so after about three or four
+
+days he comes back
+
+and
+
+for some urgent requirement he needs to
+
+see where this document is
+
+and he realizes that it failed few days
+
+back
+
+so now he need to
+
+immediately process that document
+
+and get that result because he needs to
+
+finish some work urgently
+
+so in in such scenarios
+
+can we wait for this scheduled run to
+
+happen
+
+no so because it will take the data from
+
+the latest
+
+documents that it needs to process then
+
+it will run at a specific time
+
+but due to this urgency if you have that
+
+option available in the existing process
+
+the user could easily give that document
+
+path and process that document right at
+
+that moment
+
+it's not
+
+the only reason to have that option it
+
+could be that but it could also be like
+
+user has a list of documents that failed
+
+like two days back and he likes to
+
+process them and only to see
+
+so in that case
+
+he can also do the same thing he can
+
+just give the file path and let it
+
+process within the same run
+
+there can be any or like multiple
+
+reasons
+
+to have that option
+
+and I have seen it in many use cases
+
+well it's fully automated you take the
+
+information from a queue but
+
+I have seen this requirement where the
+
+user also needs to process specific
+
+documents
+
+in the same process but they need an
+
+option to give that instead of using the
+
+queue or the usual data sources
+
+so that's another reason
+
+the other reason is scalability and
+
+efficiency
+
+so when it comes to scalability
+
+we need to be able to process any kind
+
+of or any number of documents
+
+efficiently
+
+and this has to be distributed within
+
+multiple messages if possible
+
+so if you have enough licenses we can
+
+easily run this thing parallely in
+
+multiple missions
+
+um so our design should support that
+
+and then
+
+the other one is the flexibility to
+
+easily plug in new document types into
+
+this workflow
+
+and to add different business rules
+
+customize your business flows
+
+so we need to have permission for these
+
+things
+
+and lastly how about running it as
+
+attended or unattended this might not be
+
+the case for every use case but there
+
+can be scenarios where this is useful
+
+so how can we achieve all these things
+
+in our design
+
+so that's where we
+
+get into this uh document understanding
+
+template
+
+so to get to that let me get back to the
+
+design diagram I showed you earlier
+
+so we were here before now thinking
+
+about those things process in the
+
+backlog allowing the user to
+
+include documents to process like
+
+bypassing the source itself
+
+those things can be done in this
+
+architecture
+
+how you can do that so this is the usual
+
+process you have a set of source
+
+applications you get the document put it
+
+into a queue and process it but if the
+
+user wants to give the file back and
+
+process it
+
+this is where the user is going to
+
+comment
+
+so the user will directly interact with
+
+the document understanding flow itself
+
+without interacting with the source
+
+so that's why you need to have that
+
+provision enabled
+
+so the user can easily give the file
+
+path
+
+through that job
+
+as an argument and then get it processed
+
+and then comes the backlog however
+
+processing the backlog using the same
+
+process
+
+so if you see here in the source section
+
+you are saying update process Q
+
+if we follow this architecture we can
+
+add that information the backlog into
+
+the same process queue or else
+
+you can
+
+replicate or get a copy of this document
+
+understanding process
+
+configure it to look at a different
+
+queue in the orchestrator Maybe
+
+and include the entire backlog items
+
+there
+
+so that you have two processes running
+
+looking at two different cues one is for
+
+your daily run
+
+and the other one is for your backlog so
+
+that way your daily run is not affected
+
+and you also get the backlog process but
+
+you are not doing any code change it's
+
+just a simple configuration to look at a
+
+different key or you can add everything
+
+to the same queue and you can get it
+
+process
+
+so you can see how flexible it is
+
+um when you follow this architecture
+
+so when I say a process I'm referring to
+
+the separate processes that we have in
+
+the orchestrator like you can trigger
+
+different jobs
+
+so for example if this document
+
+understanding is a separate process
+
+and we have options to options for the
+
+user to enter the file path during the
+
+job execution
+
+so in the jobs page in orchestrator you
+
+have that argument option where you can
+
+provide that information
+
+so if you do that you can just run this
+
+part of the process and get that
+
+document processed
+
+so that's the benefit of using such kind
+
+of architecture
+
+so this is achieved through UI file
+
+document understanding framework you
+
+have everything in build in the
+
+framework
+
+so you can easily customize your
+
+validation logic you can run it as
+
+appended or unattended and you can even
+
+do this scheduling and weblog thing how
+
+it is done
+
+the main thing here is it follows a
+
+specific concept it's called one job per
+
+document
+
+so every job that you trigger in the
+
+office letter will only
+
+um process one document
+
+I'm not referring to the source or the
+
+destination I'm referring only to this
+
+part where you process the document
+
+so this concept is what helps us to
+
+scale and do all these things
+
+um so why this concept why can't we put
+
+everything in one just like in the re
+
+framework Loop proof and process
+
+it's not possible because
+
+here we talk about hundreds and
+
+thousands of data documents and if we
+
+are to scale it if you have to process
+
+all these things finally we should be
+
+able to run the jobs thoroughly in
+
+multiple places
+
+even with height of high priority levels
+
+to prioritize certain uh documents
+
+so to do that we need to have this
+
+concept in place so that way you can run
+
+multiple jobs at the same time if you
+
+have the proper license
+
+and then get these documents processed
+
+so it is much more effective and much
+
+more efficient
+
+in terms of execution
+
+so
+
+that being said now let's quickly look
+
+at the
+
+the document understanding template
+
+so uh on this video I'm not going to go
+
+into very detail in this template but in
+
+the following videos as I said this is a
+
+series in the following videos I will
+
+explain each and every section of this
+
+template and show you
+
+how you can configure these things to
+
+achieve much more
+
+in your document processing how you can
+
+plug in more components into this and
+
+how you can configure this into two
+
+address different requirements I'll show
+
+you all those things in the following
+
+videos focusing on specific areas like
+
+digitizing classifying and extraction
+
+and many other things
+
+so just for this video I'll just take
+
+you
+
+uh through the high level structure so
+
+here you can see
+
+if you look at this part
+
+careful you can see two arrows so that
+
+means you can execute either of these
+
+two documents but this is the main the
+
+main XML file but you can run either of
+
+this through your orchestrator or
+
+through a system
+
+so what happens here is you have the
+
+read config file you initialize your
+
+process
+
+and here is the option
+
+see we have two input arguments through
+
+this the user can go
+
+the file part if he wants to process any
+
+specific document or else you can get it
+
+from the queue itself
+
+and then you do the digitizing you do
+
+the classification you do the uh rule
+
+check for classification the business
+
+rules
+
+you do the training you do extraction
+
+and end the process
+
+main thing here is you can see it's not
+
+going back
+
+to get transaction right I'm just like
+
+in the re framework that is not here
+
+is the reason for that is because of
+
+that concept I told you earlier one job
+
+is for one document
+
+and this is what's going to run when
+
+you implement this
+
+so you get the documents from a queue
+
+you process it and you create some Excel
+
+files based on that but you can easily
+
+configure this and this adding framework
+
+is designed in a way where you can
+
+configure reason every section easily
+
+and you can build different rules
+
+configure different rules add business
+
+rules and
+
+um system specific rules you can do
+
+anything easily in this workflow
+
+so
+
+this is what I wanted to cover
+
+to on this video before getting into the
+
+document understanding template
+
+why I cover this one is because I wanted
+
+to give you the idea why this du
+
+template has this structure has this
+
+architecture inflicts so that's the all
+
+the points that we discussed is the
+
+reason for that
+
+so in the following videos we'll see
+
+Asian every section of this and I'll
+
+tell you how you can easily compute
+
+those to address
+
+various recently requirements
+
+and not just that here we have reusable
+
+workflows here we have different test
+
+cases I'll talk to you about all this
+
+stuff
+
+so
+
+I hope this is helpful to understand the
+
+overall architecture how
+
+it should be designed when you are
+
+working with document understanding or
+
+document processing requirements
+
+so always remember to follow that
+
+architecture because that helps a lot
+
+and I have practically experienced it
+
+myself
+
+and that has helped a lot in processing
+
+backlogs and
+
+allowing users to process their own
+
+documents
+
+um in the same workflow without having
+
+extra developments done
+
+so everything was easy if you follow
+
+that architecture
+
+so that being said I'll wrap up this
+
+video I hope this is helpful so I'll see
+
+you again in another video that focus on
+
+different components in the
+
+du template so thank you very much and I
+
+will see you soon
+
